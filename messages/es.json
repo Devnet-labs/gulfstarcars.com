@@ -1,0 +1,234 @@
+{
+    "nav": {
+        "brand": "Gulfstarscars",
+        "viewAllCars": "Ver todos los coches",
+        "contact": "Contactar",
+        "back": "Atrás",
+        "goBack": "Volver"
+    },
+    "home": {
+        "hero": {
+            "badge": "Expertos Gulfstarscars",
+            "title": "Conduce tu sueño",
+            "titleHighlight": "A través de fronteras",
+            "subtitle": "La plataforma más confiable del mundo para la exportación de vehículos premium desde Dubái a cualquier lugar del mundo."
+        },
+        "cta": {
+            "browseTitle": "Navega por nuestra colección",
+            "browseSubtitle": "Explora vehículos premium listos para exportar",
+            "viewAllCars": "Ver todos los coches"
+        },
+        "carsOfDay": {
+            "title": "Coches del Día",
+            "subtitle": "Vehículos premium seleccionados listos para exportación inmediata.",
+            "viewAll": "Ver todos los coches",
+            "noCars": "No hay vehículos disponibles en este momento.",
+            "noCarsSubtitle": "Por favor, vuelve a comprobarlo pronto o contáctanos para un pedido personalizado."
+        },
+        "finalCta": {
+            "title": "¿Listo para importar?",
+            "subtitle": "Únete a miles de clientes satisfechos en todo el mundo. Obtén tu presupuesto personalizado hoy.",
+            "button": "Obtener Presupuesto"
+        }
+    },
+    "cars": {
+        "pageTitle": "Todos los Coches",
+        "filters": {
+            "search": "Buscar coches...",
+            "condition": "Condición",
+            "all": "Todos",
+            "new": "Nuevo",
+            "used": "Usado",
+            "bodyType": "Carrocería",
+            "fuelType": "Combustible",
+            "transmission": "Transmisión",
+            "priceRange": "Rango de Precio",
+            "sort": "Ordenar por",
+            "sortNewest": "Más recientes",
+            "sortOldest": "Más antiguos",
+            "sortPriceLow": "Precio: Bajo a Alto",
+            "sortPriceHigh": "Precio: Alto a Bajo"
+        },
+        "specs": {
+            "year": "Año",
+            "mileage": "Kilometraje",
+            "km": "km",
+            "transmission": "Transmisión",
+            "fuelType": "Combustible",
+            "bodyType": "Carrocería",
+            "engineCapacity": "Motor",
+            "colour": "Color",
+            "driveType": "Tracción",
+            "doors": "Puertas",
+            "seats": "Asientos",
+            "location": "Ubicación",
+            "steering": "Dirección"
+        },
+        "status": {
+            "available": "Disponible",
+            "sold": "Vendido",
+            "reserved": "Reservado"
+        },
+        "actions": {
+            "viewDetails": "Ver Detalles",
+            "enquire": "Consultar Ahora"
+        },
+        "noCars": "No se encontraron coches",
+        "noCarsSubtitle": "Intenta ajustar tus filtros o vuelve más tarde."
+    },
+    "contact": {
+        "title": "Contáctanos",
+        "subtitle": "Ponte en contacto con nuestro equipo",
+        "name": "Tu nombre",
+        "email": "Tu correo electrónico",
+        "message": "Tu mensaje",
+        "send": "Enviar Mensaje",
+        "success": "¡Mensaje enviado con éxito!",
+        "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Ocurrió un error",
+        "tryAgain": "Intentar de nuevo",
+        "close": "Cerrar",
+        "open": "Abrir",
+        "yes": "Sí",
+        "no": "No",
+        "search": "Buscar",
+        "filter": "Filtrar",
+        "clear": "Borrar",
+        "apply": "Aplicar",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "page": "Página",
+        "of": "de",
+        "showing": "Mostrando",
+        "results": "resultados"
+    },
+    "trustStats": {
+        "delivered": {
+            "label": "Coches Entregados",
+            "description": "Exportados exitosamente a nivel mundial"
+        },
+        "countries": {
+            "label": "Países Alcanzados",
+            "description": "En 6 continentes"
+        },
+        "clients": {
+            "label": "Clientes Felices",
+            "description": "Calificación promedio de clientes"
+        },
+        "years": {
+            "label": "Años de Excelencia",
+            "description": "Experiencia líder en la industria"
+        }
+    },
+    "whyChooseUs": {
+        "badge": "Por qué elegir Gulfstarscars",
+        "title": "Experimenta la",
+        "titleHighlight": "Diferencia",
+        "subtitle": "Únete a miles de clientes satisfechos en todo el mundo que confían en nosotros para sus exportaciones de vehículos premium.",
+        "globalReach": {
+            "title": "Alcance Global",
+            "desc": "Envíos a más de 100 países con aduanas, documentación y logística gestionadas."
+        },
+        "premiumMembers": {
+            "title": "Miembros Premium",
+            "desc": "Acceso exclusivo a salones de coches de lujo y nuestra red de concesionarios verificados."
+        },
+        "database": {
+            "title": "Base de Datos Extensa",
+            "desc": "Acceso a más de 500 concesionarios verificados y miles de vehículos premium listos para exportar."
+        },
+        "integration": {
+            "title": "Integración Perfecta",
+            "desc": "Integración de sistemas sin esfuerzo con sus flujos de trabajo existentes para una experiencia fluida."
+        }
+    },
+    "portfolio": {
+        "badge": "Portafolio de Éxito",
+        "title": "Entregando Excelencia",
+        "titleHighlight": "Mundialmente",
+        "subtitle": "Únete a nuestro círculo de élite de clientes internacionales. No solo exportamos coches; entregamos sueños a través de fronteras con una precisión inigualable.",
+        "items": {
+            "item1": {
+                "title": "Entrega al Atardecer",
+                "location": "Dubái, EAU",
+                "category": "Deportivos de Lujo"
+            },
+            "item2": {
+                "title": "Edición Mónaco",
+                "location": "Montecarlo, Mónaco",
+                "category": "SUV Premium"
+            },
+            "item3": {
+                "title": "Listo para Showroom",
+                "location": "Puerto de Dubái",
+                "category": "Exportación de Flota"
+            }
+        }
+    },
+    "testimonials": {
+        "badge": "Testimonios de Clientes",
+        "title": "Voces de",
+        "titleHighlight": "Confianza",
+        "items": {
+            "item1": {
+                "name": "James Wilson",
+                "role": "Coleccionista de Lujo, RU",
+                "content": "El proceso fue perfecto. Desde la primera consulta hasta la llegada de mi G-Wagon a Londres, Gulfstarscars manejó todo con absoluta profesionalidad."
+            },
+            "item2": {
+                "name": "Ahmed Al-Sayed",
+                "role": "Dueño de Negocio, KSA",
+                "content": "Socio de confianza para todas mis necesidades de exportación. Sus informes de inspección son detallados y honestos. Recomendado para cualquiera que busque importar coches de Dubái."
+            },
+            "item3": {
+                "name": "Elena Rodriguez",
+                "role": "Concesionario de Autos, España",
+                "content": "Precios transparentes y documentación exprés. Hacen que la exportación global de coches se sienta como una compra local. ¡Excelente servicio!"
+            }
+        }
+    },
+    "features": {
+        "globalReach": {
+            "title": "Alcance Global",
+            "desc": "Envíos a más de 50 países con aduanas gestionadas."
+        },
+        "verifiedQuality": {
+            "title": "Calidad Verificada",
+            "desc": "Cada coche pasa por una inspección de 120 puntos."
+        },
+        "fastProcessing": {
+            "title": "Procesamiento Rápido",
+            "desc": "Despacho de documentación exprés en 24-48 horas."
+        }
+    },
+    "carCard": {
+        "exportReady": "Listo para Exportar",
+        "stkId": "ID de Stock",
+        "exportPrice": "Precio de Exportación",
+        "enquiry": "Consultar",
+        "whatsapp": "WhatsApp"
+    },
+    "footer": {
+        "description": "Somos su socio de confianza para importar coches de Dubái al mundo. Experimente un servicio perfecto y vehículos de calidad premium.",
+        "usefulLinks": "Enlaces Útiles",
+        "contactInfo": "Info de Contacto",
+        "newLaunches": "Nuevos Lanzamientos - Mantente Actualizado",
+        "subscribeText": "Suscríbete para ser el primero en recibir actualizaciones sobre nuevos coches lanzados u otra información.",
+        "emailPlaceholder": "Ingresa tu email",
+        "subscribeButton": "Suscribirse Ahora",
+        "copyright": "Gulfstarscars. Todos los derechos reservados.",
+        "privacyPolicy": "Política de Privacidad",
+        "termsConditions": "Términos y Condiciones",
+        "address": "Mercado de Automóviles de Dubái, Showroom 123,<br />Ras Al Khor, Dubái, EAU",
+        "links": {
+            "about": "Sobre Nosotros",
+            "inventory": "Inventario",
+            "services": "Servicios",
+            "contact": "Contáctanos",
+            "faq": "Preguntas Frecuentes"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Car {
+  id           String    @id @default(uuid())
+  customId     String?   @unique
+  make         String
+  model        String
+  year         Int
+  price        Float
+  description  String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+  images       String[]
+  condition    String    @default("New")
+  bodyType     String?
+  fuelType     String?
+  mileage        Int?
+  steering       String?
+  transmission   String?
+  status         String    @default("AVAILABLE") // AVAILABLE, SOLD, RESERVED
+  engineCapacity String?   // e.g., "2.5L", "3.0L"
+  colour         String?   // Exterior colour
+  driveType      String?   // 2WD, 4WD, AWD
+  doors          Int?      // Number of doors
+  seats          Int?      // Seating capacity
+  location       String?   // Port/location for export
+  enquiries      Enquiry[]
+}
+
+model Enquiry {
+  id        String        @id @default(uuid())
+  carId     String?
+  userName  String
+  userEmail String
+  message   String
+  status    EnquiryStatus @default(PENDING)
+  createdAt DateTime      @default(now())
+  car       Car?          @relation(fields: [carId], references: [id])
+}
+
+model Visit {
+  id        String   @id @default(uuid())
+  country   String
+  ipHash    String
+  createdAt DateTime @default(now())
+}
+
+enum EnquiryStatus {
+  PENDING
+  REPLIED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

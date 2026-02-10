@@ -1,0 +1,276 @@
+{
+  "nav": {
+    "brand": "Gulfstarscars",
+    "viewAllCars": "View All Cars",
+    "contact": "Contact Us",
+    "back": "Back",
+    "goBack": "Go Back"
+  },
+  "home": {
+    "hero": {
+      "badge": "Gulfstarscars Experts",
+      "title": "Drive Your Dream",
+      "titleHighlight": "Across Borders",
+      "subtitle": "The world's most trusted platform for exporting premium vehicles from Dubai to anywhere in the globe."
+    },
+    "cta": {
+      "browseTitle": "Browse Our Collection",
+      "browseSubtitle": "Explore premium vehicles ready for export",
+      "viewAllCars": "View All Cars"
+    },
+    "carsOfDay": {
+      "title": "Cars of the Day",
+      "subtitle": "Hand-picked premium vehicles ready for immediate export.",
+      "viewAll": "View All Cars",
+      "noCars": "No vehicles currently available.",
+      "noCarsSubtitle": "Please check back soon or contact us for a custom order."
+    },
+    "finalCta": {
+      "title": "Ready to import?",
+      "subtitle": "Join thousands of satisfied customers worldwide. Get your custom quote today.",
+      "button": "Get a Quote"
+    }
+  },
+  "cars": {
+    "pageTitle": "All Cars",
+    "filters": {
+      "search": "Search cars...",
+      "condition": "Condition",
+      "all": "All",
+      "new": "New",
+      "used": "Used",
+      "bodyType": "Body Type",
+      "fuelType": "Fuel Type",
+      "transmission": "Transmission",
+      "priceRange": "Price Range",
+      "sort": "Sort By",
+      "sortNewest": "Newest First",
+      "sortOldest": "Oldest First",
+      "sortPriceLow": "Price: Low to High",
+      "sortPriceHigh": "Price: High to Low"
+    },
+    "specs": {
+      "year": "Year",
+      "mileage": "Mileage",
+      "km": "km",
+      "transmission": "Transmission",
+      "fuelType": "Fuel Type",
+      "bodyType": "Body Type",
+      "engineCapacity": "Engine",
+      "colour": "Colour",
+      "driveType": "Drive Type",
+      "doors": "Doors",
+      "seats": "Seats",
+      "location": "Location",
+      "steering": "Steering"
+    },
+    "status": {
+      "available": "Available",
+      "sold": "Sold",
+      "reserved": "Reserved"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "enquire": "Enquire Now"
+    },
+    "noCars": "No cars found",
+    "noCarsSubtitle": "Try adjusting your filters or check back later."
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "cars": "Cars",
+    "enquiries": "Enquiries",
+    "addCar": "Add New Car",
+    "editCar": "Edit Car",
+    "deleteCar": "Delete Car",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "status": "Status",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At"
+  },
+  "form": {
+    "make": "Make",
+    "model": "Model",
+    "year": "Year",
+    "price": "Price",
+    "description": "Description",
+    "descriptionEn": "Description (English)",
+    "descriptionAr": "Description (Arabic)",
+    "condition": "Condition",
+    "bodyType": "Body Type",
+    "fuelType": "Fuel Type",
+    "transmission": "Transmission",
+    "mileage": "Mileage",
+    "engineCapacity": "Engine Capacity",
+    "colour": "Colour",
+    "driveType": "Drive Type",
+    "doors": "Doors",
+    "seats": "Seats",
+    "location": "Location",
+    "steering": "Steering",
+    "images": "Images",
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "invalidNumber": "Must be a valid number"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "tryAgain": "Try Again",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "apply": "Apply",
+    "next": "Next",
+    "previous": "Previous",
+    "page": "Page",
+    "of": "of",
+    "showing": "Showing",
+    "results": "results"
+  },
+  "trustStats": {
+    "delivered": {
+      "label": "Cars Delivered",
+      "description": "Successfully exported globally"
+    },
+    "countries": {
+      "label": "Countries Reached",
+      "description": "Across 6 continents"
+    },
+    "clients": {
+      "label": "Happy Clients",
+      "description": "Average customer rating"
+    },
+    "years": {
+      "label": "Years Excellence",
+      "description": "Industry leading experience"
+    }
+  },
+  "whyChooseUs": {
+    "badge": "Why Choose Gulfstarscars",
+    "title": "Experience the",
+    "titleHighlight": "Difference",
+    "subtitle": "Join thousands of satisfied customers worldwide who trust us for their premium vehicle exports.",
+    "globalReach": {
+      "title": "Global Reach",
+      "desc": "Shipping to over 100 countries with handled customs, documentation, and logistics."
+    },
+    "premiumMembers": {
+      "title": "Premium Members",
+      "desc": "Exclusive access to luxury car lounges and our verified premium dealer network."
+    },
+    "database": {
+      "title": "Extensive Database",
+      "desc": "Access to 500+ verified dealers and thousands of premium vehicles ready for export."
+    },
+    "integration": {
+      "title": "Seamless Integration",
+      "desc": "Effortless system integration with your existing workflows for a smooth experience."
+    }
+  },
+  "portfolio": {
+    "badge": "Portfolio of Success",
+    "title": "Delivering Excellence",
+    "titleHighlight": "Worldwide",
+    "subtitle": "Join our elite circle of international clients. We don't just export cars; we deliver dreams across borders with unparalleled precision.",
+    "items": {
+      "item1": {
+        "title": "Sunset Delivery",
+        "location": "Dubai, UAE",
+        "category": "Luxury Sports"
+      },
+      "item2": {
+        "title": "Monaco Edition",
+        "location": "Monte Carlo, Monaco",
+        "category": "Premium SUV"
+      },
+      "item3": {
+        "title": "Showroom Readiness",
+        "location": "Dubai Harbor",
+        "category": "Fleet Export"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Client Testimonials",
+    "title": "Voices of",
+    "titleHighlight": "Trust",
+    "items": {
+      "item1": {
+        "name": "James Wilson",
+        "role": "Luxury Collector, UK",
+        "content": "The process was seamless. From the first enquiry to the arrival of my G-Wagon in London, Gulfstarscars handled everything with absolute professionalism."
+      },
+      "item2": {
+        "name": "Ahmed Al-Sayed",
+        "role": "Business Owner, KSA",
+        "content": "Trusted partner for all my export needs. Their inspection reports are detailed and honest. Recommended for anyone looking to import cars from Dubai."
+      },
+      "item3": {
+        "name": "Elena Rodriguez",
+        "role": "Auto Dealer, Spain",
+        "content": "Transparent pricing and express documentation. They make global car export feel like a local purchase. Excellent service!"
+      }
+    }
+  },
+  "features": {
+    "globalReach": {
+      "title": "Global Reach",
+      "desc": "Shipping to over 50 countries with handled customs."
+    },
+    "verifiedQuality": {
+      "title": "Verified Quality",
+      "desc": "Every car undergoes a 120-point inspection."
+    },
+    "fastProcessing": {
+      "title": "Fast Processing",
+      "desc": "Express documentation clearance in 24-48 hours."
+    }
+  },
+  "carCard": {
+    "exportReady": "Export Ready",
+    "stkId": "STK ID",
+    "exportPrice": "Export Price",
+    "enquiry": "Enquiry",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "description": "We are your trusted partner for importing cars from Dubai to the world. Experience seamless service and premium quality vehicles.",
+    "usefulLinks": "Useful Links",
+    "contactInfo": "Contact Info",
+    "newLaunches": "New Launches - Stay Updated",
+    "subscribeText": "Subscribe to be the first one to get updated on new launched cars or other information.",
+    "emailPlaceholder": "Enter your email",
+    "subscribeButton": "Subscribe Now",
+    "copyright": "Gulfstarscars. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "address": "Dubai Automarket, Showroom 123,<br />Ras Al Khor, Dubai, UAE",
+    "links": {
+      "about": "About Us",
+      "inventory": "Inventory",
+      "services": "Services",
+      "contact": "Contact Us",
+      "faq": "FAQ"
+    }
+  }
+}
