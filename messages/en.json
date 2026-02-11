@@ -1,8 +1,13 @@
 {
   "nav": {
     "brand": "Gulfstarscars",
-    "viewAllCars": "View All Cars",
+    "home": "Home",
+    "inventory": "Inventory",
+    "services": "Services",
+    "about": "About Us",
     "contact": "Contact Us",
+    "getQuote": "Get a Quote",
+    "viewAllCars": "View All Cars",
     "back": "Back",
     "goBack": "Go Back"
   },
@@ -271,6 +276,44 @@
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Redefining Automotive",
+      "titleHighlight": "Excellence",
+      "subtitle": "Gulfstarscars is the world's premier platform for exporting luxury vehicles. We bridge the gap between Dubai's exclusive automotive market and international buyers."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide a seamless, transparent, and premium car buying experience for clients worldwide, ensuring that distance is never a barrier to owning your dream car."
+    },
+    "story": {
+      "title": "Our Story",
+      "content": "Founded in the heart of Dubai, Gulfstarscars began with a simple vision: to share the UAE's incredible automotive inventory with the world. Today, we are a trusted partner for thousands of clients across 6 continents."
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "World-Class",
+      "titleHighlight": "Services",
+      "subtitle": "Comprehensive export solutions tailored to your needs. From procurement to delivery, we handle every detail with precision."
+    },
+    "sourcing": {
+      "title": "Vehicle Sourcing",
+      "desc": "Access to exclusive off-market listings and direct dealer networks."
+    },
+    "inspection": {
+      "title": "Premium Inspection",
+      "desc": "Detailed 120-point mechanical and cosmetic reports for total peace of mind."
+    },
+    "logistics": {
+      "title": "Global Logistics",
+      "desc": "Insured land, sea, and air freight options to any destination worldwide."
+    },
+    "customs": {
+      "title": "Customs Clearance",
+      "desc": "Expert handling of all export documentation and clearance procedures."
     }
   }
 }

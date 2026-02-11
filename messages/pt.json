@@ -1,8 +1,13 @@
 {
     "nav": {
         "brand": "Gulfstarscars",
-        "viewAllCars": "Ver todos os carros",
+        "home": "Início",
+        "inventory": "Inventário",
+        "services": "Serviços",
+        "about": "Sobre Nós",
         "contact": "Contacte-nos",
+        "getQuote": "Obter Cotação",
+        "viewAllCars": "Ver todos os carros",
         "back": "Voltar",
         "goBack": "Regressar"
     },
@@ -229,6 +234,44 @@
             "services": "Serviços",
             "contact": "Contacte-nos",
             "faq": "FAQ"
+        }
+    },
+    "aboutPage": {
+        "hero": {
+            "title": "Redefinindo a Excelência",
+            "titleHighlight": "Automóvel",
+            "subtitle": "A Gulfstarscars é a principal plataforma mundial de exportação de veículos de luxo. Fazemos a ponte entre o mercado automóvel exclusivo do Dubai e compradores internacionais."
+        },
+        "mission": {
+            "title": "A Nossa Missão",
+            "content": "Proporcionar uma experiência de compra de automóveis perfeita, transparente e premium para clientes em todo o mundo, garantindo que a distância nunca seja uma barreira para possuir o carro dos seus sonhos."
+        },
+        "story": {
+            "title": "A Nossa História",
+            "content": "Fundada no coração do Dubai, a Gulfstarscars começou com uma visão simples: partilhar o incrível inventário automóvel dos EAU com o mundo. Hoje, somos um parceiro de confiança para milhares de clientes em 6 continentes."
+        }
+    },
+    "servicesPage": {
+        "hero": {
+            "title": "Serviços de",
+            "titleHighlight": "Classe Mundial",
+            "subtitle": "Soluções de exportação abrangentes adaptadas às suas necessidades. Da aquisição à entrega, tratamos de todos os detalhes com precisão."
+        },
+        "sourcing": {
+            "title": "Procura de Veículos",
+            "desc": "Acesso a listagens exclusivas fora do mercado e redes diretas de concessionários."
+        },
+        "inspection": {
+            "title": "Inspeção Premium",
+            "desc": "Relatórios detalhados de 120 pontos mecânicos e cosméticos para total tranquilidade."
+        },
+        "logistics": {
+            "title": "Logística Global",
+            "desc": "Opções de frete terrestre, marítimo e aéreo segurado para qualquer destino no mundo."
+        },
+        "customs": {
+            "title": "Desembaraço Aduaneiro",
+            "desc": "Manuseamento especializado de toda a documentação de exportação e procedimentos de desalfandegamento."
         }
     }
 }

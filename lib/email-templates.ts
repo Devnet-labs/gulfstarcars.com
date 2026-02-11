@@ -24,7 +24,7 @@ export const BaseEmailLayout = (content: string) => `
         <div class="container">
             <!-- Header with Logo -->
             <div class="header" style="padding: 40px 0 20px; text-align: center; border-bottom: 1px solid #eaeaea;">
-                <img src="https://gulfstarscars.com/images/portfolio/logo/logo.webp" alt="Gulfstarscars" width="200" style="height: auto; width: 200px; display: block; margin: 0 auto; border: 0;">
+                <img src="https://gulfstarscars.com/images/portfolio/logo/logo.png" alt="Gulfstarscars" width="200" style="height: auto; width: 200px; display: block; margin: 0 auto; border: 0;">
             </div>
 
             <!-- Main Content -->
