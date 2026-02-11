@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "Gulfstarscars",
+    "brand": "Gulf Star Automotive",
     "home": "首页",
     "inventory": "库存",
     "services": "服务",
@@ -13,7 +13,7 @@
   },
   "home": {
     "hero": {
-      "badge": "Gulfstarscars 专家",
+      "badge": "Gulf Star Automotive 专家",
       "title": "驾驭您的梦想",
       "titleHighlight": "跨越国界",
       "subtitle": "全球最值得信赖的迪拜豪华汽车出口平台。"
@@ -171,7 +171,7 @@
     }
   },
   "whyChooseUs": {
-    "badge": "为什么选择 Gulfstarscars",
+    "badge": "为什么选择 Gulf Star Automotive",
     "title": "体验",
     "titleHighlight": "不同之处",
     "subtitle": "加入全球成千上万信任我们进行豪华车辆出口的满意客户。",
@@ -223,7 +223,7 @@
       "item1": {
         "name": "詹姆斯·威尔逊",
         "role": "豪华收藏家，英国",
-        "content": "过程非常顺利。从第一次咨询到我的G-Wagon抵达伦敦，Gulfstarscars以绝对的专业精神处理了一切。"
+        "content": "整个过程非常顺畅。从第一次咨询到我的 G-Wagon 抵达伦敦，Gulf Star Automotive以绝对的专业精神处理了一切。"
       },
       "item2": {
         "name": "艾哈迈德·赛义德",
@@ -259,14 +259,22 @@
     "whatsapp": "WhatsApp"
   },
   "footer": {
-    "description": "我们是您从迪拜向世界进口汽车的值得信赖的合作伙伴。体验无缝服务和优质车辆。",
+    "brand": "GULFSTARCARS",
+    "description": "我们是您从迪拜进口汽车到世界各地的值得信赖的合作伙伴。体验无缝服务和优质车辆。",
     "usefulLinks": "有用链接",
-    "contactInfo": "联系信息",
-    "newLaunches": "新车发布 - 保持更新",
+    "contactInfo": "联系方式",
+    "emails": {
+        "md": "总经理: md@gulfstarcars.com",
+        "ed": "执行总监: ed@gulfstarcars.com",
+        "director": "总监: director@gulfstarcars.com",
+        "exports": "出口部: exports@gulfstarcars.com",
+        "info": "信息咨询: info@gulfstarcars.com"
+    },
+    "newLaunches": "新发布的车 - 保持更新",
     "subscribeText": "订阅以第一时间获取新车发布或其他信息的更新。",
     "emailPlaceholder": "输入您的电子邮件",
     "subscribeButton": "立即订阅",
-    "copyright": "Gulfstarscars. 版权所有。",
+    "copyright": "Gulf Star Automotive. 保留所有权利。",
     "privacyPolicy": "隐私政策",
     "termsConditions": "条款和条件",
     "address": "迪拜汽车市场，展厅123，<br />拉斯阿尔科尔，迪拜，阿联酋",
@@ -282,7 +290,7 @@
     "hero": {
       "title": "重新定义汽车",
       "titleHighlight": "卓越",
-      "subtitle": "Gulfstarscars 是全球首屈一指的豪华车辆出口平台。我们架起了迪拜独家汽车市场与国际买家之间的桥梁。"
+      "subtitle": "Gulf Star Automotive 是全球主要的豪华车出口平台。我们架起了迪拜独家汽车市场与国际买家之间的桥梁。"
     },
     "mission": {
       "title": "我们的使命",
@@ -290,7 +298,7 @@
     },
     "story": {
       "title": "我们的故事",
-      "content": "Gulfstarscars 成立于迪拜市中心，最初的愿景很简单：与世界分享阿联酋令人难以置信的汽车库存。今天，我们已成为横跨6大洲数千名客户值得信赖的合作伙伴。"
+      "content": "Gulf Star Automotive 成立于迪拜中心，最初的愿景很简单：与世界分享阿联酋令人难以置信的汽车库存。如今，我们已成为六大洲数千名客户值得信赖的合作伙伴。"
     }
   },
   "servicesPage": {
