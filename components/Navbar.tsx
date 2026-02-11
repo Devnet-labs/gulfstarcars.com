@@ -40,8 +40,8 @@ export function Navbar() {
             >
                 <div className="w-full px-6 md:px-10 flex items-center justify-between h-20 relative">
                     {/* Left: Logo */}
-                    <Link href="/" className="flex-shrink-0 block relative z-[70] flex items-center gap-3">
-                        <div className="relative h-24 w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 flex items-center justify-center">
+                    <Link href="/" className="flex-shrink-0 block relative z-[70]">
+                        <div className="relative h-32 w-32 md:h-44 md:w-44 lg:h-56 lg:w-56 flex items-center justify-center">
                             <Image
                                 src="/images/portfolio/logo/logo.png"
                                 alt={t('brand')}
@@ -50,9 +50,6 @@ export function Navbar() {
                                 priority
                             />
                         </div>
-                        <span className="hidden md:block font-bold text-xl lg:text-2xl tracking-tight text-white uppercase">
-                            {t('brand')}
-                        </span>
                     </Link>
 
                     {/* Center: Desktop Navigation */}
