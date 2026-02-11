@@ -37,7 +37,7 @@ export default function ContactPage() {
                         <p>{tFooter('emails.exports')}</p>
                     </div>
                     <button
-                        onClick={() => window.open('mailto:info@gulfstarcars.com', '_blank')}
+                        onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=info@gulfstarcars.com', '_blank')}
                         className="inline-flex items-center gap-2 bg-white/5 hover:bg-primary/20 text-white hover:text-primary px-6 py-2 rounded-xl transition-all font-semibold text-sm border border-white/10 hover:border-primary/30"
                     >
                         <span>Send Email</span>
