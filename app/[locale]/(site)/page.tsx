@@ -80,7 +80,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl space-y-8 pt-12"
+            className="max-w-3xl space-y-8 pt-12 md:-ml-8"
           >
             <span className="inline-block text-primary font-bold tracking-wider text-sm uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md">
               {t('hero.badge')}
@@ -97,7 +97,42 @@ export default function Home() {
           </motion.div>
         </div>
 
+        {/* --- Hero Quick Actions (Discovery Bar) --- */}
+        <div className="absolute bottom-4 left-0 right-0 z-20">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <Link
+                  href="/cars"
+                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                >
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-bold text-white tracking-wide">{t('cta.viewAllCars')}</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                </Link>
+              </motion.div>
 
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <Link
+                  href="/contact"
+                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="text-sm font-bold text-white tracking-wide">Contact Expert</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* --- CARS OF THE DAY --- */}
