@@ -1,6 +1,6 @@
 {
     "nav": {
-        "brand": "Gulfstarscars",
+        "brand": "GULFSTARCARS",
         "home": "Inicio",
         "inventory": "Inventario",
         "services": "Servicios",
@@ -220,14 +220,25 @@
         "description": "Somos su socio de confianza para importar coches de Dubái al mundo. Experimente un servicio perfecto y vehículos de calidad premium.",
         "usefulLinks": "Enlaces Útiles",
         "contactInfo": "Info de Contacto",
+        "emails": {
+            "md": "MD: md@gulfstarcars.com",
+            "ed": "ED: ed@gulfstarcars.com",
+            "director": "Director: director@gulfstarcars.com",
+            "exports": "Exports: exports@gulfstarcars.com",
+            "info": "Info: info@gulfstarcars.com"
+        },
         "newLaunches": "Nuevos Lanzamientos - Mantente Actualizado",
         "subscribeText": "Suscríbete para ser el primero en recibir actualizaciones sobre nuevos coches lanzados u otra información.",
         "emailPlaceholder": "Ingresa tu email",
         "subscribeButton": "Suscribirse Ahora",
-        "copyright": "Gulfstarscars. Todos los derechos reservados.",
+        "copyright": "Gulf Star Automotive F.Z.C. Todos los derechos reservados.",
         "privacyPolicy": "Política de Privacidad",
         "termsConditions": "Términos y Condiciones",
-        "address": "Mercado de Automóviles de Dubái, Showroom 123,<br />Ras Al Khor, Dubái, EAU",
+        "brand": "GULFSTARCARS",
+        "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+        "phone": "+971-523479535",
+        "phone2": "+971-555144479",
+        "phone3": "+971-585147256",
         "links": {
             "about": "Sobre Nosotros",
             "inventory": "Inventario",
