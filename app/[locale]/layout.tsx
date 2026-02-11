@@ -11,10 +11,17 @@ const dmSans = DM_Sans({
     weight: ["400", "500", "700"],
 });
 
-export const metadata: Metadata = {
-    title: "Gulfstarscars",
-    description: "Gulfstarscars - Global Car Export Service",
-};
+import { generateMetadata as generateMeta, generateStructuredData, siteConfig } from '@/lib/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+
+    return generateMeta({
+        title: 'Premium Car Export Service from UAE',
+        description: 'Export quality vehicles worldwide from UAE. Competitive prices, reliable shipping, and exceptional service.',
+        locale,
+    });
+}
 
 export default async function LocaleLayout({
     children,
@@ -35,6 +42,14 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'}>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(generateStructuredData('Organization', null)),
+                    }}
+                />
+            </head>
             <body className={`${dmSans.variable} font-sans antialiased bg-[#0B0F19] text-white`}>
                 <NextIntlClientProvider messages={messages}>
                     {children}

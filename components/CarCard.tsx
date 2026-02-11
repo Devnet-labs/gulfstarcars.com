@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { optimizeCloudinaryUrl, cloudinaryPresets } from '@/lib/cloudinary';
 
 export interface Car {
     id: string;
@@ -44,8 +45,9 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
         <>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                animate={index < 6 ? { opacity: 1, y: 0 } : undefined}
+                whileInView={index >= 6 ? { opacity: 1, y: 0 } : undefined}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 onClick={handleCardClick}
@@ -54,11 +56,17 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                 {/* Image Section */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                     <Image
-                        src={car.images[0] || '/placeholder-car.png'}
+                        src={optimizeCloudinaryUrl(car.images[0] || '/placeholder-car.png', cloudinaryPresets.cardImage)}
                         alt={`${car.make} ${car.model}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                        placeholder="blur"
+                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzFhMWExYSIvPjwvc3ZnPg=="
+                        priority={index < 6}
+                        loading={index < 6 ? 'eager' : 'lazy'}
+                        unoptimized={false}
                     />
                     <motion.div
                         initial={{ opacity: 0, x: -10 }}
