@@ -151,6 +151,7 @@ export default function CarsPage() {
                                 <ChevronDown className={`h-5 w-5 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
                             </button>
 
+
                             {/* Filters */}
                             <div className={`${showFilters ? 'block' : 'hidden'} lg:block bg-white rounded-2xl border border-gray-200 p-6 shadow-sm sticky top-24`}>
                                 <div className="flex items-center justify-between mb-6">
