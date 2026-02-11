@@ -27,6 +27,7 @@ export function Navbar() {
         { href: '/cars', label: t('inventory') },
         { href: '/services', label: t('services') },
         { href: '/about', label: t('about') },
+        { href: '/contact', label: t('contact') },
     ];
 
     return (
