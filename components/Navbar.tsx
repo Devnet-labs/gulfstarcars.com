@@ -40,10 +40,10 @@ export function Navbar() {
                     : 'bg-transparent py-2'
                     }`}
             >
-                <div className="container mx-auto px-4 flex items-center justify-between">
+                <div className="w-full px-6 md:px-10 flex items-center justify-between">
                     {/* Left: Logo */}
-                    <Link href="/" className="flex items-center gap-2 group relative z-50">
-                        <div className={`relative transition-all duration-300 ${isScrolled ? 'h-16 w-48 md:h-24 md:w-72' : 'h-20 w-56 md:h-28 md:w-80'}`}>
+                    <Link href="/" className="flex-shrink-0 block relative z-[70]">
+                        <div className="relative h-20 w-64 md:h-28 md:w-80 lg:h-34 lg:w-[450px]">
                             <Image
                                 src="/images/portfolio/logo/logo.png"
                                 alt={t('brand')}
