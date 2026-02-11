@@ -27,6 +27,7 @@ export function Navbar() {
         { href: '/cars', label: t('inventory') },
         { href: '/services', label: t('services') },
         { href: '/about', label: t('about') },
+        { href: '/contact', label: t('contact') },
     ];
 
     return (
@@ -37,10 +38,10 @@ export function Navbar() {
                 transition={{ duration: 0.5 }}
                 className="fixed top-0 left-0 right-0 z-[100] bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/5 py-4"
             >
-                <div className="w-full px-6 md:px-10 flex items-center justify-between h-20">
+                <div className="w-full px-6 md:px-10 flex items-center justify-between h-20 relative">
                     {/* Left: Logo */}
-                    <Link href="/" className="flex-shrink-0 block relative z-[70] flex items-center">
-                        <div className="relative h-24 w-64 md:h-32 md:w-80 lg:h-40 lg:w-[450px] flex items-center justify-center">
+                    <Link href="/" className="flex-shrink-0 block relative z-[70] flex items-center gap-3">
+                        <div className="relative h-24 w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 flex items-center justify-center">
                             <Image
                                 src="/images/portfolio/logo/logo.png"
                                 alt={t('brand')}
@@ -49,17 +50,20 @@ export function Navbar() {
                                 priority
                             />
                         </div>
+                        <span className="hidden md:block font-bold text-xl lg:text-2xl tracking-tight text-white uppercase">
+                            {t('brand')}
+                        </span>
                     </Link>
 
                     {/* Center: Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-1 bg-black/20 backdrop-blur-md p-1.5 rounded-full border border-white/10">
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 bg-black/20 backdrop-blur-md p-1.5 rounded-full border border-white/10">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href;
                             return (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
+                                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive
                                         ? 'bg-primary text-white shadow-lg shadow-primary/25'
                                         : 'text-white/80 hover:text-white hover:bg-white/10'
                                         }`}

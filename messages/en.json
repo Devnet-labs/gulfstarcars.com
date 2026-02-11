@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "Gulfstarscars",
+    "brand": "Gulf Star Automotive",
     "home": "Home",
     "inventory": "Inventory",
     "services": "Services",
@@ -13,7 +13,7 @@
   },
   "home": {
     "hero": {
-      "badge": "Gulfstarscars Experts",
+      "badge": "Gulf Star Automotive Experts",
       "title": "Drive Your Dream",
       "titleHighlight": "Across Borders",
       "subtitle": "The world's most trusted platform for exporting premium vehicles from Dubai to anywhere in the globe."
@@ -171,7 +171,7 @@
     }
   },
   "whyChooseUs": {
-    "badge": "Why Choose Gulfstarscars",
+    "badge": "Why Choose Gulf Star Automotive",
     "title": "Experience the",
     "titleHighlight": "Difference",
     "subtitle": "Join thousands of satisfied customers worldwide who trust us for their premium vehicle exports.",
@@ -223,7 +223,7 @@
       "item1": {
         "name": "James Wilson",
         "role": "Luxury Collector, UK",
-        "content": "The process was seamless. From the first enquiry to the arrival of my G-Wagon in London, Gulfstarscars handled everything with absolute professionalism."
+        "content": "The process was seamless. From the first enquiry to the arrival of my G-Wagon in London, Gulf Star Automotive handled everything with absolute professionalism."
       },
       "item2": {
         "name": "Ahmed Al-Sayed",
@@ -259,17 +259,28 @@
     "whatsapp": "WhatsApp"
   },
   "footer": {
+    "brand": "GULFSTARCARS",
     "description": "We are your trusted partner for importing cars from Dubai to the world. Experience seamless service and premium quality vehicles.",
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
+    "emails": {
+        "md": "MD: md@gulfstarcars.com",
+        "ed": "ED: ed@gulfstarcars.com",
+        "director": "Director: director@gulfstarcars.com",
+        "exports": "Exports: exports@gulfstarcars.com",
+        "info": "Info: info@gulfstarcars.com"
+    },
     "newLaunches": "New Launches - Stay Updated",
     "subscribeText": "Subscribe to be the first one to get updated on new launched cars or other information.",
     "emailPlaceholder": "Enter your email",
     "subscribeButton": "Subscribe Now",
-    "copyright": "Gulfstarscars. All rights reserved.",
+    "copyright": "Gulf Star Automotive F.Z.C. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",
-    "address": "Dubai Automarket, Showroom 123,<br />Ras Al Khor, Dubai, UAE",
+    "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+    "phone": "+971-523479535",
+    "phone2": "+971-555144479",
+    "phone3": "+971-585147256",
     "links": {
       "about": "About Us",
       "inventory": "Inventory",
@@ -282,7 +293,7 @@
     "hero": {
       "title": "Redefining Automotive",
       "titleHighlight": "Excellence",
-      "subtitle": "Gulfstarscars is the world's premier platform for exporting luxury vehicles. We bridge the gap between Dubai's exclusive automotive market and international buyers."
+      "subtitle": "Gulf Star Automotive is the world's premier platform for exporting luxury vehicles. We bridge the gap between Dubai's exclusive automotive market and international buyers."
     },
     "mission": {
       "title": "Our Mission",
@@ -290,7 +301,7 @@
     },
     "story": {
       "title": "Our Story",
-      "content": "Founded in the heart of Dubai, Gulfstarscars began with a simple vision: to share the UAE's incredible automotive inventory with the world. Today, we are a trusted partner for thousands of clients across 6 continents."
+      "content": "Founded in the heart of Dubai, Gulf Star Automotive began with a simple vision: to share the UAE's incredible automotive inventory with the world. Today, we are a trusted partner for thousands of clients across 6 continents."
     }
   },
   "servicesPage": {

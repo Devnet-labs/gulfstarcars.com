@@ -18,12 +18,12 @@ export function Footer() {
     return (
         <footer className="bg-[#0f172a] text-white pt-20 pb-10">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="space-y-6">
                         <Link href="/" className="flex items-center gap-2">
                             <span className="text-2xl font-bold tracking-tight text-white">
-                                Gulfstarscars<span className="text-primary"></span>
+                                {t.raw('brand')}<span className="text-primary"></span>
                             </span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed">
@@ -63,39 +63,36 @@ export function Footer() {
                             {t('contactInfo')}
                             <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-primary rounded-full"></span>
                         </h3>
-                        <ul className="space-y-6">
-                            <li className="flex items-start space-x-4">
-                                <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
-                                <span className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: t('address') }} />
-                            </li>
-                            <li className="flex items-center space-x-4">
-                                <Phone className="h-5 w-5 text-primary shrink-0" />
-                                <span className="text-gray-400 text-sm font-medium">+971 50 123 4567</span>
-                            </li>
-                            <li className="flex items-center space-x-4">
-                                <Mail className="h-5 w-5 text-primary shrink-0" />
-                                <span className="text-gray-400 text-sm">info@gulfstarscars.com</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Newsletter */}
-                    <div>
-                        <h3 className="text-lg font-bold mb-8 relative inline-block">
-                            {t('newLaunches')}
-                            <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-primary rounded-full"></span>
-                        </h3>
-                        <p className="text-gray-400 text-sm mb-6">{t('subscribeText')}</p>
-                        <form className="space-y-3">
-                            <input
-                                type="email"
-                                placeholder={t('emailPlaceholder')}
-                                className="w-full bg-white/5 border border-white/10 text-white px-5 py-3 rounded-xl focus:outline-none focus:border-primary transition-colors text-sm placeholder:text-gray-600"
-                            />
-                            <button className="w-full bg-primary hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-red-600/20">
-                                {t('subscribeButton')}
-                            </button>
-                        </form>
+                        <div className="space-y-6">
+                            <ul className="space-y-3">
+                                {['md', 'ed', 'director', 'exports', 'info'].map((role) => (
+                                    <li key={role} className="flex items-center space-x-3 text-sm text-gray-400 hover:text-white transition-colors">
+                                        <Mail className="h-4 w-4 text-primary shrink-0" />
+                                        <span>{t(`emails.${role}`)}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="pt-4 border-t border-white/10 space-y-3">
+                                <div className="flex items-start space-x-4">
+                                    <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
+                                    <span className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: t('address') }} />
+                                </div>
+                                <div className="flex flex-col space-y-1">
+                                    <div className="flex items-center space-x-2">
+                                        <Phone className="h-4 w-4 text-primary shrink-0" />
+                                        <span className="text-gray-400 text-sm font-medium">{t('phone')}</span>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                        <Phone className="h-4 w-4 text-primary shrink-0" />
+                                        <span className="text-gray-400 text-sm font-medium">{t('phone2')}</span>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                        <Phone className="h-4 w-4 text-primary shrink-0" />
+                                        <span className="text-gray-400 text-sm font-medium">{t('phone3')}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

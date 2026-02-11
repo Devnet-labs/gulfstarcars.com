@@ -1,6 +1,6 @@
 {
     "nav": {
-        "brand": "Gulfstarscars",
+        "brand": "GULFSTARCARS",
         "home": "Главная",
         "inventory": "Инвентарь",
         "services": "Услуги",
@@ -220,14 +220,25 @@
         "description": "Мы ваш надежный партнер по импорту автомобилей из Дубая по всему миру. Оцените безупречный сервис и автомобили премиум-класса.",
         "usefulLinks": "Полезные ссылки",
         "contactInfo": "Контактная инфо",
+        "emails": {
+            "md": "MD: md@gulfstarcars.com",
+            "ed": "ED: ed@gulfstarcars.com",
+            "director": "Director: director@gulfstarcars.com",
+            "exports": "Exports: exports@gulfstarcars.com",
+            "info": "Info: info@gulfstarcars.com"
+        },
         "newLaunches": "Новые запуски - Будьте в курсе",
         "subscribeText": "Подпишитесь, чтобы первыми получать обновления о новых запущенных автомобилях или другую информацию.",
         "emailPlaceholder": "Введите ваш email",
         "subscribeButton": "Подписаться сейчас",
-        "copyright": "Gulfstarscars. Все права защищены.",
+        "copyright": "Gulf Star Automotive F.Z.C. Все права защищены.",
         "privacyPolicy": "Политика конфиденциальности",
         "termsConditions": "Условия и положения",
-        "address": "Авторынок Дубая, Шоурум 123,<br />Ras Al Khor, Дубай, ОАЭ",
+        "brand": "GULFSTARCARS",
+        "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+        "phone": "+971-523479535",
+        "phone2": "+971-555144479",
+        "phone3": "+971-585147256",
         "links": {
             "about": "О нас",
             "inventory": "Инвентарь",

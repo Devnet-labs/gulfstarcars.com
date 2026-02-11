@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "Gulfstarscars",
+    "brand": "GULFSTARCARS",
     "home": "الرئيسية",
     "inventory": "المخزون",
     "services": "خدماتنا",
@@ -220,14 +220,25 @@
     "description": "نحن شريكك الموثوق لاستيراد السيارات من دبي إلى العالم. جرب خدمة سلسة ومركبات عالية الجودة.",
     "usefulLinks": "روابط مفيدة",
     "contactInfo": "معلومات الاتصال",
+    "emails": {
+        "md": "MD: md@gulfstarcars.com",
+        "ed": "ED: ed@gulfstarcars.com",
+        "director": "Director: director@gulfstarcars.com",
+        "exports": "Exports: exports@gulfstarcars.com",
+        "info": "Info: info@gulfstarcars.com"
+    },
     "newLaunches": "إطلاقات جديدة - ابق على اطلاع",
     "subscribeText": "اشترك لتكون أول من يحصل على تحديثات حول السيارات الجديدة والمعلومات الأخرى.",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
     "subscribeButton": "اشترك الآن",
-    "copyright": "Gulfstarscars. جميع الحقوق محفوظة.",
+    "copyright": "Gulf Star Automotive F.Z.C. جميع الحقوق محفوظة.",
     "privacyPolicy": "سياسة الخصوصية",
     "termsConditions": "الشروط والأحكام",
-    "address": "سوق السيارات دبي، معرض 123،<br />رأس الخور، دبي، الإمارات",
+    "brand": "GULFSTARCARS",
+    "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+    "phone": "+971-523479535",
+    "phone2": "+971-555144479",
+    "phone3": "+971-585147256",
     "links": {
       "about": "معلومات عنا",
       "inventory": "المخزون",
