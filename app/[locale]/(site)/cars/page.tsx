@@ -59,6 +59,14 @@ export default function CarsPage() {
             const filteredCars = await getFilteredCars(selectedFilters);
             setCars(filteredCars);
             setLoading(false);
+
+            // Scroll to car grid when filters change to ensure images load
+            if (typeof window !== 'undefined') {
+                const carGrid = document.querySelector('.car-results-section');
+                if (carGrid) {
+                    carGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         };
         fetchCars();
     }, [selectedFilters]);
@@ -296,7 +304,7 @@ export default function CarsPage() {
                         </div>
 
                         {/* Car Grid */}
-                        <div className="flex-1">
+                        <div className="flex-1 car-results-section">
                             {loading ? (
                                 <>
                                     <SkeletonHeader />

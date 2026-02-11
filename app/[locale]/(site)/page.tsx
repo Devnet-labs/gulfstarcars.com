@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { CarCard } from "@/components/CarCard";
 import { Features } from "@/components/Features";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -61,10 +62,14 @@ export default function Home() {
       <section className="relative h-screen min-h-[700px] flex flex-col justify-center bg-background">
         {/* Background Image with Gradient Overlay - Contained Overflow */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?auto=format&fit=crop&w=2000&q=80"
             alt="Luxury Car Fleet"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            quality={85}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 to-background/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

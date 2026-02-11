@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { optimizeCloudinaryUrl, cloudinaryPresets } from '@/lib/cloudinary';
 
 interface CarImageGalleryProps {
     images: string[];
@@ -38,11 +39,13 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                 onClick={() => setIsFullscreen(true)}
             >
                 <Image
-                    src={images[currentIndex]}
+                    src={optimizeCloudinaryUrl(images[currentIndex], cloudinaryPresets.galleryMain)}
                     alt={alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     priority
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, 80vw"
                 />
 
                 {/* Navigation Arrows */}
@@ -86,10 +89,13 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 }`}
                         >
                             <Image
-                                src={img}
+                                src={optimizeCloudinaryUrl(img, cloudinaryPresets.thumbnail)}
                                 alt={`${alt} thumbnail ${idx + 1}`}
                                 fill
                                 className="object-cover"
+                                quality={60}
+                                sizes="96px"
+                                loading="lazy"
                             />
                         </button>
                     ))}
@@ -121,10 +127,12 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 className="relative w-full h-full max-w-6xl"
                             >
                                 <Image
-                                    src={images[currentIndex]}
+                                    src={optimizeCloudinaryUrl(images[currentIndex], cloudinaryPresets.fullscreen)}
                                     alt={alt}
                                     fill
                                     className="object-contain"
+                                    quality={95}
+                                    sizes="(max-width: 768px) 100vw, 90vw"
                                 />
                             </motion.div>
 
@@ -157,10 +165,13 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                             }`}
                                     >
                                         <Image
-                                            src={img}
+                                            src={optimizeCloudinaryUrl(img, cloudinaryPresets.thumbnail)}
                                             alt={`${alt} thumbnail ${idx + 1}`}
                                             fill
                                             className="object-cover"
+                                            quality={60}
+                                            sizes="80px"
+                                            loading="lazy"
                                         />
                                     </button>
                                 ))}
