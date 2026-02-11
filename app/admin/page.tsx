@@ -16,7 +16,11 @@ async function getDashboardStats() {
             recentCars,
             recentEnquiries,
             totalVisits,
-            topCountriesRaw
+            topCountriesRaw,
+            topPagesRaw,
+            deviceStatsRaw,
+            browserStatsRaw,
+            recentVisits
         ] = await Promise.all([
             prisma.car.count(),
             prisma.enquiry.count(),
@@ -35,27 +39,35 @@ async function getDashboardStats() {
             prisma.visit.count(),
             prisma.visit.groupBy({
                 by: ['country'],
-                _count: {
-                    country: true,
-                },
-                orderBy: {
-                    _count: {
-                        country: 'desc',
-                    },
-                },
+                _count: { country: true },
+                orderBy: { _count: { country: 'desc' } },
+                take: 6,
+            }),
+            prisma.visit.groupBy({
+                by: ['path'],
+                _count: { path: true },
+                orderBy: { _count: { path: 'desc' } },
+                take: 8,
+            }),
+            prisma.visit.groupBy({
+                by: ['device'],
+                _count: { device: true },
+                orderBy: { _count: { device: 'desc' } },
+            }),
+            prisma.visit.groupBy({
+                by: ['browser'],
+                _count: { browser: true },
+                orderBy: { _count: { browser: 'desc' } },
                 take: 5,
             }),
+            prisma.visit.findMany({
+                take: 10,
+                orderBy: { createdAt: 'desc' },
+            })
         ]);
 
-        // Calculate total inventory value (approximate)
         const allCars = await prisma.car.findMany({ select: { price: true } });
         const totalValue = allCars.reduce((sum, car) => sum + (car.price || 0), 0);
-
-        // Format top countries
-        const topCountries = topCountriesRaw.map(item => ({
-            country: item.country,
-            count: item._count.country
-        }));
 
         return {
             totalCars,
@@ -66,7 +78,11 @@ async function getDashboardStats() {
             recentEnquiries,
             totalValue,
             totalVisits,
-            topCountries
+            topCountries: topCountriesRaw.map(i => ({ country: i.country, count: i._count.country })),
+            topPages: topPagesRaw.map(i => ({ path: i.path || '/', count: i._count.path })),
+            deviceStats: deviceStatsRaw.map(i => ({ type: i.device || 'Desktop', count: i._count.device })),
+            browserStats: browserStatsRaw.map(i => ({ name: i.browser || 'Other', count: i._count.browser })),
+            recentVisits
         };
     } catch (error) {
         console.error("Failed to fetch dashboard stats:", error);
@@ -220,8 +236,7 @@ export default async function AdminDashboard() {
 
             {/* Visitor Analytics & Activity */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-                {/* Top Countries */}
+                {/* Top Visited Pages */}
                 <Motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -230,24 +245,25 @@ export default async function AdminDashboard() {
                 >
                     <div className="p-6 border-b border-white/5 flex items-center justify-between">
                         <h3 className="font-bold text-lg text-white flex items-center gap-2">
-                            <Globe className="w-5 h-5 text-indigo-400" />
-                            Top Countries
+                            <Activity className="w-5 h-5 text-indigo-400" />
+                            Top Pages
                         </h3>
                     </div>
-                    <div className="p-4 space-y-3 flex-grow">
-                        {stats.topCountries.length === 0 ? (
-                            <div className="text-center py-12 text-slate-500 text-sm">No visitor data yet.</div>
+                    <div className="p-4 space-y-4 flex-grow">
+                        {stats.topPages.length === 0 ? (
+                            <div className="text-center py-12 text-slate-500 text-sm">No page data yet.</div>
                         ) : (
-                            stats.topCountries.map((item, index) => (
-                                <div key={item.country} className="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-white/5 hover:bg-slate-800/50 transition-colors">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs font-bold text-indigo-400">
-                                            {index + 1}
-                                        </div>
-                                        <span className="text-sm font-medium text-white">{item.country}</span>
+                            stats.topPages.map((item, index) => (
+                                <div key={item.path} className="space-y-1.5">
+                                    <div className="flex items-center justify-between text-xs px-1">
+                                        <span className="font-medium text-slate-300 truncate max-w-[140px]">{item.path}</span>
+                                        <span className="font-bold text-white">{item.count}</span>
                                     </div>
-                                    <div className="text-sm font-bold text-slate-300">
-                                        {item.count} <span className="text-xs font-normal text-slate-500">visits</span>
+                                    <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-indigo-500 rounded-full"
+                                            style={{ width: `${Math.min(100, (item.count / (stats.topPages[0]?.count || 1)) * 100)}%` }}
+                                        />
                                     </div>
                                 </div>
                             ))
@@ -255,12 +271,100 @@ export default async function AdminDashboard() {
                     </div>
                 </Motion.div>
 
+                {/* Technology & Browsers */}
+                <Motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl border border-white/5 shadow-xl flex flex-col h-full col-span-1"
+                >
+                    <div className="p-6 border-b border-white/5">
+                        <h3 className="font-bold text-lg text-white flex items-center gap-2">
+                            <Activity className="w-5 h-5 text-emerald-400" />
+                            Visitor Tech
+                        </h3>
+                    </div>
+                    <div className="p-6 space-y-8">
+                        {/* Device Breakdown */}
+                        <div className="space-y-4">
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500">Device Types</h4>
+                            <div className="flex items-center gap-2">
+                                {stats.deviceStats.map((device) => (
+                                    <div key={device.type} className="flex-grow group">
+                                        <div className="text-center mb-2">
+                                            <p className="text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors uppercase">{device.type}</p>
+                                            <p className="text-lg font-black text-white">{device.count}</p>
+                                        </div>
+                                        <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full bg-emerald-500 transition-all duration-1000"
+                                                style={{ width: `${(device.count / stats.totalVisits) * 100}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Browser Breakdown */}
+                        <div className="space-y-4">
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500">Top Browsers</h4>
+                            <div className="space-y-3">
+                                {stats.browserStats.map((browser) => (
+                                    <div key={browser.name} className="flex items-center justify-between p-2 rounded-lg bg-white/5 border border-white/5">
+                                        <span className="text-xs font-bold text-slate-300">{browser.name}</span>
+                                        <span className="text-xs font-black text-white bg-emerald-500/10 px-2 py-0.5 rounded text-emerald-400">{browser.count}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </Motion.div>
+
+                {/* Recent Visits Activity Log */}
+                <Motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl border border-white/5 shadow-xl flex flex-col h-full col-span-1"
+                >
+                    <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                        <h3 className="font-bold text-lg text-white flex items-center gap-2">
+                            <Activity className="w-5 h-5 text-pink-400" />
+                            Live Traffic
+                        </h3>
+                    </div>
+                    <div className="p-4 space-y-3 overflow-y-auto max-h-[400px] custom-scrollbar">
+                        {stats.recentVisits.length === 0 ? (
+                            <div className="text-center py-12 text-slate-500 text-sm">No live data.</div>
+                        ) : (
+                            stats.recentVisits.map((visit) => (
+                                <div key={visit.id} className="p-3 rounded-xl bg-slate-900/40 border border-white/5 text-[11px] space-y-1">
+                                    <div className="flex justify-between items-center">
+                                        <span className="font-bold text-slate-300 flex items-center gap-1.5">
+                                            <Globe className="w-3 h-3 text-indigo-400" />
+                                            {visit.country}
+                                        </span>
+                                        <span className="text-slate-600 text-[9px]">{formatDate(visit.createdAt)}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-slate-400 truncate">
+                                        <span className="bg-slate-800 px-1.5 py-0.5 rounded text-[9px] text-white uppercase">{visit.device}</span>
+                                        <span className="truncate">{visit.path}</span>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </Motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Recent Enquiries Feed */}
                 <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl border border-white/5 shadow-xl flex flex-col h-full lg:col-span-2"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl border border-white/5 shadow-xl flex flex-col h-full lg:col-span-1"
                 >
                     <div className="p-6 border-b border-white/5 flex items-center justify-between">
                         <h3 className="font-bold text-lg text-white flex items-center gap-2">
