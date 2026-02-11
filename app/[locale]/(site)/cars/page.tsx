@@ -103,9 +103,9 @@ export default function CarsPage() {
         selectedFilters.location.length > 0;
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20">
+        <div className="min-h-screen bg-[#0B0F19] pt-20">
             {/* Header Section */}
-            <section className="bg-white border-b border-gray-200 py-12">
+            <section className="bg-[#0B0F19] border-b border-white/5 py-12">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <motion.div
@@ -121,13 +121,13 @@ export default function CarsPage() {
                                 >
                                     <LayoutGrid className="h-8 w-8 text-primary" />
                                 </motion.div>
-                                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Our Inventory</h1>
+                                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Our Inventory</h1>
                             </div>
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.3, duration: 0.6 }}
-                                className="text-xl text-gray-600 max-w-2xl"
+                                className="text-xl text-gray-400 max-w-2xl"
                             >
                                 Browse our complete collection of premium vehicles ready for global export
                             </motion.p>
@@ -145,7 +145,7 @@ export default function CarsPage() {
                             {/* Mobile Filter Toggle */}
                             <button
                                 onClick={() => setShowFilters(!showFilters)}
-                                className="lg:hidden w-full flex items-center justify-between bg-white border border-gray-200 rounded-xl px-4 py-3 mb-4 shadow-sm"
+                                className="lg:hidden w-full flex items-center justify-between bg-card border border-white/5 rounded-xl px-4 py-3 mb-4 shadow-sm text-white"
                             >
                                 <span className="flex items-center gap-2 font-semibold">
                                     <Filter className="h-5 w-5" />
@@ -161,9 +161,9 @@ export default function CarsPage() {
 
 
                             {/* Filters */}
-                            <div className={`${showFilters ? 'block' : 'hidden'} lg:block bg-white rounded-2xl border border-gray-200 p-6 shadow-sm sticky top-24`}>
+                            <div className={`${showFilters ? 'block' : 'hidden'} lg:block bg-card rounded-2xl border border-white/5 p-6 shadow-sm sticky top-24`}>
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-bold">Filters</h3>
+                                    <h3 className="text-lg font-bold text-white">Filters</h3>
                                     {hasActiveFilters && (
                                         <button
                                             onClick={clearFilters}
@@ -177,7 +177,7 @@ export default function CarsPage() {
 
                                 {/* Fuel Type */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-700">Fuel Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Fuel Type</h4>
                                     <div className="space-y-2">
                                         {filterOptions.fuelTypes.length > 0 ? filterOptions.fuelTypes.map(fuel => (
                                             <label key={fuel} className="flex items-center gap-2 cursor-pointer">
@@ -185,9 +185,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.fuelType.includes(fuel)}
                                                     onChange={() => handleFilterChange('fuelType', fuel)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{fuel}</span>
+                                                <span className="text-sm text-gray-400">{fuel}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -195,7 +195,7 @@ export default function CarsPage() {
 
                                 {/* Transmission */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-700">Transmission</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Transmission</h4>
                                     <div className="space-y-2">
                                         {filterOptions.transmissions.length > 0 ? filterOptions.transmissions.map(trans => (
                                             <label key={trans} className="flex items-center gap-2 cursor-pointer">
@@ -203,9 +203,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.transmission.includes(trans)}
                                                     onChange={() => handleFilterChange('transmission', trans)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{trans}</span>
+                                                <span className="text-sm text-gray-400">{trans}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -213,7 +213,7 @@ export default function CarsPage() {
 
                                 {/* Vehicle Type */}
                                 <div>
-                                    <h4 className="font-semibold mb-3 text-gray-700">Vehicle Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Vehicle Type</h4>
                                     <div className="space-y-2">
                                         {filterOptions.vehicleTypes.length > 0 ? filterOptions.vehicleTypes.map(type => (
                                             <label key={type} className="flex items-center gap-2 cursor-pointer">
@@ -221,9 +221,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.vehicleType.includes(type)}
                                                     onChange={() => handleFilterChange('vehicleType', type)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{type}</span>
+                                                <span className="text-sm text-gray-400">{type}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -231,7 +231,7 @@ export default function CarsPage() {
 
                                 {/* Colour */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-700">Colour</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Colour</h4>
                                     <div className="space-y-2">
                                         {filterOptions.colours.length > 0 ? filterOptions.colours.map(colour => (
                                             <label key={colour} className="flex items-center gap-2 cursor-pointer">
@@ -239,9 +239,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.colour.includes(colour)}
                                                     onChange={() => handleFilterChange('colour', colour)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{colour}</span>
+                                                <span className="text-sm text-gray-400">{colour}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -249,7 +249,7 @@ export default function CarsPage() {
 
                                 {/* Drive Type */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-700">Drive Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Drive Type</h4>
                                     <div className="space-y-2">
                                         {filterOptions.driveTypes.length > 0 ? filterOptions.driveTypes.map(drive => (
                                             <label key={drive} className="flex items-center gap-2 cursor-pointer">
@@ -257,9 +257,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.driveType.includes(drive)}
                                                     onChange={() => handleFilterChange('driveType', drive)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{drive}</span>
+                                                <span className="text-sm text-gray-400">{drive}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -267,7 +267,7 @@ export default function CarsPage() {
 
                                 {/* Engine Capacity */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-700">Engine Capacity</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Engine Capacity</h4>
                                     <div className="space-y-2">
                                         {filterOptions.engineCapacities.length > 0 ? filterOptions.engineCapacities.map(engine => (
                                             <label key={engine} className="flex items-center gap-2 cursor-pointer">
@@ -275,9 +275,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.engineCapacity.includes(engine)}
                                                     onChange={() => handleFilterChange('engineCapacity', engine)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{engine}</span>
+                                                <span className="text-sm text-gray-400">{engine}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -285,7 +285,7 @@ export default function CarsPage() {
 
                                 {/* Location */}
                                 <div>
-                                    <h4 className="font-semibold mb-3 text-gray-700">Location</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">Location</h4>
                                     <div className="space-y-2">
                                         {filterOptions.locations.length > 0 ? filterOptions.locations.map(loc => (
                                             <label key={loc} className="flex items-center gap-2 cursor-pointer">
@@ -293,9 +293,9 @@ export default function CarsPage() {
                                                     type="checkbox"
                                                     checked={selectedFilters.location.includes(loc)}
                                                     onChange={() => handleFilterChange('location', loc)}
-                                                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
                                                 />
-                                                <span className="text-sm text-gray-700">{loc}</span>
+                                                <span className="text-sm text-gray-400">{loc}</span>
                                             </label>
                                         )) : <p className="text-xs text-gray-500 italic">No options available</p>}
                                     </div>
@@ -313,15 +313,15 @@ export default function CarsPage() {
                             ) : (
                                 <>
                                     <div className="mb-6">
-                                        <h2 className="text-2xl font-bold text-gray-900">
+                                        <h2 className="text-2xl font-bold text-white">
                                             {`${cars.length} Vehicles Found`}
                                         </h2>
-                                        <p className="text-gray-600 mt-1">Found across our entire collection</p>
+                                        <p className="text-gray-400 mt-1">Found across our entire collection</p>
                                     </div>
 
                                     {cars.length === 0 ? (
-                                        <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-300">
-                                            <p className="text-xl text-gray-600">No vehicles match your filters.</p>
+                                        <div className="text-center py-20 bg-white/5 rounded-3xl border border-dashed border-white/10">
+                                            <p className="text-xl text-gray-400">No vehicles match your filters.</p>
                                             <p className="text-sm text-gray-500 mt-2">Try adjusting your filter criteria.</p>
                                             {hasActiveFilters && (
                                                 <button
