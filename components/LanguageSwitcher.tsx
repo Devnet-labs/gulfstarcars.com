@@ -13,6 +13,7 @@ const languages = [
     { code: 'es', label: 'Español' },
     { code: 'ru', label: 'Русский' },
     { code: 'ar', label: 'العربية' },
+    { code: 'zh', label: '中文' },
 ];
 
 export default function LanguageSwitcher() {
@@ -64,8 +65,8 @@ export default function LanguageSwitcher() {
                                 key={lang.code}
                                 onClick={() => handleLocaleChange(lang.code)}
                                 className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between transition-colors ${locale === lang.code
-                                        ? 'bg-primary/20 text-primary font-medium'
-                                        : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                                    ? 'bg-primary/20 text-primary font-medium'
+                                    : 'text-slate-300 hover:bg-white/5 hover:text-white'
                                     }`}
                             >
                                 <span>{lang.label}</span>

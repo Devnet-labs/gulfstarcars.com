@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     });
 }
 
+import { routing } from '@/i18n/routing';
+
 export default async function LocaleLayout({
     children,
     params
@@ -33,7 +35,7 @@ export default async function LocaleLayout({
     const { locale } = await params;
 
     // Ensure that the incoming `locale` is valid
-    if (!['en', 'fr', 'pt', 'es', 'ru', 'ar'].includes(locale)) {
+    if (!routing.locales.includes(locale as any)) {
         notFound();
     }
 

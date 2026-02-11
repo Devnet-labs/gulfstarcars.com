@@ -35,15 +35,12 @@ export function Navbar() {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled
-                    ? 'bg-background/80 backdrop-blur-xl shadow-lg border-b border-white/5 py-2'
-                    : 'bg-transparent py-2'
-                    }`}
+                className="fixed top-0 left-0 right-0 z-[100] bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/5 py-4"
             >
-                <div className="w-full px-6 md:px-10 flex items-center justify-between">
+                <div className="w-full px-6 md:px-10 flex items-center justify-between h-20">
                     {/* Left: Logo */}
-                    <Link href="/" className="flex-shrink-0 block relative z-[70]">
-                        <div className="relative h-20 w-64 md:h-28 md:w-80 lg:h-34 lg:w-[450px]">
+                    <Link href="/" className="flex-shrink-0 block relative z-[70] flex items-center">
+                        <div className="relative h-24 w-64 md:h-32 md:w-80 lg:h-40 lg:w-[450px] flex items-center justify-center">
                             <Image
                                 src="/images/portfolio/logo/logo.png"
                                 alt={t('brand')}
@@ -55,7 +52,7 @@ export function Navbar() {
                     </Link>
 
                     {/* Center: Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-md p-1.5 rounded-full border border-white/10">
+                    <div className="hidden lg:flex items-center gap-1 bg-black/20 backdrop-blur-md p-1.5 rounded-full border border-white/10">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href;
                             return (
