@@ -1,0 +1,319 @@
+{
+  "nav": {
+    "brand": "Gulfstarscars",
+    "home": "首页",
+    "inventory": "库存",
+    "services": "服务",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "getQuote": "获取报价",
+    "viewAllCars": "查看所有车辆",
+    "back": "返回",
+    "goBack": "返回上一页"
+  },
+  "home": {
+    "hero": {
+      "badge": "Gulfstarscars 专家",
+      "title": "驾驭您的梦想",
+      "titleHighlight": "跨越国界",
+      "subtitle": "全球最值得信赖的迪拜豪华汽车出口平台。"
+    },
+    "cta": {
+      "browseTitle": "浏览我们的系列",
+      "browseSubtitle": "探索准备出口的豪华车辆",
+      "viewAllCars": "查看所有车辆"
+    },
+    "carsOfDay": {
+      "title": "今日推荐",
+      "subtitle": "精选豪华车辆，随时准备出口。",
+      "viewAll": "查看所有车辆",
+      "noCars": "目前没有可用车辆。",
+      "noCarsSubtitle": "请稍后查看或联系我们进行定制订单。"
+    },
+    "finalCta": {
+      "title": "准备进口了吗？",
+      "subtitle": "加入全球成千上万满意的客户。立即获取您的定制报价。",
+      "button": "获取报价"
+    }
+  },
+  "cars": {
+    "pageTitle": "所有车辆",
+    "filters": {
+      "search": "搜索车辆...",
+      "condition": "车况",
+      "all": "全部",
+      "new": "新车",
+      "used": "二手车",
+      "bodyType": "车型",
+      "fuelType": "燃料类型",
+      "transmission": "变速箱",
+      "priceRange": "价格范围",
+      "sort": "排序方式",
+      "sortNewest": "最新发布",
+      "sortOldest": "最早发布",
+      "sortPriceLow": "价格：从低到高",
+      "sortPriceHigh": "价格：从高到低"
+    },
+    "specs": {
+      "year": "年份",
+      "mileage": "里程",
+      "km": "公里",
+      "transmission": "变速箱",
+      "fuelType": "燃料类型",
+      "bodyType": "车型",
+      "engineCapacity": "排量",
+      "colour": "颜色",
+      "driveType": "驱动类型",
+      "doors": "车门数",
+      "seats": "座位数",
+      "location": "位置",
+      "steering": "转向"
+    },
+    "status": {
+      "available": "有货",
+      "sold": "已售",
+      "reserved": "已预订"
+    },
+    "actions": {
+      "viewDetails": "查看详情",
+      "enquire": "立即咨询"
+    },
+    "noCars": "未找到车辆",
+    "noCarsSubtitle": "请尝试调整筛选条件或稍后查看。"
+  },
+  "admin": {
+    "dashboard": "仪表板",
+    "cars": "车辆",
+    "enquiries": "咨询",
+    "addCar": "添加新车",
+    "editCar": "编辑车辆",
+    "deleteCar": "删除车辆",
+    "actions": "操作",
+    "edit": "编辑",
+    "delete": "删除",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "status": "状态",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间"
+  },
+  "form": {
+    "make": "品牌",
+    "model": "型号",
+    "year": "年份",
+    "price": "价格",
+    "description": "描述",
+    "descriptionEn": "描述（英文）",
+    "descriptionAr": "描述（阿拉伯文）",
+    "condition": "车况",
+    "bodyType": "车型",
+    "fuelType": "燃料类型",
+    "transmission": "变速箱",
+    "mileage": "里程",
+    "engineCapacity": "排量",
+    "colour": "颜色",
+    "driveType": "驱动类型",
+    "doors": "车门数",
+    "seats": "座位数",
+    "location": "位置",
+    "steering": "转向",
+    "images": "图片",
+    "required": "此字段为必填项",
+    "invalidEmail": "无效的电子邮件地址",
+    "invalidNumber": "必须是有效的数字"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "与我们的团队取得联系",
+    "name": "您的姓名",
+    "email": "您的电子邮件",
+    "message": "您的留言",
+    "send": "发送留言",
+    "success": "留言发送成功！",
+    "error": "发送留言失败。请重试。"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "tryAgain": "重试",
+    "close": "关闭",
+    "open": "打开",
+    "yes": "是",
+    "no": "否",
+    "search": "搜索",
+    "filter": "筛选",
+    "clear": "清除",
+    "apply": "应用",
+    "next": "下一页",
+    "previous": "上一页",
+    "page": "页",
+    "of": "共",
+    "showing": "显示",
+    "results": "结果"
+  },
+  "trustStats": {
+    "delivered": {
+      "label": "已交付车辆",
+      "description": "成功出口全球"
+    },
+    "countries": {
+      "label": "覆盖国家",
+      "description": "横跨6大洲"
+    },
+    "clients": {
+      "label": "满意客户",
+      "description": "平均客户评分"
+    },
+    "years": {
+      "label": "多年卓越",
+      "description": "行业领先经验"
+    }
+  },
+  "whyChooseUs": {
+    "badge": "为什么选择 Gulfstarscars",
+    "title": "体验",
+    "titleHighlight": "不同之处",
+    "subtitle": "加入全球成千上万信任我们进行豪华车辆出口的满意客户。",
+    "globalReach": {
+      "title": "全球覆盖",
+      "desc": "运往100多个国家，处理海关、文件和物流。"
+    },
+    "premiumMembers": {
+      "title": "高级会员",
+      "desc": "独家进入豪华汽车休息室和我们要验证的高级经销商网络。"
+    },
+    "database": {
+      "title": "海量数据库",
+      "desc": "访问500多家经过验证的经销商和数千辆准备出口的豪华车辆。"
+    },
+    "integration": {
+      "title": "无缝集成",
+      "desc": "与您现有的工作流程轻松集成，带来流畅的体验。"
+    }
+  },
+  "portfolio": {
+    "badge": "成功案例",
+    "title": "传递卓越",
+    "titleHighlight": "全球",
+    "subtitle": "加入我们的精英国际客户圈。我们不只是出口汽车；我们以无与伦比的精确度跨越国界传递梦想。",
+    "items": {
+      "item1": {
+        "title": "日落交付",
+        "location": "阿联酋迪拜",
+        "category": "豪华跑车"
+      },
+      "item2": {
+        "title": "摩纳哥版",
+        "location": "摩纳哥蒙特卡洛",
+        "category": "高级SUV"
+      },
+      "item3": {
+        "title": "展厅就绪",
+        "location": "迪拜港",
+        "category": "车队出口"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "客户感言",
+    "title": "信任的",
+    "titleHighlight": "声音",
+    "items": {
+      "item1": {
+        "name": "詹姆斯·威尔逊",
+        "role": "豪华收藏家，英国",
+        "content": "过程非常顺利。从第一次咨询到我的G-Wagon抵达伦敦，Gulfstarscars以绝对的专业精神处理了一切。"
+      },
+      "item2": {
+        "name": "艾哈迈德·赛义德",
+        "role": "企业主，沙特阿拉伯",
+        "content": "满足我所有出口需求的值得信赖的合作伙伴。他们的检查报告详细且诚实。推荐给任何想从迪拜进口汽车的人。"
+      },
+      "item3": {
+        "name": "埃琳娜·罗德里格斯",
+        "role": "汽车经销商，西班牙",
+        "content": "价格透明，文件处理迅速。他们让全球汽车出口感觉就像在本地购买一样。优质的服务！"
+      }
+    }
+  },
+  "features": {
+    "globalReach": {
+      "title": "全球覆盖",
+      "desc": "运往50多个国家，处理海关事务。"
+    },
+    "verifiedQuality": {
+      "title": "验证质量",
+      "desc": "每辆车都经过120点检查。"
+    },
+    "fastProcessing": {
+      "title": "快速处理",
+      "desc": "24-48小时内快速文件清关。"
+    }
+  },
+  "carCard": {
+    "exportReady": "准备出口",
+    "stkId": "车辆编号",
+    "exportPrice": "出口价格",
+    "enquiry": "咨询",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "description": "我们是您从迪拜向世界进口汽车的值得信赖的合作伙伴。体验无缝服务和优质车辆。",
+    "usefulLinks": "有用链接",
+    "contactInfo": "联系信息",
+    "newLaunches": "新车发布 - 保持更新",
+    "subscribeText": "订阅以第一时间获取新车发布或其他信息的更新。",
+    "emailPlaceholder": "输入您的电子邮件",
+    "subscribeButton": "立即订阅",
+    "copyright": "Gulfstarscars. 版权所有。",
+    "privacyPolicy": "隐私政策",
+    "termsConditions": "条款和条件",
+    "address": "迪拜汽车市场，展厅123，<br />拉斯阿尔科尔，迪拜，阿联酋",
+    "links": {
+      "about": "关于我们",
+      "inventory": "库存",
+      "services": "服务",
+      "contact": "联系我们",
+      "faq": "常见问题"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "重新定义汽车",
+      "titleHighlight": "卓越",
+      "subtitle": "Gulfstarscars 是全球首屈一指的豪华车辆出口平台。我们架起了迪拜独家汽车市场与国际买家之间的桥梁。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "content": "为全球客户提供无缝、透明和高级的购车体验，确保距离永远不会成为拥有梦想之车的障碍。"
+    },
+    "story": {
+      "title": "我们的故事",
+      "content": "Gulfstarscars 成立于迪拜市中心，最初的愿景很简单：与世界分享阿联酋令人难以置信的汽车库存。今天，我们已成为横跨6大洲数千名客户值得信赖的合作伙伴。"
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "世界级",
+      "titleHighlight": "服务",
+      "subtitle": "根据您的需求量身定制的综合出口解决方案。从采购到交付，我们精确处理每一个细节。"
+    },
+    "sourcing": {
+      "title": "车辆采购",
+      "desc": "访问独家非市场列表和直接经销商网络。"
+    },
+    "inspection": {
+      "title": "高级检查",
+      "desc": "详细的120点机械和外观报告，让您完全放心。"
+    },
+    "logistics": {
+      "title": "全球物流",
+      "desc": "前往全球任何目的地的保险陆运、海运和空运选项。"
+    },
+    "customs": {
+      "title": "海关清关",
+      "desc": "专业处理所有出口文件和清关程序。"
+    }
+  }
+}
