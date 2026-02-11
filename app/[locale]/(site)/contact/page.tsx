@@ -68,9 +68,9 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0B0F19] pt-24 pb-20">
+        <div className="min-h-screen bg-[#0B0F19] pt-20 pb-12">
             {/* Header */}
-            <section className="relative py-20 px-4 mb-12">
+            <section className="relative py-12 px-4 mb-8">
                 <div className="absolute inset-0 bg-primary/5 pattern-grid-lg opacity-20" />
                 <div className="container mx-auto text-center relative z-10">
                     <motion.div
