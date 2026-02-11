@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -93,6 +93,24 @@ export default function ContactPage() {
                                         <p>{tFooter('emails.info')}</p>
                                         <p>{tFooter('emails.exports')}</p>
                                     </div>
+                                </div>
+                            </div>
+
+                            {/* WhatsApp */}
+                            <div className="flex items-start gap-6 group">
+                                <div className="p-4 rounded-2xl bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors duration-300">
+                                    <MessageCircle className="w-8 h-8 text-[#25D366]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-white mb-2">WhatsApp</h3>
+                                    <p className="text-gray-400 mb-3">Chat with us directly</p>
+                                    <button
+                                        onClick={() => window.open('https://wa.me/971523479535', '_blank')}
+                                        className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2 rounded-xl transition-all font-semibold text-sm shadow-lg shadow-green-500/20"
+                                    >
+                                        <span>Chat Now</span>
+                                        <MessageCircle className="w-4 h-4" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
