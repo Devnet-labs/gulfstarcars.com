@@ -89,7 +89,7 @@ export function Footer() {
                             </ul>
                         </div>
 
-                        {/* Column: Contact Details */}
+                        {/* Column: Contact Details  */}
                         <div className="space-y-10">
                             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">
                                 {t('contactInfo')}
@@ -119,6 +119,7 @@ export function Footer() {
                     </div>
                 </div>
 
+
                 {/* Bottom Bar: Copyright & Terms */}
                 <div className="flex flex-col lg:row-reverse lg:flex-row justify-between items-center gap-10">
                     <div className="flex items-center gap-10">
@@ -135,7 +136,7 @@ export function Footer() {
                     </div>
                     <div className="text-center lg:text-left space-y-2">
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
-                            &copy; {new Date().getFullYear()} {t('copyright')}
+                            &copy; {new Date().getFullYear()} {t('copyright')} 
                         </p>
                         <p className="text-[10px] text-gray-700 uppercase tracking-[0.1em] font-medium">
                             Premium Vehicle Export Solutions • Established in Dubai, UAE

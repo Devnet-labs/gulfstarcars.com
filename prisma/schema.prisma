@@ -49,6 +49,12 @@ model Visit {
   id        String   @id @default(uuid())
   country   String
   ipHash    String
+  path      String?
+  userAgent String?
+  browser   String?
+  os        String?
+  device    String?
+  referer   String?
   createdAt DateTime @default(now())
 }
 
