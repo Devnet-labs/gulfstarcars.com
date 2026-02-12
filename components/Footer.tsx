@@ -50,7 +50,7 @@ export function Footer() {
                                     {t('brand')}
                                 </span>
                                 <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary mt-2">
-                                    Automotive Excellence
+                                    {t('slogan')}
                                 </span>
                             </div>
                         </Link>
@@ -100,7 +100,7 @@ export function Footer() {
                                         <Mail className="h-5 w-5 text-gray-500 group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="space-y-1">
-                                        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Official Email</p>
+                                        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">{t('emailLabel')}</p>
                                         <p className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('emails.info')}</p>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@ export function Footer() {
                                         <Phone className="h-5 w-5 text-gray-500 group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="space-y-1">
-                                        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Primary Support</p>
+                                        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">{t('phoneLabel')}</p>
                                         <p className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('phone')}</p>
                                     </div>
                                 </div>
@@ -124,8 +124,8 @@ export function Footer() {
                 <div className="flex flex-col lg:row-reverse lg:flex-row justify-between items-center gap-10">
                     <div className="flex items-center gap-10">
                         <div className="flex items-center gap-8 text-[13px] font-bold uppercase tracking-widest text-gray-500">
-                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+                            <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
+                            <Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link>
                         </div>
                         <button
                             onClick={scrollToTop}
@@ -136,10 +136,10 @@ export function Footer() {
                     </div>
                     <div className="text-center lg:text-left space-y-2">
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
-                            &copy; {new Date().getFullYear()} {t('copyright')} 
+                            &copy; {new Date().getFullYear()} {t('copyright')}
                         </p>
                         <p className="text-[10px] text-gray-700 uppercase tracking-[0.1em] font-medium">
-                            Premium Vehicle Export Solutions • Established in Dubai, UAE
+                            {t('tagline')}
                         </p>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ import { CarCard } from '@/components/CarCard';
 import { getFilteredCars, getInventoryFilterOptions } from '@/app/actions/getFilteredCars';
 import { ChevronDown, Filter, X, Sparkles, LayoutGrid } from 'lucide-react';
 import { SkeletonGrid, SkeletonHeader } from '@/components/SkeletonCarCard';
+import { useTranslations } from 'next-intl';
 
 export default function CarsPage() {
     const [cars, setCars] = useState<Car[]>([]);
@@ -102,6 +103,8 @@ export default function CarsPage() {
         selectedFilters.engineCapacity.length > 0 ||
         selectedFilters.location.length > 0;
 
+    const t = useTranslations('cars');
+
     return (
         <div className="min-h-screen bg-[#0B0F19] pt-20">
             {/* Header Section */}
@@ -121,7 +124,7 @@ export default function CarsPage() {
                                 >
                                     <LayoutGrid className="h-8 w-8 text-primary" />
                                 </motion.div>
-                                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Our Inventory</h1>
+                                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">{t('pageTitle')}</h1>
                             </div>
                             <motion.p
                                 initial={{ opacity: 0 }}
@@ -129,7 +132,7 @@ export default function CarsPage() {
                                 transition={{ delay: 0.3, duration: 0.6 }}
                                 className="text-xl text-gray-400 max-w-2xl"
                             >
-                                Browse our complete collection of premium vehicles ready for global export
+                                {t('subtitle')}
                             </motion.p>
                         </motion.div>
                     </div>
@@ -149,7 +152,7 @@ export default function CarsPage() {
                             >
                                 <span className="flex items-center gap-2 font-semibold">
                                     <Filter className="h-5 w-5" />
-                                    Filters
+                                    {t('filterTitle')}
                                     {hasActiveFilters && (
                                         <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
                                             {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length}
@@ -163,21 +166,21 @@ export default function CarsPage() {
                             {/* Filters */}
                             <div className={`${showFilters ? 'block' : 'hidden'} lg:block bg-card rounded-2xl border border-white/5 p-6 shadow-sm sticky top-24`}>
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-bold text-white">Filters</h3>
+                                    <h3 className="text-lg font-bold text-white">{t('filterTitle')}</h3>
                                     {hasActiveFilters && (
                                         <button
                                             onClick={clearFilters}
                                             className="text-sm text-primary hover:underline flex items-center gap-1"
                                         >
                                             <X className="h-4 w-4" />
-                                            Clear All
+                                            {t('clearAll')}
                                         </button>
                                     )}
                                 </div>
 
                                 {/* Fuel Type */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-300">Fuel Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('filters.fuelType')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.fuelTypes.length > 0 ? filterOptions.fuelTypes.map(fuel => (
                                             <label key={fuel} className="flex items-center gap-2 cursor-pointer">
@@ -195,7 +198,7 @@ export default function CarsPage() {
 
                                 {/* Transmission */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-300">Transmission</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('filters.transmission')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.transmissions.length > 0 ? filterOptions.transmissions.map(trans => (
                                             <label key={trans} className="flex items-center gap-2 cursor-pointer">
@@ -213,7 +216,7 @@ export default function CarsPage() {
 
                                 {/* Vehicle Type */}
                                 <div>
-                                    <h4 className="font-semibold mb-3 text-gray-300">Vehicle Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('filters.bodyType')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.vehicleTypes.length > 0 ? filterOptions.vehicleTypes.map(type => (
                                             <label key={type} className="flex items-center gap-2 cursor-pointer">
@@ -231,7 +234,7 @@ export default function CarsPage() {
 
                                 {/* Colour */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-300">Colour</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('specs.colour')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.colours.length > 0 ? filterOptions.colours.map(colour => (
                                             <label key={colour} className="flex items-center gap-2 cursor-pointer">
@@ -249,7 +252,7 @@ export default function CarsPage() {
 
                                 {/* Drive Type */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-300">Drive Type</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('specs.driveType')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.driveTypes.length > 0 ? filterOptions.driveTypes.map(drive => (
                                             <label key={drive} className="flex items-center gap-2 cursor-pointer">
@@ -267,7 +270,7 @@ export default function CarsPage() {
 
                                 {/* Engine Capacity */}
                                 <div className="mb-6">
-                                    <h4 className="font-semibold mb-3 text-gray-300">Engine Capacity</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('specs.engineCapacity')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.engineCapacities.length > 0 ? filterOptions.engineCapacities.map(engine => (
                                             <label key={engine} className="flex items-center gap-2 cursor-pointer">
@@ -285,7 +288,7 @@ export default function CarsPage() {
 
                                 {/* Location */}
                                 <div>
-                                    <h4 className="font-semibold mb-3 text-gray-300">Location</h4>
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('specs.location')}</h4>
                                     <div className="space-y-2">
                                         {filterOptions.locations.length > 0 ? filterOptions.locations.map(loc => (
                                             <label key={loc} className="flex items-center gap-2 cursor-pointer">
@@ -314,21 +317,21 @@ export default function CarsPage() {
                                 <>
                                     <div className="mb-6">
                                         <h2 className="text-2xl font-bold text-white">
-                                            {`${cars.length} Vehicles Found`}
+                                            {t('vehiclesFound', { count: cars.length })}
                                         </h2>
-                                        <p className="text-gray-400 mt-1">Found across our entire collection</p>
+                                        <p className="text-gray-400 mt-1">{t('foundSubtitle')}</p>
                                     </div>
 
                                     {cars.length === 0 ? (
                                         <div className="text-center py-20 bg-white/5 rounded-3xl border border-dashed border-white/10">
-                                            <p className="text-xl text-gray-400">No vehicles match your filters.</p>
-                                            <p className="text-sm text-gray-500 mt-2">Try adjusting your filter criteria.</p>
+                                            <p className="text-xl text-gray-400">{t('noCars')}</p>
+                                            <p className="text-sm text-gray-500 mt-2">{t('noCarsSubtitle')}</p>
                                             {hasActiveFilters && (
                                                 <button
                                                     onClick={clearFilters}
                                                     className="mt-4 px-6 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors"
                                                 >
-                                                    Clear Filters
+                                                    {t('clearFilters')}
                                                 </button>
                                             )}
                                         </div>

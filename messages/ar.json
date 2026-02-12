@@ -37,7 +37,13 @@
     }
   },
   "cars": {
-    "pageTitle": "جميع السيارات",
+    "pageTitle": "مخزوننا",
+    "subtitle": "تصفح مجموعتنا الكاملة من السيارات الفاخرة الجاهزة للتصدير العالمي",
+    "vehiclesFound": "{count} سيارة وجدت",
+    "foundSubtitle": "وجدت في مجموعتنا الكاملة",
+    "filterTitle": "تصفية",
+    "clearFilters": "مسح التصفيات",
+    "clearAll": "مسح الكل",
     "filters": {
       "search": "بحث عن السيارات...",
       "condition": "الحالة",
@@ -79,7 +85,21 @@
       "enquire": "استفسر الآن"
     },
     "noCars": "لم يتم العثور على سيارات",
-    "noCarsSubtitle": "حاول تعديل الفلاتر أو تحقق لاحقاً."
+    "noCarsSubtitle": "حاول تعديل الفلاتر أو تحقق لاحقاً.",
+    "carDetails": {
+      "stockId": "رقم المخزون",
+      "exportPrice": "سعر التصدير",
+      "description": "وصف السيارة",
+      "techSpecs": "المواصفات الفنية",
+      "verifiedReport": "تقرير حالة موثق",
+      "globalExport": "متاح للتصدير العالمي",
+      "enquire": "استفسر الآن",
+      "whatsapp": "تواصل عبر واتساب",
+      "breadcrumb": {
+        "home": "الرئيسية",
+        "inventory": "المخزون"
+      }
+    }
   },
   "contact": {
     "title": "اتصل بنا",
@@ -214,18 +234,21 @@
     "stkId": "رقم المخزون",
     "exportPrice": "سعر التصدير",
     "enquiry": "استفسار",
-    "whatsapp": "واتساب"
+    "whatsapp": "واتساب",
+    "petrol": "بترول",
+    "auto": "أوتوماتيك",
+    "noImages": "لا توجد صور متاحة"
   },
   "footer": {
     "description": "نحن شريكك الموثوق لاستيراد السيارات من دبي إلى العالم. جرب خدمة سلسة ومركبات عالية الجودة.",
     "usefulLinks": "روابط مفيدة",
     "contactInfo": "معلومات الاتصال",
     "emails": {
-        "md": "MD: md@gulfstarcars.com",
-        "ed": "ED: ed@gulfstarcars.com",
-        "director": "Director: director@gulfstarcars.com",
-        "exports": "Exports: exports@gulfstarcars.com",
-        "info": "Info: info@gulfstarcars.com"
+      "md": "MD: md@gulfstarcars.com",
+      "ed": "ED: ed@gulfstarcars.com",
+      "director": "Director: director@gulfstarcars.com",
+      "exports": "Exports: exports@gulfstarcars.com",
+      "info": "Info: info@gulfstarcars.com"
     },
     "newLaunches": "إطلاقات جديدة - ابق على اطلاع",
     "subscribeText": "اشترك لتكون أول من يحصل على تحديثات حول السيارات الجديدة والمعلومات الأخرى.",
@@ -245,7 +268,13 @@
       "services": "خدماتنا",
       "contact": "اتصل بنا",
       "faq": "الأسئلة الشائعة"
-    }
+    },
+    "slogan": "التميز في عالم السيارات",
+    "emailLabel": "البريد الإلكتروني الرسمي",
+    "phoneLabel": "الدعم الرئيسي",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "tagline": "حلول تصدير السيارات الفاخرة • تأسست في دبي، الإمارات"
   },
   "aboutPage": {
     "hero": {

@@ -79,7 +79,21 @@
             "enquire": "Demander"
         },
         "noCars": "Aucune voiture trouvée",
-        "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard."
+        "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard.",
+        "carDetails": {
+            "stockId": "ID Stock",
+            "exportPrice": "Prix Export",
+            "description": "Description du Véhicule",
+            "techSpecs": "Spécifications Techniques",
+            "verifiedReport": "Rapport d'État Vérifié",
+            "globalExport": "Exportation Mondiale Disponible",
+            "enquire": "Demander",
+            "whatsapp": "WhatsApp",
+            "breadcrumb": {
+                "home": "Accueil",
+                "inventory": "Inventaire"
+            }
+        }
     },
     "contact": {
         "title": "Contactez-nous",
@@ -214,7 +228,10 @@
         "stkId": "ID Stock",
         "exportPrice": "Prix Export",
         "enquiry": "Demander",
-        "whatsapp": "WhatsApp"
+        "whatsapp": "WhatsApp",
+        "petrol": "Essence",
+        "auto": "Auto",
+        "noImages": "Aucune image disponible"
     },
     "footer": {
         "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",
@@ -243,9 +260,15 @@
             "about": "À propos",
             "inventory": "Inventaire",
             "services": "Services",
-            "contact": "Contact",
+            "contact": "Contactez-nous",
             "faq": "FAQ"
-        }
+        },
+        "slogan": "L'excellence automobile",
+        "emailLabel": "Email officiel",
+        "phoneLabel": "Support principal",
+        "privacy": "Confidentialité",
+        "terms": "Conditions",
+        "tagline": "Solutions d'exportation de véhicules haut de gamme • Établi à Dubaï, EAU"
     },
     "aboutPage": {
         "hero": {

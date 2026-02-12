@@ -37,7 +37,13 @@
     }
   },
   "cars": {
-    "pageTitle": "所有车辆",
+    "pageTitle": "我们的库存",
+    "subtitle": "浏览我们要面向全球出口的高级车辆完整系列",
+    "vehiclesFound": "找到 {count} 辆车",
+    "foundSubtitle": "在我们整个系列中找到",
+    "filterTitle": "筛选",
+    "clearFilters": "清除筛选",
+    "clearAll": "全部清除",
     "filters": {
       "search": "搜索车辆...",
       "condition": "车况",
@@ -79,7 +85,21 @@
       "enquire": "立即咨询"
     },
     "noCars": "未找到车辆",
-    "noCarsSubtitle": "请尝试调整筛选条件或稍后查看。"
+    "noCarsSubtitle": "请尝试调整筛选条件或稍后查看。",
+    "carDetails": {
+      "stockId": "车辆编号",
+      "exportPrice": "出口价格",
+      "description": "车辆描述",
+      "techSpecs": "技术参数",
+      "verifiedReport": "验证车况报告",
+      "globalExport": "支持全球出口",
+      "enquire": "立即咨询",
+      "whatsapp": "WhatsApp",
+      "breadcrumb": {
+        "home": "首页",
+        "inventory": "库存"
+      }
+    }
   },
   "admin": {
     "dashboard": "仪表板",
@@ -256,7 +276,10 @@
     "stkId": "车辆编号",
     "exportPrice": "出口价格",
     "enquiry": "咨询",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "petrol": "汽油",
+    "auto": "自动挡",
+    "noImages": "暂无图片"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -264,11 +287,11 @@
     "usefulLinks": "有用链接",
     "contactInfo": "联系方式",
     "emails": {
-        "md": "总经理: md@gulfstarcars.com",
-        "ed": "执行总监: ed@gulfstarcars.com",
-        "director": "总监: director@gulfstarcars.com",
-        "exports": "出口部: exports@gulfstarcars.com",
-        "info": "信息咨询: info@gulfstarcars.com"
+      "md": "总经理: md@gulfstarcars.com",
+      "ed": "执行总监: ed@gulfstarcars.com",
+      "director": "总监: director@gulfstarcars.com",
+      "exports": "出口部: exports@gulfstarcars.com",
+      "info": "信息咨询: info@gulfstarcars.com"
     },
     "newLaunches": "新发布的车 - 保持更新",
     "subscribeText": "订阅以第一时间获取新车发布或其他信息的更新。",
@@ -287,7 +310,13 @@
       "services": "服务",
       "contact": "联系我们",
       "faq": "常见问题"
-    }
+    },
+    "slogan": "卓越汽车",
+    "emailLabel": "官方邮箱",
+    "phoneLabel": "主要支持",
+    "privacy": "隐私",
+    "terms": "条款",
+    "tagline": "高端汽车出口解决方案 • 成立于阿联酋迪拜"
   },
   "aboutPage": {
     "hero": {

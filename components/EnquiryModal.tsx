@@ -71,80 +71,80 @@ export function EnquiryModal({ car, isOpen, onClose }: EnquiryModalProps) {
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-            <div className="w-full max-w-lg rounded-xl bg-background p-6 shadow-2xl animate-in zoom-in-95 duration-200 border border-border">
-                <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-xl font-bold">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 animate-in fade-in duration-200">
+            <div className="w-full max-w-lg rounded-xl sm:rounded-2xl bg-background p-4 sm:p-6 shadow-2xl animate-in zoom-in-95 duration-200 border border-border max-h-[90vh] overflow-y-auto">
+                <div className="mb-4 flex items-start justify-between gap-2">
+                    <h3 className="text-base sm:text-xl font-bold leading-tight">
                         {car ? `Enquire about ${car.make} ${car.model} (${car.customId || 'N/A'})` : 'Contact Us'}
                     </h3>
-                    <button onClick={onClose} className="rounded-full p-2 hover:bg-muted transition-colors">
-                        <X className="h-5 w-5" />
+                    <button onClick={onClose} className="rounded-full p-1.5 sm:p-2 hover:bg-muted transition-colors flex-shrink-0">
+                        <X className="h-4 w-4 sm:h-5 sm:w-5" />
                     </button>
                 </div>
 
                 {isSuccess ? (
-                    <div className="flex flex-col items-center justify-center py-8 text-center">
-                        <div className="mb-4 rounded-full bg-green-100 p-3 text-green-600 dark:bg-green-900/30">
-                            <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    <div className="flex flex-col items-center justify-center py-6 sm:py-8 text-center">
+                        <div className="mb-3 sm:mb-4 rounded-full bg-green-100 p-2.5 sm:p-3 text-green-600 dark:bg-green-900/30">
+                            <svg className="h-6 w-6 sm:h-8 sm:w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                         </div>
-                        <h4 className="text-lg font-semibold text-green-600">Enquiry Sent!</h4>
-                        <p className="text-muted-foreground">We will get back to you shortly.</p>
+                        <h4 className="text-base sm:text-lg font-semibold text-green-600">Enquiry Sent!</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground">We will get back to you shortly.</p>
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                         <div>
-                            <label htmlFor="name" className="mb-1 block text-sm font-medium">Name</label>
+                            <label htmlFor="name" className="mb-1 block text-xs sm:text-sm font-medium">Name</label>
                             <input
                                 type="text"
                                 id="name"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className={`w-full rounded-lg border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/50 ${errors.name ? 'border-red-500' : 'border-input'}`}
+                                className={`w-full rounded-lg border bg-background px-3 py-2 text-sm sm:text-base outline-none focus:ring-2 focus:ring-primary/50 ${errors.name ? 'border-red-500' : 'border-input'}`}
                                 placeholder="Your Name"
                             />
                             {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="mb-1 block text-sm font-medium">Email</label>
+                            <label htmlFor="email" className="mb-1 block text-xs sm:text-sm font-medium">Email</label>
                             <input
                                 type="email"
                                 id="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                className={`w-full rounded-lg border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/50 ${errors.email ? 'border-red-500' : 'border-input'}`}
+                                className={`w-full rounded-lg border bg-background px-3 py-2 text-sm sm:text-base outline-none focus:ring-2 focus:ring-primary/50 ${errors.email ? 'border-red-500' : 'border-input'}`}
                                 placeholder="your@email.com"
                             />
                             {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                         </div>
 
                         <div>
-                            <label htmlFor="message" className="mb-1 block text-sm font-medium">Message</label>
+                            <label htmlFor="message" className="mb-1 block text-xs sm:text-sm font-medium">Message</label>
                             <textarea
                                 id="message"
                                 rows={4}
                                 value={formData.message}
                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                className={`w-full rounded-lg border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/50 ${errors.message ? 'border-red-500' : 'border-input'}`}
+                                className={`w-full rounded-lg border bg-background px-3 py-2 text-sm sm:text-base outline-none focus:ring-2 focus:ring-primary/50 ${errors.message ? 'border-red-500' : 'border-input'}`}
                                 placeholder={car ? `I am interested in ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'})...` : "How can we help you?"}
                             />
                             {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
                         </div>
 
-                        {errors.form && <p className="text-sm text-red-500">{errors.form}</p>}
+                        {errors.form && <p className="text-xs sm:text-sm text-red-500">{errors.form}</p>}
 
-                        <div className="flex justify-end gap-2 pt-2">
+                        <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 pt-2">
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="rounded-lg px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
+                                className="w-full sm:w-auto rounded-lg px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
                                 disabled={isSubmitting}
                             >
                                 Cancel
                             </button>
                             <button
                                 type="submit"
-                                className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}

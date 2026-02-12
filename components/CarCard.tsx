@@ -91,11 +91,11 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     {/* Specs Divider */}
                     <div className="flex items-center gap-4 py-4 border-t border-white/5 mb-4">
                         <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Fuel className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.fuelType || 'Petrol'}
+                            <Fuel className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.fuelType || t('petrol')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
                         <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Settings2 className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.transmission || 'Auto'}
+                            <Settings2 className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.transmission || t('auto')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
                         <div className="flex items-center text-xs text-muted-foreground font-medium">
