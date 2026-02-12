@@ -59,18 +59,19 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[600px] flex flex-col justify-center bg-background pt-24 pb-20">
-        {/* Background Image with Gradient Overlay - Contained Overflow */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?auto=format&fit=crop&w=2000&q=80"
-            alt="Luxury Car Fleet"
-            fill
-            className="object-cover"
-            priority
-            quality={85}
-            sizes="100vw"
-          />
+      <section className="relative min-h-screen flex flex-col justify-center bg-background pt-20 pb-0 overflow-hidden">
+        {/* Background Video with Premium Overlays */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/images/placeholders/hero-car.png"
+          >
+            <source src="/video/Luxury_Drone_Footage.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
