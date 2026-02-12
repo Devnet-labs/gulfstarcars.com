@@ -94,7 +94,11 @@
       "verifiedReport": "验证车况报告",
       "globalExport": "支持全球出口",
       "enquire": "立即咨询",
-      "whatsapp": "WhatsApp"
+      "whatsapp": "WhatsApp",
+      "breadcrumb": {
+        "home": "首页",
+        "inventory": "库存"
+      }
     }
   },
   "admin": {

@@ -21,25 +21,25 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
     }
 
     return (
-        <div className="min-h-screen pt-24 pb-16 bg-[#0B0F19]">
-            <div className="container mx-auto px-4">
+        <div className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-16 bg-[#0B0F19]">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Navigation Breadcrumb */}
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-                    <Link href="/" className="hover:text-primary transition-colors">{t('breadcrumb.home')}</Link>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-6 sm:mb-8 overflow-x-auto">
+                    <Link href="/" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.home')}</Link>
                     <span>/</span>
-                    <Link href="/cars" className="hover:text-primary transition-colors">{t('breadcrumb.inventory')}</Link>
+                    <Link href="/cars" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.inventory')}</Link>
                     <span>/</span>
-                    <span className="text-foreground font-medium">{car.make} {car.model}</span>
+                    <span className="text-foreground font-medium truncate">{car.make} {car.model}</span>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
                     {/* Left Column: Gallery & Description */}
-                    <div className="lg:col-span-8 space-y-8">
+                    <div className="lg:col-span-8 space-y-6 sm:space-y-8">
                         <CarImageGallery images={car.images} alt={`${car.make} ${car.model}`} />
 
-                        <div className="bg-card/50 backdrop-blur-sm rounded-[32px] p-8 border border-white/5 shadow-2xl">
-                            <h2 className="text-2xl font-bold mb-6 text-foreground tracking-tight">{t('description')}</h2>
-                            <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed whitespace-pre-line">
+                        <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl">
+                            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground tracking-tight">{t('description')}</h2>
+                            <div className="prose prose-invert max-w-none text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                                 {car.description}
                             </div>
                         </div>
@@ -47,42 +47,42 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
                     {/* Right Column: Key Details & Actions */}
                     <div className="lg:col-span-4 space-y-6">
-                        <div className="bg-card rounded-[32px] p-8 border border-white/5 shadow-2xl sticky top-24">
-                            <div className="mb-8">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <span className="px-3 py-1 bg-primary text-white text-[10px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
+                        <div className="bg-card rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl lg:sticky lg:top-24">
+                            <div className="mb-6 sm:mb-8">
+                                <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-2">
+                                    <span className="px-2 sm:px-3 py-1 bg-primary text-white text-[9px] sm:text-[10px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
                                         {t('stockId')}: {car.customId || 'N/A'}
                                     </span>
-                                    <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
+                                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
                                         {car.condition}
                                     </span>
-                                    <span className="px-3 py-1 bg-green-500/10 text-green-500 text-xs font-bold rounded-full uppercase tracking-wider">
+                                    <span className="px-2 sm:px-3 py-1 bg-green-500/10 text-green-500 text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
                                         {car.status}
                                     </span>
                                 </div>
-                                <h1 className="text-3xl font-bold text-foreground mb-2">{car.year} {car.make} {car.model}</h1>
+                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {car.make} {car.model}</h1>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-4xl font-black text-accent">${car.price.toLocaleString()}</span>
-                                    <span className="text-muted-foreground font-medium text-sm">{t('exportPrice')}</span>
+                                    <span className="text-3xl sm:text-4xl font-black text-accent">${car.price.toLocaleString()}</span>
+                                    <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4 mb-8">
-                                <DetailInfoItem icon={<Calendar className="w-5 h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
-                                <DetailInfoItem icon={<Gauge className="w-5 h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
-                                <DetailInfoItem icon={<Fuel className="w-5 h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType || 'Petrol'} />
-                                <DetailInfoItem icon={<Settings2 className="w-5 h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission || 'Auto'} />
+                            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                                <DetailInfoItem icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
+                                <DetailInfoItem icon={<Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
+                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType || 'Petrol'} />
+                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission || 'Auto'} />
                             </div>
 
                             <DetailClientActions car={car} />
 
-                            <div className="mt-8 pt-8 border-t border-white/5 space-y-4">
-                                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                                    <Shield className="w-5 h-5 text-green-500" />
+                            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5 space-y-3 sm:space-y-4">
+                                <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground">
+                                    <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
                                     <span>{t('verifiedReport')}</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                                    <Globe className="w-5 h-5 text-blue-500" />
+                                <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground">
+                                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0" />
                                     <span>{t('globalExport')}</span>
                                 </div>
                             </div>
@@ -91,9 +91,9 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                 </div>
 
                 {/* Technical Specifications Section */}
-                <div className="mt-16 bg-card/50 backdrop-blur-sm rounded-[40px] p-8 md:p-12 border border-white/5 shadow-2xl">
-                    <h2 className="text-3xl font-bold mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
+                <div className="mt-8 sm:mt-12 lg:mt-16 bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[40px] p-4 sm:p-6 md:p-8 lg:p-12 border border-white/5 shadow-2xl">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 lg:mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-x-12 lg:gap-y-8">
                         <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={car.engineCapacity} />
                         <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={car.colour} />
                         <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={car.driveType} />
@@ -111,10 +111,10 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
 function DetailInfoItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
     return (
-        <div className="bg-secondary/30 p-4 rounded-2xl border border-white/5 transition-colors hover:bg-secondary/50">
-            <div className="mb-2">{icon}</div>
-            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-0.5">{label}</p>
-            <p className="text-sm font-bold text-foreground">{value}</p>
+        <div className="bg-secondary/30 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5 transition-colors hover:bg-secondary/50">
+            <div className="mb-1.5 sm:mb-2">{icon}</div>
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-0.5">{label}</p>
+            <p className="text-xs sm:text-sm font-bold text-foreground truncate">{value}</p>
         </div>
     );
 }
@@ -122,11 +122,11 @@ function DetailInfoItem({ icon, label, value }: { icon: React.ReactNode; label: 
 function SpecItem({ icon, label, value }: { icon: React.ReactNode; label: string; value?: string | null }) {
     if (!value) return null;
     return (
-        <div className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all">
-            <div className="mt-1 text-primary">{icon}</div>
-            <div>
-                <p className="text-xs text-muted-foreground mb-0.5">{label}</p>
-                <p className="font-bold text-foreground">{value}</p>
+        <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-white/5 transition-all">
+            <div className="mt-0.5 sm:mt-1 text-primary flex-shrink-0">{icon}</div>
+            <div className="min-w-0">
+                <p className="text-[10px] sm:text-xs text-muted-foreground mb-0.5">{label}</p>
+                <p className="text-sm sm:text-base font-bold text-foreground break-words">{value}</p>
             </div>
         </div>
     );

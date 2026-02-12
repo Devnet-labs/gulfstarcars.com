@@ -94,7 +94,11 @@
       "verifiedReport": "تقرير حالة موثق",
       "globalExport": "متاح للتصدير العالمي",
       "enquire": "استفسر الآن",
-      "whatsapp": "تواصل عبر واتساب"
+      "whatsapp": "تواصل عبر واتساب",
+      "breadcrumb": {
+        "home": "الرئيسية",
+        "inventory": "المخزون"
+      }
     }
   },
   "contact": {

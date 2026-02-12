@@ -101,7 +101,11 @@
             "verifiedReport": "Informe de Condición Verificado",
             "globalExport": "Exportación Global Disponible",
             "enquire": "Consultar Ahora",
-            "whatsapp": "WhatsApp"
+            "whatsapp": "WhatsApp",
+            "breadcrumb": {
+                "home": "Inicio",
+                "inventory": "Inventario"
+            }
         }
     },
     "contact": {

@@ -23,23 +23,23 @@ export function DetailClientActions({ car }: DetailClientActionsProps) {
 
     return (
         <>
-            <div className="space-y-3">
+            <div className="space-y-2.5 sm:space-y-3">
                 <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setIsModalOpen(true)}
-                    className="w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white py-4 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20"
+                    className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-primary hover:bg-primary/90 text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold transition-all shadow-xl shadow-primary/20"
                 >
-                    <MessageSquare className="w-5 h-5" />
+                    <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
                     {t('enquire')}
                 </motion.button>
                 <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleWhatsApp}
-                    className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white py-4 rounded-2xl font-bold transition-all shadow-xl shadow-green-500/20"
+                    className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold transition-all shadow-xl shadow-green-500/20"
                 >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                     {t('whatsapp')}
                 </motion.button>
             </div>

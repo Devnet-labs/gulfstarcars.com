@@ -94,7 +94,11 @@
       "verifiedReport": "Verified Condition Report",
       "globalExport": "Global Export Available",
       "enquire": "Enquire Now",
-      "whatsapp": "WhatsApp Us"
+      "whatsapp": "WhatsApp Us",
+      "breadcrumb": {
+        "home": "Home",
+        "inventory": "Inventory"
+      }
     }
   },
   "admin": {

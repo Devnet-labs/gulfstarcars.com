@@ -79,7 +79,21 @@
             "enquire": "Demander"
         },
         "noCars": "Aucune voiture trouvée",
-        "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard."
+        "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard.",
+        "carDetails": {
+            "stockId": "ID Stock",
+            "exportPrice": "Prix Export",
+            "description": "Description du Véhicule",
+            "techSpecs": "Spécifications Techniques",
+            "verifiedReport": "Rapport d'État Vérifié",
+            "globalExport": "Exportation Mondiale Disponible",
+            "enquire": "Demander",
+            "whatsapp": "WhatsApp",
+            "breadcrumb": {
+                "home": "Accueil",
+                "inventory": "Inventaire"
+            }
+        }
     },
     "contact": {
         "title": "Contactez-nous",

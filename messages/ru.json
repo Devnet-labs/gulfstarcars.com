@@ -94,7 +94,11 @@
             "verifiedReport": "Проверенный отчет о состоянии",
             "globalExport": "Доступен глобальный экспорт",
             "enquire": "Запросить",
-            "whatsapp": "WhatsApp"
+            "whatsapp": "WhatsApp",
+            "breadcrumb": {
+                "home": "Главная",
+                "inventory": "Инвентарь"
+            }
         }
     },
     "contact": {

@@ -35,10 +35,10 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
     };
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
             {/* Main Image */}
             <div
-                className="relative aspect-video rounded-3xl overflow-hidden cursor-zoom-in group bg-secondary/50"
+                className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden cursor-zoom-in group bg-secondary/50"
                 onClick={() => setIsFullscreen(true)}
             >
                 <Image
@@ -53,42 +53,42 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
 
                 {/* Navigation Arrows */}
                 {images.length > 1 && (
-                    <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute inset-0 flex items-center justify-between p-2 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 prevImage();
                             }}
-                            className="bg-background/80 backdrop-blur-md p-2 rounded-full hover:bg-background transition-colors shadow-lg"
+                            className="bg-background/80 backdrop-blur-md p-1.5 sm:p-2 rounded-full hover:bg-background transition-colors shadow-lg"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 nextImage();
                             }}
-                            className="bg-background/80 backdrop-blur-md p-2 rounded-full hover:bg-background transition-colors shadow-lg"
+                            className="bg-background/80 backdrop-blur-md p-1.5 sm:p-2 rounded-full hover:bg-background transition-colors shadow-lg"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
                 )}
 
                 {/* Counter */}
-                <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold border border-white/10">
+                <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-background/80 backdrop-blur-md px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold border border-white/10">
                     {currentIndex + 1} / {images.length}
                 </div>
             </div>
 
             {/* Thumbnails */}
             {images.length > 1 && (
-                <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="flex gap-2 sm:gap-4 overflow-x-auto pb-2 scrollbar-hide">
                     {images.map((img, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentIndex(idx)}
-                            className={`relative w-24 aspect-video rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-95' : 'border-transparent opacity-60 hover:opacity-100'
+                            className={`relative w-16 sm:w-24 aspect-video rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-95' : 'border-transparent opacity-60 hover:opacity-100'
                                 }`}
                         >
                             <Image
@@ -97,7 +97,7 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 fill
                                 className="object-cover"
                                 quality={60}
-                                sizes="96px"
+                                sizes="(max-width: 640px) 64px, 96px"
                                 loading="lazy"
                             />
                         </button>
@@ -112,16 +112,16 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4"
                     >
                         <button
                             onClick={() => setIsFullscreen(false)}
-                            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-[101]"
+                            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-[101]"
                         >
-                            <X className="w-6 h-6 text-white" />
+                            <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </button>
 
-                        <div className="relative w-full h-[80vh] flex items-center justify-center p-4">
+                        <div className="relative w-full h-[70vh] sm:h-[80vh] flex items-center justify-center">
                             <motion.div
                                 key={currentIndex}
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -143,28 +143,28 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 <>
                                     <button
                                         onClick={prevImage}
-                                        className="absolute left-4 p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                        className="absolute left-2 sm:left-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                                     >
-                                        <ChevronLeft className="w-8 h-8 text-white" />
+                                        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                     </button>
                                     <button
                                         onClick={nextImage}
-                                        className="absolute right-4 p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                        className="absolute right-2 sm:right-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                                     >
-                                        <ChevronRight className="w-8 h-8 text-white" />
+                                        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                     </button>
                                 </>
                             )}
                         </div>
 
                         {/* Thumbnails in Fullscreen */}
-                        <div className="w-full max-w-4xl px-4 mt-8">
-                            <div className="flex gap-3 overflow-x-auto justify-center pb-4 scrollbar-hide">
+                        <div className="w-full max-w-4xl mt-4 sm:mt-8">
+                            <div className="flex gap-2 sm:gap-3 overflow-x-auto justify-center pb-4 scrollbar-hide">
                                 {images.map((img, idx) => (
                                     <button
                                         key={idx}
                                         onClick={() => setCurrentIndex(idx)}
-                                        className={`relative w-20 aspect-video rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-105' : 'border-transparent opacity-40 hover:opacity-80'
+                                        className={`relative w-16 sm:w-20 aspect-video rounded-md sm:rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-105' : 'border-transparent opacity-40 hover:opacity-80'
                                             }`}
                                     >
                                         <Image
@@ -173,7 +173,7 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                             fill
                                             className="object-cover"
                                             quality={60}
-                                            sizes="80px"
+                                            sizes="(max-width: 640px) 64px, 80px"
                                             loading="lazy"
                                         />
                                     </button>
