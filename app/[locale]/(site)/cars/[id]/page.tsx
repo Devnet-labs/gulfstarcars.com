@@ -1,6 +1,7 @@
 import { getCarById } from '@/app/actions/getCarById';
 import { notFound } from 'next/navigation';
 import { CarImageGallery } from '@/components/CarImageGallery';
+import { ProductViewTracker } from '@/components/ProductViewTracker';
 import { Fuel, Settings2, Gauge, Shield, Calendar, Users, DoorOpen, Zap, Paintbrush, Globe, Box, Reply } from 'lucide-react';
 import Link from 'next/link';
 import { DetailClientActions } from './ClientComponents';
@@ -22,6 +23,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
     return (
         <div className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-16 bg-[#0B0F19]">
+            <ProductViewTracker carId={car.id} />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Navigation Breadcrumb */}
                 <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-6 sm:mb-8 overflow-x-auto">

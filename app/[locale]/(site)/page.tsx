@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-screen flex flex-col justify-center bg-background pt-20 pb-0 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
         {/* Background Video with Premium Overlays */}
         <div className="absolute inset-0 z-0">
           <video
