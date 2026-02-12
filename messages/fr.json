@@ -214,7 +214,10 @@
         "stkId": "ID Stock",
         "exportPrice": "Prix Export",
         "enquiry": "Demander",
-        "whatsapp": "WhatsApp"
+        "whatsapp": "WhatsApp",
+        "petrol": "Essence",
+        "auto": "Auto",
+        "noImages": "Aucune image disponible"
     },
     "footer": {
         "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",
@@ -243,9 +246,15 @@
             "about": "À propos",
             "inventory": "Inventaire",
             "services": "Services",
-            "contact": "Contact",
+            "contact": "Contactez-nous",
             "faq": "FAQ"
-        }
+        },
+        "slogan": "L'excellence automobile",
+        "emailLabel": "Email officiel",
+        "phoneLabel": "Support principal",
+        "privacy": "Confidentialité",
+        "terms": "Conditions",
+        "tagline": "Solutions d'exportation de véhicules haut de gamme • Établi à Dubaï, EAU"
     },
     "aboutPage": {
         "hero": {

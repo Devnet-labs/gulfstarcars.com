@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { optimizeCloudinaryUrl, cloudinaryPresets } from '@/lib/cloudinary';
 
+import { useTranslations } from 'next-intl';
+
 interface CarImageGalleryProps {
     images: string[];
     alt: string;
@@ -14,11 +16,12 @@ interface CarImageGalleryProps {
 export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const t = useTranslations('carCard');
 
     if (!images || images.length === 0) {
         return (
             <div className="aspect-video bg-muted rounded-2xl flex items-center justify-center">
-                <p className="text-muted-foreground">No images available</p>
+                <p className="text-muted-foreground">{t('noImages')}</p>
             </div>
         );
     }

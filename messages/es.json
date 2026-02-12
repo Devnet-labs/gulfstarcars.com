@@ -6,11 +6,18 @@
         "services": "Servicios",
         "about": "Sobre Nosotros",
         "contact": "Contactar",
+        "faq": "FAQ",
         "getQuote": "Obtener Cotización",
         "viewAllCars": "Ver todos los coches",
         "back": "Atrás",
         "goBack": "Volver"
     },
+    "slogan": "Excelencia Automotriz",
+    "emailLabel": "Correo Oficial",
+    "phoneLabel": "Soporte Principal",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "tagline": "Soluciones de exportación de vehículos premium • Establecido en Dubái, EAU",
     "home": {
         "hero": {
             "badge": "Expertos Gulfstarscars",
@@ -37,7 +44,13 @@
         }
     },
     "cars": {
-        "pageTitle": "Todos los Coches",
+        "pageTitle": "Nuestro Inventario",
+        "subtitle": "Explore nuestra colección completa de vehículos premium listos para exportación global",
+        "vehiclesFound": "{count} Vehículos Encontrados",
+        "foundSubtitle": "Encontrado en toda nuestra colección",
+        "filterTitle": "Filtros",
+        "clearFilters": "Borrar Filtros",
+        "clearAll": "Borrar Todo",
         "filters": {
             "search": "Buscar coches...",
             "condition": "Condición",
@@ -79,7 +92,17 @@
             "enquire": "Consultar Ahora"
         },
         "noCars": "No se encontraron coches",
-        "noCarsSubtitle": "Intenta ajustar tus filtros o vuelve más tarde."
+        "noCarsSubtitle": "Intenta ajustar tus filtros o vuelve más tarde.",
+        "carDetails": {
+            "stockId": "ID de Stock",
+            "exportPrice": "Precio de Exportación",
+            "description": "Descripción del Vehículo",
+            "techSpecs": "Especificaciones Técnicas",
+            "verifiedReport": "Informe de Condición Verificado",
+            "globalExport": "Exportación Global Disponible",
+            "enquire": "Consultar Ahora",
+            "whatsapp": "WhatsApp"
+        }
     },
     "contact": {
         "title": "Contáctanos",
@@ -214,7 +237,10 @@
         "stkId": "ID de Stock",
         "exportPrice": "Precio de Exportación",
         "enquiry": "Consultar",
-        "whatsapp": "WhatsApp"
+        "whatsapp": "WhatsApp",
+        "petrol": "Gasolina",
+        "auto": "Automático",
+        "noImages": "No hay imágenes disponibles"
     },
     "footer": {
         "description": "Somos su socio de confianza para importar coches de Dubái al mundo. Experimente un servicio perfecto y vehículos de calidad premium.",

@@ -2,9 +2,9 @@ import { getCarById } from '@/app/actions/getCarById';
 import { notFound } from 'next/navigation';
 import { CarImageGallery } from '@/components/CarImageGallery';
 import { Fuel, Settings2, Gauge, Shield, Calendar, Users, DoorOpen, Zap, Paintbrush, Globe, Box, Reply } from 'lucide-react';
-import { EnquiryModal } from '@/components/EnquiryModal';
 import Link from 'next/link';
 import { DetailClientActions } from './ClientComponents';
+import { getTranslations } from 'next-intl/server';
 
 interface CarDetailPageProps {
     params: Promise<{ id: string }>;
@@ -13,6 +13,8 @@ interface CarDetailPageProps {
 export default async function CarDetailPage({ params }: CarDetailPageProps) {
     const { id } = await params;
     const car = await getCarById(id);
+    const t = await getTranslations('cars.carDetails');
+    const tSpecs = await getTranslations('cars.specs');
 
     if (!car) {
         notFound();
@@ -23,9 +25,9 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
             <div className="container mx-auto px-4">
                 {/* Navigation Breadcrumb */}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                    <Link href="/" className="hover:text-primary transition-colors">{t('breadcrumb.home')}</Link>
                     <span>/</span>
-                    <Link href="/cars" className="hover:text-primary transition-colors">Inventory</Link>
+                    <Link href="/cars" className="hover:text-primary transition-colors">{t('breadcrumb.inventory')}</Link>
                     <span>/</span>
                     <span className="text-foreground font-medium">{car.make} {car.model}</span>
                 </div>
@@ -36,7 +38,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                         <CarImageGallery images={car.images} alt={`${car.make} ${car.model}`} />
 
                         <div className="bg-card/50 backdrop-blur-sm rounded-[32px] p-8 border border-white/5 shadow-2xl">
-                            <h2 className="text-2xl font-bold mb-6 text-foreground tracking-tight">Vehicle Description</h2>
+                            <h2 className="text-2xl font-bold mb-6 text-foreground tracking-tight">{t('description')}</h2>
                             <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed whitespace-pre-line">
                                 {car.description}
                             </div>
@@ -49,7 +51,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                             <div className="mb-8">
                                 <div className="flex items-center gap-2 mb-2">
                                     <span className="px-3 py-1 bg-primary text-white text-[10px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
-                                        STOCK ID: {car.customId || 'N/A'}
+                                        {t('stockId')}: {car.customId || 'N/A'}
                                     </span>
                                     <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                                         {car.condition}
@@ -61,15 +63,15 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                 <h1 className="text-3xl font-bold text-foreground mb-2">{car.year} {car.make} {car.model}</h1>
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-4xl font-black text-accent">${car.price.toLocaleString()}</span>
-                                    <span className="text-muted-foreground font-medium text-sm">Export Price</span>
+                                    <span className="text-muted-foreground font-medium text-sm">{t('exportPrice')}</span>
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-2 gap-4 mb-8">
-                                <DetailInfoItem icon={<Calendar className="w-5 h-5 text-primary" />} label="Year" value={car.year.toString()} />
-                                <DetailInfoItem icon={<Gauge className="w-5 h-5 text-primary" />} label="Mileage" value={`${car.mileage?.toLocaleString() || '0'} km`} />
-                                <DetailInfoItem icon={<Fuel className="w-5 h-5 text-primary" />} label="Fuel" value={car.fuelType || 'Petrol'} />
-                                <DetailInfoItem icon={<Settings2 className="w-5 h-5 text-primary" />} label="Trans" value={car.transmission || 'Auto'} />
+                                <DetailInfoItem icon={<Calendar className="w-5 h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
+                                <DetailInfoItem icon={<Gauge className="w-5 h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
+                                <DetailInfoItem icon={<Fuel className="w-5 h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType || 'Petrol'} />
+                                <DetailInfoItem icon={<Settings2 className="w-5 h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission || 'Auto'} />
                             </div>
 
                             <DetailClientActions car={car} />
@@ -77,11 +79,11 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                             <div className="mt-8 pt-8 border-t border-white/5 space-y-4">
                                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                                     <Shield className="w-5 h-5 text-green-500" />
-                                    <span>Verified Condition Report</span>
+                                    <span>{t('verifiedReport')}</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                                     <Globe className="w-5 h-5 text-blue-500" />
-                                    <span>Global Export Available</span>
+                                    <span>{t('globalExport')}</span>
                                 </div>
                             </div>
                         </div>
@@ -90,16 +92,16 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
                 {/* Technical Specifications Section */}
                 <div className="mt-16 bg-card/50 backdrop-blur-sm rounded-[40px] p-8 md:p-12 border border-white/5 shadow-2xl">
-                    <h2 className="text-3xl font-bold mb-10 text-center tracking-tight">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
-                        <SpecItem icon={<Zap />} label="Engine Capacity" value={car.engineCapacity} />
-                        <SpecItem icon={<Paintbrush />} label="Colour" value={car.colour} />
-                        <SpecItem icon={<Settings2 />} label="Drive Type" value={car.driveType} />
-                        <SpecItem icon={<Box />} label="Body Type" value={car.bodyType} />
-                        <SpecItem icon={<Reply />} label="Steering" value={car.steering} />
-                        <SpecItem icon={<DoorOpen />} label="Doors" value={car.doors?.toString()} />
-                        <SpecItem icon={<Users />} label="Seats" value={car.seats?.toString()} />
-                        <SpecItem icon={<Fuel />} label="Location" value={car.location} />
+                        <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={car.engineCapacity} />
+                        <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={car.colour} />
+                        <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={car.driveType} />
+                        <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={car.bodyType} />
+                        <SpecItem icon={<Reply />} label={tSpecs('steering')} value={car.steering} />
+                        <SpecItem icon={<DoorOpen />} label={tSpecs('doors')} value={car.doors?.toString()} />
+                        <SpecItem icon={<Users />} label={tSpecs('seats')} value={car.seats?.toString()} />
+                        <SpecItem icon={<Fuel />} label={tSpecs('location')} value={car.location} />
                     </div>
                 </div>
             </div>

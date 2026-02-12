@@ -37,7 +37,13 @@
         }
     },
     "cars": {
-        "pageTitle": "Todos os Carros",
+        "pageTitle": "O Nosso Inventário",
+        "subtitle": "Navegue pela nossa coleção completa de veículos premium prontos para exportação global",
+        "vehiclesFound": "{count} Veículos Encontrados",
+        "foundSubtitle": "Encontrado em toda a nossa coleção",
+        "filterTitle": "Filtros",
+        "clearFilters": "Limpar Filtros",
+        "clearAll": "Limpar Tudo",
         "filters": {
             "search": "Pesquisar carros...",
             "condition": "Condição",
@@ -79,7 +85,17 @@
             "enquire": "Consultar Agora"
         },
         "noCars": "Nenhum carro encontrado",
-        "noCarsSubtitle": "Tente ajustar os seus filtros ou verifique mais tarde."
+        "noCarsSubtitle": "Tente ajustar os seus filtros ou verifique mais tarde.",
+        "carDetails": {
+            "stockId": "ID de Stock",
+            "exportPrice": "Preço de Exportação",
+            "description": "Descrição do Veículo",
+            "techSpecs": "Especificações Técnicas",
+            "verifiedReport": "Relatório de Condição Verificado",
+            "globalExport": "Exportação Global Disponível",
+            "enquire": "Consultar Agora",
+            "whatsapp": "WhatsApp"
+        }
     },
     "contact": {
         "title": "Contacte-nos",
@@ -214,7 +230,10 @@
         "stkId": "ID de Stock",
         "exportPrice": "Preço de Exportação",
         "enquiry": "Consultar",
-        "whatsapp": "WhatsApp"
+        "whatsapp": "WhatsApp",
+        "petrol": "Gasolina",
+        "auto": "Automático",
+        "noImages": "Não há imagens disponíveis"
     },
     "footer": {
         "description": "Somos o seu parceiro de confiança para importar carros de Dubai para o mundo. Experimente um serviço perfeito e veículos de qualidade premium.",
@@ -243,9 +262,15 @@
             "about": "Sobre Nós",
             "inventory": "Inventário",
             "services": "Serviços",
-            "contact": "Contacte-nos",
+            "contact": "Contactar",
             "faq": "FAQ"
-        }
+        },
+        "slogan": "Excelência Automotiva",
+        "emailLabel": "Email Oficial",
+        "phoneLabel": "Suporte Principal",
+        "privacy": "Privacidade",
+        "terms": "Termos",
+        "tagline": "Soluções de exportação de veículos premium • Estabelecido em Dubai, EAU"
     },
     "aboutPage": {
         "hero": {

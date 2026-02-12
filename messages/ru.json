@@ -37,7 +37,13 @@
         }
     },
     "cars": {
-        "pageTitle": "Все автомобили",
+        "pageTitle": "Наш инвентарь",
+        "subtitle": "Просмотрите нашу полную коллекцию автомобилей премиум-класса, готовых к экспорту по всему миру",
+        "vehiclesFound": "Найдено {count} автомобилей",
+        "foundSubtitle": "Найдено во всей нашей коллекции",
+        "filterTitle": "Фильтры",
+        "clearFilters": "Очистить фильтры",
+        "clearAll": "Очистить все",
         "filters": {
             "search": "Поиск автомобилей...",
             "condition": "Состояние",
@@ -79,7 +85,17 @@
             "enquire": "Спросить сейчас"
         },
         "noCars": "Автомобили не найдены",
-        "noCarsSubtitle": "Попробуйте изменить фильтры или загляните позже."
+        "noCarsSubtitle": "Попробуйте изменить фильтры или загляните позже.",
+        "carDetails": {
+            "stockId": "ID Склада",
+            "exportPrice": "Экспортная цена",
+            "description": "Описание автомобиля",
+            "techSpecs": "Технические характеристики",
+            "verifiedReport": "Проверенный отчет о состоянии",
+            "globalExport": "Доступен глобальный экспорт",
+            "enquire": "Запросить",
+            "whatsapp": "WhatsApp"
+        }
     },
     "contact": {
         "title": "Контакты",
@@ -214,9 +230,13 @@
         "stkId": "ID Склада",
         "exportPrice": "Экспортная цена",
         "enquiry": "Запросить",
-        "whatsapp": "WhatsApp"
+        "whatsapp": "WhatsApp",
+        "petrol": "Бензин",
+        "auto": "Автомат",
+        "noImages": "Нет доступных изображений"
     },
     "footer": {
+        "brand": "GULFSTARCARS",
         "description": "Мы ваш надежный партнер по импорту автомобилей из Дубая по всему миру. Оцените безупречный сервис и автомобили премиум-класса.",
         "usefulLinks": "Полезные ссылки",
         "contactInfo": "Контактная инфо",
@@ -234,7 +254,6 @@
         "copyright": "Gulf Star Automotive F.Z.C. Все права защищены.",
         "privacyPolicy": "Политика конфиденциальности",
         "termsConditions": "Условия и положения",
-        "brand": "GULFSTARCARS",
         "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
         "phone": "+971-523479535",
         "phone2": "+971-555144479",
@@ -243,9 +262,15 @@
             "about": "О нас",
             "inventory": "Инвентарь",
             "services": "Услуги",
-            "contact": "Связаться с нами",
+            "contact": "Контакты",
             "faq": "FAQ"
-        }
+        },
+        "slogan": "Автомобильное совершенство",
+        "emailLabel": "Официальная почта",
+        "phoneLabel": "Основная поддержка",
+        "privacy": "Конфиденциальность",
+        "terms": "Условия",
+        "tagline": "Решения премиум-класса по экспорту автомобилей • Основано в Дубае, ОАЭ"
     },
     "aboutPage": {
         "hero": {

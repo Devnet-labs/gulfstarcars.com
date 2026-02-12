@@ -37,7 +37,13 @@
     }
   },
   "cars": {
-    "pageTitle": "All Cars",
+    "pageTitle": "Our Inventory",
+    "subtitle": "Browse our complete collection of premium vehicles ready for global export",
+    "vehiclesFound": "{count} Vehicles Found",
+    "foundSubtitle": "Found across our entire collection",
+    "filterTitle": "Filters",
+    "clearFilters": "Clear Filters",
+    "clearAll": "Clear All",
     "filters": {
       "search": "Search cars...",
       "condition": "Condition",
@@ -79,7 +85,17 @@
       "enquire": "Enquire Now"
     },
     "noCars": "No cars found",
-    "noCarsSubtitle": "Try adjusting your filters or check back later."
+    "noCarsSubtitle": "Try adjusting your filters or check back later.",
+    "carDetails": {
+      "stockId": "STOCK ID",
+      "exportPrice": "Export Price",
+      "description": "Vehicle Description",
+      "techSpecs": "Technical Specifications",
+      "verifiedReport": "Verified Condition Report",
+      "globalExport": "Global Export Available",
+      "enquire": "Enquire Now",
+      "whatsapp": "WhatsApp Us"
+    }
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -256,7 +272,10 @@
     "stkId": "STK ID",
     "exportPrice": "Export Price",
     "enquiry": "Enquiry",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "petrol": "Petrol",
+    "auto": "Auto",
+    "noImages": "No images available"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -264,11 +283,11 @@
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
     "emails": {
-        "md": "MD: md@gulfstarcars.com",
-        "ed": "ED: ed@gulfstarcars.com",
-        "director": "Director: director@gulfstarcars.com",
-        "exports": "Exports: exports@gulfstarcars.com",
-        "info": "Info: info@gulfstarcars.com"
+      "md": "MD: md@gulfstarcars.com",
+      "ed": "ED: ed@gulfstarcars.com",
+      "director": "Director: director@gulfstarcars.com",
+      "exports": "Exports: exports@gulfstarcars.com",
+      "info": "Info: info@gulfstarcars.com"
     },
     "newLaunches": "New Launches - Stay Updated",
     "subscribeText": "Subscribe to be the first one to get updated on new launched cars or other information.",
@@ -287,7 +306,13 @@
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
-    }
+    },
+    "slogan": "Automotive Excellence",
+    "emailLabel": "Official Email",
+    "phoneLabel": "Primary Support",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "tagline": "Premium Vehicle Export Solutions • Established in Dubai, UAE"
   },
   "aboutPage": {
     "hero": {
