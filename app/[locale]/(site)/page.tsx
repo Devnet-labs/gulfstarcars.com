@@ -202,7 +202,7 @@ export default function Home() {
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {featuredCars.map((car, index) => (
-                  <div key={car.id} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start">
+                  <div key={car.id} className="flex-none w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start">
                     <CarCard car={car} index={index} />
                   </div>
                 ))}

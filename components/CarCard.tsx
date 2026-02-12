@@ -51,7 +51,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 onClick={handleCardClick}
-                className="group bg-card rounded-[24px] overflow-hidden border border-white/5 shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col h-full cursor-pointer"
+                className="group bg-card rounded-[16px] sm:rounded-[24px] overflow-hidden border border-white/5 shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col h-full cursor-pointer"
             >
                 {/* Image Section */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
@@ -72,52 +72,52 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: (index * 0.1) + 0.3 }}
-                        className="absolute top-4 left-4 bg-background/90 backdrop-blur-md text-foreground text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"
+                        className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-background/90 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] font-extrabold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"
                     >
                         {car.customId ? `${t('stkId')}: ${car.customId}` : t('exportReady')}
                     </motion.div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col flex-grow">
-                    <div className="mb-4">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{car.make} {car.model}</h3>
-                            <span className="bg-secondary text-muted-foreground text-xs font-bold px-2 py-1 rounded-md border border-white/5">{car.year}</span>
+                <div className="p-3 sm:p-6 flex flex-col flex-grow">
+                    <div className="mb-2 sm:mb-4">
+                        <div className="flex justify-between items-start mb-1 sm:mb-2">
+                            <h3 className="text-sm sm:text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{car.make} {car.model}</h3>
+                            <span className="bg-secondary text-muted-foreground text-[8px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md border border-white/5">{car.year}</span>
                         </div>
-                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{car.description}</p>
+                        <p className="text-[10px] sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2 leading-relaxed">{car.description}</p>
                     </div>
 
                     {/* Specs Divider */}
-                    <div className="flex items-center gap-4 py-4 border-t border-white/5 mb-4">
-                        <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Fuel className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.fuelType || t('petrol')}
+                    <div className="flex items-center gap-2 sm:gap-4 py-2 sm:py-4 border-t border-white/5 mb-2 sm:mb-4">
+                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                            <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.fuelType || t('petrol')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
-                        <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Settings2 className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.transmission || t('auto')}
+                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                            <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.transmission || t('auto')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
-                        <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Gauge className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.mileage?.toLocaleString() || '0'} km
+                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                            <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.mileage?.toLocaleString() || '0'} km
                         </div>
                     </div>
 
                     {/* Additional Specs */}
                     {(car.colour || car.driveType || car.engineCapacity) && (
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
                             {car.colour && (
-                                <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-xs font-medium text-muted-foreground border border-white/5">
+                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
                                     {car.colour}
                                 </span>
                             )}
                             {car.driveType && (
-                                <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-xs font-medium text-muted-foreground border border-white/5">
+                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
                                     {car.driveType}
                                 </span>
                             )}
                             {car.engineCapacity && (
-                                <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-xs font-medium text-muted-foreground border border-white/5">
+                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
                                     {car.engineCapacity}
                                 </span>
                             )}
@@ -125,23 +125,23 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     )}
 
                     {/* Price */}
-                    <div className="mt-auto pt-4">
-                        <div className="mb-4">
-                            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">{t('exportPrice')}</p>
-                            <p className="text-2xl font-bold text-accent">${car.price.toLocaleString()}</p>
+                    <div className="mt-auto pt-2 sm:pt-4">
+                        <div className="mb-2 sm:mb-4">
+                            <p className="text-[10px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">{t('exportPrice')}</p>
+                            <p className="text-lg sm:text-2xl font-bold text-accent">${car.price.toLocaleString()}</p>
                         </div>
 
                         {/* Action Buttons Row */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-2 gap-2 sm:gap-3">
                             <motion.button
                                 whileTap={{ scale: 0.95 }}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setIsModalOpen(true);
                                 }}
-                                className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 font-semibold text-sm group/btn"
+                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-primary hover:bg-primary/90 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 font-semibold text-[10px] sm:text-sm group/btn"
                             >
-                                <MessageSquare className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+                                <MessageSquare className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
                                 <span>{t('enquiry')}</span>
                             </motion.button>
 
@@ -152,9 +152,9 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                                     const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'}) listed at $${car.price.toLocaleString()}`);
                                     window.open(`https://wa.me/+919019721662?text=${message}`, '_blank');
                                 }}
-                                className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-4 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-sm group/btn"
+                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-[10px] sm:text-sm group/btn"
                             >
-                                <MessageCircle className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+                                <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
                                 <span>{t('whatsapp')}</span>
                             </motion.button>
                         </div>

@@ -336,7 +336,7 @@ export default function CarsPage() {
                                             )}
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                                        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                                             {cars.map((car, index) => (
                                                 <CarCard key={car.id} car={car} index={index} />
                                             ))}

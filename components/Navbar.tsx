@@ -138,7 +138,7 @@ export function Navbar() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${pathname === link.href
+                                                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${pathname === link.href
                                                     ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
                                                     : 'text-[#A3A3A3] hover:bg-[#141414] hover:text-white'
                                                     }`}
