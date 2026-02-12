@@ -291,7 +291,7 @@
       "ed": "执行总监: ed@gulfstarcars.com",
       "director": "总监: director@gulfstarcars.com",
       "exports": "出口部: exports@gulfstarcars.com",
-      "info": "信息咨询: info@gulfstarcars.com"
+      "info": "smartinvestments005@gmail.com"
     },
     "newLaunches": "新发布的车 - 保持更新",
     "subscribeText": "订阅以第一时间获取新车发布或其他信息的更新。",
@@ -300,7 +300,7 @@
     "copyright": "Gulf Star Automotive F.Z.C. 保留所有权利。",
     "privacyPolicy": "隐私政策",
     "termsConditions": "条款和条件",
-    "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -313,10 +313,11 @@
     },
     "slogan": "卓越汽车",
     "emailLabel": "官方邮箱",
-    "phoneLabel": "主要支持",
+    "phoneLabel": "联系电话",
     "privacy": "隐私",
     "terms": "条款",
-    "tagline": "高端汽车出口解决方案 • 成立于阿联酋迪拜"
+    "tagline": "高端汽车出口解决方案 • 成立于阿联酋迪拜",
+    "addressLabel": "我们的地址"
   },
   "aboutPage": {
     "hero": {

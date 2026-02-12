@@ -32,6 +32,10 @@ model Car {
   seats          Int?      // Seating capacity
   location       String?   // Port/location for export
   enquiries      Enquiry[]
+  productViews   ProductView[]
+
+  @@index([status, createdAt]) // NEW: For filtering available cars
+  @@index([createdAt]) // NEW: For recent cars query
 }
 
 model Enquiry {
@@ -45,17 +49,110 @@ model Enquiry {
   car       Car?          @relation(fields: [carId], references: [id])
 }
 
-model Visit {
+model Visitor {
   id        String   @id @default(uuid())
-  country   String
-  ipHash    String
-  path      String?
+  visitorId String   @unique          // Cookie-based persistent UUID
+  country   String   @default("Unknown")
+  ipHash    String                     // SHA-256 hashed IP
   userAgent String?
+  firstSeen DateTime @default(now())
+  lastSeen  DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions  Session[]
+  pageViews PageView[]
+  productViews ProductView[]
+
+  @@index([country])
+  @@index([ipHash])
+  @@index([firstSeen])
+}
+
+model Session {
+  id             String   @id @default(uuid())
+  visitorId      String
+  startedAt      DateTime @default(now())
+  lastActivityAt DateTime @default(now())
+
+  visitor   Visitor    @relation(fields: [visitorId], references: [visitorId])
+  pageViews PageView[]
+  productViews ProductView[]
+
+  @@index([visitorId])
+  @@index([startedAt])
+  @@index([lastActivityAt])
+}
+
+model PageView {
+  id        String   @id @default(uuid())
+  visitorId String
+  sessionId String
+  path      String   @default("/")
+  referer   String?
+  device    String?
   browser   String?
   os        String?
-  device    String?
-  referer   String?
+  country   String   @default("Unknown")
   createdAt DateTime @default(now())
+
+  visitor Visitor @relation(fields: [visitorId], references: [visitorId])
+  session Session @relation(fields: [sessionId], references: [id])
+
+  @@index([visitorId])
+  @@index([sessionId])
+  @@index([path])
+  @@index([createdAt])
+  @@index([visitorId, path])
+  @@index([visitorId, createdAt])
+  @@index([createdAt, path]) // NEW: For time-series path analysis
+  @@index([device, createdAt]) // NEW: For device trends
+}
+
+model ProductView {
+  id         String   @id @default(uuid())
+  visitorId  String
+  sessionId  String
+  carId      String
+  viewedAt   DateTime @default(now())
+
+  // Engagement Metrics
+  durationMs Int?      // Time spent on product page
+  scrollDepth Int?     // 0-100 percentage
+  source     String?   // organic, paid, direct, referral
+  referer    String?   // Original referrer URL
+
+  visitor Visitor @relation(fields: [visitorId], references: [visitorId])
+  session Session @relation(fields: [sessionId], references: [id])
+  car     Car     @relation(fields: [carId], references: [id])
+
+  @@index([carId])
+  @@index([visitorId])
+  @@index([viewedAt])
+  @@index([carId, viewedAt])
+  @@index([sessionId])
+  @@index([viewedAt, carId]) // NEW: Optimized for time-series car queries
+  @@index([source, viewedAt]) // NEW: For attribution analysis
+}
+
+model AnalyticsDailySnapshot {
+  id              String   @id @default(uuid())
+  date            DateTime @unique
+
+  totalVisitors   Int
+  totalSessions   Int
+  totalPageViews  Int
+  totalProductViews Int
+  totalEnquiries  Int
+
+  avgSessionDurationMs Int?
+  avgProductViewDurationMs Int?
+  viewToEnquiryRate Float?
+  bounceRate        Float?
+
+  createdAt DateTime @default(now())
+
+  @@index([date])
 }
 
 enum EnquiryStatus {

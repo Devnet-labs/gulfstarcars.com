@@ -95,23 +95,44 @@ export function Footer() {
                                 {t('contactInfo')}
                             </h3>
                             <div className="space-y-8">
+                                {/* Address */}
                                 <div className="flex gap-5 group cursor-pointer">
-                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
+                                        <MapPin className="h-5 w-5 text-gray-500 group-hover:text-primary transition-colors" />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">{t('addressLabel')}</p>
+                                        <p className="text-sm font-bold text-white group-hover:text-primary transition-colors leading-relaxed"
+                                            dangerouslySetInnerHTML={{ __html: t.raw('address') }}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="flex gap-5 group cursor-pointer">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
                                         <Mail className="h-5 w-5 text-gray-500 group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-xs font-bold text-white/50 uppercase tracking-wider">{t('emailLabel')}</p>
-                                        <p className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('emails.info')}</p>
+                                        <a href={`mailto:${t('emails.info')}`} className="text-sm font-bold text-white group-hover:text-primary transition-colors block">
+                                            {t('emails.info')}
+                                        </a>
                                     </div>
                                 </div>
 
+                                {/* Phones */}
                                 <div className="flex gap-5 group cursor-pointer">
-                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
                                         <Phone className="h-5 w-5 text-gray-500 group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-xs font-bold text-white/50 uppercase tracking-wider">{t('phoneLabel')}</p>
-                                        <p className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('phone')}</p>
+                                        <div className="flex flex-col gap-1">
+                                            <a href={`tel:${t('phone')}`} className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('phone')}</a>
+                                            <a href={`tel:${t('phone2')}`} className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('phone2')}</a>
+                                            <a href={`tel:${t('phone3')}`} className="text-sm font-bold text-white group-hover:text-primary transition-colors">{t('phone3')}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

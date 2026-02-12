@@ -286,21 +286,7 @@
     "description": "We are your trusted partner for importing cars from Dubai to the world. Experience seamless service and premium quality vehicles.",
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
-    "emails": {
-      "md": "MD: md@gulfstarcars.com",
-      "ed": "ED: ed@gulfstarcars.com",
-      "director": "Director: director@gulfstarcars.com",
-      "exports": "Exports: exports@gulfstarcars.com",
-      "info": "Info: info@gulfstarcars.com"
-    },
-    "newLaunches": "New Launches - Stay Updated",
-    "subscribeText": "Subscribe to be the first one to get updated on new launched cars or other information.",
-    "emailPlaceholder": "Enter your email",
-    "subscribeButton": "Subscribe Now",
-    "copyright": "Gulf Star Automotive F.Z.C. All rights reserved.",
-    "privacyPolicy": "Privacy Policy",
-    "termsConditions": "Terms & Conditions",
-    "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
+    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -313,10 +299,15 @@
     },
     "slogan": "Automotive Excellence",
     "emailLabel": "Official Email",
-    "phoneLabel": "Primary Support",
+    "phoneLabel": "Contact Numbers",
+    "addressLabel": "Our Location",
+    "emails": {
+      "info": "smartinvestments005@gmail.com"
+    },
     "privacy": "Privacy",
     "terms": "Terms",
-    "tagline": "Premium Vehicle Export Solutions • Established in Dubai, UAE"
+    "tagline": "Premium Vehicle Export Solutions • Established in Dubai, UAE",
+    "copyright": "Gulf Star Automotive F.Z.C. All rights reserved."
   },
   "aboutPage": {
     "hero": {

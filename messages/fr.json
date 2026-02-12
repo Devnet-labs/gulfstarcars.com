@@ -1,311 +1,312 @@
 {
-    "nav": {
-        "brand": "GULFSTARCARS",
-        "home": "Accueil",
-        "inventory": "Inventaire",
-        "services": "Services",
-        "about": "À propos",
-        "contact": "Contactez-nous",
-        "getQuote": "Demander un Devis",
-        "viewAllCars": "Voir toutes les voitures",
-        "back": "Retour",
-        "goBack": "Retourner"
+  "nav": {
+    "brand": "GULFSTARCARS",
+    "home": "Accueil",
+    "inventory": "Inventaire",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contactez-nous",
+    "getQuote": "Demander un Devis",
+    "viewAllCars": "Voir toutes les voitures",
+    "back": "Retour",
+    "goBack": "Retourner"
+  },
+  "home": {
+    "hero": {
+      "badge": "Experts Gulfstarscars",
+      "title": "Conduisez votre rêve",
+      "titleHighlight": "Au-delà des frontières",
+      "subtitle": "La plateforme la plus fiable au monde pour l'exportation de véhicules haut de gamme de Dubaï vers partout dans le monde."
     },
-    "home": {
-        "hero": {
-            "badge": "Experts Gulfstarscars",
-            "title": "Conduisez votre rêve",
-            "titleHighlight": "Au-delà des frontières",
-            "subtitle": "La plateforme la plus fiable au monde pour l'exportation de véhicules haut de gamme de Dubaï vers partout dans le monde."
-        },
-        "cta": {
-            "browseTitle": "Parcourir notre collection",
-            "browseSubtitle": "Découvrez des véhicules haut de gamme prêts à l'exportation",
-            "viewAllCars": "Voir toutes les voitures"
-        },
-        "carsOfDay": {
-            "title": "Voitures du jour",
-            "subtitle": "Véhicules haut de gamme sélectionnés prêts pour l'exportation immédiate.",
-            "viewAll": "Voir toutes les voitures",
-            "noCars": "Aucun véhicule disponible pour le moment.",
-            "noCarsSubtitle": "Veuillez vérifier bientôt ou contactez-nous pour une commande personnalisée."
-        },
-        "finalCta": {
-            "title": "Prêt à importer ?",
-            "subtitle": "Rejoignez des milliers de clients satisfaits dans le monde. Obtenez votre devis personnalisé aujourd'hui.",
-            "button": "Obtenir un devis"
-        }
+    "cta": {
+      "browseTitle": "Parcourir notre collection",
+      "browseSubtitle": "Découvrez des véhicules haut de gamme prêts à l'exportation",
+      "viewAllCars": "Voir toutes les voitures"
     },
-    "cars": {
-        "pageTitle": "Toutes les voitures",
-        "filters": {
-            "search": "Rechercher des voitures...",
-            "condition": "État",
-            "all": "Tout",
-            "new": "Neuf",
-            "used": "Occasion",
-            "bodyType": "Carrosserie",
-            "fuelType": "Carburant",
-            "transmission": "Transmission",
-            "priceRange": "Fourchette de prix",
-            "sort": "Trier par",
-            "sortNewest": "Plus récents",
-            "sortOldest": "Plus anciens",
-            "sortPriceLow": "Prix : Croissant",
-            "sortPriceHigh": "Prix : Décroissant"
-        },
-        "specs": {
-            "year": "Année",
-            "mileage": "Kilométrage",
-            "km": "km",
-            "transmission": "Transmission",
-            "fuelType": "Carburant",
-            "bodyType": "Carrosserie",
-            "engineCapacity": "Moteur",
-            "colour": "Couleur",
-            "driveType": "Transmission",
-            "doors": "Portes",
-            "seats": "Sièges",
-            "location": "Emplacement",
-            "steering": "Direction"
-        },
-        "status": {
-            "available": "Disponible",
-            "sold": "Vendu",
-            "reserved": "Réservé"
-        },
-        "actions": {
-            "viewDetails": "Voir les détails",
-            "enquire": "Demander"
-        },
-        "noCars": "Aucune voiture trouvée",
-        "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard.",
-        "carDetails": {
-            "stockId": "ID Stock",
-            "exportPrice": "Prix Export",
-            "description": "Description du Véhicule",
-            "techSpecs": "Spécifications Techniques",
-            "verifiedReport": "Rapport d'État Vérifié",
-            "globalExport": "Exportation Mondiale Disponible",
-            "enquire": "Demander",
-            "whatsapp": "WhatsApp",
-            "breadcrumb": {
-                "home": "Accueil",
-                "inventory": "Inventaire"
-            }
-        }
+    "carsOfDay": {
+      "title": "Voitures du jour",
+      "subtitle": "Véhicules haut de gamme sélectionnés prêts pour l'exportation immédiate.",
+      "viewAll": "Voir toutes les voitures",
+      "noCars": "Aucun véhicule disponible pour le moment.",
+      "noCarsSubtitle": "Veuillez vérifier bientôt ou contactez-nous pour une commande personnalisée."
     },
-    "contact": {
-        "title": "Contactez-nous",
-        "subtitle": "Entrez en contact avec notre équipe",
-        "name": "Votre nom",
-        "email": "Votre email",
-        "message": "Votre message",
-        "send": "Envoyer le message",
-        "success": "Message envoyé avec succès !",
-        "error": "Échec de l'envoi du message. Veuillez réessayer."
-    },
-    "common": {
-        "loading": "Chargement...",
-        "error": "Une erreur est survenue",
-        "tryAgain": "Réessayer",
-        "close": "Fermer",
-        "open": "Ouvrir",
-        "yes": "Oui",
-        "no": "Non",
-        "search": "Rechercher",
-        "filter": "Filtrer",
-        "clear": "Effacer",
-        "apply": "Appliquer",
-        "next": "Suivant",
-        "previous": "Précédent",
-        "page": "Page",
-        "of": "de",
-        "showing": "Affichage de",
-        "results": "résultats"
-    },
-    "trustStats": {
-        "delivered": {
-            "label": "Voitures livrées",
-            "description": "Exportées avec succès mondialement"
-        },
-        "countries": {
-            "label": "Pays desservis",
-            "description": "Sur 6 continents"
-        },
-        "clients": {
-            "label": "Clients satisfaits",
-            "description": "Note moyenne des clients"
-        },
-        "years": {
-            "label": "Années d'excellence",
-            "description": "Expérience leader de l'industrie"
-        }
-    },
-    "whyChooseUs": {
-        "badge": "Pourquoi choisir Gulfstarscars",
-        "title": "Vivez la",
-        "titleHighlight": "Différence",
-        "subtitle": "Rejoignez des milliers de clients satisfaits dans le monde entier qui nous font confiance pour leurs exports de véhicules premium.",
-        "globalReach": {
-            "title": "Portée mondiale",
-            "desc": "Expédition vers plus de 100 pays avec douanes, documentation et logistique gérées."
-        },
-        "premiumMembers": {
-            "title": "Membres Premium",
-            "desc": "Accès exclusif aux salons de voitures de luxe et à notre réseau de concessionnaires vérifiés."
-        },
-        "database": {
-            "title": "Base de données étendue",
-            "desc": "Accès à plus de 500 concessionnaires vérifiés et des milliers de véhicules premium prêts pour l'export."
-        },
-        "integration": {
-            "title": "Intégration transparente",
-            "desc": "Intégration système sans effort avec vos flux de travail existants pour une expérience fluide."
-        }
-    },
-    "portfolio": {
-        "badge": "Portefeuille de réussite",
-        "title": "Livrer l'excellence",
-        "titleHighlight": "Mondialement",
-        "subtitle": "Rejoignez notre cercle d'élite de clients internationaux. Nous n'exportons pas seulement des voitures ; nous livrons des rêves au-delà des frontières avec une précision inégalée.",
-        "items": {
-            "item1": {
-                "title": "Livraison au coucher du soleil",
-                "location": "Dubaï, EAU",
-                "category": "Sport de luxe"
-            },
-            "item2": {
-                "title": "Édition Monaco",
-                "location": "Monte Carlo, Monaco",
-                "category": "SUV Premium"
-            },
-            "item3": {
-                "title": "Prêt pour showroom",
-                "location": "Port de Dubaï",
-                "category": "Export de flotte"
-            }
-        }
-    },
-    "testimonials": {
-        "badge": "Témoignages clients",
-        "title": "Voix de la",
-        "titleHighlight": "Confiance",
-        "items": {
-            "item1": {
-                "name": "James Wilson",
-                "role": "Collectionneur de luxe, RU",
-                "content": "Le processus était transparent. De la première demande à l'arrivée de mon G-Wagon à Londres, Gulfstarscars a tout géré avec un professionnalisme absolu."
-            },
-            "item2": {
-                "name": "Ahmed Al-Sayed",
-                "role": "Propriétaire d'entreprise, KSA",
-                "content": "Partenaire de confiance pour tous mes besoins d'export. Leurs rapports d'inspection sont détaillés et honnêtes. Recommandé pour quiconque souhaite importer des voitures de Dubaï."
-            },
-            "item3": {
-                "name": "Elena Rodriguez",
-                "role": "Concessionnaire auto, Espagne",
-                "content": "Prix transparents et documentation express. Ils font de l'exportation mondiale de voitures un achat local. Excellent service !"
-            }
-        }
-    },
-    "features": {
-        "globalReach": {
-            "title": "Portée mondiale",
-            "desc": "Expédition vers plus de 50 pays avec douanes gérées."
-        },
-        "verifiedQuality": {
-            "title": "Qualité vérifiée",
-            "desc": "Chaque voiture subit une inspection de 120 points."
-        },
-        "fastProcessing": {
-            "title": "Traitement rapide",
-            "desc": "Dédouanement documentaire express en 24-48 heures."
-        }
-    },
-    "carCard": {
-        "exportReady": "Prêt pour l'export",
-        "stkId": "ID Stock",
-        "exportPrice": "Prix Export",
-        "enquiry": "Demander",
-        "whatsapp": "WhatsApp",
-        "petrol": "Essence",
-        "auto": "Auto",
-        "noImages": "Aucune image disponible"
-    },
-    "footer": {
-        "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",
-        "usefulLinks": "Liens utiles",
-        "contactInfo": "Infos contact",
-        "emails": {
-            "md": "MD: md@gulfstarcars.com",
-            "ed": "ED: ed@gulfstarcars.com",
-            "director": "Director: director@gulfstarcars.com",
-            "exports": "Exports: exports@gulfstarcars.com",
-            "info": "Info: info@gulfstarcars.com"
-        },
-        "newLaunches": "Nouveaux lancements - Restez informé",
-        "subscribeText": "Abonnez-vous pour être le premier à être informé des nouvelles voitures lancées ou d'autres informations.",
-        "emailPlaceholder": "Entrez votre email",
-        "subscribeButton": "S'abonner maintenant",
-        "copyright": "Gulf Star Automotive F.Z.C. Tous droits réservés.",
-        "privacyPolicy": "Politique de confidentialité",
-        "termsConditions": "Termes & Conditions",
-        "brand": "GULFSTARCARS",
-        "address": "C11F SF6657, Ajman Free Zone,<br />PO BOX 84891, DUBAI, UAE",
-        "phone": "+971-523479535",
-        "phone2": "+971-555144479",
-        "phone3": "+971-585147256",
-        "links": {
-            "about": "À propos",
-            "inventory": "Inventaire",
-            "services": "Services",
-            "contact": "Contactez-nous",
-            "faq": "FAQ"
-        },
-        "slogan": "L'excellence automobile",
-        "emailLabel": "Email officiel",
-        "phoneLabel": "Support principal",
-        "privacy": "Confidentialité",
-        "terms": "Conditions",
-        "tagline": "Solutions d'exportation de véhicules haut de gamme • Établi à Dubaï, EAU"
-    },
-    "aboutPage": {
-        "hero": {
-            "title": "Redéfinir l'Excellence",
-            "titleHighlight": "Automobile",
-            "subtitle": "Gulfstarscars est la première plateforme mondiale d'exportation de véhicules de luxe. Nous comblons le fossé entre le marché automobile exclusif de Dubaï et les acheteurs internationaux."
-        },
-        "mission": {
-            "title": "Notre Mission",
-            "content": "Offrir une expérience d'achat de voiture fluide, transparente et haut de gamme aux clients du monde entier, en veillant à ce que la distance ne soit jamais un obstacle pour posséder la voiture de vos rêves."
-        },
-        "story": {
-            "title": "Notre Histoire",
-            "content": "Fondée au cœur de Dubaï, Gulfstarscars a commencé avec une vision simple : partager l'incroyable inventaire automobile des EAU avec le monde. Aujourd'hui, nous sommes un partenaire de confiance pour des milliers de clients sur 6 continents."
-        }
-    },
-    "servicesPage": {
-        "hero": {
-            "title": "Services de",
-            "titleHighlight": "Classe Mondiale",
-            "subtitle": "Des solutions d'exportation complètes adaptées à vos besoins. De l'approvisionnement à la livraison, nous traitons chaque détail avec précision."
-        },
-        "sourcing": {
-            "title": "Recherche de Véhicules",
-            "desc": "Accès à des listes exclusives hors marché et aux réseaux de concessionnaires directs."
-        },
-        "inspection": {
-            "title": "Inspection Premium",
-            "desc": "Rapports mécaniques et cosmétiques détaillés de 120 points pour une tranquillité d'esprit totale."
-        },
-        "logistics": {
-            "title": "Logistique Mondiale",
-            "desc": "Options de fret terrestre, maritime et aérien assuré vers n'importe quelle destination dans le monde."
-        },
-        "customs": {
-            "title": "Dédouanement",
-            "desc": "Traitement expert de tous les documents d'exportation et procédures de dédouanement."
-        }
+    "finalCta": {
+      "title": "Prêt à importer ?",
+      "subtitle": "Rejoignez des milliers de clients satisfaits dans le monde. Obtenez votre devis personnalisé aujourd'hui.",
+      "button": "Obtenir un devis"
     }
+  },
+  "cars": {
+    "pageTitle": "Toutes les voitures",
+    "filters": {
+      "search": "Rechercher des voitures...",
+      "condition": "État",
+      "all": "Tout",
+      "new": "Neuf",
+      "used": "Occasion",
+      "bodyType": "Carrosserie",
+      "fuelType": "Carburant",
+      "transmission": "Transmission",
+      "priceRange": "Fourchette de prix",
+      "sort": "Trier par",
+      "sortNewest": "Plus récents",
+      "sortOldest": "Plus anciens",
+      "sortPriceLow": "Prix : Croissant",
+      "sortPriceHigh": "Prix : Décroissant"
+    },
+    "specs": {
+      "year": "Année",
+      "mileage": "Kilométrage",
+      "km": "km",
+      "transmission": "Transmission",
+      "fuelType": "Carburant",
+      "bodyType": "Carrosserie",
+      "engineCapacity": "Moteur",
+      "colour": "Couleur",
+      "driveType": "Transmission",
+      "doors": "Portes",
+      "seats": "Sièges",
+      "location": "Emplacement",
+      "steering": "Direction"
+    },
+    "status": {
+      "available": "Disponible",
+      "sold": "Vendu",
+      "reserved": "Réservé"
+    },
+    "actions": {
+      "viewDetails": "Voir les détails",
+      "enquire": "Demander"
+    },
+    "noCars": "Aucune voiture trouvée",
+    "noCarsSubtitle": "Essayez de modifier vos filtres ou revenez plus tard.",
+    "carDetails": {
+      "stockId": "ID Stock",
+      "exportPrice": "Prix Export",
+      "description": "Description du Véhicule",
+      "techSpecs": "Spécifications Techniques",
+      "verifiedReport": "Rapport d'État Vérifié",
+      "globalExport": "Exportation Mondiale Disponible",
+      "enquire": "Demander",
+      "whatsapp": "WhatsApp",
+      "breadcrumb": {
+        "home": "Accueil",
+        "inventory": "Inventaire"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Entrez en contact avec notre équipe",
+    "name": "Votre nom",
+    "email": "Votre email",
+    "message": "Votre message",
+    "send": "Envoyer le message",
+    "success": "Message envoyé avec succès !",
+    "error": "Échec de l'envoi du message. Veuillez réessayer."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "tryAgain": "Réessayer",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "yes": "Oui",
+    "no": "Non",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "clear": "Effacer",
+    "apply": "Appliquer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "page": "Page",
+    "of": "de",
+    "showing": "Affichage de",
+    "results": "résultats"
+  },
+  "trustStats": {
+    "delivered": {
+      "label": "Voitures livrées",
+      "description": "Exportées avec succès mondialement"
+    },
+    "countries": {
+      "label": "Pays desservis",
+      "description": "Sur 6 continents"
+    },
+    "clients": {
+      "label": "Clients satisfaits",
+      "description": "Note moyenne des clients"
+    },
+    "years": {
+      "label": "Années d'excellence",
+      "description": "Expérience leader de l'industrie"
+    }
+  },
+  "whyChooseUs": {
+    "badge": "Pourquoi choisir Gulfstarscars",
+    "title": "Vivez la",
+    "titleHighlight": "Différence",
+    "subtitle": "Rejoignez des milliers de clients satisfaits dans le monde entier qui nous font confiance pour leurs exports de véhicules premium.",
+    "globalReach": {
+      "title": "Portée mondiale",
+      "desc": "Expédition vers plus de 100 pays avec douanes, documentation et logistique gérées."
+    },
+    "premiumMembers": {
+      "title": "Membres Premium",
+      "desc": "Accès exclusif aux salons de voitures de luxe et à notre réseau de concessionnaires vérifiés."
+    },
+    "database": {
+      "title": "Base de données étendue",
+      "desc": "Accès à plus de 500 concessionnaires vérifiés et des milliers de véhicules premium prêts pour l'export."
+    },
+    "integration": {
+      "title": "Intégration transparente",
+      "desc": "Intégration système sans effort avec vos flux de travail existants pour une expérience fluide."
+    }
+  },
+  "portfolio": {
+    "badge": "Portefeuille de réussite",
+    "title": "Livrer l'excellence",
+    "titleHighlight": "Mondialement",
+    "subtitle": "Rejoignez notre cercle d'élite de clients internationaux. Nous n'exportons pas seulement des voitures ; nous livrons des rêves au-delà des frontières avec une précision inégalée.",
+    "items": {
+      "item1": {
+        "title": "Livraison au coucher du soleil",
+        "location": "Dubaï, EAU",
+        "category": "Sport de luxe"
+      },
+      "item2": {
+        "title": "Édition Monaco",
+        "location": "Monte Carlo, Monaco",
+        "category": "SUV Premium"
+      },
+      "item3": {
+        "title": "Prêt pour showroom",
+        "location": "Port de Dubaï",
+        "category": "Export de flotte"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Témoignages clients",
+    "title": "Voix de la",
+    "titleHighlight": "Confiance",
+    "items": {
+      "item1": {
+        "name": "James Wilson",
+        "role": "Collectionneur de luxe, RU",
+        "content": "Le processus était transparent. De la première demande à l'arrivée de mon G-Wagon à Londres, Gulfstarscars a tout géré avec un professionnalisme absolu."
+      },
+      "item2": {
+        "name": "Ahmed Al-Sayed",
+        "role": "Propriétaire d'entreprise, KSA",
+        "content": "Partenaire de confiance pour tous mes besoins d'export. Leurs rapports d'inspection sont détaillés et honnêtes. Recommandé pour quiconque souhaite importer des voitures de Dubaï."
+      },
+      "item3": {
+        "name": "Elena Rodriguez",
+        "role": "Concessionnaire auto, Espagne",
+        "content": "Prix transparents et documentation express. Ils font de l'exportation mondiale de voitures un achat local. Excellent service !"
+      }
+    }
+  },
+  "features": {
+    "globalReach": {
+      "title": "Portée mondiale",
+      "desc": "Expédition vers plus de 50 pays avec douanes gérées."
+    },
+    "verifiedQuality": {
+      "title": "Qualité vérifiée",
+      "desc": "Chaque voiture subit une inspection de 120 points."
+    },
+    "fastProcessing": {
+      "title": "Traitement rapide",
+      "desc": "Dédouanement documentaire express en 24-48 heures."
+    }
+  },
+  "carCard": {
+    "exportReady": "Prêt pour l'export",
+    "stkId": "ID Stock",
+    "exportPrice": "Prix Export",
+    "enquiry": "Demander",
+    "whatsapp": "WhatsApp",
+    "petrol": "Essence",
+    "auto": "Auto",
+    "noImages": "Aucune image disponible"
+  },
+  "footer": {
+    "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",
+    "usefulLinks": "Liens utiles",
+    "contactInfo": "Infos contact",
+    "emails": {
+      "md": "MD: md@gulfstarcars.com",
+      "ed": "ED: ed@gulfstarcars.com",
+      "director": "Director: director@gulfstarcars.com",
+      "exports": "Exports: exports@gulfstarcars.com",
+      "info": "smartinvestments005@gmail.com"
+    },
+    "newLaunches": "Nouveaux lancements - Restez informé",
+    "subscribeText": "Abonnez-vous pour être le premier à être informé des nouvelles voitures lancées ou d'autres informations.",
+    "emailPlaceholder": "Entrez votre email",
+    "subscribeButton": "S'abonner maintenant",
+    "copyright": "Gulf Star Automotive F.Z.C. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsConditions": "Termes & Conditions",
+    "brand": "GULFSTARCARS",
+    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "phone": "+971-523479535",
+    "phone2": "+971-555144479",
+    "phone3": "+971-585147256",
+    "links": {
+      "about": "À propos",
+      "inventory": "Inventaire",
+      "services": "Services",
+      "contact": "Contactez-nous",
+      "faq": "FAQ"
+    },
+    "slogan": "L'excellence automobile",
+    "emailLabel": "Email officiel",
+    "phoneLabel": "Numéros de Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "tagline": "Solutions d'exportation de véhicules haut de gamme • Établi à Dubaï, EAU",
+    "addressLabel": "Notre Adresse"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Redéfinir l'Excellence",
+      "titleHighlight": "Automobile",
+      "subtitle": "Gulfstarscars est la première plateforme mondiale d'exportation de véhicules de luxe. Nous comblons le fossé entre le marché automobile exclusif de Dubaï et les acheteurs internationaux."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Offrir une expérience d'achat de voiture fluide, transparente et haut de gamme aux clients du monde entier, en veillant à ce que la distance ne soit jamais un obstacle pour posséder la voiture de vos rêves."
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "content": "Fondée au cœur de Dubaï, Gulfstarscars a commencé avec une vision simple : partager l'incroyable inventaire automobile des EAU avec le monde. Aujourd'hui, nous sommes un partenaire de confiance pour des milliers de clients sur 6 continents."
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Services de",
+      "titleHighlight": "Classe Mondiale",
+      "subtitle": "Des solutions d'exportation complètes adaptées à vos besoins. De l'approvisionnement à la livraison, nous traitons chaque détail avec précision."
+    },
+    "sourcing": {
+      "title": "Recherche de Véhicules",
+      "desc": "Accès à des listes exclusives hors marché et aux réseaux de concessionnaires directs."
+    },
+    "inspection": {
+      "title": "Inspection Premium",
+      "desc": "Rapports mécaniques et cosmétiques détaillés de 120 points pour une tranquillité d'esprit totale."
+    },
+    "logistics": {
+      "title": "Logistique Mondiale",
+      "desc": "Options de fret terrestre, maritime et aérien assuré vers n'importe quelle destination dans le monde."
+    },
+    "customs": {
+      "title": "Dédouanement",
+      "desc": "Traitement expert de tous les documents d'exportation et procédures de dédouanement."
+    }
+  }
 }

@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Default to Dark Mode (Deep Navy) */
-  --background: #0f172a;
-  --foreground: #f8fafc;
+  /* Refined Charcoal + Gold System */
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
   
-  --primary: #E63946;    /* Vibrant Red */
-  --primary-foreground: #ffffff;
+  --primary: #D4AF37;    /* Refined Gold */
+  --primary-foreground: #000000;
   
-  --secondary: #1e293b;  /* Lighter Navy */
-  --secondary-foreground: #f8fafc;
+  --secondary: #141414;  /* Card background */
+  --secondary-foreground: #FFFFFF;
   
-  --accent: #38bdf8;     /* Sky Blue for contrast */
-  --accent-foreground: #0f172a;
+  --accent: #D4AF37;     /* Gold accent */
+  --accent-foreground: #000000;
   
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
+  --muted: #737373;
+  --muted-foreground: #A3A3A3;
   
-  --card: #1e293b;       /* Card background slightly lighter than page bg */
-  --card-foreground: #f8fafc;
+  --card: #141414;
+  --card-foreground: #FFFFFF;
   
-  --border: #334155;
-  --radius: 0.75rem;
+  --border: #262626;
+  --radius: 0.5rem;
   --whatsapp: #25D366;
 }
 
@@ -43,75 +43,33 @@
   --font-sans: var(--font-dm-sans);
 }
 
-/* Optional: Explicit Light Mode override if system preference is light, 
-   but user requested consistent dark mode focus. 
-   We can keep this minimal or remove to enforce dark mode. 
-   For now, let's make light mode just an inverted version for safety 
-   or keep it dark to force the requested aesthetic. */
-@media (prefers-color-scheme: light) {
-  /* Keeping it dark even in light mode for consistency as requested */
-  :root {
-      --background: #0f172a;
-      --foreground: #f8fafc;
-      --card: #1e293b;
-      --card-foreground: #f8fafc;
-      --border: #334155;
-      --muted: #1e293b;
-      --secondary: #1e293b;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar for Search Dropdowns */
+/* Refined Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
+  background: #141414;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
+  background: #404040;
+  border-radius: 2px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #525252;
 }
 
-@keyframes shine {
-  100% {
-    transform: translateX(200%) skewX(12deg);
-  }
-}
-.animate-shine {
-  animation: shine 1.5s infinite linear;
-}
-
-/* Hide scrollbar but keep functionality */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.animate-gradient {
-  animation: gradient 3s ease infinite;
 }

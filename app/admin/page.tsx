@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db';
-import { MessageSquare, Car, DollarSign, Activity, ArrowUpRight, Clock, CheckCircle, TrendingUp, Filter, Users, Globe } from 'lucide-react';
+import { MessageSquare, Car, DollarSign, Activity, ArrowUpRight, Clock, CheckCircle, TrendingUp, Users, Globe, Eye, Zap } from 'lucide-react';
 import * as Motion from '@/components/motion';
 import Link from 'next/link';
 import { FormattedDate } from '@/components/FormattedDate';
@@ -8,6 +8,8 @@ export const dynamic = 'force-dynamic';
 
 async function getDashboardStats() {
     try {
+        const sessionCutoff = new Date(Date.now() - 30 * 60 * 1000); // 30 minutes
+
         const [
             totalCars,
             totalEnquiries,
@@ -15,12 +17,14 @@ async function getDashboardStats() {
             repliedEnquiries,
             recentCars,
             recentEnquiries,
-            totalVisits,
+            uniqueVisitors,
+            totalPageViews,
+            activeSessions,
             topCountriesRaw,
             topPagesRaw,
             deviceStatsRaw,
             browserStatsRaw,
-            recentVisits
+            recentPageViews
         ] = await Promise.all([
             prisma.car.count(),
             prisma.enquiry.count(),
@@ -36,34 +40,59 @@ async function getDashboardStats() {
                 orderBy: { createdAt: 'desc' },
                 select: { id: true, userName: true, userEmail: true, message: true, status: true, car: { select: { make: true, model: true } }, createdAt: true }
             }),
-            prisma.visit.count(),
-            prisma.visit.groupBy({
+
+            // ─── Analytics: Unique Visitors (from Visitor table) ─────
+            prisma.visitor.count(),
+
+            // ─── Analytics: Total PageViews ──────────────────────────
+            prisma.pageView.count(),
+
+            // ─── Analytics: Active Sessions (last 30 min) ────────────
+            prisma.session.count({
+                where: { lastActivityAt: { gte: sessionCutoff } },
+            }),
+
+            // ─── Analytics: Top Countries (from Visitor, not PageView) ─
+            prisma.visitor.groupBy({
                 by: ['country'],
                 _count: { country: true },
                 orderBy: { _count: { country: 'desc' } },
                 take: 6,
             }),
-            prisma.visit.groupBy({
+
+            // ─── Analytics: Top Pages (from PageView) ────────────────
+            prisma.pageView.groupBy({
                 by: ['path'],
                 _count: { path: true },
                 orderBy: { _count: { path: 'desc' } },
                 take: 8,
             }),
-            prisma.visit.groupBy({
+
+            // ─── Analytics: Device Stats (from PageView) ─────────────
+            prisma.pageView.groupBy({
                 by: ['device'],
                 _count: { device: true },
                 orderBy: { _count: { device: 'desc' } },
             }),
-            prisma.visit.groupBy({
+
+            // ─── Analytics: Browser Stats (from PageView) ────────────
+            prisma.pageView.groupBy({
                 by: ['browser'],
                 _count: { browser: true },
                 orderBy: { _count: { browser: 'desc' } },
                 take: 5,
             }),
-            prisma.visit.findMany({
+
+            // ─── Analytics: Recent Activity ──────────────────────────
+            prisma.pageView.findMany({
                 take: 10,
                 orderBy: { createdAt: 'desc' },
-            })
+                include: {
+                    visitor: {
+                        select: { country: true },
+                    },
+                },
+            }),
         ]);
 
         const allCars = await prisma.car.findMany({ select: { price: true } });
@@ -77,12 +106,14 @@ async function getDashboardStats() {
             recentCars,
             recentEnquiries,
             totalValue,
-            totalVisits,
+            uniqueVisitors,
+            totalPageViews,
+            activeSessions,
             topCountries: topCountriesRaw.map(i => ({ country: i.country, count: i._count.country })),
             topPages: topPagesRaw.map(i => ({ path: i.path || '/', count: i._count.path })),
             deviceStats: deviceStatsRaw.map(i => ({ type: i.device || 'Desktop', count: i._count.device })),
             browserStats: browserStatsRaw.map(i => ({ name: i.browser || 'Other', count: i._count.browser })),
-            recentVisits
+            recentPageViews,
         };
     } catch (error) {
         console.error("Failed to fetch dashboard stats:", error);
@@ -132,7 +163,7 @@ export default async function AdminDashboard() {
             </div>
 
             {/* Primary Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 {/* Total Inventory */}
                 <Motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -183,7 +214,7 @@ export default async function AdminDashboard() {
                     </div>
                 </Motion.div>
 
-                {/* Total Visits */}
+                {/* Unique Visitors */}
                 <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -198,21 +229,73 @@ export default async function AdminDashboard() {
                             <div className="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center">
                                 <Users className="w-5 h-5 text-pink-400" />
                             </div>
-                            <span className="text-slate-400 font-medium">Total Visitors</span>
+                            <span className="text-slate-400 font-medium">Unique Visitors</span>
                         </div>
-                        <div className="text-3xl font-bold text-white mb-1">{stats.totalVisits}</div>
+                        <div className="text-3xl font-bold text-white mb-1">{stats.uniqueVisitors}</div>
                         <div className="text-sm text-pink-400 flex items-center gap-1">
                             <ArrowUpRight className="w-3 h-3" />
-                            <span>Site Traffic</span>
+                            <span>Distinct users</span>
                         </div>
                     </div>
                 </Motion.div>
 
-                {/* Total Enquiries */}
+                {/* Total PageViews */}
+                <Motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.25 }}
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                >
+                    <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Eye className="w-24 h-24 text-indigo-500" />
+                    </div>
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                                <Eye className="w-5 h-5 text-indigo-400" />
+                            </div>
+                            <span className="text-slate-400 font-medium">Total Pageviews</span>
+                        </div>
+                        <div className="text-3xl font-bold text-white mb-1">{stats.totalPageViews}</div>
+                        <div className="text-sm text-indigo-400 flex items-center gap-1">
+                            <TrendingUp className="w-3 h-3" />
+                            <span>Navigation events</span>
+                        </div>
+                    </div>
+                </Motion.div>
+
+                {/* Active Sessions */}
                 <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                >
+                    <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Zap className="w-24 h-24 text-amber-500" />
+                    </div>
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                                <Zap className="w-5 h-5 text-amber-400" />
+                            </div>
+                            <span className="text-slate-400 font-medium">Active Now</span>
+                        </div>
+                        <div className="text-3xl font-bold text-white mb-1">{stats.activeSessions}</div>
+                        <div className="text-sm text-amber-400 flex items-center gap-1">
+                            <Activity className="w-3 h-3" />
+                            <span>Sessions (30 min)</span>
+                        </div>
+                    </div>
+                </Motion.div>
+            </div>
+
+            {/* Enquiry Summary */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.35 }}
                     className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -228,8 +311,43 @@ export default async function AdminDashboard() {
                         <div className="text-3xl font-bold text-white mb-1">{stats.totalEnquiries}</div>
                         <div className="text-sm text-purple-400 flex items-center gap-1">
                             <CheckCircle className="w-3 h-3" />
-                            <span>{stats.pendingEnquiries} Pending</span>
+                            <span>{stats.pendingEnquiries} Pending · {stats.repliedEnquiries} Replied</span>
                         </div>
+                    </div>
+                </Motion.div>
+
+                {/* Top Countries - compact card */}
+                <Motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl"
+                >
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                            <Globe className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <span className="text-slate-400 font-medium">Top Countries</span>
+                    </div>
+                    <div className="space-y-2">
+                        {stats.topCountries.length === 0 ? (
+                            <div className="text-center py-4 text-slate-500 text-sm">No visitor data yet.</div>
+                        ) : (
+                            stats.topCountries.map((item) => (
+                                <div key={item.country} className="flex items-center justify-between text-sm">
+                                    <span className="text-slate-300 font-medium">{item.country}</span>
+                                    <div className="flex items-center gap-2">
+                                        <div className="h-1.5 w-20 bg-slate-800 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full bg-cyan-500 rounded-full"
+                                                style={{ width: `${Math.min(100, (item.count / (stats.topCountries[0]?.count || 1)) * 100)}%` }}
+                                            />
+                                        </div>
+                                        <span className="text-white font-bold text-xs w-8 text-right">{item.count}</span>
+                                    </div>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </Motion.div>
             </div>
@@ -253,7 +371,7 @@ export default async function AdminDashboard() {
                         {stats.topPages.length === 0 ? (
                             <div className="text-center py-12 text-slate-500 text-sm">No page data yet.</div>
                         ) : (
-                            stats.topPages.map((item, index) => (
+                            stats.topPages.map((item) => (
                                 <div key={item.path} className="space-y-1.5">
                                     <div className="flex items-center justify-between text-xs px-1">
                                         <span className="font-medium text-slate-300 truncate max-w-[140px]">{item.path}</span>
@@ -298,7 +416,7 @@ export default async function AdminDashboard() {
                                         <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-emerald-500 transition-all duration-1000"
-                                                style={{ width: `${(device.count / stats.totalVisits) * 100}%` }}
+                                                style={{ width: `${(device.count / (stats.totalPageViews || 1)) * 100}%` }}
                                             />
                                         </div>
                                     </div>
@@ -321,7 +439,7 @@ export default async function AdminDashboard() {
                     </div>
                 </Motion.div>
 
-                {/* Recent Visits Activity Log */}
+                {/* Recent Activity Log */}
                 <Motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -335,21 +453,21 @@ export default async function AdminDashboard() {
                         </h3>
                     </div>
                     <div className="p-4 space-y-3 overflow-y-auto max-h-[400px] custom-scrollbar">
-                        {stats.recentVisits.length === 0 ? (
+                        {stats.recentPageViews.length === 0 ? (
                             <div className="text-center py-12 text-slate-500 text-sm">No live data.</div>
                         ) : (
-                            stats.recentVisits.map((visit) => (
-                                <div key={visit.id} className="p-3 rounded-xl bg-slate-900/40 border border-white/5 text-[11px] space-y-1">
+                            stats.recentPageViews.map((pv) => (
+                                <div key={pv.id} className="p-3 rounded-xl bg-slate-900/40 border border-white/5 text-[11px] space-y-1">
                                     <div className="flex justify-between items-center">
                                         <span className="font-bold text-slate-300 flex items-center gap-1.5">
                                             <Globe className="w-3 h-3 text-indigo-400" />
-                                            {visit.country}
+                                            {pv.visitor?.country || pv.country}
                                         </span>
-                                        <span className="text-slate-600 text-[9px]">{formatDate(visit.createdAt)}</span>
+                                        <span className="text-slate-600 text-[9px]">{formatDate(pv.createdAt)}</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-slate-400 truncate">
-                                        <span className="bg-slate-800 px-1.5 py-0.5 rounded text-[9px] text-white uppercase">{visit.device}</span>
-                                        <span className="truncate">{visit.path}</span>
+                                        <span className="bg-slate-800 px-1.5 py-0.5 rounded text-[9px] text-white uppercase">{pv.device}</span>
+                                        <span className="truncate">{pv.path}</span>
                                     </div>
                                 </div>
                             ))
@@ -392,7 +510,7 @@ export default async function AdminDashboard() {
                                             {enquiry.status}
                                         </span>
                                     </div>
-                                    <div className="text-xs text-slate-300 line-clamp-1 mb-2 italic">"{enquiry.message}"</div>
+                                    <div className="text-xs text-slate-300 line-clamp-1 mb-2 italic">&quot;{enquiry.message}&quot;</div>
                                     <div className="flex justify-between items-center pt-2 border-t border-white/5 mt-2">
                                         <span className="text-xs text-slate-500 flex items-center gap-1">
                                             <Car className="w-3 h-3" />
@@ -430,7 +548,6 @@ export default async function AdminDashboard() {
                         stats.recentCars.map((car) => (
                             <div key={car.id} className="p-4 rounded-xl bg-slate-900/30 border border-white/5 hover:bg-slate-800/50 transition-colors flex items-center gap-4 group">
                                 <div className="w-16 h-12 bg-slate-800 rounded-lg overflow-hidden shrink-0 relative">
-                                    {/* Placeholder image logic would go here if needed, keeping it simple for dashboard list */}
                                     {car.images[0] && (
                                         <img src={car.images[0]} alt={car.model} className="w-full h-full object-cover" />
                                     )}
