@@ -311,17 +311,81 @@
   },
   "aboutPage": {
     "hero": {
-      "title": "Redefining Automotive",
-      "titleHighlight": "Excellence",
-      "subtitle": "Gulf Star Automotive is the world's premier platform for exporting luxury vehicles. We bridge the gap between Dubai's exclusive automotive market and international buyers."
+      "title": "Driving Global Automotive Trade",
+      "titleHighlight": "with Precision & Trust",
+      "subtitle": "Gulf Star Automotive FZC is a licensed international vehicle export company based in Dubai, UAE. We facilitate cross-border automotive trade with comprehensive logistics, compliance, and documentation services."
+    },
+    "overview": {
+      "title": "Company Overview",
+      "description": "Gulf Star Automotive FZC operates as a full-service vehicle export facilitator, connecting international buyers with premium automotive inventory from the UAE market. Our operations encompass procurement, inspection, export documentation, customs clearance, and global logistics coordination.",
+      "stats": {
+        "experience": "8+ Years",
+        "experienceLabel": "Export Experience",
+        "countries": "50+ Countries",
+        "countriesLabel": "Global Reach",
+        "vehicles": "5,000+ Vehicles",
+        "vehiclesLabel": "Successfully Exported",
+        "network": "500+ Partners",
+        "networkLabel": "Verified Dealer Network"
+      }
     },
     "mission": {
-      "title": "Our Mission",
-      "content": "To provide a seamless, transparent, and premium car buying experience for clients worldwide, ensuring that distance is never a barrier to owning your dream car."
+      "title": "Mission",
+      "content": "To establish Gulf Star Automotive as the most reliable and efficient vehicle export partner for international buyers, delivering transparent processes, regulatory compliance, and end-to-end logistics solutions."
     },
-    "story": {
-      "title": "Our Story",
-      "content": "Founded in the heart of Dubai, Gulf Star Automotive began with a simple vision: to share the UAE's incredible automotive inventory with the world. Today, we are a trusted partner for thousands of clients across 6 continents."
+    "vision": {
+      "title": "Vision",
+      "content": "To become the leading automotive export platform connecting Middle East markets with global buyers through technology-driven operations and uncompromising service standards."
+    },
+    "leadership": {
+      "badge": "Leadership Team",
+      "title": "Executive",
+      "titleHighlight": "Leadership",
+      "subtitle": "Our management team brings decades of combined experience in international trade, automotive logistics, and export compliance."
+    },
+    "global": {
+      "badge": "Global Presence",
+      "title": "Export",
+      "titleHighlight": "Destinations",
+      "subtitle": "We facilitate vehicle exports to major markets across six continents with established logistics partnerships and customs expertise.",
+      "regions": {
+        "africa": "Africa",
+        "asia": "Asia Pacific",
+        "europe": "Europe",
+        "middleEast": "Middle East",
+        "northAmerica": "North America",
+        "southAmerica": "South America"
+      }
+    },
+    "trust": {
+      "badge": "Trust & Compliance",
+      "title": "Export",
+      "titleHighlight": "Process",
+      "subtitle": "Our structured approach ensures regulatory compliance and transparent operations at every stage.",
+      "steps": {
+        "inspection": {
+          "title": "Vehicle Inspection",
+          "desc": "120-point mechanical and cosmetic assessment with detailed reporting."
+        },
+        "documentation": {
+          "title": "Export Documentation",
+          "desc": "Complete preparation of customs declarations, certificates of origin, and shipping documents."
+        },
+        "logistics": {
+          "title": "Logistics Coordination",
+          "desc": "Secure transportation, container loading, and international freight management."
+        },
+        "compliance": {
+          "title": "Compliance Assurance",
+          "desc": "Adherence to destination country import regulations and safety standards."
+        }
+      }
+    }
+  },
+  "metadata": {
+    "about": {
+      "title": "About Us - Gulf Star Automotive FZC | International Vehicle Export",
+      "description": "Gulf Star Automotive FZC is a licensed vehicle export company in Dubai, UAE. We provide comprehensive export services including logistics, compliance, and documentation for international automotive trade."
     }
   },
   "servicesPage": {
@@ -345,6 +409,46 @@
     "customs": {
       "title": "Customs Clearance",
       "desc": "Expert handling of all export documentation and clearance procedures."
+    }
+  },
+  "carEnums": {
+    "condition": {
+      "New": "New",
+      "Used": "Used"
+    },
+    "fuelType": {
+      "Petrol": "Petrol",
+      "Diesel": "Diesel",
+      "Hybrid": "Hybrid",
+      "Electric": "Electric"
+    },
+    "transmission": {
+      "Automatic": "Automatic",
+      "Manual": "Manual"
+    },
+    "driveType": {
+      "2WD": "2WD",
+      "4WD": "4WD",
+      "AWD": "AWD"
+    },
+    "steering": {
+      "LHD": "LHD (Left Hand Drive)",
+      "RHD": "RHD (Right Hand Drive)"
+    },
+    "bodyType": {
+      "SUV": "SUV",
+      "Sedan": "Sedan",
+      "Coupe": "Coupe",
+      "Pickup": "Pickup",
+      "Van": "Van",
+      "Hatchback": "Hatchback",
+      "Convertible": "Convertible",
+      "Wagon": "Wagon"
+    },
+    "status": {
+      "AVAILABLE": "Available",
+      "SOLD": "Sold",
+      "RESERVED": "Reserved"
     }
   }
 }

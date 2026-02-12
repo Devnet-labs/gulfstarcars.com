@@ -34,8 +34,12 @@ interface CarCardProps {
 
 export function CarCard({ car, index = 0 }: CarCardProps) {
     const t = useTranslations('carCard');
+    const tEnums = useTranslations('carEnums');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const router = useRouter();
+
+    // Get translated description if available
+    const translatedDescription = (car as any)?.translations?.[0]?.description || car.description;
 
     const handleCardClick = () => {
         router.push(`/cars/${car.id}`);
@@ -85,17 +89,17 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                             <h3 className="text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{car.make} {car.model}</h3>
                             <span className="bg-secondary text-muted-foreground text-xs font-bold px-2 py-1 rounded-md border border-white/5">{car.year}</span>
                         </div>
-                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{car.description}</p>
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{translatedDescription}</p>
                     </div>
 
                     {/* Specs Divider */}
                     <div className="flex items-center gap-4 py-4 border-t border-white/5 mb-4">
                         <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Fuel className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.fuelType || t('petrol')}
+                            <Fuel className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.fuelType ? tEnums(`fuelType.${car.fuelType}`) : t('petrol')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
                         <div className="flex items-center text-xs text-muted-foreground font-medium">
-                            <Settings2 className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.transmission || t('auto')}
+                            <Settings2 className="w-3.5 h-3.5 mr-1.5 text-primary" /> {car.transmission ? tEnums(`transmission.${car.transmission}`) : t('auto')}
                         </div>
                         <div className="w-px h-3 bg-white/10"></div>
                         <div className="flex items-center text-xs text-muted-foreground font-medium">

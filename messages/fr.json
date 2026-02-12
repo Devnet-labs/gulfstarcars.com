@@ -271,19 +271,83 @@
     "tagline": "Solutions d'exportation de véhicules haut de gamme • Établi à Dubaï, EAU",
     "addressLabel": "Notre Adresse"
   },
+  "metadata": {
+    "about": {
+      "title": "À propos - Gulf Star Automotive FZC | Exportation Internationale de Véhicules",
+      "description": "Gulf Star Automotive FZC est une entreprise d'exportation de véhicules agréée à Dubaï, EAU. Nous fournissons des services d'exportation complets incluant la logistique, la conformité et la documentation pour le commerce automobile international."
+    }
+  },
   "aboutPage": {
     "hero": {
-      "title": "Redéfinir l'Excellence",
-      "titleHighlight": "Automobile",
-      "subtitle": "Gulfstarscars est la première plateforme mondiale d'exportation de véhicules de luxe. Nous comblons le fossé entre le marché automobile exclusif de Dubaï et les acheteurs internationaux."
+      "title": "Conduire le Commerce Automobile Mondial",
+      "titleHighlight": "avec Précision et Confiance",
+      "subtitle": "Gulf Star Automotive FZC est une entreprise internationale agréée d'exportation de véhicules basée à Dubaï, EAU. Nous facilitons le commerce automobile transfrontalier avec des services complets de logistique, conformité et documentation."
+    },
+    "overview": {
+      "title": "Aperçu de l'Entreprise",
+      "description": "Gulf Star Automotive FZC opère comme facilitateur d'exportation de véhicules à service complet, connectant les acheteurs internationaux avec l'inventaire automobile premium du marché des EAU. Nos opérations englobent l'approvisionnement, l'inspection, la documentation d'exportation, le dédouanement et la coordination logistique mondiale.",
+      "stats": {
+        "experience": "8+ Ans",
+        "experienceLabel": "Expérience d'Exportation",
+        "countries": "50+ Pays",
+        "countriesLabel": "Portée Mondiale",
+        "vehicles": "5,000+ Véhicules",
+        "vehiclesLabel": "Exportés avec Succès",
+        "network": "500+ Partenaires",
+        "networkLabel": "Réseau de Concessionnaires Vérifiés"
+      }
     },
     "mission": {
-      "title": "Notre Mission",
-      "content": "Offrir une expérience d'achat de voiture fluide, transparente et haut de gamme aux clients du monde entier, en veillant à ce que la distance ne soit jamais un obstacle pour posséder la voiture de vos rêves."
+      "title": "Mission",
+      "content": "Établir Gulf Star Automotive comme le partenaire d'exportation de véhicules le plus fiable et efficace pour les acheteurs internationaux, offrant des processus transparents, la conformité réglementaire et des solutions logistiques de bout en bout."
     },
-    "story": {
-      "title": "Notre Histoire",
-      "content": "Fondée au cœur de Dubaï, Gulfstarscars a commencé avec une vision simple : partager l'incroyable inventaire automobile des EAU avec le monde. Aujourd'hui, nous sommes un partenaire de confiance pour des milliers de clients sur 6 continents."
+    "vision": {
+      "title": "Vision",
+      "content": "Devenir la plateforme d'exportation automobile leader reliant les marchés du Moyen-Orient aux acheteurs mondiaux grâce à des opérations axées sur la technologie et des normes de service inébranlables."
+    },
+    "leadership": {
+      "badge": "Équipe de Direction",
+      "title": "Direction",
+      "titleHighlight": "Exécutive",
+      "subtitle": "Notre équipe de direction apporte des décennies d'expérience combinée dans le commerce international, la logistique automobile et la conformité à l'exportation."
+    },
+    "global": {
+      "badge": "Présence Mondiale",
+      "title": "Destinations",
+      "titleHighlight": "d'Exportation",
+      "subtitle": "Nous facilitons les exportations de véhicules vers les principaux marchés sur six continents avec des partenariats logistiques établis et une expertise douanière.",
+      "regions": {
+        "africa": "Afrique",
+        "asia": "Asie-Pacifique",
+        "europe": "Europe",
+        "middleEast": "Moyen-Orient",
+        "northAmerica": "Amérique du Nord",
+        "southAmerica": "Amérique du Sud"
+      }
+    },
+    "trust": {
+      "badge": "Confiance et Conformité",
+      "title": "Processus",
+      "titleHighlight": "d'Exportation",
+      "subtitle": "Notre approche structurée garantit la conformité réglementaire et des opérations transparentes à chaque étape.",
+      "steps": {
+        "inspection": {
+          "title": "Inspection du Véhicule",
+          "desc": "Évaluation mécanique et cosmétique en 120 points avec rapports détaillés."
+        },
+        "documentation": {
+          "title": "Documentation d'Exportation",
+          "desc": "Préparation complète des déclarations douanières, certificats d'origine et documents d'expédition."
+        },
+        "logistics": {
+          "title": "Coordination Logistique",
+          "desc": "Transport sécurisé, chargement de conteneurs et gestion du fret international."
+        },
+        "compliance": {
+          "title": "Assurance Conformité",
+          "desc": "Respect des réglementations d'importation du pays de destination et des normes de sécurité."
+        }
+      }
     }
   },
   "servicesPage": {
@@ -307,6 +371,46 @@
     "customs": {
       "title": "Dédouanement",
       "desc": "Traitement expert de tous les documents d'exportation et procédures de dédouanement."
+    }
+  },
+  "carEnums": {
+    "condition": {
+      "New": "Neuf",
+      "Used": "Occasion"
+    },
+    "fuelType": {
+      "Petrol": "Essence",
+      "Diesel": "Diesel",
+      "Hybrid": "Hybride",
+      "Electric": "Électrique"
+    },
+    "transmission": {
+      "Automatic": "Automatique",
+      "Manual": "Manuelle"
+    },
+    "driveType": {
+      "2WD": "2 roues motrices",
+      "4WD": "4 roues motrices",
+      "AWD": "Intégrale"
+    },
+    "steering": {
+      "LHD": "Conduite à gauche",
+      "RHD": "Conduite à droite"
+    },
+    "bodyType": {
+      "SUV": "SUV",
+      "Sedan": "Berline",
+      "Coupe": "Coupé",
+      "Pickup": "Pick-up",
+      "Van": "Fourgon",
+      "Hatchback": "Berline compacte",
+      "Convertible": "Cabriolet",
+      "Wagon": "Break"
+    },
+    "status": {
+      "AVAILABLE": "Disponible",
+      "SOLD": "Vendu",
+      "RESERVED": "Réservé"
     }
   }
 }
