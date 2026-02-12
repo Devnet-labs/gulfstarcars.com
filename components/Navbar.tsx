@@ -36,50 +36,46 @@ export function Navbar() {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.4 }}
-                className={`fixed top-0 left-0 right-0 z-[100] bg-[#0A0A0A]/95 backdrop-blur-md border-b transition-all duration-300 ${
-                    isScrolled ? 'border-[#262626]' : 'border-transparent'
-                }`}
+                className={`fixed top-0 left-0 right-0 z-[100] bg-[#0A0A0A]/95 backdrop-blur-md border-b transition-all duration-300 ${isScrolled ? 'border-[#262626]' : 'border-transparent'
+                    }`}
             >
                 {/* Gold accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
-                
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className={`flex items-center justify-between transition-all duration-300 ${
-                        isScrolled ? 'h-[75px]' : 'h-[90px]'
-                    }`}>
+
+                <div className="w-full px-8 sm:px-12 lg:px-16">
+                    <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-[80px]' : 'h-[120px]'
+                        }`}>
                         {/* Logo */}
-                        <Link href="/" className="flex items-center h-full py-2">
+                        <Link href="/" className="flex items-center h-full">
                             <motion.div
-                                animate={{ scale: isScrolled ? 0.92 : 1 }}
+                                animate={{ scale: isScrolled ? 0.9 : 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="relative h-full w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px]"
+                                className="relative h-full w-[350px] sm:w-[500px] md:w-[650px] lg:w-[850px]"
                             >
                                 <Image
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
                                     fill
-                                    className="object-contain"
+                                    className="object-contain object-left"
                                     priority
                                 />
                             </motion.div>
                         </Link>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-8">
+                        {/* Desktop Navigation - Centered */}
+                        <div className="hidden lg:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
                             {navLinks.map((link) => {
                                 const isActive = pathname === link.href;
                                 return (
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group ${
-                                            isActive ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-white'
-                                        }`}
+                                        className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group ${isActive ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-white'
+                                            }`}
                                     >
                                         {link.label}
-                                        <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#D4AF37] transition-all duration-200 ${
-                                            isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                                        }`} />
+                                        <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#D4AF37] transition-all duration-200 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                            }`} />
                                     </Link>
                                 );
                             })}
@@ -88,7 +84,7 @@ export function Navbar() {
                         {/* Right Actions */}
                         <div className="flex items-center gap-4">
                             <LanguageSwitcher />
-                            
+
                             <Link
                                 href="/contact"
                                 className="hidden lg:block bg-[#D4AF37] hover:bg-[#C19B2E] text-black px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95"
@@ -142,11 +138,10 @@ export function Navbar() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                                                    pathname === link.href
-                                                        ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
-                                                        : 'text-[#A3A3A3] hover:bg-[#141414] hover:text-white'
-                                                }`}
+                                                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${pathname === link.href
+                                                    ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
+                                                    : 'text-[#A3A3A3] hover:bg-[#141414] hover:text-white'
+                                                    }`}
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
                                                 {link.label}
