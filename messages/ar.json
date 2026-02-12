@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "الرئيسية",
-    "inventory": "المخزون",
+    "inventory": "المنتجات",
     "services": "خدماتنا",
     "about": "من نحن",
     "contact": "اتصل بنا",
@@ -37,7 +37,7 @@
     }
   },
   "cars": {
-    "pageTitle": "مخزوننا",
+    "pageTitle": "منتجاتنا",
     "subtitle": "تصفح مجموعتنا الكاملة من السيارات الفاخرة الجاهزة للتصدير العالمي",
     "vehiclesFound": "{count} سيارة وجدت",
     "foundSubtitle": "وجدت في مجموعتنا الكاملة",
@@ -97,7 +97,7 @@
       "whatsapp": "تواصل عبر واتساب",
       "breadcrumb": {
         "home": "الرئيسية",
-        "inventory": "المخزون"
+        "inventory": "المنتجات"
       }
     }
   },
@@ -264,7 +264,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "معلومات عنا",
-      "inventory": "المخزون",
+      "inventory": "المنتجات",
       "services": "خدماتنا",
       "contact": "اتصل بنا",
       "faq": "الأسئلة الشائعة"

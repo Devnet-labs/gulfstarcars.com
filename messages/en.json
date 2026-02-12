@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "Home",
-    "inventory": "Inventory",
+    "inventory": "Products",
     "services": "Services",
     "about": "About Us",
     "contact": "Contact Us",
@@ -37,7 +37,7 @@
     }
   },
   "cars": {
-    "pageTitle": "Our Inventory",
+    "pageTitle": "Our Products",
     "subtitle": "Browse our complete collection of premium vehicles ready for global export",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
@@ -97,7 +97,7 @@
       "whatsapp": "WhatsApp Us",
       "breadcrumb": {
         "home": "Home",
-        "inventory": "Inventory"
+        "inventory": "Products"
       }
     }
   },
@@ -292,7 +292,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "About Us",
-      "inventory": "Inventory",
+      "inventory": "Products",
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
