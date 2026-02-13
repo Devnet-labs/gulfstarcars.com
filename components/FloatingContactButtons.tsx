@@ -7,7 +7,7 @@ export function FloatingContactButtons() {
     const [isHovered, setIsHovered] = useState<string | null>(null);
 
     // Replace with your actual contact details
-    const whatsappNumber = '971501234567'; // Format: country code + number (no + or spaces)
+    const whatsappNumber = '+971523479535'; // Format: country code + number (no + or spaces)
     const facebookUrl = 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/'; // Replace with your Facebook page URL
 
     const handleWhatsAppClick = () => {
