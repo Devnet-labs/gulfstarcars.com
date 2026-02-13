@@ -280,7 +280,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Petrol",
     "auto": "Auto",
-    "noImages": "No images available"
+    "noImages": "No images available",
+    "priceOnRequest": "Price on Request"
   },
   "footer": {
     "brand": "GULFSTARCARS",
