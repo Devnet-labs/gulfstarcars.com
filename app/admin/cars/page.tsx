@@ -6,11 +6,6 @@ import CarActions from '@/components/admin/CarActions';
 export default async function AdminCarsPage() {
     const cars = await prisma.car.findMany({
         orderBy: { createdAt: 'desc' },
-        include: {
-            translations: {
-                select: { locale: true, status: true },
-            },
-        },
     });
 
     return (
@@ -47,11 +42,6 @@ export default async function AdminCarsPage() {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {cars.map((car) => {
-                        const translations = (car as any).translations || [];
-                        const completedTranslations = translations.filter((t: any) => t.status === 'COMPLETED').length;
-                        const failedTranslations = translations.filter((t: any) => t.status === 'FAILED').length;
-                        const totalTranslations = 6;
-
                         return (
                             <div
                                 key={car.id}
@@ -146,25 +136,7 @@ export default async function AdminCarsPage() {
                                         </div>
                                     </div>
 
-                                    {/* Translation Status */}
-                                    {translations.length > 0 && (
-                                        <div className="pt-3 border-t border-white/5">
-                                            <Link
-                                                href={`/admin/cars/${car.id}/translations`}
-                                                className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors ${completedTranslations === totalTranslations
-                                                    ? 'text-green-400 hover:text-green-300'
-                                                    : failedTranslations > 0
-                                                        ? 'text-red-400 hover:text-red-300'
-                                                        : 'text-yellow-400 hover:text-yellow-300'
-                                                    }`}
-                                            >
-                                                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                                                </svg>
-                                                {completedTranslations}/{totalTranslations} translations
-                                            </Link>
-                                        </div>
-                                    )}
+
 
                                     {/* Actions */}
                                     <div className="flex gap-2 pt-2">

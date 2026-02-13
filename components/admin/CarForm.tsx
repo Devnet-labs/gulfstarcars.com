@@ -2,10 +2,9 @@
 
 import Link from 'next/link';
 import { useActionState } from 'react';
-import { ArrowLeft, Loader2, Languages, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowLeft, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import ImageUpload from './ImageUpload';
-import { useState, useEffect } from 'react';
-import { checkTranslationConfig } from '@/lib/translate';
+import { useState } from 'react';
 
 // We need to define the State type based on what our actions return
 type State = {
@@ -69,26 +68,12 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const [state, formAction] = useActionState(action, initialState);
     const [images, setImages] = useState<string[]>(initialData?.images || []);
     const [isActive, setIsActive] = useState(initialData?.isActive ?? true);
-    const [enableTranslations, setEnableTranslations] = useState(true);
-    const [apiConfigured, setApiConfigured] = useState(false);
-    const [checkingApi, setCheckingApi] = useState(true);
-
-    // Check if DeepL API is configured
-    useEffect(() => {
-        checkTranslationConfig().then(result => {
-            setApiConfigured(result.isConfigured);
-            setEnableTranslations(result.isConfigured);
-            setCheckingApi(false);
-        });
-    }, []);
 
     const handleSubmit = (formData: FormData) => {
         // Clear previous errors
         images.forEach(image => formData.append('images', image));
         // Add visibility flag
         formData.append('isActive', String(isActive));
-        // Add translation flag
-        formData.append('enableTranslations', String(enableTranslations));
         // Ensure condition is sent if not explicitly in form
         if (!formData.has('condition') && initialData?.condition) {
             formData.append('condition', initialData.condition);
@@ -160,38 +145,6 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                     </label>
                 </div >
-
-                {/* Arabic Name Fields */}
-                <div className="grid grid-cols-2 gap-4 bg-primary/5 p-4 rounded-lg border border-primary/10">
-                    <div className="col-span-2 mb-2 flex items-center gap-2">
-                        <span className="text-sm font-semibold text-primary">Arabic Translation (Optional)</span>
-                        <span className="text-xs text-muted-foreground">Override auto-translation for name</span>
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="makeAr" className="text-sm font-medium">
-                            Arabic Make
-                        </label>
-                        <input
-                            name="makeAr"
-                            dir="rtl"
-                            defaultValue={initialData?.makeAr || ''}
-                            placeholder="تويوتا"
-                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="modelAr" className="text-sm font-medium">
-                            Arabic Model
-                        </label>
-                        <input
-                            name="modelAr"
-                            dir="rtl"
-                            defaultValue={initialData?.modelAr || ''}
-                            placeholder="لاند كروزر"
-                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
-                        />
-                    </div>
-                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -434,61 +387,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     )}
                 </div>
 
-                <div className="space-y-2 bg-primary/5 p-4 rounded-lg border border-primary/10">
-                    <label htmlFor="descriptionAr" className="text-sm font-medium flex items-center gap-2">
-                        <span>Arabic Description</span>
-                        <span className="text-xs font-normal text-muted-foreground">(Optional - Overrides auto-translation)</span>
-                    </label>
-                    <textarea
-                        name="descriptionAr"
-                        dir="rtl"
-                        defaultValue={initialData?.descriptionAr || ''}
-                        rows={4}
-                        placeholder="...وصف السيارة بالعربية"
-                        className="w-full rounded-md border bg-background px-3 py-2 text-right"
-                    />
-                </div>
 
-                {/* Translation Options */}
-                <div className="border border-white/10 rounded-lg p-4 space-y-3 bg-white/5">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <Languages className="h-5 w-5 text-primary" />
-                            <span className="text-sm font-semibold">Auto-Translation</span>
-                        </div>
-                        {checkingApi ? (
-                            <span className="text-xs text-muted-foreground">Checking...</span>
-                        ) : apiConfigured ? (
-                            <span className="inline-flex items-center gap-1 text-xs font-medium text-green-400">
-                                <CheckCircle className="h-3.5 w-3.5" />
-                                API Configured
-                            </span>
-                        ) : (
-                            <span className="inline-flex items-center gap-1 text-xs font-medium text-red-400">
-                                <XCircle className="h-3.5 w-3.5" />
-                                API Not Configured
-                            </span>
-                        )}
-                    </div>
-
-                    <label className="flex items-start gap-3 cursor-pointer">
-                        <input
-                            type="checkbox"
-                            checked={enableTranslations}
-                            onChange={(e) => setEnableTranslations(e.target.checked)}
-                            disabled={!apiConfigured}
-                            className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/5 text-primary focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                        />
-                        <div className="flex-1">
-                            <span className="text-sm font-medium">Enable automatic translations</span>
-                            <p className="text-xs text-muted-foreground mt-1">
-                                {apiConfigured
-                                    ? "Translate description to 6 languages (ar, fr, es, pt, ru, zh) using DeepL API when saving"
-                                    : "Add DEEPL_API_KEY to .env to enable translations"}
-                            </p>
-                        </div>
-                    </label>
-                </div>
 
                 {
                     state.message && (

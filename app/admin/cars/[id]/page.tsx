@@ -15,20 +15,13 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
 
     const car = await prisma.car.findUnique({
         where: { id },
-        include: {
-            translations: {
-                select: { locale: true, status: true },
-            },
-        },
     });
 
     if (!car) {
         notFound();
     }
 
-    const translationStats = car.translations || [];
-    const completedTranslations = translationStats.filter((t: any) => t.status === 'COMPLETED').length;
-    const totalTranslations = 6;
+
 
     return (
         <div className="space-y-6 max-w-7xl">
@@ -58,13 +51,6 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                     >
                         <Eye className="h-4 w-4" />
                         View on Site
-                    </Link>
-                    <Link
-                        href={`/admin/cars/${car.id}/translations`}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5 transition-colors text-sm font-medium"
-                    >
-                        <Languages className="h-4 w-4" />
-                        Translations ({completedTranslations}/{totalTranslations})
                     </Link>
                     <Link
                         href={`/admin/cars/${car.id}/edit`}
@@ -185,15 +171,6 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                                 </span>
                                 <span className="font-medium">
                                     <FormattedDate date={car.createdAt} />
-                                </span>
-                            </div>
-                            <div className="flex items-center justify-between text-sm">
-                                <span className="text-muted-foreground flex items-center gap-2">
-                                    <Languages className="h-4 w-4" />
-                                    Translations
-                                </span>
-                                <span className="font-medium">
-                                    {completedTranslations}/{totalTranslations}
                                 </span>
                             </div>
                         </div>
