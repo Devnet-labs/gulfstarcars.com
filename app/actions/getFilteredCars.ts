@@ -15,7 +15,9 @@ interface InventoryFilters {
 
 export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {
     try {
-        const where: any = {};
+        const where: any = {
+            isActive: true
+        };
 
         // Apply filters if provided
         if (filters?.fuelType && filters.fuelType.length > 0) {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
-import { Plus } from 'lucide-react';
+import { Plus, EyeOff } from 'lucide-react';
+import CarActions from '@/components/admin/CarActions';
 
 export default async function AdminCarsPage() {
     const cars = await prisma.car.findMany({
@@ -78,14 +79,23 @@ export default async function AdminCarsPage() {
                                     {/* Status Badge */}
                                     <div className="absolute top-3 right-3">
                                         <span className={`inline-flex items-center rounded-md backdrop-blur-sm px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${car.status === 'AVAILABLE'
-                                                ? 'bg-green-400/90 text-white ring-green-400/20'
-                                                : car.status === 'SOLD'
-                                                    ? 'bg-red-400/90 text-white ring-red-400/20'
-                                                    : 'bg-yellow-400/90 text-white ring-yellow-400/20'
+                                            ? 'bg-green-400/90 text-white ring-green-400/20'
+                                            : car.status === 'SOLD'
+                                                ? 'bg-red-400/90 text-white ring-red-400/20'
+                                                : 'bg-yellow-400/90 text-white ring-yellow-400/20'
                                             }`}>
                                             {car.status}
                                         </span>
                                     </div>
+                                    {/* Visibility Badge */}
+                                    {!car.isActive && (
+                                        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
+                                            <div className="flex flex-col items-center gap-2 text-white">
+                                                <EyeOff className="h-8 w-8 text-white/50" />
+                                                <span className="text-xs font-bold tracking-widest uppercase text-white/70">Hidden from Users</span>
+                                            </div>
+                                        </div>
+                                    )}
                                 </Link>
 
                                 {/* Content */}
@@ -142,10 +152,10 @@ export default async function AdminCarsPage() {
                                             <Link
                                                 href={`/admin/cars/${car.id}/translations`}
                                                 className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors ${completedTranslations === totalTranslations
-                                                        ? 'text-green-400 hover:text-green-300'
-                                                        : failedTranslations > 0
-                                                            ? 'text-red-400 hover:text-red-300'
-                                                            : 'text-yellow-400 hover:text-yellow-300'
+                                                    ? 'text-green-400 hover:text-green-300'
+                                                    : failedTranslations > 0
+                                                        ? 'text-red-400 hover:text-red-300'
+                                                        : 'text-yellow-400 hover:text-yellow-300'
                                                     }`}
                                             >
                                                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -171,6 +181,9 @@ export default async function AdminCarsPage() {
                                             Edit
                                         </Link>
                                     </div>
+
+                                    {/* Action Buttons (Toggle Visibility & Delete) */}
+                                    <CarActions carId={car.id} initialIsActive={car.isActive} />
                                 </div>
                             </div>
                         );

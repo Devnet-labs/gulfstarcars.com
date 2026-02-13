@@ -28,6 +28,7 @@ type State = {
         doors?: string[];
         seats?: string[];
         location?: string[];
+        isActive?: string[];
     };
     message?: string | null;
     isLoading?: boolean;
@@ -54,6 +55,7 @@ interface CarFormProps {
         doors?: number | null;
         seats?: number | null;
         location?: string | null;
+        isActive: boolean;
     };
     action: (prevState: State, formData: FormData) => Promise<State>;
     title: string;
@@ -63,6 +65,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const initialState: State = { message: null, errors: {} };
     const [state, formAction] = useActionState(action, initialState);
     const [images, setImages] = useState<string[]>(initialData?.images || []);
+    const [isActive, setIsActive] = useState(initialData?.isActive ?? true);
     const [enableTranslations, setEnableTranslations] = useState(true);
     const [apiConfigured, setApiConfigured] = useState(false);
     const [checkingApi, setCheckingApi] = useState(true);
@@ -79,6 +82,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const handleSubmit = (formData: FormData) => {
         // Clear previous errors
         images.forEach(image => formData.append('images', image));
+        // Add visibility flag
+        formData.append('isActive', String(isActive));
         // Add translation flag
         formData.append('enableTranslations', String(enableTranslations));
         // Ensure condition is sent if not explicitly in form
@@ -129,6 +134,26 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <p className="text-sm text-red-500">{state.errors.model}</p>
                         )}
                     </div>
+                </div>
+
+                {/* Visibility Toggle */}
+                <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/10">
+                    <div className="flex items-center gap-2 text-primary">
+                        {isActive ? <CheckCircle className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
+                        <div>
+                            <span className="text-sm font-semibold">{isActive ? 'Publicly Visible' : 'Hidden from Users'}</span>
+                            <p className="text-xs text-muted-foreground">Toggle whether this car is live on the website.</p>
+                        </div>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                            type="checkbox"
+                            className="sr-only peer"
+                            checked={isActive}
+                            onChange={(e) => setIsActive(e.target.checked)}
+                        />
+                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

@@ -31,6 +31,7 @@ model Car {
   doors          Int?      // Number of doors
   seats          Int?      // Seating capacity
   location       String?   // Port/location for export
+  isActive     Boolean   @default(true)
   enquiries      Enquiry[]
   productViews   ProductView[]
   translations   CarTranslation[]

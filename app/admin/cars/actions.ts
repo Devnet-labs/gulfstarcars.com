@@ -25,6 +25,7 @@ const carSchema = z.object({
     doors: z.coerce.number().optional(),
     seats: z.coerce.number().optional(),
     location: z.string().optional(),
+    isActive: z.preprocess((val) => val === 'true' || val === true, z.boolean()).default(true),
 });
 
 export async function createCar(prevState: any, formData: FormData) {
@@ -136,6 +137,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         doors: formData.get('doors'),
         seats: formData.get('seats'),
         location: formData.get('location'),
+        isActive: formData.get('isActive') === 'true',
     });
 
     if (!validatedFields.success) {
@@ -263,6 +265,24 @@ export async function updateTranslation(carId: string, locale: string, field: st
     } catch (error) {
         console.error('UPDATE_TRANSLATION_ERROR:', error);
         return { success: false, error: 'Failed to update translation' };
+    }
+}
+
+/**
+ * Toggle car visibility (active/inactive)
+ */
+export async function toggleCarVisibility(id: string, isActive: boolean) {
+    try {
+        await prisma.car.update({
+            where: { id },
+            data: { isActive },
+        });
+        revalidatePath('/admin/cars');
+        revalidatePath('/cars');
+        return { success: true };
+    } catch (error) {
+        console.error('TOGGLE_VISIBILITY_ERROR:', error);
+        return { success: false, error: 'Failed to toggle visibility' };
     }
 }
 
