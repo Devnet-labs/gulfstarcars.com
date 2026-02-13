@@ -81,19 +81,31 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     </div>
 
                     {/* Specs Divider */}
-                    <div className="flex items-center gap-2 sm:gap-4 py-2 sm:py-4 border-t border-white/5 mb-2 sm:mb-4">
-                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                            <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.fuelType || t('petrol')}
+                    {(car.fuelType || car.transmission || car.mileage !== null) && (
+                        <div className="flex items-center gap-2 sm:gap-4 py-2 sm:py-4 border-t border-white/5 mb-2 sm:mb-4">
+                            {car.fuelType && (
+                                <>
+                                    <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                                        <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.fuelType}
+                                    </div>
+                                    {(car.transmission || car.mileage !== null) && <div className="w-px h-3 bg-white/10"></div>}
+                                </>
+                            )}
+                            {car.transmission && (
+                                <>
+                                    <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                                        <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.transmission}
+                                    </div>
+                                    {car.mileage !== null && <div className="w-px h-3 bg-white/10"></div>}
+                                </>
+                            )}
+                            {car.mileage !== null && (
+                                <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
+                                    <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.mileage?.toLocaleString()} km
+                                </div>
+                            )}
                         </div>
-                        <div className="w-px h-3 bg-white/10"></div>
-                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                            <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.transmission || t('auto')}
-                        </div>
-                        <div className="w-px h-3 bg-white/10"></div>
-                        <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                            <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.mileage?.toLocaleString() || '0'} km
-                        </div>
-                    </div>
+                    )}
 
                     {/* Additional Specs */}
                     {(car.colour || car.driveType || car.engineCapacity) && (
