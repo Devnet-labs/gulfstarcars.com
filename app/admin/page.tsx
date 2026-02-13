@@ -169,10 +169,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Car className="w-24 h-24 text-primary" />
+                        <Car className="w-14 h-14 text-primary" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
@@ -194,10 +194,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <DollarSign className="w-24 h-24 text-emerald-500" />
+                        <DollarSign className="w-14 h-14 text-emerald-500" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
@@ -219,10 +219,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Users className="w-24 h-24 text-pink-500" />
+                        <Users className="w-14 h-14 text-pink-500" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
@@ -244,10 +244,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.25 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Eye className="w-24 h-24 text-indigo-500" />
+                        <Eye className="w-14 h-14 text-indigo-500" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
@@ -269,10 +269,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Zap className="w-24 h-24 text-amber-500" />
+                        <Zap className="w-14 h-14 text-amber-500" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
@@ -296,10 +296,10 @@ export default async function AdminDashboard() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.35 }}
-                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group"
+                    className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden group cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <MessageSquare className="w-24 h-24 text-purple-500" />
+                        <MessageSquare className="w-14 h-14 text-purple-500" />
                     </div>
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">

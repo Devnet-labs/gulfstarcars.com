@@ -35,23 +35,14 @@ export function Footer() {
                 {/* Upper Footer: Branding & Quick Connect */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
                     <div className="lg:col-span-5 space-y-10">
-                        <Link href="/" className="inline-flex items-center gap-5 group">
-                            <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-3xl bg-white/5 p-1.5 border border-white/10 group-hover:border-primary/40 group-hover:bg-white/10 transition-all duration-700 shadow-2xl">
+                        <Link href="/" className="inline-flex items-center group">
+                            <div className="relative h-24 w-48 md:h-36 md:w-64 lg:h-44 lg:w-80 transition-all duration-700">
                                 <Image
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
                                     fill
-                                    className="object-contain p-3 group-hover:scale-110 transition-transform duration-700"
+                                    className="object-contain group-hover:scale-105 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-xl group-hover:bg-primary/20 transition-all duration-700 -z-10" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-2xl md:text-3xl font-extrabold tracking-tighter uppercase leading-none">
-                                    {t('brand')}
-                                </span>
-                                <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary mt-2">
-                                    {t('slogan')}
-                                </span>
                             </div>
                         </Link>
 
