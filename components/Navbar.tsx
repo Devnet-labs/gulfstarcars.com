@@ -41,7 +41,7 @@ export function Navbar() {
                 {/* Gold accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-                <div className="w-full pl-0 pr-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
+                <div className="w-full ps-0 pe-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
                     <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-20 sm:h-24 lg:h-24' : 'h-22 sm:h-26 lg:h-28'}
                         `}>
                         {/* Logo — full height, zero padding so no top/bottom gap */}
@@ -54,7 +54,7 @@ export function Navbar() {
                                 <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
-                                    className="w-full h-full object-contain object-left"
+                                    className="w-full h-full object-contain object-left rtl:object-right"
                                 />
                             </motion.div>
                         </Link>
@@ -71,7 +71,7 @@ export function Navbar() {
                                             }`}
                                     >
                                         {link.label}
-                                        <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#D4AF37] transition-all duration-200 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                        <span className={`absolute -bottom-1 start-0 h-[2px] bg-[#D4AF37] transition-all duration-200 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
                                             }`} />
                                     </Link>
                                 );
@@ -79,7 +79,7 @@ export function Navbar() {
                         </div>
 
                         {/* Right Actions */}
-                        <div className="flex items-center gap-2 sm:gap-4 shrink-0 ml-auto">
+                        <div className="flex items-center gap-2 sm:gap-4 shrink-0 ms-auto">
                             <LanguageSwitcher />
 
                             <Link
@@ -94,7 +94,7 @@ export function Navbar() {
                                 type="button"
                                 aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden p-2 -mr-1 text-[#A3A3A3] hover:text-[#D4AF37] transition-colors cursor-pointer touch-manipulation"
+                                className="lg:hidden p-2 -me-1 text-[#A3A3A3] hover:text-[#D4AF37] transition-colors cursor-pointer touch-manipulation"
                             >
                                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                             </button>

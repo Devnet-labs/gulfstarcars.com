@@ -110,13 +110,26 @@
   },
   "contact": {
     "title": "Contáctanos",
-    "subtitle": "Ponte en contacto con nuestro equipo",
+    "subtitle": "Ponte en contacto con nuestro equipo para exportaciones de vehículos premium",
+    "quickInquiry": "Consulta Rápida",
+    "quickInquirySubtitle": "Completa el siguiente formulario y nuestro equipo se pondrá en contacto contigo en un plazo de 24 horas.",
     "name": "Tu nombre",
     "email": "Tu correo electrónico",
     "message": "Tu mensaje",
     "send": "Enviar Mensaje",
     "success": "¡Mensaje enviado con éxito!",
-    "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "mapTitle": "Encuéntranos en el mapa",
+    "mapSubtitle": "Visita nuestro salón de exposición principal y centro de distribución en el corazón del distrito automotriz de Dubái.",
+    "officesTitle": "Nuestras Oficinas",
+    "dubaiBranch": "Sucursal de Dubái (Principal)",
+    "ajmanOffice": "Oficina de la Zona Franca de Ajman",
+    "quickConnect": "Conexión Rápida",
+    "callUs": "Llámanos",
+    "emailUs": "Envíanos un Correo",
+    "availableNow": "Disponible Ahora",
+    "whatsAppSupport": "Soporte de WhatsApp",
+    "getDirections": "Obtener Direcciones"
   },
   "common": {
     "loading": "Cargando...",
@@ -156,7 +169,7 @@
     }
   },
   "whyChooseUs": {
-    "badge": "Por qué elegir Gulfstarscars",
+    "badge": "Por qué elegir Gulf Star Automotive",
     "title": "Experimenta la",
     "titleHighlight": "Diferencia",
     "subtitle": "Únete a miles de clientes satisfechos en todo el mundo que confían en nosotros para sus exportaciones de vehículos premium.",
@@ -208,7 +221,7 @@
       "item1": {
         "name": "James Wilson",
         "role": "Coleccionista de Lujo, RU",
-        "content": "El proceso fue perfecto. Desde la primera consulta hasta la llegada de mi G-Wagon a Londres, Gulfstarscars manejó todo con absoluta profesionalidad."
+        "content": "El proceso fue perfecto. Desde la primera consulta hasta la llegada de mi G-Wagon a Londres, Gulf Star Automotive manejó todo con absoluta profesionalidad."
       },
       "item2": {
         "name": "Ahmed Al-Sayed",
@@ -248,25 +261,12 @@
     "priceOnRequest": "Precio a Consultar"
   },
   "footer": {
+    "brand": "GULFSTARCARS",
     "description": "Somos su socio de confianza para importar coches de Dubái al mundo. Experimente un servicio perfecto y vehículos de calidad premium.",
     "usefulLinks": "Enlaces Útiles",
     "contactInfo": "Info de Contacto",
-    "emails": {
-      "md": "MD: md@gulfstarcars.com",
-      "ed": "ED: ed@gulfstarcars.com",
-      "director": "Director: director@gulfstarcars.com",
-      "exports": "Exports: exports@gulfstarcars.com",
-      "info": "smartinvestments005@gmail.com"
-    },
-    "newLaunches": "Nuevos Lanzamientos - Mantente Actualizado",
-    "subscribeText": "Suscríbete para ser el primero en recibir actualizaciones sobre nuevos coches lanzados u otra información.",
-    "emailPlaceholder": "Ingresa tu email",
-    "subscribeButton": "Suscribirse Ahora",
-    "copyright": "Gulf Star Automotive F.Z.C. Todos los derechos reservados.",
-    "privacyPolicy": "Política de Privacidad",
-    "termsConditions": "Términos y Condiciones",
-    "brand": "GULFSTARCARS",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "address": "CIIF SF6657, Zona Franca de Ajman (Oficina de referencia)<br />Apartado Postal 84891 DUBÁI EAU",
+    "addressDubai": "Showroom #229, Ducamz, Ciudad Al Awir,<br />Ras Al Khor, Dubái, EAU",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -274,16 +274,21 @@
       "about": "Sobre Nosotros",
       "inventory": "Inventario",
       "services": "Servicios",
-      "contact": "Contáctanos",
-      "faq": "Preguntas Frecuentes"
+      "contact": "Contactar",
+      "faq": "FAQ"
     },
-    "addressLabel": "Nuestra Ubicación",
-    "phoneLabel": "Números de Contacto",
-    "emailLabel": "Correo Oficial",
     "slogan": "Excelencia Automotriz",
+    "emailLabel": "Correo Oficial",
+    "phoneLabel": "Números de Contacto",
+    "addressLabel": "Ubicación Principal",
+    "emails": {
+        "info": "INFO@GULFSTARCARS.COM",
+        "sales": "SALES@GULFSTARCARS.COM"
+    },
     "privacy": "Privacidad",
     "terms": "Términos",
-    "tagline": "Soluciones de exportación de vehículos premium • Establecido en Dubai, EAU"
+    "tagline": "Soluciones de exportación de vehículos premium • Establecido en Dubái, EAU",
+    "copyright": "Gulf Star Automotive F.Z.C. Todos los derechos reservados."
   },
   "metadata": {
     "about": {

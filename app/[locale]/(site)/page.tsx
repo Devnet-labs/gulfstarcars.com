@@ -3,13 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Car } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { CarCard } from "@/components/CarCard";
-import { Features } from "@/components/Features";
 
 import { getLatestCars } from '@/app/actions/getLatestCars';
-import { Car } from '@prisma/client';
 import { SkeletonGrid } from '@/components/SkeletonCarCard';
 import { TrustStats } from '@/components/TrustStats';
 import { Portfolio } from '@/components/Portfolio';
@@ -45,13 +43,15 @@ export default function Home() {
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      const scrollAmount = locale === 'ar' ? 400 : -400;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      const scrollAmount = locale === 'ar' ? -400 : 400;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-screen flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
         {/* Background Video with Premium Overlays */}
         <div className="absolute inset-0 z-0">
           <video
@@ -72,7 +72,7 @@ export default function Home() {
           >
             <source src="/video/Luxury_Drone_Footage.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30 rtl:bg-gradient-to-l" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
@@ -81,7 +81,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl space-y-8 pt-12 md:-ml-8"
+            className="max-w-3xl space-y-8 pt-12 md:-ms-8"
           >
             <span className="inline-block text-primary font-bold tracking-wider text-sm uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md">
               {t('hero.badge')}
@@ -99,7 +99,7 @@ export default function Home() {
         </div>
 
         {/* --- Hero Quick Actions (Discovery Bar) --- */}
-        <div className="absolute bottom-4 left-0 right-0 z-20">
+        <div className="absolute bottom-8 left-0 right-0 z-20">
           <div className="container mx-auto px-6">
             <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
               <motion.div
@@ -109,11 +109,11 @@ export default function Home() {
               >
                 <Link
                   href="/cars"
-                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
                 >
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <Car className="w-4 h-4 text-primary" />
                   <span className="text-sm font-bold text-white tracking-wide">{t('cta.viewAllCars')}</span>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all" />
                 </Link>
               </motion.div>
 
@@ -124,7 +124,7 @@ export default function Home() {
               >
                 <Link
                   href="/contact"
-                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   <span className="text-sm font-bold text-white tracking-wide">Contact Expert</span>
@@ -136,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- CARS OF THE DAY --- */}
+      {/* --- Newest Cars --- */}
       <section className="py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
@@ -152,7 +152,6 @@ export default function Home() {
                   whileInView={{ rotate: 0, scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
                 >
-                  <Sparkles className="h-8 w-8 text-primary" />
                 </motion.div>
                 <h2 className="text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
               </div>
@@ -213,7 +212,7 @@ export default function Home() {
                   href="/cars"
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 group"
                 >
-                  {t('carsOfDay.viewAll')} <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  {t('carsOfDay.viewAll')} <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                 </Link>
               </div>
             </>
@@ -221,8 +220,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+
       <TrustStats />
+
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+
       <Portfolio />
+
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
 
       <Testimonials />
     </div>

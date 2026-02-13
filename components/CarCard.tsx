@@ -64,7 +64,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                         loading={index < 6 ? 'eager' : 'lazy'}
                     />
                     <div
-                        className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-background/90 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] font-extrabold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"
+                        className="absolute top-2 start-2 sm:top-4 sm:start-4 bg-background/90 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] font-extrabold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"
                     >
                         {car.customId ? `${t('stkId')}: ${car.customId}` : t('exportReady')}
                     </div>
@@ -86,7 +86,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                             {car.fuelType && (
                                 <>
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                        <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.fuelType}
+                                        <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.fuelType}
                                     </div>
                                     {(car.transmission || car.mileage !== null) && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
@@ -94,14 +94,14 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                             {car.transmission && (
                                 <>
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                        <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.transmission}
+                                        <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.transmission}
                                     </div>
                                     {car.mileage !== null && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
                             )}
                             {car.mileage !== null && (
                                 <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                    <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-primary" /> {car.mileage?.toLocaleString()} km
+                                    <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.mileage?.toLocaleString()} km
                                 </div>
                             )}
                         </div>

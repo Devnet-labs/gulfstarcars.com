@@ -39,11 +39,11 @@ export function TeamMemberCard({ name, position, bio, image, linkedIn, email, we
             </div>
           )}
         </div>
-        
+
         <h3 className="text-lg font-semibold text-white mb-1">{name}</h3>
         <p className="text-sm text-[#D4AF37] mb-3 font-medium">{position}</p>
         <p className="text-sm text-[#A3A3A3] leading-relaxed flex-grow">{bio}</p>
-        
+
         <div className="flex gap-3 mt-4 pt-4 border-t border-[#262626] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {linkedIn && (
             <button
@@ -56,7 +56,7 @@ export function TeamMemberCard({ name, position, bio, image, linkedIn, email, we
           )}
           {email && (
             <button
-              onClick={() => handleSocialClick('email', `mailto:${email}`)}
+              onClick={() => handleSocialClick('email', `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`)}
               className="w-9 h-9 rounded-lg bg-[#1A1A1A] border border-[#262626] flex items-center justify-center hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors"
               aria-label={`Email ${name}`}
             >

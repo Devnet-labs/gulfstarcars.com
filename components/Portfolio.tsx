@@ -52,7 +52,7 @@ export function Portfolio() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-                            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 transform translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div className="absolute bottom-0 inset-x-0 p-4 sm:p-8 transform translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <div className="flex items-center gap-2 text-primary font-bold text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                     <MapPin className="h-4 w-4" />
                                     {t(`items.${key}.location`)}
@@ -63,7 +63,7 @@ export function Portfolio() {
                                 </p>
                             </div>
 
-                            <div className="absolute top-6 right-6 p-4 bg-white/10 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100">
+                            <div className="absolute top-6 end-6 p-4 bg-white/10 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100">
                                 <ExternalLink className="h-5 w-5 text-white" />
                             </div>
                         </motion.div>

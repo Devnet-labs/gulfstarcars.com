@@ -13,6 +13,8 @@ export default function CarsPage() {
     const [cars, setCars] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [showFilters, setShowFilters] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 30;
     const locale = useLocale();
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -64,6 +66,7 @@ export default function CarsPage() {
             setLoading(true);
             const filteredCars = await getFilteredCars(selectedFilters, locale);
             setCars(filteredCars);
+            setCurrentPage(1); // Reset to first page on filter change
             setLoading(false);
 
             // Scroll to car grid when filters change to ensure images load
@@ -120,38 +123,35 @@ export default function CarsPage() {
         selectedFilters.location.length +
         selectedFilters.make.length;
 
+    // Pagination Logic
+    const totalPages = Math.ceil(cars.length / ITEMS_PER_PAGE);
+    const paginatedCars = cars.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        if (typeof window !== 'undefined') {
+            const carGrid = document.querySelector('.car-results-section');
+            if (carGrid) {
+                carGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    };
+
     const t = useTranslations('cars');
+    const tCommon = useTranslations('common');
 
     return (
         <div className="min-h-screen bg-[#0B0F19] pt-20">
-            {/* Header Section */}
-            <section className="bg-[#0B0F19] border-b border-white/5 py-12">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                            <div>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="transform hover:scale-110 transition-transform">
-                                        <LayoutGrid className="h-8 w-8 text-primary" />
-                                    </div>
-                                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">{t('pageTitle')}</h1>
-                                </div>
-                                <p className="text-xl text-gray-400 max-w-2xl">
-                                    {t('subtitle')}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Main Content */}
             <section className="py-8 sm:py-12">
                 <div className="container mx-auto px-4">
-                    {/* Make Selector */}
+                    {/* Make Selector - Sticky top on desktop */}
                     {filterOptions.makes.length > 0 && (
-                        <div className="mb-8 sm:mb-12 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-                            <div className="flex gap-3 sm:gap-4 min-w-max">
+                        <div className="mb-12 sm:mb-20 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-6 border-b border-white/5">
+                            <div className="flex gap-3 sm:gap-4 min-w-max pb-2">
                                 {filterOptions.makes.map(({ make, count }) => {
                                     const isSelected = selectedFilters.make.includes(make);
                                     return (
@@ -208,10 +208,10 @@ export default function CarsPage() {
                             </button>
 
                             {/* Sidebar Filters Container */}
-                            <div className={`${showFilters ? 'block animate-in fade-in slide-in-from-top-4 duration-500' : 'hidden'} lg:block sticky top-32`}>
-                                <div className="bg-card/30 backdrop-blur-2xl rounded-3xl border border-white/10 p-7 shadow-2xl relative overflow-hidden group">
+                            <div className={`${showFilters ? 'block animate-in fade-in slide-in-from-top-4 duration-500' : 'hidden'} lg:block sticky top-48 lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto custom-scrollbar`}>
+                                <div className="bg-card/30 backdrop-blur-2xl rounded-3xl border border-white/10 p-7 shadow-2xl relative overflow-hidden group mb-4">
                                     {/* Glassmorphism accent */}
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
+                                    <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
                                     <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
                                         <div className="flex items-center gap-3">
@@ -231,7 +231,7 @@ export default function CarsPage() {
                                         )}
                                     </div>
 
-                                    <div className="space-y-8 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pr-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                                    <div className="space-y-8 pe-2 custom-scrollbar">
                                         {/* Filter Sections */}
                                         <FilterSection
                                             title={t('filters.fuelType')}
@@ -312,15 +312,6 @@ export default function CarsPage() {
                                             </h2>
                                             <p className="text-slate-500 font-medium mt-1">{t('foundSubtitle')}</p>
                                         </div>
-
-                                        <div className="h-14 flex items-center gap-4 bg-white/5 border border-white/5 rounded-2xl px-5 text-slate-400 group focus-within:border-primary/50 transition-all">
-                                            <Search className="h-5 w-5 group-focus-within:text-primary transition-colors" />
-                                            <input
-                                                type="text"
-                                                placeholder="Search in results..."
-                                                className="bg-transparent border-none outline-none text-sm font-medium w-full placeholder:text-slate-600 text-white"
-                                            />
-                                        </div>
                                     </div>
 
                                     {cars.length === 0 ? (
@@ -344,16 +335,52 @@ export default function CarsPage() {
                                             )}
                                         </motion.div>
                                     ) : (
-                                        <motion.div
-                                            layout
-                                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
-                                        >
-                                            <AnimatePresence mode="popLayout">
-                                                {cars.map((car, index) => (
-                                                    <CarCard key={car.id} car={car} index={index} />
-                                                ))}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                        <>
+                                            <motion.div
+                                                layout
+                                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
+                                            >
+                                                <AnimatePresence mode="popLayout">
+                                                    {paginatedCars.map((car, index) => (
+                                                        <CarCard key={car.id} car={car} index={index} />
+                                                    ))}
+                                                </AnimatePresence>
+                                            </motion.div>
+
+                                            {/* Pagination */}
+                                            {totalPages > 1 && (
+                                                <div className="mt-16 flex justify-center items-center gap-2">
+                                                    <button
+                                                        onClick={() => handlePageChange(currentPage - 1)}
+                                                        disabled={currentPage === 1}
+                                                        className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all"
+                                                    >
+                                                        {tCommon('previous')}
+                                                    </button>
+                                                    <div className="flex gap-2">
+                                                        {[...Array(totalPages)].map((_, i) => (
+                                                            <button
+                                                                key={i + 1}
+                                                                onClick={() => handlePageChange(i + 1)}
+                                                                className={`w-12 h-12 rounded-xl border font-bold transition-all ${currentPage === i + 1
+                                                                    ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25'
+                                                                    : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                                                                    }`}
+                                                            >
+                                                                {i + 1}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                    <button
+                                                        onClick={() => handlePageChange(currentPage + 1)}
+                                                        disabled={currentPage === totalPages}
+                                                        className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all"
+                                                    >
+                                                        {tCommon('next')}
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </>
                                     )}
                                 </>
                             )}
@@ -373,6 +400,10 @@ export default function CarsPage() {
                 .mask-fade-right {
                     -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
                     mask-image: linear-gradient(to right, black 85%, transparent 100%);
+                }
+                [dir="rtl"] .mask-fade-right {
+                    -webkit-mask-image: linear-gradient(to left, black 85%, transparent 100%);
+                    mask-image: linear-gradient(to left, black 85%, transparent 100%);
                 }
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
@@ -437,7 +468,7 @@ function FilterSection({ title, options, selected, onChange }: {
                                         />
                                         <Check className={`absolute h-3 w-3 text-white transition-all scale-0 ${selected.includes(option) ? 'scale-100' : 'scale-0'}`} />
                                     </div>
-                                    <span className={`ml-3 text-sm font-medium transition-colors ${selected.includes(option) ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
+                                    <span className={`ms-3 text-sm font-medium transition-colors ${selected.includes(option) ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
                                         {option}
                                     </span>
                                 </label>

@@ -71,7 +71,7 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                 )}
 
                 {/* Counter */}
-                <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-background/80 backdrop-blur-md px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold border border-white/10">
+                <div className="absolute bottom-2 end-2 sm:bottom-4 sm:end-4 bg-background/80 backdrop-blur-md px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold border border-white/10">
                     {currentIndex + 1} / {images.length}
                 </div>
             </div>
@@ -108,7 +108,7 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                     >
                         <button
                             onClick={() => setIsFullscreen(false)}
-                            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-[101]"
+                            className="absolute top-4 end-4 sm:top-6 sm:end-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-[101]"
                         >
                             <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </button>
@@ -132,13 +132,13 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 <>
                                     <button
                                         onClick={prevImage}
-                                        className="absolute left-2 sm:left-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                        className="absolute start-2 sm:start-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                                     >
                                         <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                     </button>
                                     <button
                                         onClick={nextImage}
-                                        className="absolute right-2 sm:right-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                        className="absolute end-2 sm:end-4 p-2 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                                     >
                                         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                     </button>

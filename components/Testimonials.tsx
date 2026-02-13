@@ -35,7 +35,7 @@ export function Testimonials() {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className="flex-none w-[calc(85%-16px)] snap-start bg-background/60 backdrop-blur-2xl p-6 sm:p-10 rounded-[24px] sm:rounded-[32px] border border-white/10 relative group hover:border-primary/40 transition-all duration-500 md:w-full"
                         >
-                            <Quote className="absolute top-8 right-8 h-12 w-12 text-primary/10 group-hover:text-primary/20 transition-colors" />
+                            <Quote className="absolute top-8 end-8 h-12 w-12 text-primary/10 group-hover:text-primary/20 transition-colors" />
 
                             <div className="flex gap-1 mb-6">
                                 {[...Array(5)].map((_, i) => (

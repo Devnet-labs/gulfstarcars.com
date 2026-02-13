@@ -58,13 +58,13 @@ export default function LanguageSwitcher() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute right-0 mt-2 w-48 py-2 bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl z-[9999]"
+                        className="absolute right-0 rtl:left-0 mt-2 w-48 py-2 bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl z-[9999]"
                     >
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
                                 onClick={() => handleLocaleChange(lang.code)}
-                                className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between transition-colors ${locale === lang.code
+                                className={`w-full text-start px-4 py-2.5 text-sm flex items-center justify-between transition-colors ${locale === lang.code
                                     ? 'bg-primary/20 text-primary font-medium'
                                     : 'text-slate-300 hover:bg-white/5 hover:text-white'
                                     }`}

@@ -20,7 +20,7 @@ export function FloatingContactButtons() {
     };
 
     return (
-        <div className="fixed bottom-12 right-6 z-50 flex flex-col gap-3">
+        <div className="fixed bottom-12 end-6 z-50 flex flex-col gap-3">
             {/* WhatsApp Button */}
             <button
                 onClick={handleWhatsAppClick}
@@ -34,13 +34,13 @@ export function FloatingContactButtons() {
 
                 {/* Tooltip */}
                 <span
-                    className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'whatsapp'
+                    className={`absolute end-full me-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'whatsapp'
                         ? 'opacity-100 translate-x-0'
                         : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Chat on WhatsApp
-                    <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
+                    <span className="absolute top-1/2 -end-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
                 </span>
 
                 {/* Pulse animation */}
@@ -59,13 +59,13 @@ export function FloatingContactButtons() {
 
                 {/* Tooltip */}
                 <span
-                    className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'facebook'
+                    className={`absolute end-full me-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'facebook'
                         ? 'opacity-100 translate-x-0'
                         : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Follow on Facebook
-                    <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
+                    <span className="absolute top-1/2 -end-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
                 </span>
             </button>
         </div>
