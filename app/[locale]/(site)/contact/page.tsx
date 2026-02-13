@@ -26,11 +26,11 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-[#0B0F19] text-white">
             {/* --- HERO SECTION --- */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
+            <section className="relative py-16 overflow-hidden">
                 {/* Background Elements */}
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-primary/5 rounded-full blur-[120px]" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
@@ -39,9 +39,6 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="inline-block text-primary font-bold tracking-[0.2em] text-[10px] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
-                            Connect With Us
-                        </span>
                         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
                             {t('title')}
                         </h1>
@@ -55,7 +52,7 @@ export default function ContactPage() {
             {/* --- MAIN CONTENT SECTION --- */}
             <section className="pb-24 px-6">
                 <div className="container mx-auto max-w-5xl">
-                    <div className="space-y-16">
+                    <div className="space-y-16 mt-10">
 
                         {/* CONTACT INFO GRID */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -67,7 +64,7 @@ export default function ContactPage() {
                             >
                                 {/* Offices */}
                                 <div className="space-y-8">
-                                    <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary flex items-center gap-3 ps-2 mb-10">
+                                    <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary flex items-center justify-center gap-3 mb-12">
                                         <Globe className="w-4 h-4" />
                                         {t('officesTitle')}
                                     </h2>
@@ -85,14 +82,15 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        <div className="bg-white/5 border border-white/10 p-8 sm:p-10 rounded-[3rem] hover:border-primary/20 transition-all opacity-80 hover:opacity-100 group">
+                                        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-[3rem] hover:border-primary/40 transition-all group shadow-2xl relative overflow-hidden">
+                                            <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
                                             <div className="flex gap-6">
-                                                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
-                                                    <MapPin className="w-6 h-6 text-gray-500 group-hover:text-primary transition-colors" />
+                                                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                                    <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-xl text-white/80">{t('ajmanOffice')}</h3>
-                                                    <p className="text-sm text-gray-500 leading-relaxed font-medium text-white/60" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
+                                                    <h3 className="font-bold text-xl text-white">{t('ajmanOffice')}</h3>
+                                                    <p className="text-sm text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +106,7 @@ export default function ContactPage() {
                             >
                                 {/* Quick Connect */}
                                 <div className="space-y-8">
-                                    <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary flex items-center gap-3 ps-2 mb-10">
+                                    <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary flex items-center justify-center gap-3 mb-12">
                                         <Send className="w-4 h-4" />
                                         {t('quickConnect')}
                                     </h2>
@@ -118,8 +116,8 @@ export default function ContactPage() {
                                                 <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('callUs')}</p>
                                                 <a href={`tel:${tFooter('phone')}`} className="text-xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
                                             </div>
-                                            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-500">
-                                                <Phone className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                                            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
+                                                <Phone className="w-5 h-5 text-primary" />
                                             </div>
                                         </div>
 
@@ -135,8 +133,8 @@ export default function ContactPage() {
                                                     {tFooter('emails.info')}
                                                 </a>
                                             </div>
-                                            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-500">
-                                                <Mail className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                                            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
+                                                <Mail className="w-5 h-5 text-primary" />
                                             </div>
                                         </div>
 
