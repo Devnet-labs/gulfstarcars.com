@@ -22,7 +22,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="relative bg-[#0B0F19] text-white pt-32 pb-12 overflow-hidden">
+        <footer className="relative bg-[#0B0F19] text-white pt-3 md:pt-32 pb-12 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -33,10 +33,10 @@ export function Footer() {
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 {/* Upper Footer: Branding & Quick Connect */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12 md:mb-24">
                     <div className="lg:col-span-5 space-y-10">
                         <Link href="/" className="inline-flex items-center group">
-                            <div className="relative h-32 w-64 md:h-40 md:w-72 lg:h-44 lg:w-80 transition-all duration-700">
+                            <div className="relative h-48 w-80 md:h-56 md:w-[360px] lg:h-64 lg:w-[480px] transition-all duration-700">
                                 <Image
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
