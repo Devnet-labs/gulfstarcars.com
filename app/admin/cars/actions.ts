@@ -78,8 +78,9 @@ export async function createCar(prevState: any, formData: FormData) {
         const car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
+                price: validatedFields.data.price ?? null,
                 customId,
-            },
+            } as any,
         });
         carId = car.id;
     } catch (error) {
@@ -153,7 +154,10 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
 
         await prisma.car.update({
             where: { id },
-            data: validatedFields.data,
+            data: {
+                ...validatedFields.data,
+                price: validatedFields.data.price ?? null,
+            } as any,
         });
 
         // Re-translate only if description changed AND enabled
