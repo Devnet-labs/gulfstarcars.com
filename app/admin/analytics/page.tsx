@@ -196,7 +196,9 @@ export default function AnalyticsDashboard() {
                         <div className="font-bold text-white text-sm">
                           {item.car.year} {item.car.make} {item.car.model}
                         </div>
-                        <div className="text-xs text-slate-400">${item.car.price.toLocaleString()}</div>
+                        <div className="text-xs text-slate-400">
+                          {item.car.price ? `$${item.car.price.toLocaleString()}` : 'Price on Request'}
+                        </div>
                       </div>
                     </div>
                   </td>

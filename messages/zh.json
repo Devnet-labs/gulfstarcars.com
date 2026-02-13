@@ -466,5 +466,11 @@
       "title": "关于我们 - Gulf Star Automotive FZC | 国际汽车出口",
       "description": "Gulf Star Automotive FZC 是一家位于阿联酋迪拜的持牌汽车出口公司。我们提供全面的出口服务，包括物流、合规和国际汽车贸易文件。"
     }
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "subtitle": "您寻找的路径不存在或已被移动。",
+    "backHome": "返回首页",
+    "browseInventory": "浏览产品"
   }
 }

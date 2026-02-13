@@ -468,5 +468,11 @@
       "SOLD": "Sold",
       "RESERVED": "Reserved"
     }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "The road you are looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home",
+    "browseInventory": "Browse Inventory"
   }
 }

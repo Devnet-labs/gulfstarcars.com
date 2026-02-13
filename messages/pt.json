@@ -466,5 +466,11 @@
     "required": "Este campo é obrigatório",
     "invalidEmail": "E-mail inválido",
     "invalidNumber": "Deve ser um número válido"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "subtitle": "O caminho que procura não existe ou foi movido.",
+    "backHome": "Voltar ao início",
+    "browseInventory": "Explorar inventário"
   }
 }
