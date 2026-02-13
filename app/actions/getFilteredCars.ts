@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { Car } from '@prisma/client';
 
 interface InventoryFilters {
+    make?: string[];
     fuelType?: string[];
     transmission?: string[];
     vehicleType?: string[];
@@ -20,6 +21,13 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
         };
 
         // Apply filters if provided
+        if (filters?.make && filters.make.length > 0) {
+            where.make = {
+                in: filters.make,
+                mode: 'insensitive'
+            };
+        }
+
         if (filters?.fuelType && filters.fuelType.length > 0) {
             where.fuelType = {
                 in: filters.fuelType,
@@ -91,7 +99,9 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
 export async function getInventoryFilterOptions() {
     try {
         const cars = await prisma.car.findMany({
+            where: { isActive: true },
             select: {
+                make: true,
                 fuelType: true,
                 transmission: true,
                 bodyType: true,
@@ -102,7 +112,19 @@ export async function getInventoryFilterOptions() {
             }
         });
 
-        // Extract unique values with proper typing
+        // Extract unique values and counts for makes
+        const makeCounts: Record<string, number> = {};
+        cars.forEach((car: any) => {
+            if (car.make) {
+                makeCounts[car.make] = (makeCounts[car.make] || 0) + 1;
+            }
+        });
+
+        const makes = Object.entries(makeCounts)
+            .map(([name, count]) => ({ name, count }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+        // Extract unique values for other filters
         const fuelTypes = [...new Set(cars.map((car: any) => car.fuelType).filter((v: any): v is string => Boolean(v)))];
         const transmissions = [...new Set(cars.map((car: any) => car.transmission).filter((v: any): v is string => Boolean(v)))];
         const bodyTypes = [...new Set(cars.map((car: any) => car.bodyType).filter((v: any): v is string => Boolean(v)))];
@@ -112,6 +134,7 @@ export async function getInventoryFilterOptions() {
         const locations = [...new Set(cars.map((car: any) => car.location).filter((v: any): v is string => Boolean(v)))];
 
         return {
+            makes,
             fuelTypes: fuelTypes.sort(),
             transmissions: transmissions.sort(),
             vehicleTypes: bodyTypes.sort(),
@@ -123,6 +146,7 @@ export async function getInventoryFilterOptions() {
     } catch (error) {
         console.error('Error fetching inventory filter options:', error);
         return {
+            makes: [] as { name: string; count: number }[],
             fuelTypes: [] as string[],
             transmissions: [] as string[],
             vehicleTypes: [] as string[],

@@ -37,8 +37,8 @@
     }
   },
   "cars": {
-    "pageTitle": "Our Products",
-    "subtitle": "Browse our complete collection of premium vehicles ready for global export",
+    "pageTitle": "Global Inventory",
+    "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
     "filterTitle": "Filters",
