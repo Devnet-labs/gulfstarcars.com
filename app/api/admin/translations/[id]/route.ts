@@ -16,6 +16,14 @@ export async function GET(
                 model: true,
                 year: true,
                 description: true,
+                bodyType: true,
+                fuelType: true,
+                steering: true,
+                transmission: true,
+                engineCapacity: true,
+                colour: true,
+                driveType: true,
+                location: true,
             },
         });
 

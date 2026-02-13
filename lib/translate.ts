@@ -1,143 +1,189 @@
 'use server';
 
+import { prisma } from './db';
 import { LOCALE_TO_DEEPL, TARGET_LOCALES, getDeepLConfig } from './translate-config';
+import { translateWithGroq, TranslatableCarFields, checkGroqConfig } from './groq-translate';
 
 /**
- * Translate text using DeepL API
+ * Check translation configuration (Groq or DeepL)
  */
-export async function translateText(
-    text: string,
-    targetLang: string
-): Promise<{ translation: string; success: boolean; error?: string }> {
-    const deeplLang = LOCALE_TO_DEEPL[targetLang];
-    if (!deeplLang) {
-        return { translation: '', success: false, error: `Unsupported locale: ${targetLang}` };
+export async function checkTranslationConfig(): Promise<{
+    isConfigured: boolean;
+    service: 'groq' | 'deepl' | 'none';
+    error?: string;
+}> {
+    // Check Groq first (primary)
+    const groqCheck = await checkGroqConfig();
+    if (groqCheck.isConfigured) {
+        return { isConfigured: true, service: 'groq' };
     }
 
-    const config = getDeepLConfig();
-    if (!config.isConfigured) {
-        return { translation: '', success: false, error: 'DEEPL_API_KEY not configured' };
+    // Check DeepL (fallback)
+    const deeplConfig = getDeepLConfig();
+    if (deeplConfig.isConfigured) {
+        return { isConfigured: true, service: 'deepl' };
     }
+
+    return {
+        isConfigured: false,
+        service: 'none',
+        error: 'Neither GROQ_API_KEY nor DEEPL_API_KEY configured'
+    };
+}
+
+/**
+ * Translate car fields using Groq API (all 11 fields to 6 languages in one call)
+ * Falls back to DeepL if Groq fails
+ */
+export async function translateAllCarFields(
+    carId: string,
+    fields: TranslatableCarFields
+): Promise<Array<{ locale: string; success: boolean; error?: string }>> {
+    const results: Array<{ locale: string; success: boolean; error?: string }> = [];
 
     try {
-        const response = await fetch(config.apiUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `DeepL-Auth-Key ${config.apiKey}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: [text],
-                source_lang: 'EN',
-                target_lang: deeplLang,
-            }),
-        });
+        // Try Groq first (primary service)
+        console.log('🚀 Attempting translation with Groq...');
+        const translations = await translateWithGroq(fields, TARGET_LOCALES);
 
-        if (!response.ok) {
-            const errorBody = await response.text();
-            console.error(`DeepL API error (${response.status}):`, errorBody);
-            return {
-                translation: '',
-                success: false,
-                error: `DeepL API returned ${response.status}`,
-            };
+        // Store each locale's translation
+        for (const locale of TARGET_LOCALES) {
+            const localeTranslation = translations[locale as keyof typeof translations];
+
+            if (!localeTranslation) {
+                console.warn(`Missing translation for locale: ${locale}`);
+                results.push({ locale, success: false, error: 'Missing translation in Groq response' });
+                continue;
+            }
+
+            try {
+                await prisma.carTranslation.upsert({
+                    where: { carId_locale: { carId, locale } },
+                    create: {
+                        carId,
+                        locale,
+                        make: localeTranslation.make || null,
+                        model: localeTranslation.model || null,
+                        description: localeTranslation.description || null,
+                        bodyType: localeTranslation.bodyType || null,
+                        fuelType: localeTranslation.fuelType || null,
+                        steering: localeTranslation.steering || null,
+                        transmission: localeTranslation.transmission || null,
+                        engineCapacity: localeTranslation.engineCapacity || null,
+                        colour: localeTranslation.colour || null,
+                        driveType: localeTranslation.driveType || null,
+                        location: localeTranslation.location || null,
+                        status: 'COMPLETED',
+                    },
+                    update: {
+                        make: localeTranslation.make || null,
+                        model: localeTranslation.model || null,
+                        description: localeTranslation.description || null,
+                        bodyType: localeTranslation.bodyType || null,
+                        fuelType: localeTranslation.fuelType || null,
+                        steering: localeTranslation.steering || null,
+                        transmission: localeTranslation.transmission || null,
+                        engineCapacity: localeTranslation.engineCapacity || null,
+                        colour: localeTranslation.colour || null,
+                        driveType: localeTranslation.driveType || null,
+                        location: localeTranslation.location || null,
+                        status: 'COMPLETED',
+                    },
+                });
+
+                results.push({ locale, success: true });
+                console.log(`✅ Saved ${locale} translation`);
+            } catch (dbError) {
+                console.error(`Database error for ${locale}:`, dbError);
+                results.push({ locale, success: false, error: 'Database save failed' });
+            }
         }
 
-        const data = await response.json();
-        const translatedText = data.translations?.[0]?.text;
+        return results;
+    } catch (groqError) {
+        console.error('❌ Groq translation failed:', groqError);
 
-        if (!translatedText) {
-            return { translation: '', success: false, error: 'No translation returned from DeepL' };
+        // Fallback to DeepL for description only
+        const deeplConfig = getDeepLConfig();
+        if (deeplConfig.isConfigured && fields.description) {
+            console.log('🔄 Falling back to DeepL for description translation...');
+            return await translateDescriptionWithDeepL(carId, fields.description);
         }
 
-        return { translation: translatedText, success: true };
-    } catch (error) {
-        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
-        console.error('DeepL translation error:', errorMsg);
-        return { translation: '', success: false, error: errorMsg };
+        // Mark all as failed if no fallback
+        return TARGET_LOCALES.map(locale => ({
+            locale,
+            success: false,
+            error: 'Groq failed and no DeepL fallback available',
+        }));
     }
 }
 
 /**
- * Check if DeepL API is configured
+ * DeepL fallback for description only (legacy support)
  */
-export async function checkTranslationConfig(): Promise<{ isConfigured: boolean }> {
-    const config = getDeepLConfig();
-    return { isConfigured: config.isConfigured };
-}
-
-/**
- * Translate a car's description to all supported non-English locales.
- * Uses Promise.allSettled so one failure doesn't block others.
- * Returns results per locale for status tracking.
- */
-export async function translateCarDescription(
+async function translateDescriptionWithDeepL(
     carId: string,
     description: string
-): Promise<{ locale: string; success: boolean; error?: string }[]> {
-    const { prisma } = await import('@/lib/db');
+): Promise<Array<{ locale: string; success: boolean; error?: string }>> {
+    const results: Array<{ locale: string; success: boolean; error?: string }> = [];
+    const config = getDeepLConfig();
 
-    const results = await Promise.allSettled(
-        TARGET_LOCALES.map(async (locale) => {
-            // Mark as PENDING before translating
-            await prisma.carTranslation.upsert({
-                where: { carId_locale: { carId, locale } },
-                create: {
-                    carId,
-                    locale,
-                    description: '',
-                    status: 'PENDING',
+    for (const locale of TARGET_LOCALES) {
+        const deeplLang = LOCALE_TO_DEEPL[locale];
+        if (!deeplLang) continue;
+
+        try {
+            const response = await fetch(config.apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `DeepL-Auth-Key ${config.apiKey}`,
+                    'Content-Type': 'application/json',
                 },
-                update: {
-                    status: 'PENDING',
-                },
+                body: JSON.stringify({
+                    text: [description],
+                    source_lang: 'EN',
+                    target_lang: deeplLang,
+                }),
             });
 
-            const result = await translateText(description, locale);
-
-            if (result.success) {
-                await prisma.carTranslation.upsert({
-                    where: { carId_locale: { carId, locale } },
-                    create: {
-                        carId,
-                        locale,
-                        description: result.translation,
-                        status: 'COMPLETED',
-                    },
-                    update: {
-                        description: result.translation,
-                        status: 'COMPLETED',
-                    },
-                });
-                return { locale, success: true };
-            } else {
-                await prisma.carTranslation.upsert({
-                    where: { carId_locale: { carId, locale } },
-                    create: {
-                        carId,
-                        locale,
-                        description: '',
-                        status: 'FAILED',
-                    },
-                    update: {
-                        status: 'FAILED',
-                    },
-                });
-                return { locale, success: false, error: result.error };
+            if (!response.ok) {
+                throw new Error(`DeepL API returned ${response.status}`);
             }
-        })
-    );
 
-    return results.map((result, i) => {
-        if (result.status === 'fulfilled') {
-            return result.value;
+            const data = await response.json();
+            const translatedText = data.translations?.[0]?.text;
+
+            if (translatedText) {
+                await prisma.carTranslation.upsert({
+                    where: { carId_locale: { carId, locale } },
+                    create: {
+                        carId,
+                        locale,
+                        description: translatedText,
+                        status: 'COMPLETED',
+                    },
+                    update: {
+                        description: translatedText,
+                        status: 'COMPLETED',
+                    },
+                });
+
+                results.push({ locale, success: true });
+            } else {
+                results.push({ locale, success: false, error: 'No translation from DeepL' });
+            }
+        } catch (error) {
+            console.error(`DeepL error for ${locale}:`, error);
+            results.push({
+                locale,
+                success: false,
+                error: error instanceof Error ? error.message : 'Unknown error'
+            });
         }
-        return {
-            locale: TARGET_LOCALES[i],
-            success: false,
-            error: result.reason?.message || 'Promise rejected',
-        };
-    });
+    }
+
+    return results;
 }
 
 /**
@@ -147,35 +193,109 @@ export async function retryTranslationAction(
     carId: string,
     locale: string
 ): Promise<{ success: boolean; error?: string }> {
-    const { prisma } = await import('@/lib/db');
+    try {
+        const car = await prisma.car.findUnique({ where: { id: carId } });
+        if (!car) {
+            return { success: false, error: 'Car not found' };
+        }
 
-    const car = await prisma.car.findUnique({ where: { id: carId } });
-    if (!car) {
-        return { success: false, error: 'Car not found' };
-    }
+        // Build fields object
+        const fields: TranslatableCarFields = {
+            make: car.make,
+            model: car.model,
+            description: car.description,
+            bodyType: car.bodyType,
+            fuelType: car.fuelType,
+            steering: car.steering,
+            transmission: car.transmission,
+            engineCapacity: car.engineCapacity,
+            colour: car.colour,
+            driveType: car.driveType,
+            location: car.location,
+        };
 
-    const result = await translateText(car.description, locale);
+        // Translate using Groq
+        const translations = await translateWithGroq(fields, [locale]);
+        const localeTranslation = translations[locale as keyof typeof translations];
 
-    if (result.success) {
+        if (!localeTranslation) {
+            return { success: false, error: 'Translation failed' };
+        }
+
         await prisma.carTranslation.upsert({
             where: { carId_locale: { carId, locale } },
             create: {
                 carId,
                 locale,
-                description: result.translation,
+                make: localeTranslation.make || null,
+                model: localeTranslation.model || null,
+                description: localeTranslation.description || null,
+                bodyType: localeTranslation.bodyType || null,
+                fuelType: localeTranslation.fuelType || null,
+                steering: localeTranslation.steering || null,
+                transmission: localeTranslation.transmission || null,
+                engineCapacity: localeTranslation.engineCapacity || null,
+                colour: localeTranslation.colour || null,
+                driveType: localeTranslation.driveType || null,
+                location: localeTranslation.location || null,
                 status: 'COMPLETED',
             },
             update: {
-                description: result.translation,
+                make: localeTranslation.make || null,
+                model: localeTranslation.model || null,
+                description: localeTranslation.description || null,
+                bodyType: localeTranslation.bodyType || null,
+                fuelType: localeTranslation.fuelType || null,
+                steering: localeTranslation.steering || null,
+                transmission: localeTranslation.transmission || null,
+                engineCapacity: localeTranslation.engineCapacity || null,
+                colour: localeTranslation.colour || null,
+                driveType: localeTranslation.driveType || null,
+                location: localeTranslation.location || null,
                 status: 'COMPLETED',
             },
         });
+
         return { success: true };
-    } else {
-        await prisma.carTranslation.update({
+    } catch (error) {
+        console.error('Retry translation error:', error);
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error',
+        };
+    }
+}
+
+/**
+ * Update a single translation field manually (admin edit)
+ */
+export async function updateTranslationField(
+    carId: string,
+    locale: string,
+    fieldName: keyof TranslatableCarFields,
+    value: string | null
+): Promise<{ success: boolean; error?: string }> {
+    try {
+        const updateData: any = {};
+        updateData[fieldName] = value;
+
+        await prisma.carTranslation.upsert({
             where: { carId_locale: { carId, locale } },
-            data: { status: 'FAILED' },
+            create: {
+                carId,
+                locale,
+                [fieldName]: value,
+                status: 'COMPLETED',
+            },
+            update: updateData,
         });
-        return { success: false, error: result.error };
+
+        return { success: true };
+    } catch (error) {
+        console.error('Update translation field error:', error);
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error',
+        };
     }
 }

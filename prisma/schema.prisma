@@ -182,8 +182,20 @@ model SupportedLanguage {
 model CarTranslation {
   id          String   @id @default(uuid())
   carId       String
-  locale      String                // "ar", "fr", "es", "pt", "ru", "zh"
-  description String                // DeepL-translated description
+  locale      String                // "ar", "es", "fr", "pt", "ru", "zh"
+  
+  // Translatable fields (11 total)
+  make           String?
+  model          String?
+  description    String?
+  bodyType       String?
+  fuelType       String?
+  steering       String?
+  transmission   String?
+  engineCapacity String?
+  colour         String?
+  driveType      String?
+  location       String?
   status      String   @default("COMPLETED")  // COMPLETED, PENDING, FAILED
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

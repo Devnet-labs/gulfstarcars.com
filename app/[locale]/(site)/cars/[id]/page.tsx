@@ -19,8 +19,21 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
     const tSpecs = await getTranslations('cars.specs');
     const tEnums = await getTranslations('carEnums');
 
-    // Get translated description (from CarTranslation or fallback to original)
-    const translatedDescription = (car as any)?.translations?.[0]?.description || car?.description;
+    // Get translated fields (from CarTranslation or fallback to original)
+    const translation = (car as any)?.translations?.[0];
+    const tFields = {
+        description: translation?.description || car?.description,
+        make: translation?.make || car?.make,
+        model: translation?.model || car?.model,
+        bodyType: translation?.bodyType || car?.bodyType,
+        fuelType: translation?.fuelType || car?.fuelType,
+        steering: translation?.steering || car?.steering,
+        transmission: translation?.transmission || car?.transmission,
+        engineCapacity: translation?.engineCapacity || car?.engineCapacity,
+        colour: translation?.colour || car?.colour,
+        driveType: translation?.driveType || car?.driveType,
+        location: translation?.location || car?.location,
+    };
 
     if (!car) {
         notFound();
@@ -36,18 +49,18 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                     <span>/</span>
                     <Link href="/cars" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.inventory')}</Link>
                     <span>/</span>
-                    <span className="text-foreground font-medium truncate">{car.make} {car.model}</span>
+                    <span className="text-foreground font-medium truncate">{tFields.make} {tFields.model}</span>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
                     {/* Left Column: Gallery & Description */}
                     <div className="lg:col-span-8 space-y-6 sm:space-y-8">
-                        <CarImageGallery images={car.images} alt={`${car.make} ${car.model}`} />
+                        <CarImageGallery images={car.images} alt={`${tFields.make} ${tFields.model}`} />
 
                         <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl">
                             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground tracking-tight">{t('description')}</h2>
                             <div className="prose prose-invert max-w-none text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                                {translatedDescription}
+                                {tFields.description}
                             </div>
                         </div>
                     </div>
@@ -67,7 +80,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                         {tEnums(`status.${car.status}`)}
                                     </span>
                                 </div>
-                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {car.make} {car.model}</h1>
+                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {tFields.make} {tFields.model}</h1>
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-3xl sm:text-4xl font-black text-accent">${car.price.toLocaleString()}</span>
                                     <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>
@@ -77,8 +90,8 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                             <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                                 <DetailInfoItem icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
                                 <DetailInfoItem icon={<Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
-                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType ? tEnums(`fuelType.${car.fuelType}`) : tEnums('fuelType.Petrol')} />
-                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission ? tEnums(`transmission.${car.transmission}`) : tEnums('transmission.Automatic')} />
+                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={tFields.fuelType || tEnums('fuelType.Petrol')} />
+                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={tFields.transmission || tEnums('transmission.Automatic')} />
                             </div>
 
                             <DetailClientActions car={car} />

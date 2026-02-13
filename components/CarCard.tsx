@@ -38,8 +38,13 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const router = useRouter();
 
-    // Get translated description if available
-    const translatedDescription = (car as any)?.translations?.[0]?.description || car.description;
+    // Get translated fields (from CarTranslation or fallback to original)
+    const translation = (car as any)?.translations?.[0];
+    const tFields = {
+        description: translation?.description || car.description,
+        make: translation?.make || car.make,
+        model: translation?.model || car.model,
+    };
 
     const handleCardClick = () => {
         router.push(`/cars/${car.id}`);
@@ -61,7 +66,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                     <Image
                         src={optimizeCloudinaryUrl(car.images[0] || '/placeholder-car.png', cloudinaryPresets.cardImage)}
-                        alt={`${car.make} ${car.model}`}
+                        alt={`${tFields.make} ${tFields.model}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -86,10 +91,10 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                 <div className="p-3 sm:p-6 flex flex-col flex-grow">
                     <div className="mb-2 sm:mb-4">
                         <div className="flex justify-between items-start mb-1 sm:mb-2">
-                            <h3 className="text-sm sm:text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{car.make} {car.model}</h3>
+                            <h3 className="text-sm sm:text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{tFields.make} {tFields.model}</h3>
                             <span className="bg-secondary text-muted-foreground text-[8px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md border border-white/5">{car.year}</span>
                         </div>
-                        <p className="text-[10px] sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2 leading-relaxed">{car.description}</p>
+                        <p className="text-[10px] sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2 leading-relaxed">{tFields.description}</p>
                     </div>
 
                     {/* Specs Divider */}

@@ -1,128 +1,67 @@
-//!Backfill translations for existing cars
-// Usage: npx tsx scripts/backfill-translations.ts
-
 import { PrismaClient } from '@prisma/client';
-import { TARGET_LOCALES, LOCALE_TO_DEEPL, getDeepLConfig } from '../lib/translate-config';
+import { translateAllCarFields } from '../lib/translate';
 
 const prisma = new PrismaClient();
-const { apiUrl: DEEPL_API_URL, apiKey: DEEPL_API_KEY } = getDeepLConfig();
-
-async function translateText(text: string, targetLang: string): Promise<string | null> {
-    if (!DEEPL_API_URL || !DEEPL_API_KEY) {
-        console.warn('⚠️  DEEPL_API_KEY not set — skipping translation');
-        return null;
-    }
-
-    try {
-        const res = await fetch(DEEPL_API_URL, {
-            method: 'POST',
-            headers: {
-                Authorization: `DeepL-Auth-Key ${DEEPL_API_KEY}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: [text],
-                source_lang: 'EN',
-                target_lang: targetLang,
-            }),
-        });
-
-        if (!res.ok) {
-            console.error(`DeepL error: ${res.status} ${res.statusText}`);
-            return null;
-        }
-
-        const data = await res.json();
-        return data.translations?.[0]?.text || null;
-    } catch (error) {
-        console.error('Translation error:', error);
-        return null;
-    }
-}
 
 async function backfillTranslations() {
-    console.log('🚀 Starting translation backfill...\n');
+    try {
+        console.log('Starting translation backfill...');
 
-    // Get all cars that have descriptions
-    const cars = await prisma.car.findMany({
-        where: {
-            description: { not: '' },
-        },
-        select: {
-            id: true,
-            make: true,
-            model: true,
-            description: true,
-        },
-    });
+        // Get all cars
+        const cars = await prisma.car.findMany({
+            include: {
+                translations: true,
+            },
+        });
 
-    console.log(`📋 Found ${cars.length} cars to process\n`);
+        console.log(`Found ${cars.length} cars to check.`);
 
-    for (const car of cars) {
-        console.log(`\n🚗 ${car.make} ${car.model} (${car.id})`);
+        let successCount = 0;
+        let failCount = 0;
 
-        for (const locale of TARGET_LOCALES) {
-            // Check if translation already exists
-            const existing = await (prisma as any).carTranslation.findFirst({
-                where: { carId: car.id, locale },
-            });
+        for (const car of cars) {
+            console.log(`Processing car: ${car.make} ${car.model} (${car.id})`);
 
-            if (existing?.status === 'COMPLETED') {
-                console.log(`  ✅ ${locale}: Already translated`);
-                continue;
-            }
+            try {
+                // Determine if we need to re-translate
+                // We re-translate if:
+                // 1. No translations exist
+                // 2. Existing translations are missing new fields (naive check: just re-run for simplicity as Groq is fast/cheap)
 
-            const deeplLang = LOCALE_TO_DEEPL[locale];
-            if (!deeplLang) {
-                console.log(`  ⚠️  ${locale}: No DeepL mapping, skipping`);
-                continue;
-            }
-
-            console.log(`  🔄 ${locale}: Translating...`);
-            const translated = await translateText(car.description, deeplLang);
-
-            if (translated) {
-                await (prisma as any).carTranslation.upsert({
-                    where: {
-                        carId_locale: { carId: car.id, locale },
-                    },
-                    update: {
-                        description: translated,
-                        status: 'COMPLETED',
-                    },
-                    create: {
-                        carId: car.id,
-                        locale,
-                        description: translated,
-                        status: 'COMPLETED',
-                    },
+                await translateAllCarFields(car.id, {
+                    make: car.make,
+                    model: car.model,
+                    description: car.description,
+                    bodyType: car.bodyType,
+                    fuelType: car.fuelType,
+                    steering: car.steering,
+                    transmission: car.transmission,
+                    engineCapacity: car.engineCapacity,
+                    colour: car.colour,
+                    driveType: car.driveType,
+                    location: car.location,
                 });
-                console.log(`  ✅ ${locale}: Done`);
-            } else {
-                await (prisma as any).carTranslation.upsert({
-                    where: {
-                        carId_locale: { carId: car.id, locale },
-                    },
-                    update: {
-                        status: 'FAILED',
-                    },
-                    create: {
-                        carId: car.id,
-                        locale,
-                        description: '',
-                        status: 'FAILED',
-                    },
-                });
-                console.log(`  ❌ ${locale}: Failed`);
-            }
+                console.log(`  ✓ Translations updated for ${car.id}`);
+                successCount++;
 
-            // Rate limit: 200ms between requests
-            await new Promise(resolve => setTimeout(resolve, 200));
+                // Rate limit to be safe (though Groq has high limits)
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+            } catch (error) {
+                console.error(`  ✗ Failed to translate ${car.id}:`, error);
+                failCount++;
+            }
         }
-    }
 
-    console.log('\n\n🎉 Backfill complete!');
-    await prisma.$disconnect();
+        console.log('\nBackfill completed!');
+        console.log(`Success: ${successCount}`);
+        console.log(`Failed: ${failCount}`);
+
+    } catch (error) {
+        console.error('Backfill script error:', error);
+    } finally {
+        await prisma.$disconnect();
+    }
 }
 
-backfillTranslations().catch(console.error);
+backfillTranslations();
