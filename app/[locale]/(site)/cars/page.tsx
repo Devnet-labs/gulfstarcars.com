@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Car } from '@prisma/client';
 import { CarCard } from '@/components/CarCard';
 import { getFilteredCars, getInventoryFilterOptions } from '@/app/actions/getFilteredCars';
@@ -112,30 +111,19 @@ export default function CarsPage() {
             <section className="bg-[#0B0F19] border-b border-white/5 py-12">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <div className="flex items-center gap-3 mb-4">
-                                <motion.div
-                                    initial={{ rotate: -10, scale: 0.8 }}
-                                    animate={{ rotate: 0, scale: 1 }}
-                                    transition={{ type: "spring", stiffness: 200 }}
-                                >
-                                    <LayoutGrid className="h-8 w-8 text-primary" />
-                                </motion.div>
-                                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">{t('pageTitle')}</h1>
+                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                            <div>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="transform hover:scale-110 transition-transform">
+                                        <LayoutGrid className="h-8 w-8 text-primary" />
+                                    </div>
+                                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">{t('pageTitle')}</h1>
+                                </div>
+                                <p className="text-xl text-gray-400 max-w-2xl">
+                                    {t('subtitle')}
+                                </p>
                             </div>
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.3, duration: 0.6 }}
-                                className="text-xl text-gray-400 max-w-2xl"
-                            >
-                                {t('subtitle')}
-                            </motion.p>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
