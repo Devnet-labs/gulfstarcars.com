@@ -32,11 +32,11 @@ export function Footer() {
 
             <div className="w-full max-w-[95%] mx-auto px-6 md:px-12 relative z-10">
                 {/* Upper Footer: Branding & Quick Connect */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Column 1: Brand */}
                     <div className="space-y-6">
                         <Link href="/" className="inline-flex items-center group">
-                            <div className="relative h-32 w-80 transition-all duration-700">
+                            <div className="relative h-24 w-64 transition-all duration-700">
                                 <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
@@ -45,7 +45,7 @@ export function Footer() {
                             </div>
                         </Link>
 
-                        <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+                        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                             {t('description')}
                         </p>
 
@@ -62,11 +62,11 @@ export function Footer() {
                     </div>
 
                     {/* Column 2: Links */}
-                    <div className="space-y-4 lg:mx-auto w-fit">
+                    <div className="space-y-6">
                         <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">
                             {t('usefulLinks')}
                         </h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                             {usefulLinks.map((item) => (
                                 <li key={item.key}>
                                     <Link
@@ -81,65 +81,75 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Contact Details */}
-                    <div className="space-y-4 lg:ml-auto w-fit">
+                    {/* Column 3: Locations */}
+                    <div className="space-y-6">
                         <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">
-                            {t('contactInfo')}
+                            {t('addressLabel')}
                         </h3>
-                        <div className="space-y-4">
-                            {/* Address */}
+                        <div className="space-y-6">
+                            {/* Dubai Address */}
                             <div className="flex gap-3 group cursor-pointer">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0 border-primary/50 bg-primary/20 scale-110">
+                                <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                                     <MapPin className="h-3.5 w-3.5 text-primary" />
                                 </div>
-                                <div className="space-y-0.5">
-                                    <p className="text-[10px] font-bold text-primary uppercase tracking-wider">Dubai Branch (Primary)</p>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] font-bold text-primary uppercase tracking-wider">Dubai Branch</p>
                                     <p className="text-xs font-bold text-white group-hover:text-primary transition-colors leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: t.raw('addressDubai') }}
                                     />
                                 </div>
                             </div>
 
-                            {/* Ajman Address (Secondary) */}
-                            <div className="flex gap-3 group cursor-pointer pt-2 opacity-60 hover:opacity-100 transition-opacity">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
-                                    <MapPin className="h-3 w-3 text-gray-600" />
+                            {/* Ajman Address */}
+                            <div className="flex gap-3 group cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+                                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                    <MapPin className="h-3.5 w-3.5 text-gray-500 group-hover:text-primary transition-colors" />
                                 </div>
-                                <div className="space-y-0.5">
-                                    <p className="text-[9px] font-bold text-white/30 uppercase tracking-wider">Ajman Office</p>
-                                    <p className="text-[10px] font-bold text-gray-500 group-hover:text-primary transition-colors leading-relaxed"
+                                <div className="space-y-1">
+                                    <p className="text-[10px] font-bold text-white/40 uppercase tracking-wider">Ajman Office</p>
+                                    <p className="text-xs font-bold text-white/70 group-hover:text-primary transition-colors leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: t.raw('address') }}
                                     />
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
+                    {/* Column 4: Connect */}
+                    <div className="space-y-6">
+                        <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">
+                            {t('contactInfo')}
+                        </h3>
+                        <div className="space-y-6">
                             {/* Email */}
-                            <div className="flex gap-3 group cursor-pointer">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
+                            <div className="flex gap-3 group">
+                                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
                                     <Mail className="h-3.5 w-3.5 text-gray-500 group-hover:text-primary transition-colors" />
                                 </div>
-                                <div className="space-y-0.5">
+                                <div className="space-y-1">
                                     <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">{t('emailLabel')}</p>
-                                    <a href={`mailto:${t('emails.info')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors block">
-                                        {t('emails.info')}
-                                    </a>
-                                    <a href={`mailto:${t('emails.sales')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors block">
-                                        {t('emails.sales')}
-                                    </a>
+                                    <div className="flex flex-col gap-1">
+                                        <a href={`mailto:${t('emails.info')}`} className="text-xs font-bold text-white hover:text-primary transition-colors block">
+                                            {t('emails.info')}
+                                        </a>
+                                        <a href={`mailto:${t('emails.sales')}`} className="text-xs font-bold text-white hover:text-primary transition-colors block">
+                                            {t('emails.sales')}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Phones */}
-                            <div className="flex gap-3 group cursor-pointer">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
+                            <div className="flex gap-3 group">
+                                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
                                     <Phone className="h-3.5 w-3.5 text-gray-500 group-hover:text-primary transition-colors" />
                                 </div>
-                                <div className="space-y-0.5">
+                                <div className="space-y-1">
                                     <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">{t('phoneLabel')}</p>
-                                    <div className="flex flex-col">
-                                        <a href={`tel:${t('phone')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors">{t('phone')}</a>
-                                        <a href={`tel:${t('phone2')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors">{t('phone2')}</a>
-                                        <a href={`tel:${t('phone3')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors">{t('phone3')}</a>
+                                    <div className="flex flex-col gap-1">
+                                        <a href={`tel:${t('phone')}`} className="text-xs font-bold text-white hover:text-primary transition-colors">{t('phone')}</a>
+                                        <a href={`tel:${t('phone2')}`} className="text-xs font-bold text-white hover:text-primary transition-colors">{t('phone2')}</a>
+                                        <a href={`tel:${t('phone3')}`} className="text-xs font-bold text-white hover:text-primary transition-colors">{t('phone3')}</a>
                                     </div>
                                 </div>
                             </div>

@@ -24,8 +24,8 @@
       "viewAllCars": "查看所有车辆"
     },
     "carsOfDay": {
-      "title": "今日推荐",
-      "subtitle": "精选豪华车辆，随时准备出口。",
+      "title": "最新到货",
+      "subtitle": "探索我们最新添加的高端车辆，随时可供全球出口。",
       "viewAll": "查看所有车辆",
       "noCars": "目前没有可用车辆。",
       "noCarsSubtitle": "请稍后查看或联系我们进行定制订单。"
