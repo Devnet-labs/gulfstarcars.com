@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
 import { PageContentWrapper } from "@/components/PageContentWrapper";
+import { FloatingContactButtons } from "@/components/FloatingContactButtons";
 
 export default function SiteLayout({
     children,
@@ -16,6 +17,7 @@ export default function SiteLayout({
                 {children}
             </PageContentWrapper>
             <Footer />
+            <FloatingContactButtons />
         </>
     );
 }
