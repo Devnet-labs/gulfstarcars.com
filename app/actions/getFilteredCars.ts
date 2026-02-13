@@ -11,6 +11,7 @@ interface InventoryFilters {
     driveType?: string[];
     engineCapacity?: string[];
     location?: string[];
+    make?: string[];
 }
 
 export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {
@@ -67,6 +68,13 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
             };
         }
 
+        if (filters?.make && filters.make.length > 0) {
+            where.make = {
+                in: filters.make,
+                mode: 'insensitive'
+            };
+        }
+
         const cars = await prisma.car.findMany({
             where,
             orderBy: {
@@ -90,6 +98,7 @@ export async function getInventoryFilterOptions() {
     try {
         const cars = await prisma.car.findMany({
             select: {
+                make: true,
                 fuelType: true,
                 transmission: true,
                 bodyType: true,
@@ -99,6 +108,18 @@ export async function getInventoryFilterOptions() {
                 location: true,
             }
         });
+
+        // Calculate make counts
+        const makeCounts = cars.reduce((acc: any, car: any) => {
+            if (car.make) {
+                acc[car.make] = (acc[car.make] || 0) + 1;
+            }
+            return acc;
+        }, {});
+
+        const makes = Object.entries(makeCounts)
+            .map(([make, count]) => ({ make, count: count as number }))
+            .sort((a, b) => b.count - a.count);
 
         // Extract unique values with proper typing
         const fuelTypes = [...new Set(cars.map((car: any) => car.fuelType).filter((v: any): v is string => Boolean(v)))];
@@ -110,6 +131,7 @@ export async function getInventoryFilterOptions() {
         const locations = [...new Set(cars.map((car: any) => car.location).filter((v: any): v is string => Boolean(v)))];
 
         return {
+            makes,
             fuelTypes: fuelTypes.sort(),
             transmissions: transmissions.sort(),
             vehicleTypes: bodyTypes.sort(),
@@ -121,6 +143,7 @@ export async function getInventoryFilterOptions() {
     } catch (error) {
         console.error('Error fetching inventory filter options:', error);
         return {
+            makes: [],
             fuelTypes: [] as string[],
             transmissions: [] as string[],
             vehicleTypes: [] as string[],

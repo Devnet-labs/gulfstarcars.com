@@ -22,7 +22,8 @@ export default function CarsPage() {
         colours: [] as string[],
         driveTypes: [] as string[],
         engineCapacities: [] as string[],
-        locations: [] as string[]
+        locations: [] as string[],
+        makes: [] as { make: string; count: number }[]
     });
 
     // Selected filters
@@ -33,7 +34,8 @@ export default function CarsPage() {
         colour: [] as string[],
         driveType: [] as string[],
         engineCapacity: [] as string[],
-        location: [] as string[]
+        location: [] as string[],
+        make: [] as string[]
     });
 
     // Fetch filter options on mount
@@ -47,7 +49,8 @@ export default function CarsPage() {
                 colours: options.colours,
                 driveTypes: options.driveTypes,
                 engineCapacities: options.engineCapacities,
-                locations: options.locations
+                locations: options.locations,
+                makes: options.makes || []
             });
         };
         fetchOptions();
@@ -72,7 +75,7 @@ export default function CarsPage() {
         fetchCars();
     }, [selectedFilters, locale]);
 
-    const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location', value: string) => {
+    const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location' | 'make', value: string) => {
         setSelectedFilters(prev => {
             const current = prev[category];
             const updated = current.includes(value)
@@ -90,7 +93,8 @@ export default function CarsPage() {
             colour: [],
             driveType: [],
             engineCapacity: [],
-            location: []
+            location: [],
+            make: []
         });
     };
 
@@ -101,7 +105,8 @@ export default function CarsPage() {
         selectedFilters.colour.length > 0 ||
         selectedFilters.driveType.length > 0 ||
         selectedFilters.engineCapacity.length > 0 ||
-        selectedFilters.location.length > 0;
+        selectedFilters.location.length > 0 ||
+        selectedFilters.make.length > 0;
 
     const t = useTranslations('cars');
 
@@ -129,8 +134,45 @@ export default function CarsPage() {
             </section>
 
             {/* Main Content */}
-            <section className="py-12">
+            <section className="py-8 sm:py-12">
                 <div className="container mx-auto px-4">
+                    {/* Make Selector */}
+                    {filterOptions.makes.length > 0 && (
+                        <div className="mb-8 sm:mb-12 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+                            <div className="flex gap-3 sm:gap-4 min-w-max">
+                                {filterOptions.makes.map(({ make, count }) => {
+                                    const isSelected = selectedFilters.make.includes(make);
+                                    return (
+                                        <button
+                                            key={make}
+                                            onClick={() => handleFilterChange('make', make)}
+                                            className={`
+                                                group flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border transition-all duration-300
+                                                ${isSelected
+                                                    ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25 scale-105'
+                                                    : 'bg-card border-white/5 text-muted-foreground hover:border-white/20 hover:bg-white/5 hover:-translate-y-1'
+                                                }
+                                            `}
+                                        >
+                                            <span className={`text-sm sm:text-base font-bold ${isSelected ? 'text-white' : 'text-foreground group-hover:text-primary transition-colors'}`}>
+                                                {make}
+                                            </span>
+                                            <span className={`
+                                                text-xs font-bold px-2 py-0.5 rounded-full
+                                                ${isSelected
+                                                    ? 'bg-white/20 text-white'
+                                                    : 'bg-white/5 text-muted-foreground'
+                                                }
+                                            `}>
+                                                {count}
+                                            </span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )}
+
                     <div className="flex flex-col lg:flex-row gap-8">
                         {/* Filter Sidebar */}
                         <div className="lg:w-80 flex-shrink-0">
@@ -144,7 +186,7 @@ export default function CarsPage() {
                                     {t('filterTitle')}
                                     {hasActiveFilters && (
                                         <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
-                                            {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length}
+                                            {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length + selectedFilters.make.length}
                                         </span>
                                     )}
                                 </span>

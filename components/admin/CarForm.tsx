@@ -54,6 +54,9 @@ interface CarFormProps {
         doors?: number | null;
         seats?: number | null;
         location?: string | null;
+        makeAr?: string | null;
+        modelAr?: string | null;
+        descriptionAr?: string | null;
     };
     action: (prevState: State, formData: FormData) => Promise<State>;
     title: string;
@@ -128,6 +131,38 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         {state.errors?.model && (
                             <p className="text-sm text-red-500">{state.errors.model}</p>
                         )}
+                    </div>
+                </div>
+
+                {/* Arabic Name Fields */}
+                <div className="grid grid-cols-2 gap-4 bg-primary/5 p-4 rounded-lg border border-primary/10">
+                    <div className="col-span-2 mb-2 flex items-center gap-2">
+                        <span className="text-sm font-semibold text-primary">Arabic Translation (Optional)</span>
+                        <span className="text-xs text-muted-foreground">Override auto-translation for name</span>
+                    </div>
+                    <div className="space-y-2">
+                        <label htmlFor="makeAr" className="text-sm font-medium">
+                            Arabic Make
+                        </label>
+                        <input
+                            name="makeAr"
+                            dir="rtl"
+                            defaultValue={initialData?.makeAr || ''}
+                            placeholder="تويوتا"
+                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <label htmlFor="modelAr" className="text-sm font-medium">
+                            Arabic Model
+                        </label>
+                        <input
+                            name="modelAr"
+                            dir="rtl"
+                            defaultValue={initialData?.modelAr || ''}
+                            placeholder="لاند كروزر"
+                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                        />
                     </div>
                 </div>
 
@@ -369,6 +404,21 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     {state.errors?.description && (
                         <p className="text-sm text-red-500">{state.errors.description}</p>
                     )}
+                </div>
+
+                <div className="space-y-2 bg-primary/5 p-4 rounded-lg border border-primary/10">
+                    <label htmlFor="descriptionAr" className="text-sm font-medium flex items-center gap-2">
+                        <span>Arabic Description</span>
+                        <span className="text-xs font-normal text-muted-foreground">(Optional - Overrides auto-translation)</span>
+                    </label>
+                    <textarea
+                        name="descriptionAr"
+                        dir="rtl"
+                        defaultValue={initialData?.descriptionAr || ''}
+                        rows={4}
+                        placeholder="...وصف السيارة بالعربية"
+                        className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                    />
                 </div>
 
                 {/* Translation Options */}
