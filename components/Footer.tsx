@@ -52,7 +52,6 @@ export function Footer() {
                         <div className="flex items-center gap-3">
                             {[
                                 { Icon: Facebook, href: 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/' },
-                                { Icon: Instagram, href: 'https://www.instagram.com/gulfstar_automotive/' },
                                 { Icon: Twitter, href: '#' }
                             ].map(({ Icon, href }, i) => (
                                 <Link key={i} href={href} target="_blank" className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 shadow-lg hover:shadow-primary/25 transition-all duration-500 group">
