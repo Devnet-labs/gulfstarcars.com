@@ -43,13 +43,15 @@ export default function Home() {
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      const scrollAmount = locale === 'ar' ? 400 : -400;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      const scrollAmount = locale === 'ar' ? -400 : 400;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -70,7 +72,7 @@ export default function Home() {
           >
             <source src="/video/Luxury_Drone_Footage.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30 rtl:bg-gradient-to-l" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
@@ -79,7 +81,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl space-y-8 pt-12 md:-ml-8"
+            className="max-w-3xl space-y-8 pt-12 md:-ms-8"
           >
             <span className="inline-block text-primary font-bold tracking-wider text-sm uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md">
               {t('hero.badge')}
@@ -111,7 +113,7 @@ export default function Home() {
                 >
                   <Car className="w-4 h-4 text-primary" />
                   <span className="text-sm font-bold text-white tracking-wide">{t('cta.viewAllCars')}</span>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all" />
                 </Link>
               </motion.div>
 
@@ -210,7 +212,7 @@ export default function Home() {
                   href="/cars"
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 group"
                 >
-                  {t('carsOfDay.viewAll')} <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  {t('carsOfDay.viewAll')} <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                 </Link>
               </div>
             </>

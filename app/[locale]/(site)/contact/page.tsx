@@ -127,7 +127,14 @@ export default function ContactPage() {
                                         <div className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-between">
                                             <div>
                                                 <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Email Us</p>
-                                                <a href={`mailto:${tFooter('emails.info')}`} className="text-base font-bold hover:text-primary transition-colors">{tFooter('emails.info')}</a>
+                                                <a
+                                                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${tFooter('emails.info')}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-base font-bold hover:text-primary transition-colors"
+                                                >
+                                                    {tFooter('emails.info')}
+                                                </a>
                                             </div>
                                             <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center">
                                                 <Mail className="w-4 h-4 text-gray-400" />

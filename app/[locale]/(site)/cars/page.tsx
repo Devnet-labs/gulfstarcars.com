@@ -211,7 +211,7 @@ export default function CarsPage() {
                             <div className={`${showFilters ? 'block animate-in fade-in slide-in-from-top-4 duration-500' : 'hidden'} lg:block sticky top-32`}>
                                 <div className="bg-card/30 backdrop-blur-2xl rounded-3xl border border-white/10 p-7 shadow-2xl relative overflow-hidden group">
                                     {/* Glassmorphism accent */}
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
+                                    <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
                                     <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
                                         <div className="flex items-center gap-3">
@@ -231,7 +231,7 @@ export default function CarsPage() {
                                         )}
                                     </div>
 
-                                    <div className="space-y-8 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pr-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                                    <div className="space-y-8 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pe-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
                                         {/* Filter Sections */}
                                         <FilterSection
                                             title={t('filters.fuelType')}
@@ -374,6 +374,10 @@ export default function CarsPage() {
                     -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
                     mask-image: linear-gradient(to right, black 85%, transparent 100%);
                 }
+                [dir="rtl"] .mask-fade-right {
+                    -webkit-mask-image: linear-gradient(to left, black 85%, transparent 100%);
+                    mask-image: linear-gradient(to left, black 85%, transparent 100%);
+                }
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
                 }
@@ -437,7 +441,7 @@ function FilterSection({ title, options, selected, onChange }: {
                                         />
                                         <Check className={`absolute h-3 w-3 text-white transition-all scale-0 ${selected.includes(option) ? 'scale-100' : 'scale-0'}`} />
                                     </div>
-                                    <span className={`ml-3 text-sm font-medium transition-colors ${selected.includes(option) ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
+                                    <span className={`ms-3 text-sm font-medium transition-colors ${selected.includes(option) ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
                                         {option}
                                     </span>
                                 </label>

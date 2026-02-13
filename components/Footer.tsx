@@ -24,10 +24,10 @@ export function Footer() {
         <footer className="relative bg-[#0B0F19] text-white py-12 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10" />
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
-                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
+                <div className="absolute -top-24 -start-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+                <div className="absolute -bottom-24 -end-24 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
             </div>
 
             <div className="w-full max-w-[95%] mx-auto px-6 md:px-12 relative z-10">
@@ -40,7 +40,7 @@ export function Footer() {
                                 <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
-                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 -ml-6"
+                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 -ms-6"
                                 />
                             </div>
                         </Link>
@@ -73,7 +73,7 @@ export function Footer() {
                                         href={`/${item.key === 'inventory' ? 'cars' : item.key}`}
                                         className="text-gray-400 hover:text-white transition-all flex items-center group text-sm font-semibold"
                                     >
-                                        <span className="w-0 h-px bg-primary group-hover:w-4 transition-all duration-500 mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100" />
+                                        <span className="w-0 h-px bg-primary group-hover:w-4 transition-all duration-500 me-0 group-hover:me-2 opacity-0 group-hover:opacity-100" />
                                         {item.label}
                                     </Link>
                                 </li>
@@ -129,10 +129,20 @@ export function Footer() {
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">{t('emailLabel')}</p>
                                     <div className="flex flex-col gap-1">
-                                        <a href={`mailto:${t('emails.info')}`} className="text-xs font-bold text-white hover:text-primary transition-colors block">
+                                        <a
+                                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${t('emails.info')}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs font-bold text-white hover:text-primary transition-colors block"
+                                        >
                                             {t('emails.info')}
                                         </a>
-                                        <a href={`mailto:${t('emails.sales')}`} className="text-xs font-bold text-white hover:text-primary transition-colors block">
+                                        <a
+                                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${t('emails.sales')}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs font-bold text-white hover:text-primary transition-colors block"
+                                        >
                                             {t('emails.sales')}
                                         </a>
                                     </div>
@@ -172,7 +182,7 @@ export function Footer() {
                             <ChevronUp className="w-4 h-4 text-white" />
                         </button>
                     </div>
-                    <div className="text-center lg:text-left space-y-1">
+                    <div className="text-center lg:text-start space-y-1">
                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">
                             &copy; {new Date().getFullYear()} {t('copyright')}
                         </p>
