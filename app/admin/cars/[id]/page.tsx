@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArrowLeft, Edit, Trash2, Eye, Languages, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
 import Image from 'next/image';
-import DeleteCarButton from '@/components/admin/DeleteCarButton';
+import CarActions from '@/components/admin/CarActions';
 import { FormattedDate } from '@/components/FormattedDate';
 
 interface PageProps {
@@ -73,7 +73,12 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                         <Edit className="h-4 w-4" />
                         Edit
                     </Link>
-                    <DeleteCarButton id={car.id} />
+                </div>
+
+                {/* Visual Status Actions */}
+                <div className="w-full lg:w-auto min-w-[300px] border border-white/5 rounded-2xl p-4 bg-card/20 backdrop-blur-md">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-3 px-1">Quick Actions</p>
+                    <CarActions carId={car.id} initialIsActive={car.isActive} />
                 </div>
             </div>
 
@@ -126,14 +131,14 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                                     Price
                                 </span>
                                 <span className="text-xl font-bold text-emerald-400">
-                                    ${car.price.toLocaleString()}
+                                    {car.price ? `$${car.price.toLocaleString()}` : 'Price on Request'}
                                 </span>
                             </div>
                             <div className="flex items-center justify-between py-3 border-b border-white/5">
                                 <span className="text-sm text-muted-foreground">Condition</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.condition === 'New'
-                                        ? 'bg-blue-400/10 text-blue-400'
-                                        : 'bg-orange-400/10 text-orange-400'
+                                    ? 'bg-blue-400/10 text-blue-400'
+                                    : 'bg-orange-400/10 text-orange-400'
                                     }`}>
                                     {car.condition}
                                 </span>
@@ -141,10 +146,10 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                             <div className="flex items-center justify-between py-3">
                                 <span className="text-sm text-muted-foreground">Status</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.status === 'AVAILABLE'
-                                        ? 'bg-green-400/10 text-green-400'
-                                        : car.status === 'SOLD'
-                                            ? 'bg-red-400/10 text-red-400'
-                                            : 'bg-yellow-400/10 text-yellow-400'
+                                    ? 'bg-green-400/10 text-green-400'
+                                    : car.status === 'SOLD'
+                                        ? 'bg-red-400/10 text-red-400'
+                                        : 'bg-yellow-400/10 text-yellow-400'
                                     }`}>
                                     {car.status}
                                 </span>

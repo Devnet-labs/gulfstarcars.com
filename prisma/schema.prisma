@@ -13,7 +13,7 @@ model Car {
   make         String
   model        String
   year         Int
-  price        Float
+  price        Float?
   description  String
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @default(now()) @updatedAt
@@ -31,6 +31,7 @@ model Car {
   doors          Int?      // Number of doors
   seats          Int?      // Seating capacity
   location       String?   // Port/location for export
+  isActive     Boolean   @default(true)
   enquiries      Enquiry[]
   productViews   ProductView[]
   translations   CarTranslation[]
@@ -47,7 +48,7 @@ model Enquiry {
   message   String
   status    EnquiryStatus @default(PENDING)
   createdAt DateTime      @default(now())
-  car       Car?          @relation(fields: [carId], references: [id])
+  car       Car?          @relation(fields: [carId], references: [id], onDelete: Cascade)
 }
 
 model Visitor {
@@ -125,7 +126,7 @@ model ProductView {
 
   visitor Visitor @relation(fields: [visitorId], references: [visitorId])
   session Session @relation(fields: [sessionId], references: [id])
-  car     Car     @relation(fields: [carId], references: [id])
+  car     Car     @relation(fields: [carId], references: [id], onDelete: Cascade)
 
   @@index([carId])
   @@index([visitorId])

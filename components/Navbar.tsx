@@ -71,7 +71,7 @@ export function Navbar() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group cursor-pointer whitespace-nowrap ${isActive ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-white'
+                                        className={`relative text-base font-medium tracking-wide transition-colors duration-200 group cursor-pointer whitespace-nowrap ${isActive ? 'text-[#D4AF37]' : 'text-[#A3A3A3] hover:text-white'
                                             }`}
                                     >
                                         {link.label}
@@ -88,7 +88,7 @@ export function Navbar() {
 
                             <Link
                                 href="/contact"
-                                className="hidden lg:inline-flex bg-[#D4AF37] hover:bg-[#C19B2E] text-black px-4 xl:px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95 cursor-pointer"
+                                className="hidden lg:inline-flex bg-[#D4AF37] hover:bg-[#C19B2E] text-black px-4 xl:px-5 py-2.5 rounded-lg text-base font-medium transition-all duration-200 active:scale-95 cursor-pointer"
                             >
                                 {t('getQuote')}
                             </Link>

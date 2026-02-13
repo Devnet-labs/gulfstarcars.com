@@ -101,14 +101,15 @@ export function generateCarMetadata(car: {
     make: string;
     model: string;
     year: number;
-    price: number;
+    price: number | null;
     description: string;
     images: string[];
     id: string;
     locale?: string;
 }) {
     const title = `${car.year} ${car.make} ${car.model}`;
-    const description = `${car.description.substring(0, 155)}... Export Price: $${car.price.toLocaleString()}`;
+    const priceTag = car.price ? ` Export Price: $${car.price.toLocaleString()}` : '';
+    const description = `${car.description.substring(0, 155)}...${priceTag}`;
     const image = car.images[0] || siteConfig.ogImage;
     const url = `/cars/${car.id}`;
 
@@ -162,8 +163,8 @@ export function generateStructuredData(type: 'Organization' | 'Product', data: a
             },
             offers: {
                 '@type': 'Offer',
-                price: data.price,
-                priceCurrency: 'USD',
+                price: data.price || undefined,
+                priceCurrency: data.price ? 'USD' : undefined,
                 availability: 'https://schema.org/InStock',
                 url: `${siteConfig.url}/cars/${data.id}`,
             },
