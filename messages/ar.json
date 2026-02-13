@@ -96,6 +96,7 @@
       "globalExport": "متاح للتصدير العالمي",
       "enquire": "استفسر الآن",
       "whatsapp": "تواصل عبر واتساب",
+      "priceOnRequest": "السعر عند الطلب",
       "breadcrumb": {
         "home": "الرئيسية",
         "inventory": "المنتجات"
@@ -260,16 +261,16 @@
     "privacyPolicy": "سياسة الخصوصية",
     "termsConditions": "الشروط والأحكام",
     "brand": "GULFSTARCARS",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "address": "سي آي آي إف SF6657، منطقة عجمان الحرة،<br />صندوق بريد 84891 دبي الإمارات<br />عجمان، الإمارات العربية المتحدة",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
     "links": {
       "about": "معلومات عنا",
       "inventory": "المنتجات",
-      "services": "خدماتنا",
+      "services": "الخدمات",
       "contact": "اتصل بنا",
-      "faq": "الأسئلة الشائعة"
+      "faq": "أسئلة شائعة"
     },
     "slogan": "التميز في عالم السيارات",
     "emailLabel": "البريد الإلكتروني الرسمي",

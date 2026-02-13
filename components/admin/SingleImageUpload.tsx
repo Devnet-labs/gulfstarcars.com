@@ -2,7 +2,6 @@
 
 import { CldUploadWidget } from 'next-cloudinary';
 import { ImagePlus, Trash2, User } from 'lucide-react';
-import Image from 'next/image';
 
 interface SingleImageUploadProps {
   value: string;
@@ -22,11 +21,10 @@ export function SingleImageUpload({ value, onChange }: SingleImageUploadProps) {
     <div className="space-y-4">
       {value ? (
         <div className="relative w-32 h-32 rounded-lg overflow-hidden border border-[#262626] group">
-          <Image
-            fill
-            className="object-cover"
-            alt="Profile"
+          <img
             src={value}
+            alt="Profile"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <button
             type="button"

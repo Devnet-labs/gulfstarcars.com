@@ -1,7 +1,6 @@
 'use client';
 
 import { Link, usePathname } from '@/i18n/routing';
-import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -52,13 +51,10 @@ export function Navbar() {
                                 transition={{ duration: 0.3 }}
                                 className="relative h-full w-[400px] sm:w-[440px] md:w-[500px] lg:w-[600px] xl:w-[680px] shrink-0 p-0 m-0 block leading-[0]"
                             >
-                                <Image
+                                <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
-                                    fill
-                                    className="object-contain object-left"
-                                    priority
-                                    sizes="(max-width: 640px) 400px, (max-width: 768px) 440px, (max-width: 1024px) 500px, (max-width: 1280px) 600px, 680px"
+                                    className="w-full h-full object-contain object-left"
                                 />
                             </motion.div>
                         </Link>

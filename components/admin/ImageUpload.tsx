@@ -2,7 +2,6 @@
 
 import { CldUploadWidget } from 'next-cloudinary';
 import { ImagePlus, Trash2 } from 'lucide-react';
-import Image from 'next/image';
 import { useCallback } from 'react';
 
 interface ImageUploadProps {
@@ -34,11 +33,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                                 <Trash2 className="h-4 w-4" />
                             </button>
                         </div>
-                        <Image
-                            fill
-                            className="object-cover"
-                            alt="Car image"
+                        <img
                             src={url}
+                            alt="Car image"
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                     </div>
                 ))}

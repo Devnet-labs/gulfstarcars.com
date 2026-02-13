@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { EnquiryModal } from './EnquiryModal';
 import { Fuel, Settings2, Gauge, MessageSquare, MessageCircle } from 'lucide-react';
@@ -58,16 +57,11 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
             >
                 {/* Image Section */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
-                    <Image
+                    <img
                         src={optimizeCloudinaryUrl(car.images[0] || '/placeholder-car.png', cloudinaryPresets.cardImage)}
                         alt={`${tFields.make} ${tFields.model}`}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        quality={85}
-                        priority={index < 6}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         loading={index < 6 ? 'eager' : 'lazy'}
-                        unoptimized={false}
                     />
                     <div
                         className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-background/90 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] font-extrabold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"

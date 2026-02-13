@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ExternalLink, MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
@@ -46,11 +45,10 @@ export function Portfolio() {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className="group relative overflow-hidden rounded-[24px] sm:rounded-[32px] aspect-[4/5] border border-white/10"
                         >
-                            <Image
+                            <img
                                 src={portfolioImages[key]}
                                 alt={t(`items.${key}.title`)}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 

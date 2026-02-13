@@ -5,7 +5,6 @@ import { Link } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { CarCard } from "@/components/CarCard";
 import { Features } from "@/components/Features";
 

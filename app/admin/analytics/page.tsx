@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { TrendingUp, Eye, Users, MessageSquare, Target, Clock, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import Image from 'next/image';
 
 interface AnalyticsData {
   overview: {
@@ -75,11 +74,10 @@ export default function AnalyticsDashboard() {
             <button
               key={d}
               onClick={() => setDays(d)}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
-                days === d
-                  ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                  : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-              }`}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${days === d
+                ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                }`}
             >
               {d}d
             </button>
@@ -187,12 +185,10 @@ export default function AnalyticsDashboard() {
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
                         {item.car.images[0] && (
-                          <Image
+                          <img
                             src={item.car.images[0]}
                             alt={item.car.model}
-                            fill
-                            className="object-cover"
-                            sizes="48px"
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
                         )}
                       </div>
@@ -217,13 +213,12 @@ export default function AnalyticsDashboard() {
                     <div className="font-bold text-emerald-400">{item.enquiries}</div>
                   </td>
                   <td className="p-4 text-right">
-                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
-                      parseFloat(item.conversionRate) > 5
-                        ? 'bg-emerald-500/20 text-emerald-400'
-                        : parseFloat(item.conversionRate) > 2
+                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${parseFloat(item.conversionRate) > 5
+                      ? 'bg-emerald-500/20 text-emerald-400'
+                      : parseFloat(item.conversionRate) > 2
                         ? 'bg-amber-500/20 text-amber-400'
                         : 'bg-slate-700 text-slate-400'
-                    }`}>
+                      }`}>
                       {parseFloat(item.conversionRate) > 5 ? (
                         <ArrowUpRight className="w-3 h-3" />
                       ) : (
@@ -233,11 +228,10 @@ export default function AnalyticsDashboard() {
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                    <span className={`text-xs uppercase font-bold px-2 py-1 rounded-full ${
-                      item.car.status === 'AVAILABLE'
-                        ? 'bg-emerald-500/20 text-emerald-400'
-                        : 'bg-red-500/20 text-red-400'
-                    }`}>
+                    <span className={`text-xs uppercase font-bold px-2 py-1 rounded-full ${item.car.status === 'AVAILABLE'
+                      ? 'bg-emerald-500/20 text-emerald-400'
+                      : 'bg-red-500/20 text-red-400'
+                      }`}>
                       {item.car.status}
                     </span>
                   </td>

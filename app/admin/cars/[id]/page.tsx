@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArrowLeft, Edit, Trash2, Eye, Languages, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
-import Image from 'next/image';
 import DeleteCarButton from '@/components/admin/DeleteCarButton';
 import { FormattedDate } from '@/components/FormattedDate';
 
@@ -88,11 +87,10 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {car.images.map((image, index) => (
                                     <div key={index} className="relative aspect-video rounded-lg overflow-hidden bg-secondary group">
-                                        <Image
+                                        <img
                                             src={image}
                                             alt={`${car.make} ${car.model} - Image ${index + 1}`}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
                                 ))}
