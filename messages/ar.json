@@ -240,56 +240,47 @@
     "stkId": "رقم المخزون",
     "exportPrice": "سعر التصدير",
     "enquiry": "استفسار",
-    "priceOnRequest": "السعر عند الطلب",
     "whatsapp": "واتساب",
     "petrol": "بترول",
     "auto": "أوتوماتيك",
-    "noImages": "لا توجد صور متاحة"
+    "noImages": "لا توجد صور متاحة",
+    "priceOnRequest": "السعر عند الطلب"
   },
   "footer": {
+    "brand": "GULFSTARCARS",
     "description": "نحن شريكك الموثوق لاستيراد السيارات من دبي إلى العالم. جرب خدمة سلسة ومركبات عالية الجودة.",
     "usefulLinks": "روابط مفيدة",
     "contactInfo": "معلومات الاتصال",
-    "emails": {
-      "md": "MD: md@gulfstarcars.com",
-      "ed": "ED: ed@gulfstarcars.com",
-      "director": "Director: director@gulfstarcars.com",
-      "exports": "Exports: exports@gulfstarcars.com",
-      "info": "smartinvestments005@gmail.com"
-    },
-    "newLaunches": "إطلاقات جديدة - ابق على اطلاع",
-    "subscribeText": "اشترك لتكون أول من يحصل على تحديثات حول السيارات الجديدة والمعلومات الأخرى.",
-    "emailPlaceholder": "أدخل بريدك الإلكتروني",
-    "subscribeButton": "اشترك الآن",
-    "copyright": "Gulf Star Automotive F.Z.C. جميع الحقوق محفوظة.",
-    "privacyPolicy": "سياسة الخصوصية",
-    "termsConditions": "الشروط والأحكام",
-    "brand": "GULFSTARCARS",
-    "address": "سي آي آي إف SF6657، منطقة عجمان الحرة (المكتب المرجعي)<br />صندوق بريد 84891 دبي الإمارات",
-    "addressDubai": "معرض رقم 229، دوكامز، مدينة العوير كاملة،<br />رأس الخور، دبي، الإمارات العربية المتحدة",
+    "address": "سي آي آي إف SF6657، منطقة عجمان الحرة (المكتب المرجعي)<br />صندوق بريد 84891 دبي، الإمارات العربية المتحدة",
+    "addressDubai": "صالة العرض رقم 229، دوكامز، العوير،<br />رأس الخور، دبي، الإمارات العربية المتحدة",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
     "links": {
-      "about": "معلومات عنا",
-      "inventory": "المنتجات",
-      "services": "الخدمات",
+      "about": "من نحن",
+      "inventory": "المخزون",
+      "services": "خدماتنا",
       "contact": "اتصل بنا",
-      "faq": "أسئلة شائعة"
+      "faq": "الأسئلة الشائعة"
     },
     "slogan": "التميز في عالم السيارات",
     "emailLabel": "البريد الإلكتروني الرسمي",
     "phoneLabel": "أرقام التواصل",
+    "addressLabel": "الموقع الرئيسي",
+    "emails": {
+        "info": "INFO@GULFSTARCARS.COM",
+        "sales": "SALES@GULFSTARCARS.COM"
+    },
     "privacy": "الخصوصية",
     "terms": "الشروط",
-    "tagline": "حلول تصدير السيارات الفاخرة • تأسست في دبي، الإمارات",
-    "addressLabel": "موقعنا"
+    "tagline": "حلول تصدير السيارات المتميزة • تأسست في دبي، الإمارات العربية المتحدة",
+    "copyright": "Gulf Star Automotive F.Z.C. جميع الحقوق محفوظة."
   },
   "aboutPage": {
     "hero": {
       "title": "قيادة التجارة العالمية للسيارات",
       "titleHighlight": "بدقة وثقة",
-      "subtitle": "جلف ستار أوتوموتيف هي شركة مرخصة لتصدير المركبات الدولية مقرها دبي، الإمارات. نسهل التجارة عبر الحدود للسيارات مع خدمات لوجستية وامتثال ووثائق شاملة."
+      "subtitle": "جلف ستار أوتوموتيف هي شركة مرخصة لتصدير المركبات الدولية مقرها دبي، الإمارات العربية المتحدة. نسهل التجارة عبر الحدود للسيارات مع خدمات لوجستية وامتثال ووثائق شاملة."
     },
     "overview": {
       "title": "نظرة عامة على الشركة",

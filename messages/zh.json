@@ -145,13 +145,17 @@
   },
   "contact": {
     "title": "联系我们",
-    "subtitle": "与我们的团队取得联系",
+    "subtitle": "与我们的团队取得联系，获取优质车辆出口服务",
+    "quickInquiry": "快速咨询",
+    "quickInquirySubtitle": "请填写下面的表格，我们的团队将在24小时内与您联系。",
     "name": "您的姓名",
     "email": "您的电子邮件",
     "message": "您的留言",
     "send": "发送留言",
     "success": "留言发送成功！",
-    "error": "发送留言失败。请重试。"
+    "error": "发送留言失败。请重试。",
+    "mapTitle": "在地图上找到我们",
+    "mapSubtitle": "欢迎访问我们位于迪拜汽车区核心地带的主要展厅和配送枢纽。"
   },
   "common": {
     "loading": "加载中...",
@@ -287,21 +291,8 @@
     "description": "我们是您从迪拜进口汽车到世界各地的值得信赖的合作伙伴。体验无缝服务和优质车辆。",
     "usefulLinks": "有用链接",
     "contactInfo": "联系方式",
-    "emails": {
-      "md": "总经理: md@gulfstarcars.com",
-      "ed": "执行总监: ed@gulfstarcars.com",
-      "director": "总监: director@gulfstarcars.com",
-      "exports": "出口部: exports@gulfstarcars.com",
-      "info": "smartinvestments005@gmail.com"
-    },
-    "newLaunches": "新发布的车 - 保持更新",
-    "subscribeText": "订阅以第一时间获取新车发布或其他信息的更新。",
-    "emailPlaceholder": "输入您的电子邮件",
-    "subscribeButton": "立即订阅",
-    "copyright": "Gulf Star Automotive F.Z.C. 保留所有权利。",
-    "privacyPolicy": "隐私政策",
-    "termsConditions": "条款和条件",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "address": "CIIF SF6657, 阿治曼自由贸易区（参考办公室）<br />PO BOX 84891 迪拜 阿联酋",
+    "addressDubai": "展厅 #229, Ducamz, Al Awir，<br />Ras Al Khor, 迪拜, 阿联酋",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -315,24 +306,87 @@
     "slogan": "卓越汽车",
     "emailLabel": "官方邮箱",
     "phoneLabel": "联系电话",
+    "addressLabel": "主要地点",
+    "emails": {
+        "info": "INFO@GULFSTARCARS.COM",
+        "sales": "SALES@GULFSTARCARS.COM"
+    },
     "privacy": "隐私",
     "terms": "条款",
     "tagline": "高端汽车出口解决方案 • 成立于阿联酋迪拜",
-    "addressLabel": "我们的地址"
+    "copyright": "Gulf Star Automotive F.Z.C. 保留所有权利。"
   },
   "aboutPage": {
     "hero": {
-      "title": "重新定义汽车",
-      "titleHighlight": "卓越",
-      "subtitle": "Gulf Star Automotive 是全球主要的豪华车出口平台。我们架起了迪拜独家汽车市场与国际买家之间的桥梁。"
+      "title": "推动全球汽车贸易",
+      "titleHighlight": "精准与信任",
+      "subtitle": "Gulf Star Automotive FZC 是一家位于阿联酋迪拜的持牌一流汽车出口企业。我们专注于全球汽车贸易，提供无缝物流和专家文件处理。"
+    },
+    "overview": {
+      "title": "全球汽车出口领导者",
+      "description": "Gulf Star Automotive FZC 是专业的汽车出口促进者，架起了国际买家与阿联酋优质汽车市场之间的桥梁。我们的核心业务专注于高效采购、技术检查和复杂的全球物流协调。",
+      "stats": {
+        "experience": "8+ 年",
+        "experienceLabel": "出口经验",
+        "countries": "50+ 国家",
+        "countriesLabel": "全球覆盖",
+        "vehicles": "5,000+ 辆",
+        "vehiclesLabel": "成功出口",
+        "network": "500+ 合作伙伴",
+        "networkLabel": "经过验证的经销商网络"
+      }
     },
     "mission": {
-      "title": "我们的使命",
-      "content": "为全球客户提供无缝、透明和高级的购车体验，确保距离永远不会成为拥有梦想之车的障碍。"
+      "title": "使命",
+      "content": "将 Gulf Star Automotive 建立为国际买家最可靠、最高效的汽车出口合作伙伴，提供透明流程、监管合规和端到端物流解决方案。"
     },
-    "story": {
-      "title": "我们的故事",
-      "content": "Gulf Star Automotive 成立于迪拜中心，最初的愿景很简单：与世界分享阿联酋令人难以置信的汽车库存。如今，我们已成为六大洲数千名客户值得信赖的合作伙伴。"
+    "vision": {
+      "title": "愿景",
+      "content": "通过技术驱动的运营和不妥协的服务标准，成为连接中东市场与全球买家的领先汽车出口平台。"
+    },
+    "leadership": {
+      "badge": "领导团队",
+      "title": "高管",
+      "titleHighlight": "领导力",
+      "subtitle": "我们的管理团队在国际贸易、汽车物流和出口合规方面拥有数十年的综合经验。"
+    },
+    "global": {
+      "badge": "全球业务",
+      "title": "出口",
+      "titleHighlight": "目的地",
+      "subtitle": "我们通过建立的物流伙伴关系和海关专业知识，促进向六大洲主要市场的车辆出口。",
+      "regions": {
+        "africa": "非洲",
+        "asia": "亚太地区",
+        "europe": "欧洲",
+        "middleEast": "中东",
+        "northAmerica": "北美洲",
+        "southAmerica": "南美洲"
+      }
+    },
+    "trust": {
+      "badge": "信任与合规",
+      "title": "出口",
+      "titleHighlight": "流程",
+      "subtitle": "我们的结构化方法确保在每个阶段的监管合规和透明运营。",
+      "steps": {
+        "inspection": {
+          "title": "车辆检查",
+          "desc": "120点机械和外观评估，提供详细报告。"
+        },
+        "documentation": {
+          "title": "出口文件",
+          "desc": "完整准备海关申报单、原产地证明和运输单证。"
+        },
+        "logistics": {
+          "title": "物流协调",
+          "desc": "安全运输、集装箱装载和国际货运管理。"
+        },
+        "compliance": {
+          "title": "合规保证",
+          "desc": "遵守目的地国家的进口法规和安全标准。"
+        }
+      }
     }
   },
   "servicesPage": {
