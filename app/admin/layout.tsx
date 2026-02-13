@@ -9,6 +9,7 @@ const roboto = Roboto({
     variable: "--font-roboto",
     weight: ["400", "500", "700"],
 });
+import { Toaster } from 'sonner';
 
 export const dynamic = 'force-dynamic';
 
@@ -106,6 +107,7 @@ export default function AdminLayout({
                         </div>
                     </main>
                 </div>
+                <Toaster richColors position="top-right" />
             </body>
         </html>
     );

@@ -48,7 +48,7 @@ model Enquiry {
   message   String
   status    EnquiryStatus @default(PENDING)
   createdAt DateTime      @default(now())
-  car       Car?          @relation(fields: [carId], references: [id])
+  car       Car?          @relation(fields: [carId], references: [id], onDelete: Cascade)
 }
 
 model Visitor {
@@ -126,7 +126,7 @@ model ProductView {
 
   visitor Visitor @relation(fields: [visitorId], references: [visitorId])
   session Session @relation(fields: [sessionId], references: [id])
-  car     Car     @relation(fields: [carId], references: [id])
+  car     Car     @relation(fields: [carId], references: [id], onDelete: Cascade)
 
   @@index([carId])
   @@index([visitorId])
