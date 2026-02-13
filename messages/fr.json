@@ -412,5 +412,47 @@
       "SOLD": "Vendu",
       "RESERVED": "Réservé"
     }
+  },
+  "admin": {
+    "dashboard": "Tableau de bord",
+    "cars": "Voitures",
+    "enquiries": "Demandes",
+    "addCar": "Ajouter une voiture",
+    "editCar": "Modifier la voiture",
+    "deleteCar": "Supprimer la voiture",
+    "actions": "Actions",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "status": "Statut",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le"
+  },
+  "form": {
+    "make": "Marque",
+    "model": "Modèle",
+    "year": "Année",
+    "price": "Prix",
+    "description": "Description",
+    "descriptionEn": "Description (Anglais)",
+    "descriptionAr": "Description (Arabe)",
+    "condition": "État",
+    "bodyType": "Type de carrosserie",
+    "fuelType": "Carburant",
+    "transmission": "Transmission",
+    "mileage": "Kilométrage",
+    "engineCapacity": "Cylindrée",
+    "colour": "Couleur",
+    "driveType": "Type de transmission",
+    "doors": "Portes",
+    "seats": "Sièges",
+    "location": "Emplacement",
+    "steering": "Direction",
+    "images": "Images",
+    "required": "Ce champ est obligatoire",
+    "invalidEmail": "Adresse e-mail invalide",
+    "invalidNumber": "Doit être un nombre valide"
   }
 }

@@ -420,5 +420,47 @@
       "SOLD": "Vendido",
       "RESERVED": "Reservado"
     }
+  },
+  "admin": {
+    "dashboard": "Panel de Control",
+    "cars": "Coches",
+    "enquiries": "Consultas",
+    "addCar": "Añadir Coche Nuevo",
+    "editCar": "Editar Coche",
+    "deleteCar": "Eliminar Coche",
+    "actions": "Acciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "status": "Estado",
+    "createdAt": "Creado el",
+    "updatedAt": "Actualizado el"
+  },
+  "form": {
+    "make": "Marca",
+    "model": "Modelo",
+    "year": "Año",
+    "price": "Precio",
+    "description": "Descripción",
+    "descriptionEn": "Descripción (Inglés)",
+    "descriptionAr": "Descripción (Árabe)",
+    "condition": "Condición",
+    "bodyType": "Tipo de Carrocería",
+    "fuelType": "Tipo de Combustible",
+    "transmission": "Transmisión",
+    "mileage": "Kilometraje",
+    "engineCapacity": "Cilindrada",
+    "colour": "Color",
+    "driveType": "Tracción",
+    "doors": "Puertas",
+    "seats": "Asientos",
+    "location": "Ubicación",
+    "steering": "Dirección",
+    "images": "Imágenes",
+    "required": "Este campo es obligatorio",
+    "invalidEmail": "Correo electrónico no válido",
+    "invalidNumber": "Debe ser un número válido"
   }
 }
