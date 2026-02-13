@@ -237,7 +237,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Бензин",
     "auto": "Автомат",
-    "noImages": "Нет доступных изображений"
+    "noImages": "Нет доступных изображений",
+    "priceOnRequest": "Цена по запросу"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -353,6 +354,54 @@
       "AVAILABLE": "В наличии",
       "SOLD": "Продан",
       "RESERVED": "Зарезервирован"
+    }
+  },
+  "admin": {
+    "dashboard": "Панель управления",
+    "cars": "Автомобили",
+    "enquiries": "Запросы",
+    "addCar": "Добавить автомобиль",
+    "editCar": "Редактировать",
+    "deleteCar": "Удалить",
+    "actions": "Действия",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "status": "Статус",
+    "createdAt": "Создано",
+    "updatedAt": "Обновлено"
+  },
+  "form": {
+    "make": "Марка",
+    "model": "Модель",
+    "year": "Год",
+    "price": "Цена",
+    "description": "Описание",
+    "descriptionEn": "Описание (Английский)",
+    "descriptionAr": "Описание (Арабский)",
+    "condition": "Состояние",
+    "bodyType": "Тип кузова",
+    "fuelType": "Тип топлива",
+    "transmission": "Трансмиссия",
+    "mileage": "Пробег",
+    "engineCapacity": "Объем двигателя",
+    "colour": "Цвет",
+    "driveType": "Привод",
+    "doors": "Двери",
+    "seats": "Сиденья",
+    "location": "Местоположение",
+    "steering": "Руль",
+    "images": "Изображения",
+    "required": "Это поле обязательно",
+    "invalidEmail": "Неверный email",
+    "invalidNumber": "Должно быть числом"
+  },
+  "metadata": {
+    "about": {
+      "title": "О нас - Gulf Star Automotive FZC | Международный экспорт автомобилей",
+      "description": "Gulf Star Automotive FZC - лицензированная компания по экспорту автомобилей в Дубае, ОАЭ. Мы предоставляем комплексные услуги по экспорту, включая логистику, соблюдение требований и документацию для международной торговли автомобилями."
     }
   }
 }

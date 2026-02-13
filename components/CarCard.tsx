@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { EnquiryModal } from './EnquiryModal';
 import { Fuel, Settings2, Gauge, MessageSquare, MessageCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+
 
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -52,39 +51,23 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
 
     return (
         <>
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={index < 6 ? { opacity: 1, y: 0 } : undefined}
-                whileInView={index >= 6 ? { opacity: 1, y: 0 } : undefined}
-                viewport={{ once: true, margin: "0px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
+            <div
                 onClick={handleCardClick}
-                className="group bg-card rounded-[16px] sm:rounded-[24px] overflow-hidden border border-white/5 shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col h-full cursor-pointer"
+                className="group bg-card rounded-[16px] sm:rounded-[24px] overflow-hidden border border-white/5 shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col h-full cursor-pointer hover:-translate-y-2"
             >
                 {/* Image Section */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
-                    <Image
+                    <img
                         src={optimizeCloudinaryUrl(car.images[0] || '/placeholder-car.png', cloudinaryPresets.cardImage)}
                         alt={`${tFields.make} ${tFields.model}`}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        quality={85}
-                        placeholder="blur"
-                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzFhMWExYSIvPjwvc3ZnPg=="
-                        priority={index < 6}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         loading={index < 6 ? 'eager' : 'lazy'}
-                        unoptimized={false}
                     />
-                    <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: (index * 0.1) + 0.3 }}
+                    <div
                         className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-background/90 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] font-extrabold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase tracking-wider shadow-sm z-10 border border-white/5"
                     >
                         {car.customId ? `${t('stkId')}: ${car.customId}` : t('exportReady')}
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Content Section */}
@@ -144,35 +127,33 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
 
                         {/* Action Buttons Row */}
                         <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                            <motion.button
-                                whileTap={{ scale: 0.95 }}
+                            <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setIsModalOpen(true);
                                 }}
-                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-primary hover:bg-primary/90 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 font-semibold text-[10px] sm:text-sm group/btn"
+                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-primary hover:bg-primary/90 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 font-semibold text-[10px] sm:text-sm group/btn active:scale-95"
                             >
                                 <MessageSquare className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
                                 <span>{t('enquiry')}</span>
-                            </motion.button>
+                            </button>
 
-                            <motion.button
-                                whileTap={{ scale: 0.95 }}
+                            <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     const priceInfo = car.price ? ` listed at $${car.price.toLocaleString()}` : '';
                                     const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'})${priceInfo}`);
                                     window.open(`https://wa.me/+971523479535?text=${message}`, '_blank');
                                 }}
-                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-[10px] sm:text-sm group/btn"
+                                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-[10px] sm:text-sm group/btn active:scale-95"
                             >
                                 <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
                                 <span>{t('whatsapp')}</span>
-                            </motion.button>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             <EnquiryModal
                 isOpen={isModalOpen}

@@ -85,7 +85,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                     <span className="text-3xl sm:text-4xl font-black text-accent">
                                         {car.price ? `$${car.price.toLocaleString()}` : t('priceOnRequest')}
                                     </span>
-                                    {car.price && <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>}
+                                    <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>
                                 </div>
                             </div>
 

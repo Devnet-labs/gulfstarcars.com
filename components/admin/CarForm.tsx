@@ -55,7 +55,10 @@ interface CarFormProps {
         doors?: number | null;
         seats?: number | null;
         location?: string | null;
-        isActive: boolean;
+        isActive?: boolean;
+        makeAr?: string | null;
+        modelAr?: string | null;
+        descriptionAr?: string | null;
     };
     action: (prevState: State, formData: FormData) => Promise<State>;
     title: string;
@@ -157,6 +160,38 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                     </label>
                 </div >
+
+                {/* Arabic Name Fields */}
+                <div className="grid grid-cols-2 gap-4 bg-primary/5 p-4 rounded-lg border border-primary/10">
+                    <div className="col-span-2 mb-2 flex items-center gap-2">
+                        <span className="text-sm font-semibold text-primary">Arabic Translation (Optional)</span>
+                        <span className="text-xs text-muted-foreground">Override auto-translation for name</span>
+                    </div>
+                    <div className="space-y-2">
+                        <label htmlFor="makeAr" className="text-sm font-medium">
+                            Arabic Make
+                        </label>
+                        <input
+                            name="makeAr"
+                            dir="rtl"
+                            defaultValue={initialData?.makeAr || ''}
+                            placeholder="تويوتا"
+                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <label htmlFor="modelAr" className="text-sm font-medium">
+                            Arabic Model
+                        </label>
+                        <input
+                            name="modelAr"
+                            dir="rtl"
+                            defaultValue={initialData?.modelAr || ''}
+                            placeholder="لاند كروزر"
+                            className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                        />
+                    </div>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -397,6 +432,21 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     {state.errors?.description && (
                         <p className="text-sm text-red-500">{state.errors.description}</p>
                     )}
+                </div>
+
+                <div className="space-y-2 bg-primary/5 p-4 rounded-lg border border-primary/10">
+                    <label htmlFor="descriptionAr" className="text-sm font-medium flex items-center gap-2">
+                        <span>Arabic Description</span>
+                        <span className="text-xs font-normal text-muted-foreground">(Optional - Overrides auto-translation)</span>
+                    </label>
+                    <textarea
+                        name="descriptionAr"
+                        dir="rtl"
+                        defaultValue={initialData?.descriptionAr || ''}
+                        rows={4}
+                        placeholder="...وصف السيارة بالعربية"
+                        className="w-full rounded-md border bg-background px-3 py-2 text-right"
+                    />
                 </div>
 
                 {/* Translation Options */}

@@ -237,7 +237,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Gasolina",
     "auto": "Automático",
-    "noImages": "Não há imagens disponíveis"
+    "noImages": "Não há imagens disponíveis",
+    "priceOnRequest": "Preço sob Consulta"
   },
   "footer": {
     "description": "Somos o seu parceiro de confiança para importar carros de Dubai para o mundo. Experimente um serviço perfeito e veículos de qualidade premium.",
@@ -418,5 +419,47 @@
       "SOLD": "Vendido",
       "RESERVED": "Reservado"
     }
+  },
+  "admin": {
+    "dashboard": "Painel",
+    "cars": "Carros",
+    "enquiries": "Consultas",
+    "addCar": "Adicionar Novo Carro",
+    "editCar": "Editar Carro",
+    "deleteCar": "Excluir Carro",
+    "actions": "Ações",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "status": "Status",
+    "createdAt": "Criado Em",
+    "updatedAt": "Atualizado Em"
+  },
+  "form": {
+    "make": "Marca",
+    "model": "Modelo",
+    "year": "Ano",
+    "price": "Preço",
+    "description": "Descrição",
+    "descriptionEn": "Descrição (Inglês)",
+    "descriptionAr": "Descrição (Árabe)",
+    "condition": "Condição",
+    "bodyType": "Tipo de Carroceria",
+    "fuelType": "Combustível",
+    "transmission": "Transmissão",
+    "mileage": "Quilometragem",
+    "engineCapacity": "Capacidade do Motor",
+    "colour": "Cor",
+    "driveType": "Tração",
+    "doors": "Portas",
+    "seats": "Assentos",
+    "location": "Localização",
+    "steering": "Direção",
+    "images": "Imagens",
+    "required": "Este campo é obrigatório",
+    "invalidEmail": "E-mail inválido",
+    "invalidNumber": "Deve ser um número válido"
   }
 }

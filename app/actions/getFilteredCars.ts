@@ -77,6 +77,13 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
             };
         }
 
+        if (filters?.make && filters.make.length > 0) {
+            where.make = {
+                in: filters.make,
+                mode: 'insensitive'
+            };
+        }
+
         const cars = await prisma.car.findMany({
             where,
             orderBy: {
@@ -112,19 +119,19 @@ export async function getInventoryFilterOptions() {
             }
         });
 
-        // Extract unique values and counts for makes
-        const makeCounts: Record<string, number> = {};
-        cars.forEach((car: any) => {
+        // Calculate make counts
+        const makeCounts = cars.reduce((acc: any, car: any) => {
             if (car.make) {
-                makeCounts[car.make] = (makeCounts[car.make] || 0) + 1;
+                acc[car.make] = (acc[car.make] || 0) + 1;
             }
-        });
+            return acc;
+        }, {});
 
         const makes = Object.entries(makeCounts)
-            .map(([name, count]) => ({ name, count }))
-            .sort((a, b) => a.name.localeCompare(b.name));
+            .map(([make, count]) => ({ make, count: count as number }))
+            .sort((a, b) => b.count - a.count);
 
-        // Extract unique values for other filters
+        // Extract unique values with proper typing
         const fuelTypes = [...new Set(cars.map((car: any) => car.fuelType).filter((v: any): v is string => Boolean(v)))];
         const transmissions = [...new Set(cars.map((car: any) => car.transmission).filter((v: any): v is string => Boolean(v)))];
         const bodyTypes = [...new Set(cars.map((car: any) => car.bodyType).filter((v: any): v is string => Boolean(v)))];
@@ -146,7 +153,7 @@ export async function getInventoryFilterOptions() {
     } catch (error) {
         console.error('Error fetching inventory filter options:', error);
         return {
-            makes: [] as { name: string; count: number }[],
+            makes: [],
             fuelTypes: [] as string[],
             transmissions: [] as string[],
             vehicleTypes: [] as string[],

@@ -83,6 +83,24 @@ export async function createCar(prevState: any, formData: FormData) {
             } as any,
         });
         carId = car.id;
+
+        // Handle manual Arabic translations
+        const makeAr = formData.get('makeAr') as string;
+        const modelAr = formData.get('modelAr') as string;
+        const descriptionAr = formData.get('descriptionAr') as string;
+
+        if (makeAr || modelAr || descriptionAr) {
+            await prisma.carTranslation.create({
+                data: {
+                    carId,
+                    locale: 'ar',
+                    make: makeAr || null,
+                    model: modelAr || null,
+                    description: descriptionAr || null,
+                    status: 'COMPLETED',
+                },
+            });
+        }
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
@@ -159,6 +177,36 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
                 price: validatedFields.data.price ?? null,
             } as any,
         });
+
+        // Handle manual Arabic translations
+        const makeAr = formData.get('makeAr') as string;
+        const modelAr = formData.get('modelAr') as string;
+        const descriptionAr = formData.get('descriptionAr') as string;
+
+        if (makeAr || modelAr || descriptionAr) {
+            await prisma.carTranslation.upsert({
+                where: {
+                    carId_locale: {
+                        carId: id,
+                        locale: 'ar',
+                    },
+                },
+                create: {
+                    carId: id,
+                    locale: 'ar',
+                    make: makeAr || null,
+                    model: modelAr || null,
+                    description: descriptionAr || null,
+                    status: 'COMPLETED',
+                },
+                update: {
+                    make: makeAr || null,
+                    model: modelAr || null,
+                    description: descriptionAr || null,
+                    status: 'COMPLETED',
+                },
+            });
+        }
 
         // Re-translate only if description changed AND enabled
         const enableTranslations = formData.get('enableTranslations') === 'true';

@@ -42,6 +42,7 @@
     "priceOnRequest": "السعر عند الطلب",
     "vehiclesFound": "{count} سيارة وجدت",
     "foundSubtitle": "وجدت في مجموعتنا الكاملة",
+    "priceOnRequest": "السعر عند الطلب",
     "filterTitle": "تصفية",
     "clearFilters": "مسح التصفيات",
     "clearAll": "مسح الكل",
@@ -96,6 +97,7 @@
       "globalExport": "متاح للتصدير العالمي",
       "enquire": "استفسر الآن",
       "whatsapp": "تواصل عبر واتساب",
+      "priceOnRequest": "السعر عند الطلب",
       "breadcrumb": {
         "home": "الرئيسية",
         "inventory": "المنتجات"
@@ -239,7 +241,8 @@
     "whatsapp": "واتساب",
     "petrol": "بترول",
     "auto": "أوتوماتيك",
-    "noImages": "لا توجد صور متاحة"
+    "noImages": "لا توجد صور متاحة",
+    "priceOnRequest": "السعر عند الطلب"
   },
   "footer": {
     "description": "نحن شريكك الموثوق لاستيراد السيارات من دبي إلى العالم. جرب خدمة سلسة ومركبات عالية الجودة.",
@@ -260,16 +263,16 @@
     "privacyPolicy": "سياسة الخصوصية",
     "termsConditions": "الشروط والأحكام",
     "brand": "GULFSTARCARS",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "address": "سي آي آي إف SF6657، منطقة عجمان الحرة،<br />صندوق بريد 84891 دبي الإمارات<br />عجمان، الإمارات العربية المتحدة",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
     "links": {
       "about": "معلومات عنا",
       "inventory": "المنتجات",
-      "services": "خدماتنا",
+      "services": "الخدمات",
       "contact": "اتصل بنا",
-      "faq": "الأسئلة الشائعة"
+      "faq": "أسئلة شائعة"
     },
     "slogan": "التميز في عالم السيارات",
     "emailLabel": "البريد الإلكتروني الرسمي",
@@ -413,6 +416,54 @@
       "AVAILABLE": "متاح",
       "SOLD": "مباع",
       "RESERVED": "محجوز"
+    }
+  },
+  "admin": {
+    "dashboard": "لوحة التحكم",
+    "cars": "السيارات",
+    "enquiries": "الاستفسارات",
+    "addCar": "إضافة سيارة جديدة",
+    "editCar": "تعديل السيارة",
+    "deleteCar": "حذف السيارة",
+    "actions": "إجراءات",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "status": "الحالة",
+    "createdAt": "تم الإنشاء في",
+    "updatedAt": "تم التحديث في"
+  },
+  "form": {
+    "make": "الصانع",
+    "model": "الموديل",
+    "year": "السنة",
+    "price": "السعر",
+    "description": "الوصف",
+    "descriptionEn": "الوصف (باللغة الإنجليزية)",
+    "descriptionAr": "الوصف (باللغة العربية)",
+    "condition": "الحالة",
+    "bodyType": "نوع الهيكل",
+    "fuelType": "نوع الوقود",
+    "transmission": "ناقل الحركة",
+    "mileage": "المسافة المقطوعة",
+    "engineCapacity": "سعة المحرك",
+    "colour": "اللون",
+    "driveType": "نوع الدفع",
+    "doors": "الأبواب",
+    "seats": "المقاعد",
+    "location": "الموقع",
+    "steering": "عجلة القيادة",
+    "images": "الصور",
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "رقم بريد إلكتروني غير صالح",
+    "invalidNumber": "يجب أن يكون رقماً صالحاً"
+  },
+  "metadata": {
+    "about": {
+      "title": "من نحن - جلف ستار للسيارات | تصدير السيارات الدولي",
+      "description": "شركة جلف ستار للسيارات هي شركة مرخصة لتصدير السيارات في دبي، الإمارات العربية المتحدة. نقدم خدمات تصدير شاملة بما في ذلك الخدمات اللوجستية والامتثال والوثائق لتجارة السيارات الدولية."
     }
   }
 }

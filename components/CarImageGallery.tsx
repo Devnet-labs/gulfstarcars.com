@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { optimizeCloudinaryUrl, cloudinaryPresets } from '@/lib/cloudinary';
@@ -41,14 +40,10 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                 className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden cursor-zoom-in group bg-secondary/50"
                 onClick={() => setIsFullscreen(true)}
             >
-                <Image
+                <img
                     src={optimizeCloudinaryUrl(images[currentIndex], cloudinaryPresets.galleryMain)}
                     alt={alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    priority
-                    quality={90}
-                    sizes="(max-width: 768px) 100vw, 80vw"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 {/* Navigation Arrows */}
@@ -91,13 +86,10 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                             className={`relative w-16 sm:w-24 aspect-video rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-95' : 'border-transparent opacity-60 hover:opacity-100'
                                 }`}
                         >
-                            <Image
+                            <img
                                 src={optimizeCloudinaryUrl(img, cloudinaryPresets.thumbnail)}
                                 alt={`${alt} thumbnail ${idx + 1}`}
-                                fill
-                                className="object-cover"
-                                quality={60}
-                                sizes="(max-width: 640px) 64px, 96px"
+                                className="absolute inset-0 w-full h-full object-cover"
                                 loading="lazy"
                             />
                         </button>
@@ -129,13 +121,10 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
                                 className="relative w-full h-full max-w-6xl"
                             >
-                                <Image
+                                <img
                                     src={optimizeCloudinaryUrl(images[currentIndex], cloudinaryPresets.fullscreen)}
                                     alt={alt}
-                                    fill
-                                    className="object-contain"
-                                    quality={95}
-                                    sizes="(max-width: 768px) 100vw, 90vw"
+                                    className="absolute inset-0 w-full h-full object-contain"
                                 />
                             </motion.div>
 
@@ -167,13 +156,10 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                                         className={`relative w-16 sm:w-20 aspect-video rounded-md sm:rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${currentIndex === idx ? 'border-primary scale-105' : 'border-transparent opacity-40 hover:opacity-80'
                                             }`}
                                     >
-                                        <Image
+                                        <img
                                             src={optimizeCloudinaryUrl(img, cloudinaryPresets.thumbnail)}
                                             alt={`${alt} thumbnail ${idx + 1}`}
-                                            fill
-                                            className="object-cover"
-                                            quality={60}
-                                            sizes="(max-width: 640px) 64px, 80px"
+                                            className="absolute inset-0 w-full h-full object-cover"
                                             loading="lazy"
                                         />
                                     </button>

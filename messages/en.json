@@ -42,6 +42,7 @@
     "priceOnRequest": "Price on Request",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
+    "priceOnRequest": "Price on Request",
     "filterTitle": "Filters",
     "clearFilters": "Clear Filters",
     "clearAll": "Clear All",
@@ -96,6 +97,7 @@
       "globalExport": "Global Export Available",
       "enquire": "Enquire Now",
       "whatsapp": "WhatsApp Us",
+      "priceOnRequest": "Price on Request",
       "breadcrumb": {
         "home": "Home",
         "inventory": "Products"
@@ -281,14 +283,15 @@
     "whatsapp": "WhatsApp",
     "petrol": "Petrol",
     "auto": "Auto",
-    "noImages": "No images available"
+    "noImages": "No images available",
+    "priceOnRequest": "Price on Request"
   },
   "footer": {
     "brand": "GULFSTARCARS",
     "description": "We are your trusted partner for importing cars from Dubai to the world. Experience seamless service and premium quality vehicles.",
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman - N/A<br />Ajman, United Arab Emirates",
+    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman, United Arab Emirates",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -304,7 +307,7 @@
     "phoneLabel": "Contact Numbers",
     "addressLabel": "Our Location",
     "emails": {
-      "info": "smartinvestments005@gmail.com"
+      "info": "info@gulfstarcars.com"
     },
     "privacy": "Privacy",
     "terms": "Terms",

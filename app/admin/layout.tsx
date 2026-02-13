@@ -89,7 +89,7 @@ export default function AdminLayout({
                             <form
                                 action={async () => {
                                     'use server';
-                                    await signOut({ redirectTo: '/' });
+                                    await signOut({ redirectTo: '/login' });
                                 }}
                             >
                                 <button className="w-full flex items-center gap-3 rounded-xl px-3 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all cursor-pointer">

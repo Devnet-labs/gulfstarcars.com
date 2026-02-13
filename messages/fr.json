@@ -38,6 +38,13 @@
   },
   "cars": {
     "pageTitle": "Toutes les voitures",
+    "subtitle": "Parcourez notre collection complète de véhicules premium prêts pour l'exportation mondiale",
+    "vehiclesFound": "{count} Véhicules Trouvés",
+    "foundSubtitle": "Trouvés dans notre collection complète",
+    "priceOnRequest": "Prix sur Demande",
+    "filterTitle": "Filtres",
+    "clearFilters": "Effacer les Filtres",
+    "clearAll": "Tout Effacer",
     "filters": {
       "search": "Rechercher des voitures...",
       "condition": "État",
@@ -89,6 +96,7 @@
       "globalExport": "Exportation Mondiale Disponible",
       "enquire": "Demander",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "Prix sur Demande",
       "breadcrumb": {
         "home": "Accueil",
         "inventory": "Inventaire"
@@ -231,7 +239,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Essence",
     "auto": "Auto",
-    "noImages": "Aucune image disponible"
+    "noImages": "Aucune image disponible",
+    "priceOnRequest": "Prix sur Demande"
   },
   "footer": {
     "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",
@@ -412,5 +421,47 @@
       "SOLD": "Vendu",
       "RESERVED": "Réservé"
     }
+  },
+  "admin": {
+    "dashboard": "Tableau de bord",
+    "cars": "Voitures",
+    "enquiries": "Demandes",
+    "addCar": "Ajouter une voiture",
+    "editCar": "Modifier la voiture",
+    "deleteCar": "Supprimer la voiture",
+    "actions": "Actions",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "status": "Statut",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le"
+  },
+  "form": {
+    "make": "Marque",
+    "model": "Modèle",
+    "year": "Année",
+    "price": "Prix",
+    "description": "Description",
+    "descriptionEn": "Description (Anglais)",
+    "descriptionAr": "Description (Arabe)",
+    "condition": "État",
+    "bodyType": "Type de carrosserie",
+    "fuelType": "Carburant",
+    "transmission": "Transmission",
+    "mileage": "Kilométrage",
+    "engineCapacity": "Cylindrée",
+    "colour": "Couleur",
+    "driveType": "Type de transmission",
+    "doors": "Portes",
+    "seats": "Sièges",
+    "location": "Emplacement",
+    "steering": "Direction",
+    "images": "Images",
+    "required": "Ce champ est obligatoire",
+    "invalidEmail": "Adresse e-mail invalide",
+    "invalidNumber": "Doit être un nombre valide"
   }
 }

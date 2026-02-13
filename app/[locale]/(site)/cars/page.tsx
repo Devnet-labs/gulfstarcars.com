@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Car } from '@prisma/client';
 import { CarCard } from '@/components/CarCard';
 import { getFilteredCars, getInventoryFilterOptions } from '@/app/actions/getFilteredCars';
 import { ChevronDown, Filter, X, LayoutGrid, Check, Search, RotateCcw, Sparkles } from 'lucide-react';
@@ -17,7 +18,7 @@ export default function CarsPage() {
 
     // Filter options
     const [filterOptions, setFilterOptions] = useState({
-        makes: [] as { name: string; count: number }[],
+        makes: [] as { make: string; count: number }[],
         fuelTypes: [] as string[],
         transmissions: [] as string[],
         vehicleTypes: [] as string[],
@@ -43,7 +44,16 @@ export default function CarsPage() {
     useEffect(() => {
         const fetchOptions = async () => {
             const options = await getInventoryFilterOptions();
-            setFilterOptions(options);
+            setFilterOptions({
+                fuelTypes: options.fuelTypes,
+                transmissions: options.transmissions,
+                vehicleTypes: options.vehicleTypes,
+                colours: options.colours,
+                driveTypes: options.driveTypes,
+                engineCapacities: options.engineCapacities,
+                locations: options.locations,
+                makes: options.makes || []
+            });
         };
         fetchOptions();
     }, []);
@@ -67,7 +77,7 @@ export default function CarsPage() {
         fetchCars();
     }, [selectedFilters, locale]);
 
-    const handleFilterChange = (category: keyof typeof selectedFilters, value: string) => {
+    const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location' | 'make', value: string) => {
         setSelectedFilters(prev => {
             const current = prev[category];
             const updated = current.includes(value)
@@ -90,71 +100,92 @@ export default function CarsPage() {
         });
     };
 
-    const hasActiveFilters = Object.values(selectedFilters).some(arr => arr.length > 0);
+    const hasActiveFilters =
+        selectedFilters.fuelType.length > 0 ||
+        selectedFilters.transmission.length > 0 ||
+        selectedFilters.vehicleType.length > 0 ||
+        selectedFilters.colour.length > 0 ||
+        selectedFilters.driveType.length > 0 ||
+        selectedFilters.engineCapacity.length > 0 ||
+        selectedFilters.location.length > 0 ||
+        selectedFilters.make.length > 0;
 
-    const activeFilterCount = Object.values(selectedFilters).reduce((acc, curr) => acc + curr.length, 0);
+    const activeFilterCount =
+        selectedFilters.fuelType.length +
+        selectedFilters.transmission.length +
+        selectedFilters.vehicleType.length +
+        selectedFilters.colour.length +
+        selectedFilters.driveType.length +
+        selectedFilters.engineCapacity.length +
+        selectedFilters.location.length +
+        selectedFilters.make.length;
 
     const t = useTranslations('cars');
 
     return (
         <div className="min-h-screen bg-[#0B0F19] pt-20">
-
-            {/* Horizontal Makes Filter */}
-            <section className="sticky top-[80px] z-40 bg-[#0B0F19]/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden mt-8">
-                {/* Subtle top glow */}
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-                <div className="container mx-auto px-4 py-5">
-                    <div className="flex items-center gap-6">
-                        <div className="hidden md:flex items-center gap-3 shrink-0 border-r border-white/10 pr-6">
-                            <div className="p-1.5 bg-primary/20 rounded-lg">
-                                <Sparkles className="h-4 w-4 text-primary" />
+            {/* Header Section */}
+            <section className="bg-[#0B0F19] border-b border-white/5 py-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                            <div>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="transform hover:scale-110 transition-transform">
+                                        <LayoutGrid className="h-8 w-8 text-primary" />
+                                    </div>
+                                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">{t('pageTitle')}</h1>
+                                </div>
+                                <p className="text-xl text-gray-400 max-w-2xl">
+                                    {t('subtitle')}
+                                </p>
                             </div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Top Makes</span>
-                        </div>
-                        <div
-                            ref={scrollRef}
-                            className="flex gap-3 overflow-x-auto pb-1 no-scrollbar mask-fade-right"
-                        >
-                            <button
-                                onClick={() => setSelectedFilters(prev => ({ ...prev, make: [] }))}
-                                className={`whitespace-nowrap px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-300 flex items-center gap-2 border ${selectedFilters.make.length === 0
-                                    ? 'bg-primary border-primary text-white shadow-2xl shadow-primary/40 ring-4 ring-primary/10 scale-105'
-                                    : 'bg-white/5 text-white/90 hover:bg-white/10 hover:text-white border-white/10 hover:border-white/20'
-                                    }`}
-                            >
-                                All Makes
-                            </button>
-                            {filterOptions.makes.map((make) => (
-                                <button
-                                    key={make.name}
-                                    onClick={() => handleFilterChange('make', make.name)}
-                                    className={`whitespace-nowrap px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-300 flex items-center gap-4 border ${selectedFilters.make.includes(make.name)
-                                        ? 'bg-primary border-primary text-white shadow-2xl shadow-primary/40 ring-4 ring-primary/10 scale-105'
-                                        : 'bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:text-white hover:border-white/20'
-                                        }`}
-                                >
-                                    {make.name}
-                                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg ${selectedFilters.make.includes(make.name)
-                                        ? 'bg-white/20 text-white'
-                                        : 'bg-white/10 text-slate-400'
-                                        }`}>
-                                        {make.count}
-                                    </span>
-                                </button>
-                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-12 relative">
-                {/* Decorative background element */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
-
+            <section className="py-8 sm:py-12">
                 <div className="container mx-auto px-4">
-                    <div className="flex flex-col lg:flex-row gap-10">
+                    {/* Make Selector */}
+                    {filterOptions.makes.length > 0 && (
+                        <div className="mb-8 sm:mb-12 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+                            <div className="flex gap-3 sm:gap-4 min-w-max">
+                                {filterOptions.makes.map(({ make, count }) => {
+                                    const isSelected = selectedFilters.make.includes(make);
+                                    return (
+                                        <button
+                                            key={make}
+                                            onClick={() => handleFilterChange('make', make)}
+                                            className={`
+                                                group flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border transition-all duration-300
+                                                ${isSelected
+                                                    ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25 scale-105'
+                                                    : 'bg-card border-white/5 text-muted-foreground hover:border-white/20 hover:bg-white/5 hover:-translate-y-1'
+                                                }
+                                            `}
+                                        >
+                                            <span className={`text-sm sm:text-base font-bold ${isSelected ? 'text-white' : 'text-foreground group-hover:text-primary transition-colors'}`}>
+                                                {make}
+                                            </span>
+                                            <span className={`
+                                                text-xs font-bold px-2 py-0.5 rounded-full
+                                                ${isSelected
+                                                    ? 'bg-white/20 text-white'
+                                                    : 'bg-white/5 text-muted-foreground'
+                                                }
+                                            `}>
+                                                {count}
+                                            </span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="flex flex-col lg:flex-row gap-8">
                         {/* Filter Sidebar */}
                         <div className="lg:w-80 flex-shrink-0">
                             {/* Mobile Filter Toggle */}
@@ -167,9 +198,9 @@ export default function CarsPage() {
                                         <Filter className="h-5 w-5 text-primary" />
                                     </div>
                                     {t('filterTitle')}
-                                    {activeFilterCount > 0 && (
-                                        <span className="bg-primary text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full animate-pulse shadow-lg shadow-primary/40">
-                                            {activeFilterCount}
+                                    {hasActiveFilters && (
+                                        <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
+                                            {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length + selectedFilters.make.length}
                                         </span>
                                     )}
                                 </span>
