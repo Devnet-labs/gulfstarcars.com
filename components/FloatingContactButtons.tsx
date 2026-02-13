@@ -1,6 +1,6 @@
 'use client';
 
-import { MessageCircle, Facebook } from 'lucide-react';
+import { MessageCircle, Facebook, Instagram } from 'lucide-react';
 import { useState } from 'react';
 
 export function FloatingContactButtons() {
@@ -8,11 +8,16 @@ export function FloatingContactButtons() {
 
     // Replace with your actual contact details
     const whatsappNumber = '+971523479535'; // Format: country code + number (no + or spaces)
-    const facebookUrl = 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/'; // Replace with your Facebook page URL
+    const facebookUrl = 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/';
+    const instagramUrl = 'https://www.instagram.com/gulfstar_automotive/'; // Placeholder Instagram
 
     const handleWhatsAppClick = () => {
-        const message = encodeURIComponent('Hello! I would like to inquire about your cars.');
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        const message = encodeURIComponent('Hello! I would like to enquire about your cars for export.');
+        window.open(`https://wa.me/${whatsappNumber.replace('+', '')}?text=${message}`, '_blank');
+    };
+
+    const handleInstagramClick = () => {
+        window.open(instagramUrl, '_blank');
     };
 
     const handleFacebookClick = () => {
@@ -34,8 +39,8 @@ export function FloatingContactButtons() {
                 {/* Tooltip */}
                 <span
                     className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'whatsapp'
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 translate-x-2 pointer-events-none'
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Chat on WhatsApp
@@ -59,11 +64,33 @@ export function FloatingContactButtons() {
                 {/* Tooltip */}
                 <span
                     className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'facebook'
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 translate-x-2 pointer-events-none'
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Follow on Facebook
+                    <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
+                </span>
+            </button>
+
+            {/* Instagram Button */}
+            <button
+                onClick={handleInstagramClick}
+                onMouseEnter={() => setIsHovered('instagram')}
+                onMouseLeave={() => setIsHovered(null)}
+                className="group relative flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95"
+                aria-label="Visit our Instagram page"
+            >
+                <Instagram className="w-7 h-7 text-white" />
+
+                {/* Tooltip */}
+                <span
+                    className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'instagram'
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-2 pointer-events-none'
+                        }`}
+                >
+                    Follow on Instagram
                     <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
                 </span>
             </button>

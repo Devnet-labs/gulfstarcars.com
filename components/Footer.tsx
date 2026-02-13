@@ -50,8 +50,12 @@ export function Footer() {
                         </p>
 
                         <div className="flex items-center gap-3">
-                            {[Facebook, Instagram, Twitter].map((Icon, i) => (
-                                <Link key={i} href="#" className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 shadow-lg hover:shadow-primary/25 transition-all duration-500 group">
+                            {[
+                                { Icon: Facebook, href: 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/gulfstar_automotive/' },
+                                { Icon: Twitter, href: '#' }
+                            ].map(({ Icon, href }, i) => (
+                                <Link key={i} href={href} target="_blank" className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 shadow-lg hover:shadow-primary/25 transition-all duration-500 group">
                                     <Icon className="h-4 w-4 text-white/70 group-hover:text-white transition-colors" />
                                 </Link>
                             ))}
@@ -86,12 +90,25 @@ export function Footer() {
                         <div className="space-y-4">
                             {/* Address */}
                             <div className="flex gap-3 group cursor-pointer">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0">
-                                    <MapPin className="h-3.5 w-3.5 text-gray-500 group-hover:text-primary transition-colors" />
+                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shrink-0 border-primary/50 bg-primary/20 scale-110">
+                                    <MapPin className="h-3.5 w-3.5 text-primary" />
                                 </div>
                                 <div className="space-y-0.5">
-                                    <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">{t('addressLabel')}</p>
+                                    <p className="text-[10px] font-bold text-primary uppercase tracking-wider">Dubai Branch (Primary)</p>
                                     <p className="text-xs font-bold text-white group-hover:text-primary transition-colors leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: t.raw('addressDubai') }}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Ajman Address (Secondary) */}
+                            <div className="flex gap-3 group cursor-pointer pt-2 opacity-60 hover:opacity-100 transition-opacity">
+                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                                    <MapPin className="h-3 w-3 text-gray-600" />
+                                </div>
+                                <div className="space-y-0.5">
+                                    <p className="text-[9px] font-bold text-white/30 uppercase tracking-wider">Ajman Office</p>
+                                    <p className="text-[10px] font-bold text-gray-500 group-hover:text-primary transition-colors leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: t.raw('address') }}
                                     />
                                 </div>
@@ -106,6 +123,9 @@ export function Footer() {
                                     <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider">{t('emailLabel')}</p>
                                     <a href={`mailto:${t('emails.info')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors block">
                                         {t('emails.info')}
+                                    </a>
+                                    <a href={`mailto:${t('emails.sales')}`} className="text-xs font-bold text-white group-hover:text-primary transition-colors block">
+                                        {t('emails.sales')}
                                     </a>
                                 </div>
                             </div>

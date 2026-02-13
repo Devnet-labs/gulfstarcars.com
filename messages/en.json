@@ -16,7 +16,7 @@
       "badge": "Gulf Star Automotive Experts",
       "title": "Drive Your Dream",
       "titleHighlight": "Across Borders",
-      "subtitle": "The world's most trusted platform for exporting premium vehicles from Dubai to anywhere in the globe."
+      "subtitle": "The region's leading vehicle export specialists, delivering premium automotive solutions from Dubai, UAE to global markets."
     },
     "cta": {
       "browseTitle": "Browse Our Collection",
@@ -39,7 +39,6 @@
   "cars": {
     "pageTitle": "Global Inventory",
     "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
-    "priceOnRequest": "Price on Request",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
     "priceOnRequest": "Price on Request",
@@ -279,7 +278,6 @@
     "stkId": "STK ID",
     "exportPrice": "Export Price",
     "enquiry": "Enquiry",
-    "priceOnRequest": "Price on Request",
     "whatsapp": "WhatsApp",
     "petrol": "Petrol",
     "auto": "Auto",
@@ -291,7 +289,8 @@
     "description": "We are your trusted partner for importing cars from Dubai to the world. Experience seamless service and premium quality vehicles.",
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
-    "address": "CIIF SF6657, Ajman Free Zone,<br />PO BOX 84891 DUBAI UAE<br />Ajman, United Arab Emirates",
+    "address": "CIIF SF6657, Ajman Free Zone (Reference Office)<br />PO BOX 84891 DUBAI UAE",
+    "addressDubai": "DUBAI BRANCH<br />[Awaiting Stanley's Details]",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -305,9 +304,10 @@
     "slogan": "Automotive Excellence",
     "emailLabel": "Official Email",
     "phoneLabel": "Contact Numbers",
-    "addressLabel": "Our Location",
+    "addressLabel": "Primary Location",
     "emails": {
-      "info": "info@gulfstarcars.com"
+        "info": "INFO@GULFSTARCARS.COM",
+        "sales": "SALES@GULFSTARCARS.COM"
     },
     "privacy": "Privacy",
     "terms": "Terms",
@@ -318,11 +318,11 @@
     "hero": {
       "title": "Driving Global Automotive Trade",
       "titleHighlight": "with Precision & Trust",
-      "subtitle": "Gulf Star Automotive FZC is a licensed international vehicle export company based in Dubai, UAE. We facilitate cross-border automotive trade with comprehensive logistics, compliance, and documentation services."
+      "subtitle": "Gulf Star Automotive FZC is a licensed premier vehicle export enterprise based in Dubai, UAE. We specialize in global automotive trade, providing seamless logistics and expert documentation."
     },
     "overview": {
-      "title": "Company Overview",
-      "description": "Gulf Star Automotive FZC operates as a full-service vehicle export facilitator, connecting international buyers with premium automotive inventory from the UAE market. Our operations encompass procurement, inspection, export documentation, customs clearance, and global logistics coordination.",
+      "title": "A Leader in Global Vehicle Export",
+      "description": "Gulf Star Automotive FZC is a specialized vehicle export facilitator, bridging the gap between international buyers and the UAE's premium automotive market. Our core business focuses on high-efficiency procurement, technical inspection, and complex global logistics coordination.",
       "stats": {
         "experience": "8+ Years",
         "experienceLabel": "Export Experience",
