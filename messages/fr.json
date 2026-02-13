@@ -468,5 +468,11 @@
     "required": "Ce champ est obligatoire",
     "invalidEmail": "Adresse e-mail invalide",
     "invalidNumber": "Doit être un nombre valide"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "subtitle": "Le chemin que vous recherchez n'existe pas ou a été déplacé.",
+    "backHome": "Retour à l'accueil",
+    "browseInventory": "Parcourir le catalogue"
   }
 }

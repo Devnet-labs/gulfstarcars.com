@@ -473,5 +473,11 @@
     "required": "Este campo es obligatorio",
     "invalidEmail": "Correo electrónico no válido",
     "invalidNumber": "Debe ser un número válido"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "subtitle": "El camino que buscas no existe o ha sido movido.",
+    "backHome": "Volver al inicio",
+    "browseInventory": "Explorar inventario"
   }
 }
