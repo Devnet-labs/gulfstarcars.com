@@ -24,8 +24,8 @@
       "viewAllCars": "View All Cars"
     },
     "carsOfDay": {
-      "title": "Cars of the Day",
-      "subtitle": "Hand-picked premium vehicles ready for immediate export.",
+      "title": "Newest Arrivals",
+      "subtitle": "Explore our most recently added premium vehicles, ready for global export.",
       "viewAll": "View All Cars",
       "noCars": "No vehicles currently available.",
       "noCarsSubtitle": "Please check back soon or contact us for a custom order."
