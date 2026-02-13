@@ -42,15 +42,15 @@ export function Navbar() {
                 {/* Gold accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-                <div className="w-full pl-0 pr-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] overflow-hidden py-0">
-                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-14 sm:h-16 lg:h-20' : 'h-16 sm:h-20 lg:h-24'}
+                <div className="w-full pl-0 pr-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
+                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-16 sm:h-20 lg:h-20' : 'h-20 sm:h-24 lg:h-24'}
                         `}>
                         {/* Logo — full height, zero padding so no top/bottom gap */}
                         <Link href="/" className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
                             <motion.div
-                                animate={{ scale: isScrolled ? 0.95 : 1 }}
+                                animate={{ scale: isScrolled ? 0.9 : 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="relative h-full w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px] xl:w-[400px] shrink-0 p-0 m-0 block leading-[0]"
+                                className="relative h-full w-[300px] sm:w-[360px] md:w-[440px] lg:w-[520px] xl:w-[600px] shrink-0 p-0 m-0 block leading-[0]"
                             >
                                 <Image
                                     src="/images/portfolio/logo/logo.png"
@@ -58,7 +58,7 @@ export function Navbar() {
                                     fill
                                     className="object-contain object-left"
                                     priority
-                                    sizes="(max-width: 640px) 240px, (max-width: 768px) 280px, (max-width: 1024px) 320px, (max-width: 1280px) 360px, 400px"
+                                    sizes="(max-width: 640px) 300px, (max-width: 768px) 360px, (max-width: 1024px) 440px, (max-width: 1280px) 520px, 600px"
                                 />
                             </motion.div>
                         </Link>
