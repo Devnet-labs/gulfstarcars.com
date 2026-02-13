@@ -63,6 +63,7 @@ export async function translateAllCarFields(
                         carId,
                         locale,
                         make: localeTranslation.make || null,
+                        brand: localeTranslation.brand || null,
                         model: localeTranslation.model || null,
                         description: localeTranslation.description || null,
                         bodyType: localeTranslation.bodyType || null,
@@ -77,6 +78,7 @@ export async function translateAllCarFields(
                     },
                     update: {
                         make: localeTranslation.make || null,
+                        brand: localeTranslation.brand || null,
                         model: localeTranslation.model || null,
                         description: localeTranslation.description || null,
                         bodyType: localeTranslation.bodyType || null,
@@ -228,6 +230,7 @@ export async function retryTranslationAction(
                 carId,
                 locale,
                 make: localeTranslation.make || null,
+                brand: localeTranslation.brand || null,
                 model: localeTranslation.model || null,
                 description: localeTranslation.description || null,
                 bodyType: localeTranslation.bodyType || null,
@@ -242,6 +245,7 @@ export async function retryTranslationAction(
             },
             update: {
                 make: localeTranslation.make || null,
+                brand: localeTranslation.brand || null,
                 model: localeTranslation.model || null,
                 description: localeTranslation.description || null,
                 bodyType: localeTranslation.bodyType || null,

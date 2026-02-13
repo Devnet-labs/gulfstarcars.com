@@ -78,10 +78,10 @@ export default async function AdminCarsPage() {
                                     {/* Status Badge */}
                                     <div className="absolute top-3 right-3">
                                         <span className={`inline-flex items-center rounded-md backdrop-blur-sm px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${car.status === 'AVAILABLE'
-                                                ? 'bg-green-400/90 text-white ring-green-400/20'
-                                                : car.status === 'SOLD'
-                                                    ? 'bg-red-400/90 text-white ring-red-400/20'
-                                                    : 'bg-yellow-400/90 text-white ring-yellow-400/20'
+                                            ? 'bg-green-400/90 text-white ring-green-400/20'
+                                            : car.status === 'SOLD'
+                                                ? 'bg-red-400/90 text-white ring-red-400/20'
+                                                : 'bg-yellow-400/90 text-white ring-yellow-400/20'
                                             }`}>
                                             {car.status}
                                         </span>
@@ -93,7 +93,7 @@ export default async function AdminCarsPage() {
                                     {/* Title */}
                                     <Link href={`/admin/cars/${car.id}`} className="block group/title">
                                         <h3 className="text-lg font-bold text-foreground group-hover/title:text-primary transition-colors line-clamp-1">
-                                            {car.make} {car.model}
+                                            {(car as any).brand} {car.make} {car.model}
                                         </h3>
                                         <p className="text-sm text-muted-foreground">
                                             {car.year} • {car.condition}
@@ -142,10 +142,10 @@ export default async function AdminCarsPage() {
                                             <Link
                                                 href={`/admin/cars/${car.id}/translations`}
                                                 className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors ${completedTranslations === totalTranslations
-                                                        ? 'text-green-400 hover:text-green-300'
-                                                        : failedTranslations > 0
-                                                            ? 'text-red-400 hover:text-red-300'
-                                                            : 'text-yellow-400 hover:text-yellow-300'
+                                                    ? 'text-green-400 hover:text-green-300'
+                                                    : failedTranslations > 0
+                                                        ? 'text-red-400 hover:text-red-300'
+                                                        : 'text-yellow-400 hover:text-yellow-300'
                                                     }`}
                                             >
                                                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

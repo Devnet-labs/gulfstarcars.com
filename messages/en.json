@@ -46,6 +46,7 @@
     "clearAll": "Clear All",
     "filters": {
       "search": "Search cars...",
+      "brand": "Brand",
       "condition": "Condition",
       "all": "All",
       "new": "New",
@@ -273,6 +274,7 @@
   },
   "carCard": {
     "exportReady": "Export Ready",
+    "brand": "Brand",
     "stkId": "STK ID",
     "exportPrice": "Export Price",
     "enquiry": "Enquiry",

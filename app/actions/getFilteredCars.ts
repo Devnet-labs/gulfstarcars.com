@@ -5,6 +5,7 @@ import { Car } from '@prisma/client';
 
 interface InventoryFilters {
     fuelType?: string[];
+    brand?: string[];
     transmission?: string[];
     vehicleType?: string[];
     colour?: string[];
@@ -21,6 +22,13 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
         if (filters?.fuelType && filters.fuelType.length > 0) {
             where.fuelType = {
                 in: filters.fuelType,
+                mode: 'insensitive'
+            };
+        }
+
+        if (filters?.brand && filters.brand.length > 0) {
+            where.brand = {
+                in: filters.brand,
                 mode: 'insensitive'
             };
         }
@@ -76,7 +84,7 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
                 translations: locale && locale !== 'en'
                     ? { where: { locale, status: 'COMPLETED' } }
                     : false,
-            },
+            } as any,
         });
 
         return cars;
@@ -91,6 +99,7 @@ export async function getInventoryFilterOptions() {
         const cars = await prisma.car.findMany({
             select: {
                 fuelType: true,
+                brand: true,
                 transmission: true,
                 bodyType: true,
                 colour: true,
@@ -102,6 +111,7 @@ export async function getInventoryFilterOptions() {
 
         // Extract unique values with proper typing
         const fuelTypes = [...new Set(cars.map((car: any) => car.fuelType).filter((v: any): v is string => Boolean(v)))];
+        const brands = [...new Set(cars.map((car: any) => car.brand).filter((v: any): v is string => Boolean(v)))];
         const transmissions = [...new Set(cars.map((car: any) => car.transmission).filter((v: any): v is string => Boolean(v)))];
         const bodyTypes = [...new Set(cars.map((car: any) => car.bodyType).filter((v: any): v is string => Boolean(v)))];
         const colours = [...new Set(cars.map((car: any) => car.colour).filter((v: any): v is string => Boolean(v)))];
@@ -111,6 +121,7 @@ export async function getInventoryFilterOptions() {
 
         return {
             fuelTypes: fuelTypes.sort(),
+            brands: brands.sort(),
             transmissions: transmissions.sort(),
             vehicleTypes: bodyTypes.sort(),
             colours: colours.sort(),
@@ -122,6 +133,7 @@ export async function getInventoryFilterOptions() {
         console.error('Error fetching inventory filter options:', error);
         return {
             fuelTypes: [] as string[],
+            brands: [] as string[],
             transmissions: [] as string[],
             vehicleTypes: [] as string[],
             colours: [] as string[],

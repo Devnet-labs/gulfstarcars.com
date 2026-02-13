@@ -8,6 +8,7 @@ import { translateAllCarFields, retryTranslationAction, checkTranslationConfig, 
 
 const carSchema = z.object({
     make: z.string().min(1, 'Make is required'),
+    brand: z.string().min(1, 'Brand is required'),
     model: z.string().min(1, 'Model is required'),
     year: z.coerce.number().min(1900, 'Year must be valid'),
     price: z.coerce.number().min(0, 'Price must be positive'),
@@ -30,6 +31,7 @@ const carSchema = z.object({
 export async function createCar(prevState: any, formData: FormData) {
     const validatedFields = carSchema.safeParse({
         make: formData.get('make'),
+        brand: formData.get('brand'),
         model: formData.get('model'),
         year: formData.get('year'),
         price: formData.get('price'),
@@ -96,6 +98,7 @@ export async function createCar(prevState: any, formData: FormData) {
             // Translate all fields using Groq
             translateAllCarFields(carId, {
                 make: validatedFields.data.make,
+                brand: validatedFields.data.brand,
                 model: validatedFields.data.model,
                 description: validatedFields.data.description,
                 bodyType: validatedFields.data.bodyType || null,
@@ -119,6 +122,7 @@ export async function createCar(prevState: any, formData: FormData) {
 export async function updateCar(id: string, prevState: any, formData: FormData) {
     const validatedFields = carSchema.safeParse({
         make: formData.get('make'),
+        brand: formData.get('brand'),
         model: formData.get('model'),
         year: formData.get('year'),
         price: formData.get('price'),
@@ -163,6 +167,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
             if (config.isConfigured) {
                 translateAllCarFields(id, {
                     make: validatedFields.data.make,
+                    brand: validatedFields.data.brand,
                     model: validatedFields.data.model,
                     description: validatedFields.data.description,
                     bodyType: validatedFields.data.bodyType || null,
@@ -221,6 +226,7 @@ export async function retryAllTranslations(carId: string) {
 
     const results = await translateAllCarFields(carId, {
         make: car.make,
+        brand: (car as any).brand,
         model: car.model,
         description: car.description,
         bodyType: car.bodyType,

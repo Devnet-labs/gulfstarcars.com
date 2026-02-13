@@ -11,6 +11,7 @@ import { checkTranslationConfig } from '@/lib/translate';
 type State = {
     errors?: {
         make?: string[];
+        brand?: string[];
         model?: string[];
         year?: string[];
         price?: string[];
@@ -37,6 +38,7 @@ interface CarFormProps {
     initialData?: {
         id: string;
         make: string;
+        brand?: string | null;
         model: string;
         year: number;
         price: number;
@@ -114,6 +116,23 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <p className="text-sm text-red-500">{state.errors.make}</p>
                         )}
                     </div>
+                    <div className="space-y-2">
+                        <label htmlFor="brand" className="text-sm font-medium">
+                            Brand *
+                        </label>
+                        <input
+                            name="brand"
+                            defaultValue={initialData?.brand || ''}
+                            placeholder="e.g. Toyota"
+                            className="w-full rounded-md border bg-background px-3 py-2"
+                        />
+                        {state.errors?.brand && (
+                            <p className="text-sm text-red-500">{state.errors.brand}</p>
+                        )}
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
                     <div className="space-y-2">
                         <label htmlFor="model" className="text-sm font-medium">
                             Model

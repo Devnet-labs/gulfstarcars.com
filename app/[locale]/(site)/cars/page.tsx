@@ -18,6 +18,7 @@ export default function CarsPage() {
     // Filter options
     const [filterOptions, setFilterOptions] = useState({
         fuelTypes: [] as string[],
+        brands: [] as string[],
         transmissions: [] as string[],
         vehicleTypes: [] as string[],
         colours: [] as string[],
@@ -29,6 +30,7 @@ export default function CarsPage() {
     // Selected filters
     const [selectedFilters, setSelectedFilters] = useState({
         fuelType: [] as string[],
+        brand: [] as string[],
         transmission: [] as string[],
         vehicleType: [] as string[],
         colour: [] as string[],
@@ -42,13 +44,14 @@ export default function CarsPage() {
         const fetchOptions = async () => {
             const options = await getInventoryFilterOptions();
             setFilterOptions({
-                fuelTypes: options.fuelTypes,
-                transmissions: options.transmissions,
-                vehicleTypes: options.vehicleTypes,
-                colours: options.colours,
-                driveTypes: options.driveTypes,
-                engineCapacities: options.engineCapacities,
-                locations: options.locations
+                fuelTypes: options.fuelTypes || [],
+                brands: options.brands || [],
+                transmissions: options.transmissions || [],
+                vehicleTypes: options.vehicleTypes || [],
+                colours: options.colours || [],
+                driveTypes: options.driveTypes || [],
+                engineCapacities: options.engineCapacities || [],
+                locations: options.locations || []
             });
         };
         fetchOptions();
@@ -73,7 +76,7 @@ export default function CarsPage() {
         fetchCars();
     }, [selectedFilters, locale]);
 
-    const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location', value: string) => {
+    const handleFilterChange = (category: 'fuelType' | 'brand' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location', value: string) => {
         setSelectedFilters(prev => {
             const current = prev[category];
             const updated = current.includes(value)
@@ -86,6 +89,7 @@ export default function CarsPage() {
     const clearFilters = () => {
         setSelectedFilters({
             fuelType: [],
+            brand: [],
             transmission: [],
             vehicleType: [],
             colour: [],
@@ -97,6 +101,7 @@ export default function CarsPage() {
 
     const hasActiveFilters =
         selectedFilters.fuelType.length > 0 ||
+        selectedFilters.brand.length > 0 ||
         selectedFilters.transmission.length > 0 ||
         selectedFilters.vehicleType.length > 0 ||
         selectedFilters.colour.length > 0 ||
@@ -156,7 +161,7 @@ export default function CarsPage() {
                                     {t('filterTitle')}
                                     {hasActiveFilters && (
                                         <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
-                                            {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length}
+                                            {selectedFilters.fuelType.length + selectedFilters.brand.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length}
                                         </span>
                                     )}
                                 </span>
@@ -177,6 +182,24 @@ export default function CarsPage() {
                                             {t('clearAll')}
                                         </button>
                                     )}
+                                </div>
+
+                                {/* Brand */}
+                                <div className="mb-6">
+                                    <h4 className="font-semibold mb-3 text-gray-300">{t('filters.brand')}</h4>
+                                    <div className="space-y-2">
+                                        {filterOptions.brands.length > 0 ? filterOptions.brands.map(brand => (
+                                            <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedFilters.brand.includes(brand)}
+                                                    onChange={() => handleFilterChange('brand', brand)}
+                                                    className="w-4 h-4 text-primary border-white/20 rounded focus:ring-primary bg-white/5"
+                                                />
+                                                <span className="text-sm text-gray-400">{brand}</span>
+                                            </label>
+                                        )) : <p className="text-xs text-gray-500 italic">No options available</p>}
+                                    </div>
                                 </div>
 
                                 {/* Fuel Type */}

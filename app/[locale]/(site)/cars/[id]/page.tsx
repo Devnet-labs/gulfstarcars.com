@@ -23,6 +23,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
     const translation = (car as any)?.translations?.[0];
     const tFields = {
         description: translation?.description || car?.description,
+        brand: translation?.brand || (car as any)?.brand,
         make: translation?.make || car?.make,
         model: translation?.model || car?.model,
         bodyType: translation?.bodyType || car?.bodyType,
@@ -49,13 +50,13 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                     <span>/</span>
                     <Link href="/cars" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.inventory')}</Link>
                     <span>/</span>
-                    <span className="text-foreground font-medium truncate">{tFields.make} {tFields.model}</span>
+                    <span className="text-foreground font-medium truncate">{tFields.brand} {tFields.make} {tFields.model}</span>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
                     {/* Left Column: Gallery & Description */}
                     <div className="lg:col-span-8 space-y-6 sm:space-y-8">
-                        <CarImageGallery images={car.images} alt={`${tFields.make} ${tFields.model}`} />
+                        <CarImageGallery images={car.images} alt={`${tFields.brand} ${tFields.make} ${tFields.model}`} />
 
                         <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl">
                             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground tracking-tight">{t('description')}</h2>
@@ -80,7 +81,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                         {tEnums(`status.${car.status}`)}
                                     </span>
                                 </div>
-                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {tFields.make} {tFields.model}</h1>
+                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {tFields.brand} {tFields.make} {tFields.model}</h1>
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-3xl sm:text-4xl font-black text-accent">${car.price.toLocaleString()}</span>
                                     <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>
@@ -94,7 +95,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                 <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={tFields.transmission || tEnums('transmission.Automatic')} />
                             </div>
 
-                            <DetailClientActions car={car} />
+                            <DetailClientActions car={car as any} />
 
                             <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5 space-y-3 sm:space-y-4">
                                 <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground">

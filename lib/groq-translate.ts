@@ -11,6 +11,7 @@ const groq = new Groq({
 // Translatable car fields
 export interface TranslatableCarFields {
     make: string;
+    brand?: string | null;
     model: string;
     description: string;
     bodyType?: string | null;
@@ -26,6 +27,7 @@ export interface TranslatableCarFields {
 // Translation result for a single locale
 export interface LocaleTranslation {
     make?: string;
+    brand?: string;
     model?: string;
     description?: string;
     bodyType?: string;

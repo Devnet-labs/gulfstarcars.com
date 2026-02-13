@@ -13,6 +13,7 @@ import { optimizeCloudinaryUrl, cloudinaryPresets } from '@/lib/cloudinary';
 export interface Car {
     id: string;
     make: string;
+    brand: string;
     model: string;
     year: number;
     price: number;
@@ -42,6 +43,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
     const translation = (car as any)?.translations?.[0];
     const tFields = {
         description: translation?.description || car.description,
+        brand: translation?.brand || car.brand,
         make: translation?.make || car.make,
         model: translation?.model || car.model,
     };
@@ -91,7 +93,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                 <div className="p-3 sm:p-6 flex flex-col flex-grow">
                     <div className="mb-2 sm:mb-4">
                         <div className="flex justify-between items-start mb-1 sm:mb-2">
-                            <h3 className="text-sm sm:text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{tFields.make} {tFields.model}</h3>
+                            <h3 className="text-sm sm:text-lg font-bold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">{tFields.brand ? `${tFields.brand} ` : ''}{tFields.make} {tFields.model}</h3>
                             <span className="bg-secondary text-muted-foreground text-[8px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md border border-white/5">{car.year}</span>
                         </div>
                         <p className="text-[10px] sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2 leading-relaxed">{tFields.description}</p>

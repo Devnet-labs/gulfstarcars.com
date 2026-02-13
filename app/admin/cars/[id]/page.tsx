@@ -43,7 +43,7 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                         Back to Cars
                     </Link>
                     <h1 className="text-3xl font-bold tracking-tight">
-                        {car.year} {car.make} {car.model}
+                        {car.year} {car.brand} {car.make} {car.model}
                     </h1>
                     <p className="text-sm text-muted-foreground mt-1">
                         Stock ID: <span className="font-mono font-bold text-primary">{car.customId || 'N/A'}</span>
@@ -132,8 +132,8 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                             <div className="flex items-center justify-between py-3 border-b border-white/5">
                                 <span className="text-sm text-muted-foreground">Condition</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.condition === 'New'
-                                        ? 'bg-blue-400/10 text-blue-400'
-                                        : 'bg-orange-400/10 text-orange-400'
+                                    ? 'bg-blue-400/10 text-blue-400'
+                                    : 'bg-orange-400/10 text-orange-400'
                                     }`}>
                                     {car.condition}
                                 </span>
@@ -141,10 +141,10 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                             <div className="flex items-center justify-between py-3">
                                 <span className="text-sm text-muted-foreground">Status</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.status === 'AVAILABLE'
-                                        ? 'bg-green-400/10 text-green-400'
-                                        : car.status === 'SOLD'
-                                            ? 'bg-red-400/10 text-red-400'
-                                            : 'bg-yellow-400/10 text-yellow-400'
+                                    ? 'bg-green-400/10 text-green-400'
+                                    : car.status === 'SOLD'
+                                        ? 'bg-red-400/10 text-red-400'
+                                        : 'bg-yellow-400/10 text-yellow-400'
                                     }`}>
                                     {car.status}
                                 </span>
@@ -156,6 +156,7 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                     <div className="rounded-xl border border-white/5 bg-card/40 backdrop-blur-xl p-6">
                         <h3 className="text-lg font-semibold mb-4">Technical Specs</h3>
                         <div className="space-y-3">
+                            <SpecRow icon={<Car className="h-4 w-4" />} label="Brand" value={car.brand} />
                             <SpecRow icon={<Gauge className="h-4 w-4" />} label="Mileage" value={car.mileage ? `${car.mileage.toLocaleString()} km` : undefined} />
                             <SpecRow icon={<Fuel className="h-4 w-4" />} label="Fuel Type" value={car.fuelType} />
                             <SpecRow icon={<Settings2 className="h-4 w-4" />} label="Transmission" value={car.transmission} />

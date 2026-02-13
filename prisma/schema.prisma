@@ -11,6 +11,7 @@ model Car {
   id           String    @id @default(uuid())
   customId     String?   @unique
   make         String
+  brand        String
   model        String
   year         Int
   price        Float
@@ -186,6 +187,7 @@ model CarTranslation {
   
   // Translatable fields (11 total)
   make           String?
+  brand          String
   model          String?
   description    String?
   bodyType       String?
