@@ -126,14 +126,14 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                                     Price
                                 </span>
                                 <span className="text-xl font-bold text-emerald-400">
-                                    ${car.price.toLocaleString()}
+                                    {car.price ? `$${car.price.toLocaleString()}` : 'Price on Request'}
                                 </span>
                             </div>
                             <div className="flex items-center justify-between py-3 border-b border-white/5">
                                 <span className="text-sm text-muted-foreground">Condition</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.condition === 'New'
-                                        ? 'bg-blue-400/10 text-blue-400'
-                                        : 'bg-orange-400/10 text-orange-400'
+                                    ? 'bg-blue-400/10 text-blue-400'
+                                    : 'bg-orange-400/10 text-orange-400'
                                     }`}>
                                     {car.condition}
                                 </span>
@@ -141,10 +141,10 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                             <div className="flex items-center justify-between py-3">
                                 <span className="text-sm text-muted-foreground">Status</span>
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.status === 'AVAILABLE'
-                                        ? 'bg-green-400/10 text-green-400'
-                                        : car.status === 'SOLD'
-                                            ? 'bg-red-400/10 text-red-400'
-                                            : 'bg-yellow-400/10 text-yellow-400'
+                                    ? 'bg-green-400/10 text-green-400'
+                                    : car.status === 'SOLD'
+                                        ? 'bg-red-400/10 text-red-400'
+                                        : 'bg-yellow-400/10 text-yellow-400'
                                     }`}>
                                     {car.status}
                                 </span>

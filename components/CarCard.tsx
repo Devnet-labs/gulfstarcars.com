@@ -137,7 +137,9 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     <div className="mt-auto pt-2 sm:pt-4">
                         <div className="mb-2 sm:mb-4">
                             <p className="text-[10px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">{t('exportPrice')}</p>
-                            <p className="text-lg sm:text-2xl font-bold text-accent">${car.price.toLocaleString()}</p>
+                            <p className="text-lg sm:text-2xl font-bold text-accent">
+                                {car.price ? `$${car.price.toLocaleString()}` : t('priceOnRequest')}
+                            </p>
                         </div>
 
                         {/* Action Buttons Row */}
@@ -158,8 +160,9 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'}) listed at $${car.price.toLocaleString()}`);
-                                    window.open(`https://wa.me/+919019721662?text=${message}`, '_blank');
+                                    const priceInfo = car.price ? ` listed at $${car.price.toLocaleString()}` : '';
+                                    const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'})${priceInfo}`);
+                                    window.open(`https://wa.me/+971523479535?text=${message}`, '_blank');
                                 }}
                                 className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-[10px] sm:text-sm group/btn"
                             >
