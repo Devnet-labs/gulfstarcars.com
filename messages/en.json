@@ -39,6 +39,7 @@
   "cars": {
     "pageTitle": "Global Inventory",
     "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
+    "priceOnRequest": "Price on Request",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
     "filterTitle": "Filters",
@@ -276,6 +277,7 @@
     "stkId": "STK ID",
     "exportPrice": "Export Price",
     "enquiry": "Enquiry",
+    "priceOnRequest": "Price on Request",
     "whatsapp": "WhatsApp",
     "petrol": "Petrol",
     "auto": "Auto",

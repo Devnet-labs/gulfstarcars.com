@@ -131,7 +131,7 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                                     Price
                                 </span>
                                 <span className="text-xl font-bold text-emerald-400">
-                                    ${car.price.toLocaleString()}
+                                    {car.price ? `$${car.price.toLocaleString()}` : 'Price on Request'}
                                 </span>
                             </div>
                             <div className="flex items-center justify-between py-3 border-b border-white/5">

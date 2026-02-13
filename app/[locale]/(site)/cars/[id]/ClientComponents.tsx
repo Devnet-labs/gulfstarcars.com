@@ -17,8 +17,9 @@ export function DetailClientActions({ car }: DetailClientActionsProps) {
     const t = useTranslations('cars.carDetails');
 
     const handleWhatsApp = () => {
-        const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'}) listed at $${car.price.toLocaleString()}. Please provide more details.`);
-        window.open(`https://wa.me/+919019721662?text=${message}`, '_blank');
+        const priceInfo = car.price ? ` listed at $${car.price.toLocaleString()}` : '';
+        const message = encodeURIComponent(`Hi! I'm interested in the ${car.year} ${car.make} ${car.model} (ID: ${car.customId || 'N/A'})${priceInfo}. Please provide more details.`);
+        window.open(`https://wa.me/+971523479535?text=${message}`, '_blank');
     };
 
     return (

@@ -10,7 +10,7 @@ const carSchema = z.object({
     make: z.string().min(1, 'Make is required'),
     model: z.string().min(1, 'Model is required'),
     year: z.coerce.number().min(1900, 'Year must be valid'),
-    price: z.coerce.number().min(0, 'Price must be positive'),
+    price: z.preprocess((val) => (val === '' || val === null ? undefined : val), z.coerce.number().min(0, 'Price must be positive').optional().nullable()),
     condition: z.string().min(1, 'Condition is required'),
     images: z.array(z.string()).min(1, 'At least one image is required'),
     description: z.string().min(10, 'Description must be at least 10 characters'),

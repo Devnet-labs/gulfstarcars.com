@@ -40,7 +40,7 @@ interface CarFormProps {
         make: string;
         model: string;
         year: number;
-        price: number;
+        price: number | null;
         images: string[];
         condition: string;
         description: string;
@@ -180,8 +180,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         <input
                             name="price"
                             type="number"
-                            defaultValue={initialData?.price}
-                            required
+                            defaultValue={initialData?.price ?? ''}
                             placeholder="80000"
                             className="w-full rounded-md border bg-background px-3 py-2"
                         />
