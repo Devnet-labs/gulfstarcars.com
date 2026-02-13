@@ -7,12 +7,12 @@ export function FloatingContactButtons() {
     const [isHovered, setIsHovered] = useState<string | null>(null);
 
     // Replace with your actual contact details
-    const whatsappNumber = '971501234567'; // Format: country code + number (no + or spaces)
-    const facebookUrl = 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/'; // Replace with your Facebook page URL
+    const whatsappNumber = '+971523479535'; // Format: country code + number (no + or spaces)
+    const facebookUrl = 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/';
 
     const handleWhatsAppClick = () => {
-        const message = encodeURIComponent('Hello! I would like to inquire about your cars.');
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        const message = encodeURIComponent('Hello! I would like to enquire about your cars for export.');
+        window.open(`https://wa.me/${whatsappNumber.replace('+', '')}?text=${message}`, '_blank');
     };
 
     const handleFacebookClick = () => {
@@ -34,8 +34,8 @@ export function FloatingContactButtons() {
                 {/* Tooltip */}
                 <span
                     className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'whatsapp'
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 translate-x-2 pointer-events-none'
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Chat on WhatsApp
@@ -59,8 +59,8 @@ export function FloatingContactButtons() {
                 {/* Tooltip */}
                 <span
                     className={`absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${isHovered === 'facebook'
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 translate-x-2 pointer-events-none'
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-2 pointer-events-none'
                         }`}
                 >
                     Follow on Facebook
