@@ -36,7 +36,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
                     <div className="lg:col-span-5 space-y-10">
                         <Link href="/" className="inline-flex items-center group">
-                            <div className="relative h-24 w-48 md:h-36 md:w-64 lg:h-44 lg:w-80 transition-all duration-700">
+                            <div className="relative h-32 w-64 md:h-40 md:w-72 lg:h-44 lg:w-80 transition-all duration-700">
                                 <Image
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
