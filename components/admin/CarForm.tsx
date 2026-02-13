@@ -28,6 +28,7 @@ type State = {
         doors?: string[];
         seats?: string[];
         location?: string[];
+        isActive?: string[];
     };
     message?: string | null;
     isLoading?: boolean;
@@ -39,7 +40,7 @@ interface CarFormProps {
         make: string;
         model: string;
         year: number;
-        price: number;
+        price: number | null;
         images: string[];
         condition: string;
         description: string;
@@ -66,6 +67,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const initialState: State = { message: null, errors: {} };
     const [state, formAction] = useActionState(action, initialState);
     const [images, setImages] = useState<string[]>(initialData?.images || []);
+    const [isActive, setIsActive] = useState(initialData?.isActive ?? true);
     const [enableTranslations, setEnableTranslations] = useState(true);
     const [apiConfigured, setApiConfigured] = useState(false);
     const [checkingApi, setCheckingApi] = useState(true);
@@ -82,6 +84,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const handleSubmit = (formData: FormData) => {
         // Clear previous errors
         images.forEach(image => formData.append('images', image));
+        // Add visibility flag
+        formData.append('isActive', String(isActive));
         // Add translation flag
         formData.append('enableTranslations', String(enableTranslations));
         // Ensure condition is sent if not explicitly in form
@@ -104,7 +108,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                         <label htmlFor="make" className="text-sm font-medium">
-                            Make
+                            Make <span className="text-red-500">*</span>
                         </label>
                         <input
                             name="make"
@@ -119,7 +123,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="model" className="text-sm font-medium">
-                            Model
+                            Model <span className="text-red-500">*</span>
                         </label>
                         <input
                             name="model"
@@ -128,11 +132,33 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             placeholder="e.g. Land Cruiser"
                             className="w-full rounded-md border bg-background px-3 py-2"
                         />
-                        {state.errors?.model && (
-                            <p className="text-sm text-red-500">{state.errors.model}</p>
-                        )}
+                        {
+                            state.errors?.model && (
+                                <p className="text-sm text-red-500">{state.errors.model}</p>
+                            )
+                        }
+                    </div >
+                </div >
+
+                {/* Visibility Toggle */}
+                < div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/10" >
+                    <div className="flex items-center gap-2 text-primary">
+                        {isActive ? <CheckCircle className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
+                        <div>
+                            <span className="text-sm font-semibold">{isActive ? 'Publicly Visible' : 'Hidden from Users'}</span>
+                            <p className="text-xs text-muted-foreground">Toggle whether this car is live on the website.</p>
+                        </div>
                     </div>
-                </div>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                            type="checkbox"
+                            className="sr-only peer"
+                            checked={isActive}
+                            onChange={(e) => setIsActive(e.target.checked)}
+                        />
+                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                </div >
 
                 {/* Arabic Name Fields */}
                 <div className="grid grid-cols-2 gap-4 bg-primary/5 p-4 rounded-lg border border-primary/10">
@@ -169,7 +195,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                         <label htmlFor="year" className="text-sm font-medium">
-                            Year
+                            Year <span className="text-red-500">*</span>
                         </label>
                         <input
                             name="year"
@@ -179,10 +205,12 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             placeholder="2024"
                             className="w-full rounded-md border bg-background px-3 py-2"
                         />
-                        {state.errors?.year && (
-                            <p className="text-sm text-red-500">{state.errors.year}</p>
-                        )}
-                    </div>
+                        {
+                            state.errors?.year && (
+                                <p className="text-sm text-red-500">{state.errors.year}</p>
+                            )
+                        }
+                    </div >
                     <div className="space-y-2">
                         <label htmlFor="price" className="text-sm font-medium">
                             Price ($)
@@ -190,8 +218,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         <input
                             name="price"
                             type="number"
-                            defaultValue={initialData?.price}
-                            required
+                            defaultValue={initialData?.price ?? ''}
                             placeholder="80000"
                             className="w-full rounded-md border bg-background px-3 py-2"
                         />
@@ -199,7 +226,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <p className="text-sm text-red-500">{state.errors.price}</p>
                         )}
                     </div>
-                </div>
+                </div >
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -276,7 +303,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="condition" className="text-sm font-medium">
-                            Condition
+                            Condition <span className="text-red-500">*</span>
                         </label>
                         <select
                             name="condition"
@@ -286,8 +313,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <option value="New">New</option>
                             <option value="Used">Used</option>
                         </select>
-                    </div>
-                </div>
+                    </div >
+                </div >
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -377,7 +404,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
 
                 <div className="space-y-4">
                     <label className="text-sm font-medium">
-                        Car Images
+                        Car Images <span className="text-red-500">*</span>
                     </label>
                     <ImageUpload
                         value={images}
@@ -391,7 +418,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
 
                 <div className="space-y-2">
                     <label htmlFor="description" className="text-sm font-medium">
-                        Description
+                        Description <span className="text-red-500">*</span>
                     </label>
                     <textarea
                         name="description"
@@ -462,9 +489,11 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     </label>
                 </div>
 
-                {state.message && (
-                    <p className="text-sm text-red-500">{state.message}</p>
-                )}
+                {
+                    state.message && (
+                        <p className="text-sm text-red-500">{state.message}</p>
+                    )
+                }
 
                 <div className="pt-4 flex justify-end">
                     <button
@@ -476,7 +505,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         {initialData ? 'Update Car' : 'Create Car listing'}
                     </button>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     );
 }

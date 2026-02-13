@@ -14,7 +14,7 @@ export interface Car {
     make: string;
     model: string;
     year: number;
-    price: number;
+    price: number | null;
     images: string[];
     description: string;
     fuelType?: string | null;

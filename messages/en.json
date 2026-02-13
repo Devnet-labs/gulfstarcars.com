@@ -37,8 +37,9 @@
     }
   },
   "cars": {
-    "pageTitle": "Our Products",
-    "subtitle": "Browse our complete collection of premium vehicles ready for global export",
+    "pageTitle": "Global Inventory",
+    "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
+    "priceOnRequest": "Price on Request",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
     "priceOnRequest": "Price on Request",
@@ -278,6 +279,7 @@
     "stkId": "STK ID",
     "exportPrice": "Export Price",
     "enquiry": "Enquiry",
+    "priceOnRequest": "Price on Request",
     "whatsapp": "WhatsApp",
     "petrol": "Petrol",
     "auto": "Auto",

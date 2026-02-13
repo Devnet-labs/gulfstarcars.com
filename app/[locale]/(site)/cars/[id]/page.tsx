@@ -35,7 +35,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
         location: translation?.location || car?.location,
     };
 
-    if (!car) {
+    if (!car || !car.isActive) {
         notFound();
     }
 

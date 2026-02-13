@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
-import { Plus } from 'lucide-react';
+import { Plus, EyeOff } from 'lucide-react';
+import CarActions from '@/components/admin/CarActions';
 
 export default async function AdminCarsPage() {
     const cars = await prisma.car.findMany({
@@ -86,6 +87,15 @@ export default async function AdminCarsPage() {
                                             {car.status}
                                         </span>
                                     </div>
+                                    {/* Visibility Badge */}
+                                    {!car.isActive && (
+                                        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
+                                            <div className="flex flex-col items-center gap-2 text-white">
+                                                <EyeOff className="h-8 w-8 text-white/50" />
+                                                <span className="text-xs font-bold tracking-widest uppercase text-white/70">Hidden from Users</span>
+                                            </div>
+                                        </div>
+                                    )}
                                 </Link>
 
                                 {/* Content */}
@@ -171,6 +181,9 @@ export default async function AdminCarsPage() {
                                             Edit
                                         </Link>
                                     </div>
+
+                                    {/* Action Buttons (Toggle Visibility & Delete) */}
+                                    <CarActions carId={car.id} initialIsActive={car.isActive} />
                                 </div>
                             </div>
                         );

@@ -72,7 +72,12 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                         <Edit className="h-4 w-4" />
                         Edit
                     </Link>
-                    <DeleteCarButton id={car.id} />
+                </div>
+
+                {/* Visual Status Actions */}
+                <div className="w-full lg:w-auto min-w-[300px] border border-white/5 rounded-2xl p-4 bg-card/20 backdrop-blur-md">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-3 px-1">Quick Actions</p>
+                    <CarActions carId={car.id} initialIsActive={car.isActive} />
                 </div>
             </div>
 

@@ -160,7 +160,7 @@ async function seed() {
     // Get last stock ID number from backfill logic or just start high
     // CE-1001, CE-1002 etc.
     const lastCar = await prisma.car.findFirst({
-        where: { customId: { startsWith: 'GS-' } },
+        where: { customId: { startsWith: 'CE-' } },
         orderBy: { customId: 'desc' }
     });
 
@@ -173,7 +173,7 @@ async function seed() {
     }
 
     for (const car of dummyCars) {
-        const stockId = `GS-${nextId++}`;
+        const stockId = `CE-${nextId++}`;
         await prisma.car.create({
             data: {
                 ...car,

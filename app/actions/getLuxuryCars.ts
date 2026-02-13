@@ -38,7 +38,8 @@ export async function getLuxuryCars(filters?: LuxuryFilters): Promise<Car[]> {
             condition: {
                 equals: 'new',
                 mode: 'insensitive'
-            }
+            },
+            isActive: true
         };
 
         // Apply filters if provided
@@ -98,7 +99,8 @@ export async function getLuxuryFilterOptions() {
                 condition: {
                     equals: 'new',
                     mode: 'insensitive'
-                }
+                },
+                isActive: true
             }
         });
 

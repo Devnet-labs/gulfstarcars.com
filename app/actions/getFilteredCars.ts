@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { Car } from '@prisma/client';
 
 interface InventoryFilters {
+    make?: string[];
     fuelType?: string[];
     transmission?: string[];
     vehicleType?: string[];
@@ -16,9 +17,18 @@ interface InventoryFilters {
 
 export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {
     try {
-        const where: any = {};
+        const where: any = {
+            isActive: true
+        };
 
         // Apply filters if provided
+        if (filters?.make && filters.make.length > 0) {
+            where.make = {
+                in: filters.make,
+                mode: 'insensitive'
+            };
+        }
+
         if (filters?.fuelType && filters.fuelType.length > 0) {
             where.fuelType = {
                 in: filters.fuelType,
@@ -97,6 +107,7 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
 export async function getInventoryFilterOptions() {
     try {
         const cars = await prisma.car.findMany({
+            where: { isActive: true },
             select: {
                 make: true,
                 fuelType: true,

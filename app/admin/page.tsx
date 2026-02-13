@@ -132,7 +132,8 @@ export default async function AdminDashboard() {
         );
     }
 
-    const formatCurrency = (amount: number) => {
+    const formatCurrency = (amount: number | null) => {
+        if (amount === null) return 'Price on Request';
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
