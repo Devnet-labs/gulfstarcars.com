@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useActionState } from 'react';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Languages, CheckCircle, XCircle } from 'lucide-react';
 import ImageUpload from './ImageUpload';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { checkTranslationConfig } from '@/lib/translate';
 
 // We need to define the State type based on what our actions return
 type State = {
@@ -62,10 +63,24 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const initialState: State = { message: null, errors: {} };
     const [state, formAction] = useActionState(action, initialState);
     const [images, setImages] = useState<string[]>(initialData?.images || []);
+    const [enableTranslations, setEnableTranslations] = useState(true);
+    const [apiConfigured, setApiConfigured] = useState(false);
+    const [checkingApi, setCheckingApi] = useState(true);
+
+    // Check if DeepL API is configured
+    useEffect(() => {
+        checkTranslationConfig().then(result => {
+            setApiConfigured(result.isConfigured);
+            setEnableTranslations(result.isConfigured);
+            setCheckingApi(false);
+        });
+    }, []);
 
     const handleSubmit = (formData: FormData) => {
         // Clear previous errors
         images.forEach(image => formData.append('images', image));
+        // Add translation flag
+        formData.append('enableTranslations', String(enableTranslations));
         // Ensure condition is sent if not explicitly in form
         if (!formData.has('condition') && initialData?.condition) {
             formData.append('condition', initialData.condition);
@@ -354,6 +369,47 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     {state.errors?.description && (
                         <p className="text-sm text-red-500">{state.errors.description}</p>
                     )}
+                </div>
+
+                {/* Translation Options */}
+                <div className="border border-white/10 rounded-lg p-4 space-y-3 bg-white/5">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                            <Languages className="h-5 w-5 text-primary" />
+                            <span className="text-sm font-semibold">Auto-Translation</span>
+                        </div>
+                        {checkingApi ? (
+                            <span className="text-xs text-muted-foreground">Checking...</span>
+                        ) : apiConfigured ? (
+                            <span className="inline-flex items-center gap-1 text-xs font-medium text-green-400">
+                                <CheckCircle className="h-3.5 w-3.5" />
+                                API Configured
+                            </span>
+                        ) : (
+                            <span className="inline-flex items-center gap-1 text-xs font-medium text-red-400">
+                                <XCircle className="h-3.5 w-3.5" />
+                                API Not Configured
+                            </span>
+                        )}
+                    </div>
+
+                    <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            checked={enableTranslations}
+                            onChange={(e) => setEnableTranslations(e.target.checked)}
+                            disabled={!apiConfigured}
+                            className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/5 text-primary focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                        />
+                        <div className="flex-1">
+                            <span className="text-sm font-medium">Enable automatic translations</span>
+                            <p className="text-xs text-muted-foreground mt-1">
+                                {apiConfigured
+                                    ? "Translate description to 6 languages (ar, fr, es, pt, ru, zh) using DeepL API when saving"
+                                    : "Add DEEPL_API_KEY to .env to enable translations"}
+                            </p>
+                        </div>
+                    </label>
                 </div>
 
                 {state.message && (

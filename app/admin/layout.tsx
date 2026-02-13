@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutDashboard, MessageSquare, Car, LogOut, ArrowLeft, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Car, LogOut, ArrowLeft, BarChart3, Users } from 'lucide-react';
 import { signOut } from '@/auth';
 import { DM_Sans } from "next/font/google"; // Import font
 import "../globals.css"; // Import globals
@@ -67,6 +67,13 @@ export default function AdminLayout({
                             >
                                 <Car className="h-5 w-5 group-hover:text-blue-500 transition-colors" />
                                 <span className="font-medium">Manage Cars</span>
+                            </Link>
+                            <Link
+                                href="/admin/team"
+                                className="flex items-center gap-3 rounded-xl px-3 py-3 text-slate-400 transition-all hover:text-white hover:bg-white/5 group"
+                            >
+                                <Users className="h-5 w-5 group-hover:text-purple-500 transition-colors" />
+                                <span className="font-medium">Team Management</span>
                             </Link>
                         </nav>
                         <div className="p-4 border-t border-white/5 flex flex-col gap-2">

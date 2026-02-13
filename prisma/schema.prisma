@@ -33,6 +33,7 @@ model Car {
   location       String?   // Port/location for export
   enquiries      Enquiry[]
   productViews   ProductView[]
+  translations   CarTranslation[]
 
   @@index([status, createdAt]) // NEW: For filtering available cars
   @@index([createdAt]) // NEW: For recent cars query
@@ -167,4 +168,60 @@ model User {
   password      String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+model SupportedLanguage {
+  code       String   @id          // "en", "ar", "fr", etc.
+  name       String                 // "English", "Arabic", etc.
+  nativeName String                 // "English", "العربية", etc.
+  isDefault  Boolean  @default(false)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model CarTranslation {
+  id          String   @id @default(uuid())
+  carId       String
+  locale      String                // "ar", "fr", "es", "pt", "ru", "zh"
+  description String                // DeepL-translated description
+  status      String   @default("COMPLETED")  // COMPLETED, PENDING, FAILED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@unique([carId, locale])
+  @@index([carId])
+  @@index([status])
+}
+
+model TeamMember {
+  id          String   @id @default(uuid())
+  name        String
+  position    String
+  bio         String
+  image       String?
+  linkedIn    String?
+  email       String?
+  website     String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([isActive])
+}
+
+model SocialClickEvent {
+  id          String   @id @default(uuid())
+  memberName  String
+  platform    String   // linkedin, email, website
+  clickedAt   DateTime @default(now())
+  visitorId   String?
+  ipHash      String?
+
+  @@index([memberName])
+  @@index([platform])
+  @@index([clickedAt])
 }

@@ -1,13 +1,17 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { Car } from '@prisma/client';
 
-export async function getLatestCars(): Promise<Car[]> {
+export async function getLatestCars(locale?: string) {
     try {
         const cars = await prisma.car.findMany({
             orderBy: { createdAt: 'desc' },
             take: 6,
+            include: {
+                translations: locale && locale !== 'en'
+                    ? { where: { locale, status: 'COMPLETED' } }
+                    : false,
+            },
         });
         return cars;
     } catch (error) {

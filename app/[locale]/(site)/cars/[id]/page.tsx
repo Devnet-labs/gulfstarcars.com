@@ -5,7 +5,7 @@ import { ProductViewTracker } from '@/components/ProductViewTracker';
 import { Fuel, Settings2, Gauge, Shield, Calendar, Users, DoorOpen, Zap, Paintbrush, Globe, Box, Reply } from 'lucide-react';
 import Link from 'next/link';
 import { DetailClientActions } from './ClientComponents';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getLocale } from 'next-intl/server';
 
 interface CarDetailPageProps {
     params: Promise<{ id: string }>;
@@ -13,9 +13,14 @@ interface CarDetailPageProps {
 
 export default async function CarDetailPage({ params }: CarDetailPageProps) {
     const { id } = await params;
-    const car = await getCarById(id);
+    const locale = await getLocale();
+    const car = await getCarById(id, locale);
     const t = await getTranslations('cars.carDetails');
     const tSpecs = await getTranslations('cars.specs');
+    const tEnums = await getTranslations('carEnums');
+
+    // Get translated description (from CarTranslation or fallback to original)
+    const translatedDescription = (car as any)?.translations?.[0]?.description || car?.description;
 
     if (!car) {
         notFound();
@@ -42,7 +47,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                         <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl">
                             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground tracking-tight">{t('description')}</h2>
                             <div className="prose prose-invert max-w-none text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                                {car.description}
+                                {translatedDescription}
                             </div>
                         </div>
                     </div>
@@ -56,10 +61,10 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                                         {t('stockId')}: {car.customId || 'N/A'}
                                     </span>
                                     <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
-                                        {car.condition}
+                                        {tEnums(`condition.${car.condition}`)}
                                     </span>
                                     <span className="px-2 sm:px-3 py-1 bg-green-500/10 text-green-500 text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
-                                        {car.status}
+                                        {tEnums(`status.${car.status}`)}
                                     </span>
                                 </div>
                                 <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {car.make} {car.model}</h1>
@@ -72,8 +77,8 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                             <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                                 <DetailInfoItem icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
                                 <DetailInfoItem icon={<Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
-                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType || 'Petrol'} />
-                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission || 'Auto'} />
+                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={car.fuelType ? tEnums(`fuelType.${car.fuelType}`) : tEnums('fuelType.Petrol')} />
+                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={car.transmission ? tEnums(`transmission.${car.transmission}`) : tEnums('transmission.Automatic')} />
                             </div>
 
                             <DetailClientActions car={car} />
@@ -98,9 +103,9 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-x-12 lg:gap-y-8">
                         <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={car.engineCapacity} />
                         <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={car.colour} />
-                        <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={car.driveType} />
-                        <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={car.bodyType} />
-                        <SpecItem icon={<Reply />} label={tSpecs('steering')} value={car.steering} />
+                        <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={car.driveType ? tEnums(`driveType.${car.driveType}`) : undefined} />
+                        <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={car.bodyType ? tEnums(`bodyType.${car.bodyType}`) : undefined} />
+                        <SpecItem icon={<Reply />} label={tSpecs('steering')} value={car.steering ? tEnums(`steering.${car.steering}`) : undefined} />
                         <SpecItem icon={<DoorOpen />} label={tSpecs('doors')} value={car.doors?.toString()} />
                         <SpecItem icon={<Users />} label={tSpecs('seats')} value={car.seats?.toString()} />
                         <SpecItem icon={<Fuel />} label={tSpecs('location')} value={car.location} />

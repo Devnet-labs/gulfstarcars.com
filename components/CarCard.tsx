@@ -34,8 +34,12 @@ interface CarCardProps {
 
 export function CarCard({ car, index = 0 }: CarCardProps) {
     const t = useTranslations('carCard');
+    const tEnums = useTranslations('carEnums');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const router = useRouter();
+
+    // Get translated description if available
+    const translatedDescription = (car as any)?.translations?.[0]?.description || car.description;
 
     const handleCardClick = () => {
         router.push(`/cars/${car.id}`);

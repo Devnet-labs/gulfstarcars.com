@@ -356,5 +356,45 @@
       "title": "海关清关",
       "desc": "专业处理所有出口文件和清关程序。"
     }
+  },
+  "carEnums": {
+    "condition": {
+      "New": "全新",
+      "Used": "二手"
+    },
+    "fuelType": {
+      "Petrol": "汽油",
+      "Diesel": "柴油",
+      "Hybrid": "混合动力",
+      "Electric": "电动"
+    },
+    "transmission": {
+      "Automatic": "自动",
+      "Manual": "手动"
+    },
+    "driveType": {
+      "2WD": "两驱",
+      "4WD": "四驱",
+      "AWD": "全轮驱动"
+    },
+    "steering": {
+      "LHD": "左舵",
+      "RHD": "右舵"
+    },
+    "bodyType": {
+      "SUV": "SUV",
+      "Sedan": "轿车",
+      "Coupe": "轿跑",
+      "Pickup": "皮卡",
+      "Van": "面包车",
+      "Hatchback": "掀背车",
+      "Convertible": "敞篷车",
+      "Wagon": "旅行车"
+    },
+    "status": {
+      "AVAILABLE": "在售",
+      "SOLD": "已售",
+      "RESERVED": "已预订"
+    }
   }
 }

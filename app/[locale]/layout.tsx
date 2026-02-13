@@ -4,6 +4,7 @@ import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import LogoPreloader from '@/components/Preloader';
 
 const dmSans = DM_Sans({
     subsets: ["latin"],
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
                 />
             </head>
             <body className={`${dmSans.variable} font-sans antialiased bg-[#0B0F19] text-white`}>
+                <LogoPreloader />
                 <NextIntlClientProvider messages={messages}>
                     {children}
                 </NextIntlClientProvider>
