@@ -3,13 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Car } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { CarCard } from "@/components/CarCard";
-import { Features } from "@/components/Features";
 
 import { getLatestCars } from '@/app/actions/getLatestCars';
-import { Car } from '@prisma/client';
 import { SkeletonGrid } from '@/components/SkeletonCarCard';
 import { TrustStats } from '@/components/TrustStats';
 import { Portfolio } from '@/components/Portfolio';
@@ -59,7 +57,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-screen flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
         {/* Background Video with Premium Overlays */}
         <div className="absolute inset-0 z-0">
           <video
@@ -99,7 +97,7 @@ export default function Home() {
         </div>
 
         {/* --- Hero Quick Actions (Discovery Bar) --- */}
-        <div className="absolute bottom-4 left-0 right-0 z-20">
+        <div className="absolute bottom-8 left-0 right-0 z-20">
           <div className="container mx-auto px-6">
             <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
               <motion.div
@@ -109,9 +107,9 @@ export default function Home() {
               >
                 <Link
                   href="/cars"
-                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
                 >
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <Car className="w-4 h-4 text-primary" />
                   <span className="text-sm font-bold text-white tracking-wide">{t('cta.viewAllCars')}</span>
                   <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                 </Link>
@@ -124,7 +122,7 @@ export default function Home() {
               >
                 <Link
                   href="/contact"
-                  className="group flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   <span className="text-sm font-bold text-white tracking-wide">Contact Expert</span>
@@ -136,7 +134,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- CARS OF THE DAY --- */}
+      {/* --- Newest Cars --- */}
       <section className="py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
@@ -152,7 +150,6 @@ export default function Home() {
                   whileInView={{ rotate: 0, scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
                 >
-                  <Sparkles className="h-8 w-8 text-primary" />
                 </motion.div>
                 <h2 className="text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
               </div>
@@ -221,8 +218,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+
       <TrustStats />
+
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+
       <Portfolio />
+
+      {/* Decorative Golden Separator */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
 
       <Testimonials />
     </div>
