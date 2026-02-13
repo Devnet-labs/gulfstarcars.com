@@ -29,7 +29,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                             <button
                                 type="button"
                                 onClick={() => onRemove(url)}
-                                className="bg-destructive text-destructive-foreground hover:bg-destructive/90 p-2 rounded-md transition-colors"
+                                className="bg-red-500 text-white hover:bg-red-600 p-2 rounded-md transition-colors"
                             >
                                 <Trash2 className="h-4 w-4" />
                             </button>
@@ -60,10 +60,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                         <button
                             type="button"
                             onClick={onClick}
-                            className="relative flex flex-col items-center justify-center gap-4 py-8 border-2 border-dashed border-muted-foreground/25 rounded-lg hover:border-muted-foreground/50 transition-all hover:bg-muted/50 w-full"
+                            className="relative flex flex-col items-center justify-center gap-4 py-8 border-2 border-dashed border-[#404040] rounded-lg hover:border-[#D4AF37] transition-all hover:bg-[#1A1A1A] w-full"
                         >
-                            <ImagePlus className="h-8 w-8 text-muted-foreground" />
-                            <div className="text-sm font-semibold text-muted-foreground">
+                            <ImagePlus className="h-8 w-8 text-[#A3A3A3]" />
+                            <div className="text-sm font-semibold text-[#A3A3A3]">
                                 Upload Images
                             </div>
                         </button>
@@ -75,3 +75,4 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 }
 
 export default ImageUpload;
+export { ImageUpload };

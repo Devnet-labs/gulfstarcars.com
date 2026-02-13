@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import { translateAllCarFields, retryTranslationAction, checkTranslationConfig, updateTranslationField } from '@/lib/translate';
 
 const carSchema = z.object({
     make: z.string().min(1, 'Make is required'),
@@ -55,6 +56,8 @@ export async function createCar(prevState: any, formData: FormData) {
         };
     }
 
+    let carId: string;
+
     try {
         // Generate customId
         const lastCar = await prisma.car.findFirst({
@@ -71,17 +74,42 @@ export async function createCar(prevState: any, formData: FormData) {
         }
         const customId = `CE-${nextId}`;
 
-        await prisma.car.create({
+        const car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
                 customId,
             },
         });
+        carId = car.id;
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
             message: 'Database Error: Failed to Create Car.',
         };
+    }
+
+    // Optional translation: only if enabled via form
+    const enableTranslations = formData.get('enableTranslations') === 'true';
+    if (enableTranslations) {
+        const config = await checkTranslationConfig();
+        if (config.isConfigured) {
+            // Translate all fields using Groq
+            translateAllCarFields(carId, {
+                make: validatedFields.data.make,
+                model: validatedFields.data.model,
+                description: validatedFields.data.description,
+                bodyType: validatedFields.data.bodyType || null,
+                fuelType: validatedFields.data.fuelType || null,
+                steering: validatedFields.data.steering || null,
+                transmission: validatedFields.data.transmission || null,
+                engineCapacity: validatedFields.data.engineCapacity || null,
+                colour: validatedFields.data.colour || null,
+                driveType: validatedFields.data.driveType || null,
+                location: validatedFields.data.location || null,
+            }).catch((err) => {
+                console.error('TRANSLATION_ERROR:', err);
+            });
+        }
     }
 
     revalidatePath('/admin/cars');
@@ -118,10 +146,38 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
     }
 
     try {
+        // Fetch current car to check if description changed
+        const existingCar = await prisma.car.findUnique({ where: { id } });
+
         await prisma.car.update({
             where: { id },
             data: validatedFields.data,
         });
+
+        // Re-translate only if description changed AND enabled
+        const enableTranslations = formData.get('enableTranslations') === 'true';
+        const descriptionChanged = existingCar && existingCar.description !== validatedFields.data.description;
+
+        if (enableTranslations && descriptionChanged && validatedFields.data.description) {
+            const config = await checkTranslationConfig();
+            if (config.isConfigured) {
+                translateAllCarFields(id, {
+                    make: validatedFields.data.make,
+                    model: validatedFields.data.model,
+                    description: validatedFields.data.description,
+                    bodyType: validatedFields.data.bodyType || null,
+                    fuelType: validatedFields.data.fuelType || null,
+                    steering: validatedFields.data.steering || null,
+                    transmission: validatedFields.data.transmission || null,
+                    engineCapacity: validatedFields.data.engineCapacity || null,
+                    colour: validatedFields.data.colour || null,
+                    driveType: validatedFields.data.driveType || null,
+                    location: validatedFields.data.location || null,
+                }).catch((err: any) => {
+                    console.error('TRANSLATION_UPDATE_ERROR:', err);
+                });
+            }
+        }
     } catch (error) {
         console.error('UPDATE_CAR_ERROR:', error);
         return {
@@ -144,3 +200,69 @@ export async function deleteCar(id: string) {
         return { message: 'Database Error: Failed to Delete Car.' };
     }
 }
+
+/**
+ * Retry translation for a single car + locale combination
+ */
+export async function retryTranslation(carId: string, locale: string) {
+    const result = await retryTranslationAction(carId, locale);
+    revalidatePath('/admin/cars');
+    return result;
+}
+
+/**
+ * Retry all failed/missing translations for a specific car
+ */
+export async function retryAllTranslations(carId: string) {
+    const car = await prisma.car.findUnique({ where: { id: carId } });
+    if (!car) {
+        return { success: false, error: 'Car not found' };
+    }
+
+    const results = await translateAllCarFields(carId, {
+        make: car.make,
+        model: car.model,
+        description: car.description,
+        bodyType: car.bodyType,
+        fuelType: car.fuelType,
+        steering: car.steering,
+        transmission: car.transmission,
+        engineCapacity: car.engineCapacity,
+        colour: car.colour,
+        driveType: car.driveType,
+        location: car.location,
+    });
+    revalidatePath('/admin/cars');
+    return {
+        success: results.every((r: any) => r.success),
+        results,
+    };
+}
+
+/**
+ * Update a car translation manually (admin edit)
+ */
+export async function updateTranslation(carId: string, locale: string, field: string, value: string) {
+    try {
+        const updateData: any = {};
+        updateData[field] = value;
+        updateData.status = 'COMPLETED';
+
+        await prisma.carTranslation.upsert({
+            where: { carId_locale: { carId, locale } },
+            create: {
+                carId,
+                locale,
+                [field]: value,
+                status: 'COMPLETED',
+            },
+            update: updateData,
+        });
+        revalidatePath('/admin/cars');
+        return { success: true };
+    } catch (error) {
+        console.error('UPDATE_TRANSLATION_ERROR:', error);
+        return { success: false, error: 'Failed to update translation' };
+    }
+}
+

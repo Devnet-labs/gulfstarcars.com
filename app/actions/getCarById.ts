@@ -1,12 +1,16 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { Car } from '@prisma/client';
 
-export async function getCarById(id: string): Promise<Car | null> {
+export async function getCarById(id: string, locale?: string) {
     try {
         const car = await prisma.car.findUnique({
-            where: { id }
+            where: { id },
+            include: {
+                translations: locale && locale !== 'en'
+                    ? { where: { locale, status: 'COMPLETED' } }
+                    : false,
+            },
         });
         return car;
     } catch (error) {

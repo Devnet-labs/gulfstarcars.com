@@ -277,19 +277,83 @@
     "tagline": "Soluções de exportação de veículos premium • Estabelecido em Dubai, EAU",
     "addressLabel": "Nossa Localização"
   },
+  "metadata": {
+    "about": {
+      "title": "Sobre Nós - Gulf Star Automotive FZC | Exportação Internacional de Veículos",
+      "description": "Gulf Star Automotive FZC é uma empresa licenciada de exportação de veículos no Dubai, EAU. Fornecemos serviços abrangentes de exportação incluindo logística, conformidade e documentação para o comércio automobilístico internacional."
+    }
+  },
   "aboutPage": {
     "hero": {
-      "title": "Redefinindo a Excelência",
-      "titleHighlight": "Automóvel",
-      "subtitle": "A Gulfstarscars é a principal plataforma mundial de exportação de veículos de luxo. Fazemos a ponte entre o mercado automóvel exclusivo do Dubai e compradores internacionais."
+      "title": "Impulsionando o Comércio Automobilístico Global",
+      "titleHighlight": "com Precisão e Confiança",
+      "subtitle": "Gulf Star Automotive FZC é uma empresa internacional licenciada de exportação de veículos sediada no Dubai, EAU. Facilitamos o comércio automobilístico transfronteiriço com serviços abrangentes de logística, conformidade e documentação."
+    },
+    "overview": {
+      "title": "Visão Geral da Empresa",
+      "description": "Gulf Star Automotive FZC opera como facilitador de exportação de veículos de serviço completo, conectando compradores internacionais com inventário automobilístico premium do mercado dos EAU. Nossas operações abrangem aquisição, inspeção, documentação de exportação, desembaraço aduaneiro e coordenação logística global.",
+      "stats": {
+        "experience": "8+ Anos",
+        "experienceLabel": "Experiência em Exportação",
+        "countries": "50+ Países",
+        "countriesLabel": "Alcance Global",
+        "vehicles": "5,000+ Veículos",
+        "vehiclesLabel": "Exportados com Sucesso",
+        "network": "500+ Parceiros",
+        "networkLabel": "Rede de Concessionários Verificados"
+      }
     },
     "mission": {
-      "title": "A Nossa Missão",
-      "content": "Proporcionar uma experiência de compra de automóveis perfeita, transparente e premium para clientes em todo o mundo, garantindo que a distância nunca seja uma barreira para possuir o carro dos seus sonhos."
+      "title": "Missão",
+      "content": "Estabelecer a Gulf Star Automotive como o parceiro de exportação de veículos mais confiável e eficiente para compradores internacionais, entregando processos transparentes, conformidade regulatória e soluções logísticas de ponta a ponta."
     },
-    "story": {
-      "title": "A Nossa História",
-      "content": "Fundada no coração do Dubai, a Gulfstarscars começou com uma visão simples: partilhar o incrível inventário automóvel dos EAU com o mundo. Hoje, somos um parceiro de confiança para milhares de clientes em 6 continentes."
+    "vision": {
+      "title": "Visão",
+      "content": "Tornar-se a plataforma líder de exportação automobilística conectando mercados do Oriente Médio com compradores globais através de operações orientadas por tecnologia e padrões de serviço inabaláveis."
+    },
+    "leadership": {
+      "badge": "Equipa de Liderança",
+      "title": "Liderança",
+      "titleHighlight": "Executiva",
+      "subtitle": "Nossa equipa de gestão traz décadas de experiência combinada em comércio internacional, logística automobilística e conformidade de exportação."
+    },
+    "global": {
+      "badge": "Presença Global",
+      "title": "Destinos de",
+      "titleHighlight": "Exportação",
+      "subtitle": "Facilitamos exportações de veículos para mercados principais em seis continentes com parcerias logísticas estabelecidas e expertise aduaneira.",
+      "regions": {
+        "africa": "África",
+        "asia": "Ásia-Pacífico",
+        "europe": "Europa",
+        "middleEast": "Oriente Médio",
+        "northAmerica": "América do Norte",
+        "southAmerica": "América do Sul"
+      }
+    },
+    "trust": {
+      "badge": "Confiança e Conformidade",
+      "title": "Processo de",
+      "titleHighlight": "Exportação",
+      "subtitle": "Nossa abordagem estruturada garante conformidade regulatória e operações transparentes em cada etapa.",
+      "steps": {
+        "inspection": {
+          "title": "Inspeção do Veículo",
+          "desc": "Avaliação mecânica e cosmética de 120 pontos com relatórios detalhados."
+        },
+        "documentation": {
+          "title": "Documentação de Exportação",
+          "desc": "Preparação completa de declarações aduaneiras, certificados de origem e documentos de envio."
+        },
+        "logistics": {
+          "title": "Coordenação Logística",
+          "desc": "Transporte seguro, carregamento de contêineres e gestão de frete internacional."
+        },
+        "compliance": {
+          "title": "Garantia de Conformidade",
+          "desc": "Adesão aos regulamentos de importação do país de destino e padrões de segurança."
+        }
+      }
     }
   },
   "servicesPage": {
@@ -313,6 +377,46 @@
     "customs": {
       "title": "Desembaraço Aduaneiro",
       "desc": "Manuseamento especializado de toda a documentação de exportação e procedimentos de desalfandegamento."
+    }
+  },
+  "carEnums": {
+    "condition": {
+      "New": "Novo",
+      "Used": "Usado"
+    },
+    "fuelType": {
+      "Petrol": "Gasolina",
+      "Diesel": "Diesel",
+      "Hybrid": "Híbrido",
+      "Electric": "Elétrico"
+    },
+    "transmission": {
+      "Automatic": "Automático",
+      "Manual": "Manual"
+    },
+    "driveType": {
+      "2WD": "2WD",
+      "4WD": "4WD",
+      "AWD": "AWD"
+    },
+    "steering": {
+      "LHD": "Direção esquerda",
+      "RHD": "Direção direita"
+    },
+    "bodyType": {
+      "SUV": "SUV",
+      "Sedan": "Sedan",
+      "Coupe": "Coupé",
+      "Pickup": "Picape",
+      "Van": "Van",
+      "Hatchback": "Hatchback",
+      "Convertible": "Conversível",
+      "Wagon": "Perua"
+    },
+    "status": {
+      "AVAILABLE": "Disponível",
+      "SOLD": "Vendido",
+      "RESERVED": "Reservado"
     }
   }
 }

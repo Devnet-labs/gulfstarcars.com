@@ -279,19 +279,83 @@
     "addressLabel": "Nuestra Ubicación",
     "phoneLabel": "Números de Contacto"
   },
+  "metadata": {
+    "about": {
+      "title": "Sobre Nosotros - Gulf Star Automotive FZC | Exportación Internacional de Vehículos",
+      "description": "Gulf Star Automotive FZC es una empresa licenciada de exportación de vehículos en Dubai, EAU. Proporcionamos servicios integrales de exportación incluyendo logística, cumplimiento y documentación para el comercio automotriz internacional."
+    }
+  },
   "aboutPage": {
     "hero": {
-      "title": "Redefiniendo la Excelencia",
-      "titleHighlight": "Automotriz",
-      "subtitle": "Gulfstarscars es la principal plataforma mundial para la exportación de vehículos de lujo. Unimos el exclusivo mercado automotriz de Dubái con compradores internacionales."
+      "title": "Impulsando el Comercio Automotriz Global",
+      "titleHighlight": "con Precisión y Confianza",
+      "subtitle": "Gulf Star Automotive FZC es una empresa internacional licenciada de exportación de vehículos con sede en Dubai, EAU. Facilitamos el comercio automotriz transfronterizo con servicios integrales de logística, cumplimiento y documentación."
+    },
+    "overview": {
+      "title": "Descripción de la Empresa",
+      "description": "Gulf Star Automotive FZC opera como facilitador de exportación de vehículos de servicio completo, conectando compradores internacionales con inventario automotriz premium del mercado de EAU. Nuestras operaciones abarcan adquisición, inspección, documentación de exportación, despacho aduanero y coordinación logística global.",
+      "stats": {
+        "experience": "8+ Años",
+        "experienceLabel": "Experiencia en Exportación",
+        "countries": "50+ Países",
+        "countriesLabel": "Alcance Global",
+        "vehicles": "5,000+ Vehículos",
+        "vehiclesLabel": "Exportados Exitosamente",
+        "network": "500+ Socios",
+        "networkLabel": "Red de Concesionarios Verificados"
+      }
     },
     "mission": {
-      "title": "Nuestra Misión",
-      "content": "Brindar una experiencia de compra de automóviles fluida, transparente y premium para clientes en todo el mundo, asegurando que la distancia nunca sea una barrera para tener el auto de sus sueños."
+      "title": "Misión",
+      "content": "Establecer Gulf Star Automotive como el socio de exportación de vehículos más confiable y eficiente para compradores internacionales, entregando procesos transparentes, cumplimiento regulatorio y soluciones logísticas de extremo a extremo."
     },
-    "story": {
-      "title": "Nuestra Historia",
-      "content": "Fundada en el corazón de Dubái, Gulfstarscars comenzó con una visión simple: compartir el increíble inventario automotriz de los EAU con el mundo. Hoy, somos un socio confiable para miles de clientes en 6 continentes."
+    "vision": {
+      "title": "Visión",
+      "content": "Convertirnos en la plataforma líder de exportación automotriz que conecta los mercados de Medio Oriente con compradores globales a través de operaciones impulsadas por tecnología y estándares de servicio inquebrantables."
+    },
+    "leadership": {
+      "badge": "Equipo de Liderazgo",
+      "title": "Liderazgo",
+      "titleHighlight": "Ejecutivo",
+      "subtitle": "Nuestro equipo de gestión aporta décadas de experiencia combinada en comercio internacional, logística automotriz y cumplimiento de exportación."
+    },
+    "global": {
+      "badge": "Presencia Global",
+      "title": "Destinos de",
+      "titleHighlight": "Exportación",
+      "subtitle": "Facilitamos exportaciones de vehículos a mercados principales en seis continentes con asociaciones logísticas establecidas y experiencia aduanera.",
+      "regions": {
+        "africa": "África",
+        "asia": "Asia Pacífico",
+        "europe": "Europa",
+        "middleEast": "Medio Oriente",
+        "northAmerica": "América del Norte",
+        "southAmerica": "América del Sur"
+      }
+    },
+    "trust": {
+      "badge": "Confianza y Cumplimiento",
+      "title": "Proceso de",
+      "titleHighlight": "Exportación",
+      "subtitle": "Nuestro enfoque estructurado garantiza el cumplimiento regulatorio y operaciones transparentes en cada etapa.",
+      "steps": {
+        "inspection": {
+          "title": "Inspección de Vehículos",
+          "desc": "Evaluación mecánica y cosmética de 120 puntos con informes detallados."
+        },
+        "documentation": {
+          "title": "Documentación de Exportación",
+          "desc": "Preparación completa de declaraciones aduaneras, certificados de origen y documentos de envío."
+        },
+        "logistics": {
+          "title": "Coordinación Logística",
+          "desc": "Transporte seguro, carga de contenedores y gestión de carga internacional."
+        },
+        "compliance": {
+          "title": "Garantía de Cumplimiento",
+          "desc": "Adhesión a las regulaciones de importación del país de destino y estándares de seguridad."
+        }
+      }
     }
   },
   "servicesPage": {
@@ -315,6 +379,46 @@
     "customs": {
       "title": "Despacho de Aduanas",
       "desc": "Manejo experto de toda la documentación de exportación y procedimientos de despacho."
+    }
+  },
+  "carEnums": {
+    "condition": {
+      "New": "Nuevo",
+      "Used": "Usado"
+    },
+    "fuelType": {
+      "Petrol": "Gasolina",
+      "Diesel": "Diésel",
+      "Hybrid": "Híbrido",
+      "Electric": "Eléctrico"
+    },
+    "transmission": {
+      "Automatic": "Automático",
+      "Manual": "Manual"
+    },
+    "driveType": {
+      "2WD": "2WD",
+      "4WD": "4WD",
+      "AWD": "AWD"
+    },
+    "steering": {
+      "LHD": "Volante izquierdo",
+      "RHD": "Volante derecho"
+    },
+    "bodyType": {
+      "SUV": "SUV",
+      "Sedan": "Sedán",
+      "Coupe": "Coupé",
+      "Pickup": "Pickup",
+      "Van": "Furgoneta",
+      "Hatchback": "Hatchback",
+      "Convertible": "Convertible",
+      "Wagon": "Familiar"
+    },
+    "status": {
+      "AVAILABLE": "Disponible",
+      "SOLD": "Vendido",
+      "RESERVED": "Reservado"
     }
   }
 }

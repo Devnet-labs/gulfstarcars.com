@@ -13,7 +13,7 @@ interface InventoryFilters {
     location?: string[];
 }
 
-export async function getFilteredCars(filters?: InventoryFilters): Promise<Car[]> {
+export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {
     try {
         const where: any = {};
 
@@ -71,7 +71,12 @@ export async function getFilteredCars(filters?: InventoryFilters): Promise<Car[]
             where,
             orderBy: {
                 createdAt: 'desc'
-            }
+            },
+            include: {
+                translations: locale && locale !== 'en'
+                    ? { where: { locale, status: 'COMPLETED' } }
+                    : false,
+            },
         });
 
         return cars;

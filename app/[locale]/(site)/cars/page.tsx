@@ -7,12 +7,13 @@ import { CarCard } from '@/components/CarCard';
 import { getFilteredCars, getInventoryFilterOptions } from '@/app/actions/getFilteredCars';
 import { ChevronDown, Filter, X, Sparkles, LayoutGrid } from 'lucide-react';
 import { SkeletonGrid, SkeletonHeader } from '@/components/SkeletonCarCard';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function CarsPage() {
-    const [cars, setCars] = useState<Car[]>([]);
+    const [cars, setCars] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [showFilters, setShowFilters] = useState(false);
+    const locale = useLocale();
 
     // Filter options
     const [filterOptions, setFilterOptions] = useState({
@@ -57,7 +58,7 @@ export default function CarsPage() {
     useEffect(() => {
         const fetchCars = async () => {
             setLoading(true);
-            const filteredCars = await getFilteredCars(selectedFilters);
+            const filteredCars = await getFilteredCars(selectedFilters, locale);
             setCars(filteredCars);
             setLoading(false);
 
@@ -70,7 +71,7 @@ export default function CarsPage() {
             }
         };
         fetchCars();
-    }, [selectedFilters]);
+    }, [selectedFilters, locale]);
 
     const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType' | 'colour' | 'driveType' | 'engineCapacity' | 'location', value: string) => {
         setSelectedFilters(prev => {
@@ -336,7 +337,7 @@ export default function CarsPage() {
                                             )}
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                                        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                                             {cars.map((car, index) => (
                                                 <CarCard key={car.id} car={car} index={index} />
                                             ))}

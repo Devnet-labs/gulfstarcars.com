@@ -15,24 +15,25 @@ import { SkeletonGrid } from '@/components/SkeletonCarCard';
 import { TrustStats } from '@/components/TrustStats';
 import { Portfolio } from '@/components/Portfolio';
 import { Testimonials } from '@/components/Testimonials';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Home() {
   const t = useTranslations('home');
+  const locale = useLocale();
   const router = useRouter();
 
   // --- Scroll Container Ref ---
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // --- LatestArrivals State ---
-  const [featuredCars, setFeaturedCars] = useState<Car[]>([]);
+  const [featuredCars, setFeaturedCars] = useState<any[]>([]);
   const [loadingCars, setLoadingCars] = useState(true);
 
   // --- Initial Data Fetching ---
   useEffect(() => {
     const initData = async () => {
       try {
-        const latest = await getLatestCars();
+        const latest = await getLatestCars(locale);
         setFeaturedCars(latest);
         setLoadingCars(false);
       } catch (error) {
@@ -41,7 +42,7 @@ export default function Home() {
       }
     };
     initData();
-  }, []);
+  }, [locale]);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -202,7 +203,7 @@ export default function Home() {
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {featuredCars.map((car, index) => (
-                  <div key={car.id} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start">
+                  <div key={car.id} className="flex-none w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start">
                     <CarCard car={car} index={index} />
                   </div>
                 ))}
