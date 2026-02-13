@@ -42,14 +42,14 @@ export function Navbar() {
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
                 <div className="w-full pl-0 pr-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
-                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-20 sm:h-24 lg:h-24' : 'h-24 sm:h-28 lg:h-32'}
+                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-20 sm:h-24 lg:h-24' : 'h-22 sm:h-26 lg:h-28'}
                         `}>
                         {/* Logo — full height, zero padding so no top/bottom gap */}
                         <Link href="/" className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
                             <motion.div
                                 animate={{ scale: isScrolled ? 0.9 : 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="relative h-full w-[400px] sm:w-[440px] md:w-[500px] lg:w-[600px] xl:w-[680px] shrink-0 p-0 m-0 block leading-[0]"
+                                className="relative h-full w-[320px] sm:w-[360px] md:w-[400px] lg:w-[460px] xl:w-[500px] shrink-0 p-0 m-0 block leading-[0]"
                             >
                                 <img
                                     src="/images/portfolio/logo/logo.png"
