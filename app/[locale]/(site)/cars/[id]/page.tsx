@@ -91,9 +91,9 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
                             <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                                 <DetailInfoItem icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('year')} value={car.year.toString()} />
-                                <DetailInfoItem icon={<Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString() || '0'} ${tSpecs('km')}`} />
-                                <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={tFields.fuelType || tEnums('fuelType.Petrol')} />
-                                <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={tFields.transmission || tEnums('transmission.Automatic')} />
+                                {car.mileage !== null && <DetailInfoItem icon={<Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('mileage')} value={`${car.mileage?.toLocaleString()} ${tSpecs('km')}`} />}
+                                {tFields.fuelType && <DetailInfoItem icon={<Fuel className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('fuelType')} value={tFields.fuelType} />}
+                                {tFields.transmission && <DetailInfoItem icon={<Settings2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />} label={tSpecs('transmission')} value={tFields.transmission} />}
                             </div>
 
                             <DetailClientActions car={car} />
