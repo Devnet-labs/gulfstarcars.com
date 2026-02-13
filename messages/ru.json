@@ -237,7 +237,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Бензин",
     "auto": "Автомат",
-    "noImages": "Нет доступных изображений"
+    "noImages": "Нет доступных изображений",
+    "priceOnRequest": "Цена по запросу"
   },
   "footer": {
     "brand": "GULFSTARCARS",

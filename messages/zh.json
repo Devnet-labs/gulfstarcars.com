@@ -279,7 +279,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "汽油",
     "auto": "自动挡",
-    "noImages": "暂无图片"
+    "noImages": "暂无图片",
+    "priceOnRequest": "价格面议"
   },
   "footer": {
     "brand": "GULFSTARCARS",

@@ -38,6 +38,13 @@
   },
   "cars": {
     "pageTitle": "Toutes les voitures",
+    "subtitle": "Parcourez notre collection complète de véhicules premium prêts pour l'exportation mondiale",
+    "vehiclesFound": "{count} Véhicules Trouvés",
+    "foundSubtitle": "Trouvés dans notre collection complète",
+    "priceOnRequest": "Prix sur Demande",
+    "filterTitle": "Filtres",
+    "clearFilters": "Effacer les Filtres",
+    "clearAll": "Tout Effacer",
     "filters": {
       "search": "Rechercher des voitures...",
       "condition": "État",
@@ -89,6 +96,7 @@
       "globalExport": "Exportation Mondiale Disponible",
       "enquire": "Demander",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "Prix sur Demande",
       "breadcrumb": {
         "home": "Accueil",
         "inventory": "Inventaire"
@@ -231,7 +239,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Essence",
     "auto": "Auto",
-    "noImages": "Aucune image disponible"
+    "noImages": "Aucune image disponible",
+    "priceOnRequest": "Prix sur Demande"
   },
   "footer": {
     "description": "Nous sommes votre partenaire de confiance pour l'importation de voitures de Dubaï vers le monde. Découvrez un service transparent et des véhicules de qualité supérieure.",

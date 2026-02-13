@@ -244,7 +244,8 @@
     "whatsapp": "WhatsApp",
     "petrol": "Gasolina",
     "auto": "Automático",
-    "noImages": "No hay imágenes disponibles"
+    "noImages": "No hay imágenes disponibles",
+    "priceOnRequest": "Precio a Consultar"
   },
   "footer": {
     "description": "Somos su socio de confianza para importar coches de Dubái al mundo. Experimente un servicio perfecto y vehículos de calidad premium.",
@@ -277,7 +278,12 @@
       "faq": "Preguntas Frecuentes"
     },
     "addressLabel": "Nuestra Ubicación",
-    "phoneLabel": "Números de Contacto"
+    "phoneLabel": "Números de Contacto",
+    "emailLabel": "Correo Oficial",
+    "slogan": "Excelencia Automotriz",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "tagline": "Soluciones de exportación de vehículos premium • Establecido en Dubai, EAU"
   },
   "metadata": {
     "about": {
