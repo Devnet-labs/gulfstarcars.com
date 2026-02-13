@@ -58,43 +58,41 @@ export default function ContactPage() {
                     <div className="space-y-16">
 
                         {/* CONTACT INFO GRID */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="space-y-10"
+                                className="space-y-12"
                             >
                                 {/* Offices */}
-                                <div className="space-y-6">
-                                    <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary flex items-center gap-3">
+                                <div className="space-y-8">
+                                    <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary flex items-center gap-3 ps-2 mb-10">
                                         <Globe className="w-4 h-4" />
-                                        Our Offices
+                                        {t('officesTitle')}
                                     </h2>
-
                                     <div className="grid gap-6">
-                                        {/* Dubai Branch */}
-                                        <div className="bg-white/5 border border-white/10 p-7 rounded-[2rem] hover:border-primary/40 transition-all group">
-                                            <div className="flex gap-5">
-                                                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                                                    <MapPin className="w-5 h-5 text-primary" />
+                                        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-[3rem] hover:border-primary/40 transition-all group shadow-2xl relative overflow-hidden">
+                                            <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
+                                            <div className="flex gap-6">
+                                                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                                    <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-lg">Dubai Branch (Primary)</h3>
-                                                    <p className="text-sm text-gray-400 leading-relaxed" dangerouslySetInnerHTML={{ __html: tFooter('addressDubai') }} />
+                                                    <h3 className="font-bold text-xl text-white">{t('dubaiBranch')}</h3>
+                                                    <p className="text-sm text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('addressDubai') }} />
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Ajman Branch */}
-                                        <div className="bg-white/5 border border-white/10 p-7 rounded-[2rem] hover:border-primary/20 transition-all opacity-80 hover:opacity-100">
-                                            <div className="flex gap-5">
-                                                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                                                    <MapPin className="w-5 h-5 text-gray-500" />
+                                        <div className="bg-white/5 border border-white/10 p-8 sm:p-10 rounded-[3rem] hover:border-primary/20 transition-all opacity-80 hover:opacity-100 group">
+                                            <div className="flex gap-6">
+                                                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                                    <MapPin className="w-6 h-6 text-gray-500 group-hover:text-primary transition-colors" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-lg text-white/80">Ajman Free Zone Office</h3>
-                                                    <p className="text-sm text-gray-500 leading-relaxed" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
+                                                    <h3 className="font-bold text-xl text-white/80">{t('ajmanOffice')}</h3>
+                                                    <p className="text-sm text-gray-500 leading-relaxed font-medium text-white/60" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
                                                 </div>
                                             </div>
                                         </div>
@@ -106,56 +104,59 @@ export default function ContactPage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4 }}
-                                className="space-y-10"
+                                className="space-y-12"
                             >
                                 {/* Quick Connect */}
-                                <div className="space-y-6">
-                                    <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary flex items-center gap-3">
+                                <div className="space-y-8">
+                                    <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary flex items-center gap-3 ps-2 mb-10">
                                         <Send className="w-4 h-4" />
-                                        Quick Connect
+                                        {t('quickConnect')}
                                     </h2>
-                                    <div className="grid grid-cols-1 gap-4">
-                                        <div className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-between">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Call Us</p>
-                                                <a href={`tel:${tFooter('phone')}`} className="text-base font-bold hover:text-primary transition-colors">{tFooter('phone')}</a>
+                                    <div className="grid grid-cols-1 gap-6">
+                                        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('callUs')}</p>
+                                                <a href={`tel:${tFooter('phone')}`} className="text-xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
                                             </div>
-                                            <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center">
-                                                <Phone className="w-4 h-4 text-gray-400" />
+                                            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-500">
+                                                <Phone className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                                             </div>
                                         </div>
-                                        <div className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-between">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Email Us</p>
+
+                                        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('emailUs')}</p>
                                                 <a
                                                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${tFooter('emails.info')}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-base font-bold hover:text-primary transition-colors"
+                                                    className="text-xl font-bold text-white hover:text-primary transition-colors tracking-tight"
                                                 >
                                                     {tFooter('emails.info')}
                                                 </a>
                                             </div>
-                                            <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center">
-                                                <Mail className="w-4 h-4 text-gray-400" />
+                                            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-500">
+                                                <Mail className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                                             </div>
                                         </div>
+
                                         <a
                                             href="https://wa.me/971523479535"
                                             target="_blank"
-                                            className="flex items-center justify-between bg-green-500/10 border border-green-500/20 p-8 rounded-[2rem] hover:bg-green-500/20 transition-all group mt-2"
+                                            className="flex items-center justify-between bg-green-500/5 backdrop-blur-xl border border-green-500/10 p-10 rounded-[3rem] hover:bg-green-500/10 hover:border-green-500/30 transition-all group mt-4 relative overflow-hidden"
                                         >
-                                            <div className="flex items-center gap-5">
-                                                <div className="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center">
-                                                    <MessageCircle className="w-6 h-6 text-green-500" />
+                                            <div className="absolute top-0 inset-e-0 w-32 h-32 bg-green-500/5 blur-3xl -z-10 group-hover:bg-green-500/10 transition-colors" />
+                                            <div className="flex items-center gap-6">
+                                                <div className="w-16 h-16 rounded-3xl bg-green-500/10 border border-green-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                                    <MessageCircle className="w-8 h-8 text-green-500" />
                                                 </div>
                                                 <div>
-                                                    <p className="text-green-500 font-bold text-xs mb-1">Available Now</p>
-                                                    <h3 className="text-lg font-bold">WhatsApp Support</h3>
+                                                    <p className="text-green-500 font-black text-[10px] uppercase tracking-widest mb-1 opacity-80">{t('availableNow')}</p>
+                                                    <h3 className="text-2xl font-black text-white tracking-tight">{t('whatsAppSupport')}</h3>
                                                 </div>
                                             </div>
-                                            <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
-                                                <Send className="w-4 h-4" />
+                                            <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white scale-90 group-hover:scale-100 group-hover:rotate-[-12deg] transition-all duration-500 shadow-xl shadow-green-500/20">
+                                                <Send className="w-5 h-5" />
                                             </div>
                                         </a>
                                     </div>
@@ -196,15 +197,15 @@ export default function ContactPage() {
                         className="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative"
                     >
                         {/* Map Overlay for context */}
-                        <div className="absolute top-8 left-8 z-10 bg-background/80 backdrop-blur-md border border-white/10 p-6 rounded-3xl hidden md:block max-w-xs">
-                            <h3 className="font-bold text-lg mb-2">Dubai Showroom</h3>
-                            <p className="text-sm text-gray-400 mb-4">Visit our main export hub in DUCAMZ, Dubai.</p>
+                        <div className="absolute top-8 inset-s-8 z-10 bg-background/80 backdrop-blur-md border border-white/10 p-6 rounded-3xl hidden md:block max-w-xs">
+                            <h3 className="font-bold text-lg mb-2">{t('dubaiBranch')}</h3>
+                            <p className="text-sm text-gray-400 mb-4">{t('mapSubtitle')}</p>
                             <a
                                 href="https://maps.google.com/?q=DUCAMZ+Dubai"
                                 target="_blank"
                                 className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
                             >
-                                Get Directions <Globe className="w-4 h-4" />
+                                {t('getDirections')} <Globe className="w-4 h-4" />
                             </a>
                         </div>
 

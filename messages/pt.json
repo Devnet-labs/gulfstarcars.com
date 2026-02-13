@@ -112,8 +112,17 @@
     "send": "Enviar Mensagem",
     "success": "Mensagem enviada com sucesso!",
     "error": "Falha ao enviar mensagem. Por favor, tente novamente.",
-    "mapTitle": "Encontre-nos no mapa",
-    "mapSubtitle": "Visite o nosso salão de exposição principal e centro de distribuição no coração do distrito automóvel do Dubai."
+    "mapTitle": "Encontre-nos no Mapa",
+    "mapSubtitle": "Visite nosso principal showroom e centro de distribuição no coração do distrito automotivo de Dubai.",
+    "officesTitle": "Nossos Escritórios",
+    "dubaiBranch": "Filial de Dubai (Principal)",
+    "ajmanOffice": "Escritório da Zona Franca de Ajman",
+    "quickConnect": "Conexão Rápida",
+    "callUs": "Ligue para Nós",
+    "emailUs": "Envie-nos um e-mail",
+    "availableNow": "Disponível Agora",
+    "whatsAppSupport": "Suporte por WhatsApp",
+    "getDirections": "Obter Instruções"
   },
   "common": {
     "loading": "A carregar...",

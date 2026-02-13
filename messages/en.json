@@ -157,7 +157,16 @@
     "success": "Message sent successfully!",
     "error": "Failed to send message. Please try again.",
     "mapTitle": "Find Us on the Map",
-    "mapSubtitle": "Visit our primary showroom and distribution hub in the heart of Dubai's automotive district."
+    "mapSubtitle": "Visit our primary showroom and distribution hub in the heart of Dubai's automotive district.",
+    "officesTitle": "Our Offices",
+    "dubaiBranch": "Dubai Branch (Primary)",
+    "ajmanOffice": "Ajman Free Zone Office",
+    "quickConnect": "Quick Connect",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "availableNow": "Available Now",
+    "whatsAppSupport": "WhatsApp Support",
+    "getDirections": "Get Directions"
   },
   "common": {
     "loading": "Loading...",

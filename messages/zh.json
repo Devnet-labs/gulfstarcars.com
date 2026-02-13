@@ -154,8 +154,17 @@
     "send": "发送留言",
     "success": "留言发送成功！",
     "error": "发送留言失败。请重试。",
-    "mapTitle": "在地图上找到我们",
-    "mapSubtitle": "欢迎访问我们位于迪拜汽车区核心地带的主要展厅和配送枢纽。"
+    "mapTitle": "在地图上查找我们",
+    "mapSubtitle": "参观我们在迪拜汽车区核心地带的主要展示厅和分销中心。",
+    "officesTitle": "我们的办公室",
+    "dubaiBranch": "迪拜分行（主要）",
+    "ajmanOffice": "阿治曼自由贸易区办公室",
+    "quickConnect": "快速联系",
+    "callUs": "致电我们",
+    "emailUs": "给我们发邮件",
+    "availableNow": "现在可用",
+    "whatsAppSupport": "WhatsApp 支持",
+    "getDirections": "获取路线"
   },
   "common": {
     "loading": "加载中...",

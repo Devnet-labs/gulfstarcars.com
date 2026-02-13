@@ -120,7 +120,16 @@
     "success": "¡Mensaje enviado con éxito!",
     "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
     "mapTitle": "Encuéntranos en el mapa",
-    "mapSubtitle": "Visita nuestro salón de exposición principal y centro de distribución en el corazón del distrito automotriz de Dubái."
+    "mapSubtitle": "Visita nuestro salón de exposición principal y centro de distribución en el corazón del distrito automotriz de Dubái.",
+    "officesTitle": "Nuestras Oficinas",
+    "dubaiBranch": "Sucursal de Dubái (Principal)",
+    "ajmanOffice": "Oficina de la Zona Franca de Ajman",
+    "quickConnect": "Conexión Rápida",
+    "callUs": "Llámanos",
+    "emailUs": "Envíanos un Correo",
+    "availableNow": "Disponible Ahora",
+    "whatsAppSupport": "Soporte de WhatsApp",
+    "getDirections": "Obtener Direcciones"
   },
   "common": {
     "loading": "Cargando...",

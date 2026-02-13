@@ -115,7 +115,16 @@
     "success": "Message envoyé avec succès !",
     "error": "Échec de l'envoi du message. Veuillez réessayer.",
     "mapTitle": "Trouvez-nous sur la carte",
-    "mapSubtitle": "Visitez notre salle d'exposition principale et notre centre de distribution au cœur du quartier automobile de Dubaï."
+    "mapSubtitle": "Visitez notre salle d'exposition principal et notre centre de distribution au cœur du quartier automobile de Dubaï.",
+    "officesTitle": "Nos Bureaux",
+    "dubaiBranch": "Succursale de Dubaï (Principal)",
+    "ajmanOffice": "Bureau de la zone franche d'Ajman",
+    "quickConnect": "Connexion Rapide",
+    "callUs": "Appelez-nous",
+    "emailUs": "Envoyez-nous un Email",
+    "availableNow": "Disponible Maintenant",
+    "whatsAppSupport": "Assistance WhatsApp",
+    "getDirections": "Obtenir l'itinéraire"
   },
   "common": {
     "loading": "Chargement...",
