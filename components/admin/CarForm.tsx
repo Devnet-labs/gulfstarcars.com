@@ -55,6 +55,7 @@ interface CarFormProps {
         doors?: number | null;
         seats?: number | null;
         location?: string | null;
+        isActive?: boolean;
         makeAr?: string | null;
         modelAr?: string | null;
         descriptionAr?: string | null;

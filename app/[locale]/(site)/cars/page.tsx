@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Car } from '@prisma/client';
 import { CarCard } from '@/components/CarCard';
 import { getFilteredCars, getInventoryFilterOptions } from '@/app/actions/getFilteredCars';
@@ -17,15 +18,14 @@ export default function CarsPage() {
 
     // Filter options
     const [filterOptions, setFilterOptions] = useState({
-        makes: [] as { name: string; count: number }[],
+        makes: [] as { make: string; count: number }[],
         fuelTypes: [] as string[],
         transmissions: [] as string[],
         vehicleTypes: [] as string[],
         colours: [] as string[],
         driveTypes: [] as string[],
         engineCapacities: [] as string[],
-        locations: [] as string[],
-        makes: [] as { make: string; count: number }[]
+        locations: [] as string[]
     });
 
     // Selected filters
@@ -37,8 +37,7 @@ export default function CarsPage() {
         colour: [] as string[],
         driveType: [] as string[],
         engineCapacity: [] as string[],
-        location: [] as string[],
-        make: [] as string[]
+        location: [] as string[]
     });
 
     // Fetch filter options on mount
@@ -97,8 +96,7 @@ export default function CarsPage() {
             colour: [],
             driveType: [],
             engineCapacity: [],
-            location: [],
-            make: []
+            location: []
         });
     };
 
@@ -111,6 +109,16 @@ export default function CarsPage() {
         selectedFilters.engineCapacity.length > 0 ||
         selectedFilters.location.length > 0 ||
         selectedFilters.make.length > 0;
+
+    const activeFilterCount =
+        selectedFilters.fuelType.length +
+        selectedFilters.transmission.length +
+        selectedFilters.vehicleType.length +
+        selectedFilters.colour.length +
+        selectedFilters.driveType.length +
+        selectedFilters.engineCapacity.length +
+        selectedFilters.location.length +
+        selectedFilters.make.length;
 
     const t = useTranslations('cars');
 

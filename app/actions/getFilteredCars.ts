@@ -12,7 +12,6 @@ interface InventoryFilters {
     driveType?: string[];
     engineCapacity?: string[];
     location?: string[];
-    make?: string[];
 }
 
 export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {

@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { ArrowLeft, Edit, Trash2, Eye, Languages, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
 import DeleteCarButton from '@/components/admin/DeleteCarButton';
 import { FormattedDate } from '@/components/FormattedDate';
+import CarActions from '@/components/admin/CarActions';
 
 interface PageProps {
     params: Promise<{ id: string }>;
