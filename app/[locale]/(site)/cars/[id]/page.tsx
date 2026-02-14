@@ -70,22 +70,30 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                         <div className="bg-card rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl lg:sticky lg:top-24">
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-2">
-                                    <span className="px-2 sm:px-3 py-1 bg-primary text-white text-[9px] sm:text-[10px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
+                                    <span className="px-2.5 sm:px-3 py-1 bg-primary text-white text-[10px] sm:text-[11px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
                                         {t('stockId')}: {car.customId || 'N/A'}
                                     </span>
-                                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
+                                    <span className="px-2.5 sm:px-3 py-1 bg-primary/10 text-primary text-[11px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
                                         {tEnums(`condition.${car.condition}`)}
                                     </span>
-                                    <span className="px-2 sm:px-3 py-1 bg-green-500/10 text-green-500 text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
+                                    <span className="px-2.5 sm:px-3 py-1 bg-green-500/10 text-green-500 text-[11px] sm:text-xs font-bold rounded-full uppercase tracking-wider">
                                         {tEnums(`status.${car.status}`)}
                                     </span>
                                 </div>
-                                <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{car.year} {tFields.make} {tFields.model}</h1>
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-3xl sm:text-4xl font-black text-accent">
-                                        {car.price ? `$${car.price.toLocaleString()}` : t('priceOnRequest')}
-                                    </span>
-                                    <span className="text-muted-foreground font-medium text-xs sm:text-sm">{t('exportPrice')}</span>
+                                <h1 className="text-[28px] sm:text-3xl font-black text-white mb-2 leading-tight tracking-tight">{car.year} {tFields.make} {tFields.model}</h1>
+                                <div className="space-y-1">
+                                    <span className="text-muted-foreground font-medium text-xs sm:text-sm block uppercase tracking-wider">{t('exportPrice')}</span>
+                                    <div className="flex items-baseline gap-2">
+                                        {car.price ? (
+                                            <span className="text-3xl sm:text-4xl font-black text-accent">
+                                                ${car.price.toLocaleString()}
+                                            </span>
+                                        ) : (
+                                            <span className="text-xl sm:text-2xl font-black text-accent">
+                                                {t('priceOnRequest')}
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 
@@ -98,14 +106,14 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
                             <DetailClientActions car={car} />
 
-                            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5 space-y-3 sm:space-y-4">
-                                <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground">
+                            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5 space-y-4">
+                                <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-400">
                                     <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                                    <span>{t('verifiedReport')}</span>
+                                    <span className="font-medium">{t('verifiedReport')}</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground">
+                                <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-400">
                                     <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0" />
-                                    <span>{t('globalExport')}</span>
+                                    <span className="font-medium">{t('globalExport')}</span>
                                 </div>
                             </div>
                         </div>
@@ -133,10 +141,10 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
 
 function DetailInfoItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
     return (
-        <div className="bg-secondary/30 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5 transition-colors hover:bg-secondary/50">
-            <div className="mb-1.5 sm:mb-2">{icon}</div>
-            <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-0.5">{label}</p>
-            <p className="text-xs sm:text-sm font-bold text-foreground truncate">{value}</p>
+        <div className="bg-white/[0.03] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5 transition-colors hover:bg-white/[0.05]">
+            <div className="mb-2 sm:mb-2.5">{icon}</div>
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-slate-500 font-black mb-1 leading-none">{label}</p>
+            <p className="text-sm sm:text-base font-bold text-white truncate">{value}</p>
         </div>
     );
 }
@@ -144,11 +152,11 @@ function DetailInfoItem({ icon, label, value }: { icon: React.ReactNode; label: 
 function SpecItem({ icon, label, value }: { icon: React.ReactNode; label: string; value?: string | null }) {
     if (!value) return null;
     return (
-        <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-white/5 transition-all">
-            <div className="mt-0.5 sm:mt-1 text-primary flex-shrink-0">{icon}</div>
+        <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] border border-transparent hover:border-white/5 transition-all group">
+            <div className="mt-1 text-primary flex-shrink-0 p-2.5 bg-primary/5 rounded-xl group-hover:scale-110 transition-transform">{icon}</div>
             <div className="min-w-0">
-                <p className="text-[10px] sm:text-xs text-muted-foreground mb-0.5">{label}</p>
-                <p className="text-sm sm:text-base font-bold text-foreground break-words">{value}</p>
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-500 mb-1 font-black">{label}</p>
+                <p className="text-base sm:text-lg font-bold text-white break-words">{value}</p>
             </div>
         </div>
     );

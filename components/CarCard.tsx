@@ -131,10 +131,16 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     {/* Price */}
                     <div className="mt-auto pt-2 sm:pt-4">
                         <div className="mb-2 sm:mb-4">
-                            <p className="text-[10px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">{t('exportPrice')}</p>
-                            <p className="text-lg sm:text-2xl font-bold text-accent">
-                                {car.price ? `$${car.price.toLocaleString()}` : t('priceOnRequest')}
-                            </p>
+                            <p className="text-[10px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1.5">{t('exportPrice')}</p>
+                            {car.price ? (
+                                <p className="text-lg sm:text-2xl font-bold text-accent">
+                                    ${car.price.toLocaleString()}
+                                </p>
+                            ) : (
+                                <p className="text-sm sm:text-lg font-bold text-accent">
+                                    {t('priceOnRequest')}
+                                </p>
+                            )}
                         </div>
 
                         {/* Action Buttons Row */}
