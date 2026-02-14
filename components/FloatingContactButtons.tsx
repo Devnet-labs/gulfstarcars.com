@@ -20,17 +20,17 @@ export function FloatingContactButtons() {
     };
 
     return (
-        <div className="fixed bottom-12 end-6 z-50 flex flex-col gap-3">
+        <div className="fixed bottom-8 sm:bottom-12 end-4 sm:end-6 z-50 flex flex-col gap-2 sm:gap-3">
             {/* WhatsApp Button */}
             <button
                 onClick={handleWhatsAppClick}
                 onMouseEnter={() => setIsHovered('whatsapp')}
                 onMouseLeave={() => setIsHovered(null)}
-                className="group relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 overflow-visible"
+                className="group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 overflow-visible"
                 aria-label="Chat on WhatsApp"
             >
                 <div className="absolute inset-0 rounded-full bg-green-500 animate-pulse opacity-20 group-hover:opacity-0 transition-opacity" />
-                <MessageCircle className="w-6 h-6 text-white" />
+                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
 
                 {/* Tooltip */}
                 <span
@@ -52,10 +52,10 @@ export function FloatingContactButtons() {
                 onClick={handleFacebookClick}
                 onMouseEnter={() => setIsHovered('facebook')}
                 onMouseLeave={() => setIsHovered(null)}
-                className="group relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95"
+                className="group relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95"
                 aria-label="Visit our Facebook page"
             >
-                <Facebook className="w-6 h-6 text-white fill-white" />
+                <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
 
                 {/* Tooltip */}
                 <span

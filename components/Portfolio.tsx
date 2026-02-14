@@ -30,7 +30,7 @@ export function Portfolio() {
                         {t('title')} <br />
                         <span className="text-primary">{t('titleHighlight')}</span>
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed px-4">
+                    <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed px-4">
                         {t('subtitle')}
                     </p>
                 </motion.div>
@@ -57,7 +57,7 @@ export function Portfolio() {
                                     <MapPin className="h-4 w-4" />
                                     {t(`items.${key}.location`)}
                                 </div>
-                                <h3 className="text-sm sm:text-2xl font-bold text-white mb-1 sm:mb-2 line-clamp-1">{t(`items.${key}.title`)}</h3>
+                                <h3 className="text-base sm:text-2xl font-bold text-white mb-1 sm:mb-2 line-clamp-1">{t(`items.${key}.title`)}</h3>
                                 <p className="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
                                     {t(`items.${key}.category`)}
                                 </p>

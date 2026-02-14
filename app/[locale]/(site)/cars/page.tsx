@@ -13,6 +13,7 @@ export default function CarsPage() {
     const [cars, setCars] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [showFilters, setShowFilters] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 30;
     const locale = useLocale();
@@ -58,7 +59,26 @@ export default function CarsPage() {
             });
         };
         fetchOptions();
+
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
+
+    // Body scroll lock
+    useEffect(() => {
+        if (showFilters && isMobile) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [showFilters, isMobile]);
 
     // Fetch cars when filters change
     useEffect(() => {
@@ -188,28 +208,45 @@ export default function CarsPage() {
                     <div className="flex flex-col lg:flex-row gap-8">
                         {/* Filter Sidebar */}
                         <div className="lg:w-80 flex-shrink-0">
-                            {/* Mobile Filter Toggle */}
-                            <button
-                                onClick={() => setShowFilters(!showFilters)}
-                                className="lg:hidden w-full flex items-center justify-between bg-card/40 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 mb-4 shadow-xl text-white group active:scale-[0.98] transition-all"
-                            >
-                                <span className="flex items-center gap-3 font-bold">
-                                    <div className="p-2 bg-primary/20 rounded-lg">
-                                        <Filter className="h-5 w-5 text-primary" />
+                            {/* Fixed Mobile Filter Button */}
+                            <div className="lg:hidden fixed bottom-6 left-0 right-0 z-40 px-4 flex justify-center pointer-events-none">
+                                <button
+                                    onClick={() => setShowFilters(true)}
+                                    className="pointer-events-auto flex items-center gap-3 bg-primary text-white rounded-full px-8 py-4 shadow-2xl shadow-primary/40 active:scale-95 transition-all group border border-white/10"
+                                >
+                                    <div className="p-1 bg-white/20 rounded-lg group-hover:rotate-12 transition-transform">
+                                        <Filter className="h-5 w-5" />
                                     </div>
-                                    {t('filterTitle')}
-                                    {hasActiveFilters && (
-                                        <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
-                                            {selectedFilters.fuelType.length + selectedFilters.transmission.length + selectedFilters.vehicleType.length + selectedFilters.colour.length + selectedFilters.driveType.length + selectedFilters.engineCapacity.length + selectedFilters.location.length + selectedFilters.make.length}
-                                        </span>
-                                    )}
-                                </span>
-                                <ChevronDown className={`h-5 w-5 text-slate-500 transition-transform duration-500 ${showFilters ? 'rotate-180 text-primary' : ''}`} />
-                            </button>
+                                    <span className="font-bold uppercase tracking-widest text-sm">
+                                        {t('filterTitle')}
+                                        {hasActiveFilters && (
+                                            <span className="ms-2 bg-white text-primary text-[10px] px-2 py-0.5 rounded-full inline-flex items-center justify-center min-w-[20px] h-[20px]">
+                                                {activeFilterCount}
+                                            </span>
+                                        )}
+                                    </span>
+                                </button>
+                            </div>
 
-                            {/* Sidebar Filters Container */}
-                            <div className={`${showFilters ? 'block animate-in fade-in slide-in-from-top-4 duration-500' : 'hidden'} lg:block sticky top-48 lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto custom-scrollbar`}>
-                                <div className="bg-card/30 backdrop-blur-2xl rounded-3xl border border-white/10 p-7 shadow-2xl relative overflow-hidden group mb-4">
+                            {/* Sidebar Filters Container / Mobile Drawer */}
+                            <div
+                                className={`
+                                    ${showFilters
+                                        ? 'fixed inset-0 z-[110] lg:relative lg:inset-auto lg:z-30 block animate-in fade-in slide-in-from-bottom-5 duration-500'
+                                        : 'hidden lg:block'
+                                    } 
+                                    sticky top-48 lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto custom-scrollbar
+                                `}
+                            >
+                                {/* Mobile Backdrop */}
+                                {showFilters && (
+                                    <div
+                                        className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm -z-10"
+                                        onClick={() => setShowFilters(false)}
+                                    />
+                                )}
+
+                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-7 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[40px] border-white/20">
                                     {/* Glassmorphism accent */}
                                     <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
@@ -220,15 +257,23 @@ export default function CarsPage() {
                                             </div>
                                             <h3 className="text-xl font-black text-white tracking-tight uppercase text-[12px] tracking-[0.2em]">{t('filterTitle')}</h3>
                                         </div>
-                                        {hasActiveFilters && (
+                                        <div className="flex items-center gap-2">
+                                            {hasActiveFilters && (
+                                                <button
+                                                    onClick={clearFilters}
+                                                    className="group/clear text-[10px] font-black uppercase tracking-widest text-primary hover:text-primary/80 transition-all flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 hover:bg-primary/20"
+                                                >
+                                                    <RotateCcw className="h-3 w-3 group-hover/clear:rotate-[-45deg] transition-transform" />
+                                                    {t('clearAll')}
+                                                </button>
+                                            )}
                                             <button
-                                                onClick={clearFilters}
-                                                className="group/clear text-[10px] font-black uppercase tracking-widest text-primary hover:text-primary/80 transition-all flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 hover:bg-primary/20"
+                                                onClick={() => setShowFilters(false)}
+                                                className="lg:hidden p-2 bg-white/5 rounded-full border border-white/10 text-slate-400 hover:text-white"
                                             >
-                                                <RotateCcw className="h-3 w-3 group-hover/clear:rotate-[-45deg] transition-transform" />
-                                                {t('clearAll')}
+                                                <X className="h-5 w-5" />
                                             </button>
-                                        )}
+                                        </div>
                                     </div>
 
                                     <div className="space-y-8 pe-2 custom-scrollbar">
@@ -283,10 +328,20 @@ export default function CarsPage() {
                                         />
                                     </div>
 
-                                    {/* Footer count indicator */}
-                                    <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-                                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Active Filters</span>
-                                        <span className="text-[10px] font-black text-primary px-2 py-0.5 rounded-md bg-primary/10">{activeFilterCount}</span>
+                                    {/* Footer count indicator / Mobile Action */}
+                                    <div className="mt-8 pt-6 border-t border-white/5">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Active Filters</span>
+                                            <span className="text-[10px] font-black text-primary px-2 py-0.5 rounded-md bg-primary/10">{activeFilterCount}</span>
+                                        </div>
+
+                                        <button
+                                            onClick={() => setShowFilters(false)}
+                                            className="lg:hidden w-full py-4 bg-primary text-white font-black text-sm uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                                        >
+                                            <Sparkles className="h-4 w-4" />
+                                            {t('vehiclesFound', { count: cars.length })}
+                                        </button>
                                     </div>
                                 </div>
                             </div>

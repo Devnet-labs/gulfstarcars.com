@@ -43,7 +43,7 @@ export function Testimonials() {
                                 ))}
                             </div>
 
-                            <p className="text-lg text-slate-300 mb-8 italic leading-relaxed">
+                            <p className="text-base sm:text-lg text-slate-300 mb-8 italic leading-relaxed">
                                 "{t(`items.${key}.content`)}"
                             </p>
 

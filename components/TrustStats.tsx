@@ -52,7 +52,7 @@ export function TrustStats() {
                             </div>
                             <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2 tracking-tight">{stat.value}</div>
                             <div className="text-sm sm:text-lg font-semibold text-white/90 mb-1 sm:mb-2">{stat.label}</div>
-                            <p className="text-slate-400 text-[10px] sm:text-sm leading-relaxed line-clamp-2">
+                            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed line-clamp-2">
                                 {stat.description}
                             </p>
                         </motion.div>

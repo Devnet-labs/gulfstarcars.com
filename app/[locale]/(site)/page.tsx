@@ -87,7 +87,7 @@ export default function Home() {
               {t('hero.badge')}
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
               {t('hero.title')} <br />
               <span className="text-primary">{t('hero.titleHighlight')}</span>
             </h1>
@@ -101,7 +101,7 @@ export default function Home() {
         {/* --- Hero Quick Actions (Discovery Bar) --- */}
         <div className="absolute bottom-8 left-0 right-0 z-20">
           <div className="container mx-auto px-6">
-            <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+            <div className="hidden sm:flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
                 >
                 </motion.div>
-                <h2 className="text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
               </div>
               <p className="text-muted-foreground max-w-lg text-lg">
                 {t('carsOfDay.subtitle')}
