@@ -2,7 +2,8 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, MessageCircle, Send, Clock, Globe } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
+import { Mail, MapPin, Phone, Send, Clock, Globe } from 'lucide-react';
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -146,7 +147,7 @@ export default function ContactPage() {
                                             <div className="absolute top-0 inset-e-0 w-32 h-32 bg-green-500/5 blur-3xl -z-10 group-hover:bg-green-500/10 transition-colors" />
                                             <div className="flex items-center gap-6">
                                                 <div className="w-16 h-16 rounded-3xl bg-green-500/10 border border-green-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                                                    <MessageCircle className="w-8 h-8 text-green-500" />
+                                                    <WhatsAppIcon className="w-8 h-8 text-green-500" />
                                                 </div>
                                                 <div>
                                                     <p className="text-green-500 font-black text-[10px] sm:text-xs uppercase tracking-widest mb-1 opacity-80">{t('availableNow')}</p>
