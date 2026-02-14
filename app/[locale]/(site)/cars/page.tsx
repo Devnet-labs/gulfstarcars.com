@@ -204,8 +204,8 @@ export default function CarsPage() {
                 <div className="container mx-auto px-4">
                     {/* Make Selector - Sticky top on desktop */}
                     {filterOptions.makes.length > 0 && (
-                        <div className="mb-2 sm:mb-2 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-2 sm:pt-6 border-b border-white/5">
-                            <div className="flex gap-2.5 sm:gap-4 min-w-max pb-2">
+                        <div className="mb-6 sm:mb-8 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-2 sm:pt-6 border-b border-white/5 pb-4">
+                            <div className="flex flex-wrap gap-2 sm:gap-3">
                                 {filterOptions.makes.map(({ make, count }) => {
                                     const isSelected = selectedFilters.make.includes(make);
                                     return (
@@ -213,18 +213,18 @@ export default function CarsPage() {
                                             key={make}
                                             onClick={() => handleFilterChange('make', make)}
                                             className={`
-                                                group flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border transition-all duration-300
+                                                group flex items-center gap-2 px-4 py-2.5 rounded-xl border transition-all duration-300
                                                 ${isSelected
                                                     ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25 scale-105'
-                                                    : 'bg-card border-white/5 text-muted-foreground hover:border-white/20 hover:bg-white/5 hover:-translate-y-1'
+                                                    : 'bg-card border-white/5 text-muted-foreground hover:border-white/20 hover:bg-white/5 hover:-translate-y-0.5'
                                                 }
                                             `}
                                         >
-                                            <span className={`text-sm sm:text-base font-bold ${isSelected ? 'text-white' : 'text-foreground group-hover:text-primary transition-colors'}`}>
+                                            <span className={`text-sm font-bold ${isSelected ? 'text-white' : 'text-foreground group-hover:text-primary transition-colors'}`}>
                                                 {make}
                                             </span>
                                             <span className={`
-                                                text-xs font-bold px-2 py-0.5 rounded-full
+                                                text-[10px] font-bold px-1.5 py-0.5 rounded-full
                                                 ${isSelected
                                                     ? 'bg-white/20 text-white'
                                                     : 'bg-white/5 text-muted-foreground'
@@ -500,18 +500,49 @@ export default function CarsPage() {
                     -webkit-mask-image: linear-gradient(to left, black 85%, transparent 100%);
                     mask-image: linear-gradient(to left, black 85%, transparent 100%);
                 }
+                
+                /* Custom Scrollbar for Filters & Page */
+                .custom-scrollbar {
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+                }
+                
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
+                    height: 4px;
                 }
+                
                 .custom-scrollbar::-webkit-scrollbar-track {
                     background: transparent;
                 }
+                
                 .custom-scrollbar::-webkit-scrollbar-thumb {
                     background: rgba(255, 255, 255, 0.1);
                     border-radius: 10px;
                 }
+                
                 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
                     background: rgba(255, 255, 255, 0.2);
+                }
+
+                /* Page Scrollbar */
+                ::-webkit-scrollbar {
+                    width: 8px;
+                    height: 8px;
+                }
+                
+                ::-webkit-scrollbar-track {
+                    background: #0B0F19; 
+                }
+                
+                ::-webkit-scrollbar-thumb {
+                    background: #1e293b; 
+                    border-radius: 4px;
+                    border: 2px solid #0B0F19;
+                }
+                
+                ::-webkit-scrollbar-thumb:hover {
+                    background: #334155; 
                 }
             `}</style>
         </div>
