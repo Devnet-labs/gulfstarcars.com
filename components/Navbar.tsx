@@ -11,6 +11,8 @@ export function Navbar() {
     const t = useTranslations('nav');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [logoClickCount, setLogoClickCount] = useState(0);
+    const [showAdminButton, setShowAdminButton] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -21,12 +23,34 @@ export function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Debouncer for logo clicks - reset after 2 seconds of inactivity
+    useEffect(() => {
+        if (logoClickCount > 0 && logoClickCount < 3) {
+            const timer = setTimeout(() => {
+                setLogoClickCount(0);
+            }, 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [logoClickCount]);
+
+    const handleLogoClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const newCount = logoClickCount + 1;
+        setLogoClickCount(newCount);
+
+        if (newCount === 3) {
+            setShowAdminButton(true);
+            setLogoClickCount(0);
+        }
+    };
+
     const navLinks = [
         { href: '/', label: t('home') },
         { href: '/cars', label: t('inventory') },
         { href: '/about', label: t('about') },
         { href: '/faq', label: 'FAQ' },
         { href: '/contact', label: t('contact') },
+        ...(showAdminButton ? [{ href: '/login', label: 'Admin' }] : []),
     ];
 
     return (
@@ -45,7 +69,7 @@ export function Navbar() {
                     <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-16 sm:h-20 lg:h-24' : 'h-20 sm:h-24 lg:h-28'}
                         `}>
                         {/* Logo — full height, zero padding so no top/bottom gap */}
-                        <Link href="/" className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
+                        <Link href="/" onClick={handleLogoClick} className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
                             <motion.div
                                 animate={{ scale: isScrolled ? 0.85 : 1 }}
                                 transition={{ duration: 0.3 }}
