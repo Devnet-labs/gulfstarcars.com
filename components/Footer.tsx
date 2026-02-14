@@ -34,12 +34,15 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Column 1: Brand */}
                     <div className="space-y-6">
-                        <Link href="/" className="inline-flex items-center group">
-                            <div className="relative h-24 w-64 transition-all duration-700">
+                        <Link href="/" className="inline-flex items-center group cursor-pointer">
+                            <div className="relative h-28 w-72 min-h-24 min-w-60 transition-all duration-700">
                                 <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
-                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 -ms-6"
+                                    className="w-full h-full min-h-24 object-contain group-hover:scale-105 transition-transform duration-700 -ms-6"
+                                    width={288}
+                                    height={112}
+                                    style={{ minHeight: 96 }}
                                 />
                             </div>
                         </Link>

@@ -68,17 +68,20 @@ export function Navbar() {
                 <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
                     <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-16 sm:h-20 lg:h-24' : 'h-20 sm:h-24 lg:h-28'}
                         `}>
-                        {/* Logo — full height, zero padding so no top/bottom gap */}
-                        <Link href="/" onClick={handleLogoClick} className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
+                        {/* Logo — full height, zero padding so no top/bottom gap; shrink-0 so Android doesn't squeeze it */}
+                        <Link href="/" onClick={handleLogoClick} className="flex items-center h-full shrink-0 cursor-pointer p-0 m-0">
                             <motion.div
                                 animate={{ scale: isScrolled ? 0.85 : 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="relative h-full w-[240px] xs:w-[280px] sm:w-[320px] md:w-[380px] lg:w-[460px] xl:w-[500px] shrink-0 p-0 m-0 block leading-[0]"
+                                className="relative h-full min-h-[44px] w-[240px] min-w-[220px] xs:w-[280px] sm:w-[320px] md:w-[380px] lg:w-[460px] xl:w-[500px] shrink-0 p-0 m-0 block leading-[0]"
                             >
                                 <img
                                     src="/images/portfolio/logo/logo.png"
                                     alt={t('brand')}
-                                    className="w-full h-full object-contain object-left rtl:object-right"
+                                    className="w-full h-full min-h-[44px] object-contain object-left rtl:object-right"
+                                    width={320}
+                                    height={80}
+                                    style={{ minHeight: 44 }}
                                 />
                             </motion.div>
                         </Link>
