@@ -104,6 +104,48 @@
       "backToSelection": "Back to Selection"
     }
   },
+  "faq": {
+    "pageTitle": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our vehicle export services",
+    "questions": {
+      "q1": {
+        "question": "Which countries do you export to?",
+        "answer": "We export vehicles to 50+ countries across Africa, Asia, Europe, the Middle East, and the Americas."
+      },
+      "q2": {
+        "question": "Are vehicles inspected before export?",
+        "answer": "Yes, every vehicle undergoes a detailed 120-point inspection with a full report."
+      },
+      "q3": {
+        "question": "Do you handle export documents?",
+        "answer": "Yes, we manage all customs, certificates, and shipping paperwork."
+      },
+      "q4": {
+        "question": "How is shipping done?",
+        "answer": "We arrange secure logistics, container loading, and international freight."
+      },
+      "q5": {
+        "question": "Can you source specific car models on request?",
+        "answer": "Yes, we procure vehicles based on your exact model, budget, and specifications."
+      },
+      "q6": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept secure international bank transfers and approved global payment methods."
+      },
+      "q7": {
+        "question": "How long does the export process take?",
+        "answer": "Typically 7–21 days, depending on vehicle preparation and destination country regulations."
+      },
+      "q8": {
+        "question": "Do you export new and used vehicles?",
+        "answer": "Yes, we export both brand-new and pre-owned vehicles."
+      },
+      "q9": {
+        "question": "Do you offer after-sales support?",
+        "answer": "Yes, our team assists with shipping tracking and export-related support until delivery."
+      }
+    }
+  },
   "admin": {
     "dashboard": "Dashboard",
     "cars": "Cars",

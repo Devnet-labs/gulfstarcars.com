@@ -104,6 +104,48 @@
       "backToSelection": "Volver a la Selección"
     }
   },
+  "faq": {
+    "pageTitle": "Preguntas Frecuentes",
+    "subtitle": "Encuentre respuestas a preguntas comunes sobre nuestros servicios de exportación de vehículos",
+    "questions": {
+      "q1": {
+        "question": "¿A qué países exportan?",
+        "answer": "Exportamos vehículos a más de 50 países en África, Asia, Europa, Medio Oriente y las Américas."
+      },
+      "q2": {
+        "question": "¿Se inspeccionan los vehículos antes de la exportación?",
+        "answer": "Sí, cada vehículo se somete a una inspección detallada de 120 puntos con un informe completo."
+      },
+      "q3": {
+        "question": "¿Manejan los documentos de exportación?",
+        "answer": "Sí, gestionamos todas las aduanas, certificados y documentación de envío."
+      },
+      "q4": {
+        "question": "¿Cómo se realiza el envío?",
+        "answer": "Organizamos logística segura, carga de contenedores y flete internacional."
+      },
+      "q5": {
+        "question": "¿Pueden conseguir modelos de coches específicos bajo pedido?",
+        "answer": "Sí, adquirimos vehículos según su modelo exacto, presupuesto y especificaciones."
+      },
+      "q6": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos transferencias bancarias internacionales seguras y métodos de pago globales aprobados."
+      },
+      "q7": {
+        "question": "¿Cuánto tiempo tarda el proceso de exportación?",
+        "answer": "Típicamente de 7 a 21 días, dependiendo de la preparación del vehículo y las regulaciones del país de destino."
+      },
+      "q8": {
+        "question": "¿Exportan vehículos nuevos y usados?",
+        "answer": "Sí, exportamos tanto vehículos completamente nuevos como usados."
+      },
+      "q9": {
+        "question": "¿Ofrecen soporte postventa?",
+        "answer": "Sí, nuestro equipo asiste con el seguimiento del envío y soporte relacionado con la exportación hasta la entrega."
+      }
+    }
+  },
   "contact": {
     "title": "Contáctanos",
     "subtitle": "Ponte en contacto con nuestro equipo para exportaciones de vehículos premium",

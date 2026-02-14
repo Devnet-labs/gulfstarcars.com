@@ -104,6 +104,48 @@
       "backToSelection": "Retour à la Sélection"
     }
   },
+  "faq": {
+    "pageTitle": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur nos services d'exportation de véhicules",
+    "questions": {
+      "q1": {
+        "question": "Vers quels pays exportez-vous?",
+        "answer": "Nous exportons des véhicules vers plus de 50 pays en Afrique, Asie, Europe, Moyen-Orient et Amériques."
+      },
+      "q2": {
+        "question": "Les véhicules sont-ils inspectés avant l'exportation?",
+        "answer": "Oui, chaque véhicule subit une inspection détaillée de 120 points avec un rapport complet."
+      },
+      "q3": {
+        "question": "Gérez-vous les documents d'exportation?",
+        "answer": "Oui, nous gérons toutes les douanes, certificats et documents d'expédition."
+      },
+      "q4": {
+        "question": "Comment se fait l'expédition?",
+        "answer": "Nous organisons une logistique sécurisée, le chargement des conteneurs et le fret international."
+      },
+      "q5": {
+        "question": "Pouvez-vous trouver des modèles de voitures spécifiques sur demande?",
+        "answer": "Oui, nous achetons des véhicules selon votre modèle exact, budget et spécifications."
+      },
+      "q6": {
+        "question": "Quels modes de paiement acceptez-vous?",
+        "answer": "Nous acceptons les virements bancaires internationaux sécurisés et les méthodes de paiement mondiales approuvées."
+      },
+      "q7": {
+        "question": "Combien de temps prend le processus d'exportation?",
+        "answer": "Généralement 7 à 21 jours, selon la préparation du véhicule et les réglementations du pays de destination."
+      },
+      "q8": {
+        "question": "Exportez-vous des véhicules neufs et d'occasion?",
+        "answer": "Oui, nous exportons à la fois des véhicules neufs et d'occasion."
+      },
+      "q9": {
+        "question": "Offrez-vous un support après-vente?",
+        "answer": "Oui, notre équipe vous aide avec le suivi de l'expédition et le support lié à l'exportation jusqu'à la livraison."
+      }
+    }
+  },
   "contact": {
     "title": "Contactez-nous",
     "subtitle": "Entrez en contact avec notre équipe pour des exportations de véhicules haut de gamme",
