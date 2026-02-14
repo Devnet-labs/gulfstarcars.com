@@ -53,13 +53,8 @@ export function TeamMemberForm({ member }: TeamMemberFormProps) {
       setLoading(false);
       return;
     }
-    if (!formData.bio.trim()) {
-      setError('Bio is required');
-      setLoading(false);
-      return;
-    }
-    if (formData.bio.length < 50) {
-      setError('Bio must be at least 50 characters');
+    if (formData.bio.length > 500) {
+      setError('Bio must be at most 500 characters');
       setLoading(false);
       return;
     }
@@ -132,15 +127,13 @@ export function TeamMemberForm({ member }: TeamMemberFormProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-white mb-2">Bio *</label>
+          <label className="block text-sm font-medium text-white mb-2">Bio (optional)</label>
           <textarea
-            required
             rows={4}
             value={formData.bio}
             onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
             className="w-full bg-[#141414] border border-[#262626] rounded-lg px-4 py-2.5 text-white placeholder:text-[#737373] focus:border-[#D4AF37] focus:outline-none transition-colors resize-none"
-            placeholder="Brief professional bio (minimum 50 characters, 3-4 lines recommended)"
-            minLength={50}
+            placeholder="Brief professional bio (optional, max 500 characters)"
             maxLength={500}
           />
           <p className="text-xs text-[#737373] mt-1">{formData.bio.length}/500 characters</p>
