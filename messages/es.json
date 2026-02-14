@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Inicio",
-    "inventory": "Colección",
+    "inventory": "Productos",
     "services": "Servicios",
     "about": "Sobre Nosotros",
     "contact": "Contactar",
@@ -19,7 +19,7 @@
       "subtitle": "La plataforma más confiable del mundo para la exportación de vehículos premium desde Dubái a cualquier lugar del mundo."
     },
     "cta": {
-      "browseTitle": "Navega por nuestra colección",
+      "browseTitle": "Navega por nuestros productos",
       "browseSubtitle": "Explora vehículos premium listos para exportar",
       "viewAllCars": "Ver todos los coches"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "Nuestro Inventario",
+    "pageTitle": "Nuestros Productos",
     "subtitle": "Explore nuestra colección completa de vehículos premium listos para exportación global",
     "vehiclesFound": "{count} Vehículos Encontrados",
-    "foundSubtitle": "Encontrado en toda nuestra colección",
+    "foundSubtitle": "Encontrado en todos nuestros productos",
     "priceOnRequest": "Precio a Consultar",
     "filterTitle": "Filtros",
     "clearFilters": "Borrar Filtros",
@@ -99,7 +99,7 @@
       "priceOnRequest": "Precio a Consultar",
       "breadcrumb": {
         "home": "Inicio",
-        "inventory": "Colección"
+        "inventory": "Productos"
       }
     }
   },
@@ -267,7 +267,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "Sobre Nosotros",
-      "inventory": "Colección",
+      "inventory": "Productos",
       "services": "Servicios",
       "contact": "Contactar",
       "faq": "FAQ"
@@ -473,6 +473,6 @@
     "title": "Página no encontrada",
     "subtitle": "El camino que buscas no existe o ha sido movido.",
     "backHome": "Volver al inicio",
-    "browseInventory": "Explorar colección"
+    "browseInventory": "Navegar Productos"
   }
 }

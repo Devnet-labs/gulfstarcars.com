@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "Home",
-    "inventory": "Collection",
+    "inventory": "Products",
     "services": "Services",
     "about": "About Us",
     "contact": "Contact Us",
@@ -19,7 +19,7 @@
       "subtitle": "The region's leading vehicle export specialists, delivering premium automotive solutions from Dubai, UAE to global markets."
     },
     "cta": {
-      "browseTitle": "Browse Our Collection",
+      "browseTitle": "Browse Our Products",
       "browseSubtitle": "Explore premium vehicles ready for export",
       "viewAllCars": "View All Cars"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "Vehicle Collection",
-    "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
+    "pageTitle": "Our Products",
+    "subtitle": "Explore our curated selection of premium vehicles, ready for international export with handled logistics.",
     "vehiclesFound": "{count} Vehicles Found",
-    "foundSubtitle": "Found across our entire collection",
+    "foundSubtitle": "Found across our entire product range",
     "priceOnRequest": "Price on Request",
     "filterTitle": "Filters",
     "clearFilters": "Clear Filters",
@@ -99,7 +99,7 @@
       "priceOnRequest": "Price on Request",
       "breadcrumb": {
         "home": "Home",
-        "inventory": "Collection"
+        "inventory": "Products"
       }
     }
   },
@@ -309,7 +309,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "About Us",
-      "inventory": "Collection",
+      "inventory": "Products",
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
@@ -473,6 +473,6 @@
     "title": "Page Not Found",
     "subtitle": "The road you are looking for doesn't exist or has been moved.",
     "backHome": "Back to Home",
-    "browseInventory": "Browse Collection"
+    "browseInventory": "Browse Products"
   }
 }

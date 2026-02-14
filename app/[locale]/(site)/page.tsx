@@ -129,7 +129,7 @@ export default function Home() {
                   className="group flex items-center justify-center gap-2 sm:gap-5 px-3 sm:px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10 w-full"
                 >
                   <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
-                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">Collection Explorer</span>
+                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">Product Explorer</span>
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
                 </Link>
               </motion.div>

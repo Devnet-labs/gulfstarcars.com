@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "首页",
-    "inventory": "系列",
+    "inventory": "产品中心",
     "services": "服务",
     "about": "关于我们",
     "contact": "联系我们",
@@ -19,7 +19,7 @@
       "subtitle": "全球最值得信赖的迪拜豪华汽车出口平台。"
     },
     "cta": {
-      "browseTitle": "浏览我们的系列",
+      "browseTitle": "浏览我们的产品",
       "browseSubtitle": "探索准备出口的豪华车辆",
       "viewAllCars": "查看所有车辆"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "我们的库存",
+    "pageTitle": "我们的产品",
     "subtitle": "浏览我们要面向全球出口的高级车辆完整系列",
     "vehiclesFound": "找到 {count} 辆车",
-    "foundSubtitle": "在我们整个系列中找到",
+    "foundSubtitle": "在我们整个产品范围中找到",
     "priceOnRequest": "价格面议",
     "filterTitle": "筛选",
     "clearFilters": "清除筛选",
@@ -99,7 +99,7 @@
       "priceOnRequest": "价格面议",
       "breadcrumb": {
         "home": "首页",
-        "inventory": "系列"
+        "inventory": "产品中心"
       }
     }
   },
@@ -309,7 +309,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "关于我们",
-      "inventory": "系列",
+      "inventory": "产品中心",
       "services": "服务",
       "contact": "联系我们",
       "faq": "常见问题"
@@ -473,6 +473,6 @@
     "title": "页面未找到",
     "subtitle": "您寻找的路径不存在或已被移动。",
     "backHome": "返回首页",
-    "browseInventory": "浏览系列"
+    "browseInventory": "浏览产品"
   }
 }
