@@ -132,13 +132,16 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
 
         revalidatePath('/admin/cars');
         revalidatePath(`/admin/cars/${id}`);
-        redirect(`/admin/cars/${id}`);
     } catch (error) {
-        console.error('UPDATE_CAR_ERROR:', error);
+        console.error('UPDATE_CAR_ERROR extended:', error);
+        console.error('Update ID:', id);
+        console.error('Update Data:', JSON.stringify(validatedFields.data, null, 2));
         return {
-            message: 'Database Error: Failed to Update Car.',
+            message: `Database Error: Failed to Update Car. Details: ${error instanceof Error ? error.message : String(error)}`,
         };
     }
+
+    redirect(`/admin/cars/${id}`);
 }
 
 export async function deleteCar(id: string) {
