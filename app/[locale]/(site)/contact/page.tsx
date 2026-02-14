@@ -40,10 +40,10 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
                             {t('title')}
                         </h1>
-                        <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
                             {t('subtitle')}
                         </p>
                     </motion.div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                                                     <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-xl sm:text-2xl text-white tracking-tight">{t('dubaiBranch')}</h3>
+                                                    <h3 className="font-bold text-lg sm:text-xl text-white tracking-tight">{t('dubaiBranch')}</h3>
                                                     <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('addressDubai') }} />
                                                 </div>
                                             </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                                                     <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-xl sm:text-2xl text-white tracking-tight">{t('ajmanOffice')}</h3>
+                                                    <h3 className="font-bold text-lg sm:text-xl text-white tracking-tight">{t('ajmanOffice')}</h3>
                                                     <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
                                                 </div>
                                             </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                                         <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
                                             <div className="space-y-1">
                                                 <p className="text-[10px] sm:text-xs font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('callUs')}</p>
-                                                <a href={`tel:${tFooter('phone')}`} className="text-xl sm:text-2xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
+                                                <a href={`tel:${tFooter('phone')}`} className="text-lg sm:text-xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
                                             </div>
                                             <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                                                 <Phone className="w-5 h-5 text-primary" />
@@ -129,7 +129,7 @@ export default function ContactPage() {
                                                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${tFooter('emails.info')}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-xl sm:text-2xl font-bold text-white hover:text-primary transition-colors tracking-tight"
+                                                    className="text-lg sm:text-xl font-bold text-white hover:text-primary transition-colors tracking-tight"
                                                 >
                                                     {tFooter('emails.info')}
                                                 </a>
@@ -151,7 +151,7 @@ export default function ContactPage() {
                                                 </div>
                                                 <div>
                                                     <p className="text-green-500 font-black text-[10px] sm:text-xs uppercase tracking-widest mb-1 opacity-80">{t('availableNow')}</p>
-                                                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">{t('whatsAppSupport')}</h3>
+                                                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">{t('whatsAppSupport')}</h3>
                                                 </div>
                                             </div>
                                             <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white scale-90 group-hover:scale-100 group-hover:rotate-[-12deg] transition-all duration-500 shadow-xl shadow-green-500/20">
@@ -177,7 +177,7 @@ export default function ContactPage() {
                             transition={{ duration: 0.6 }}
                             className="space-y-4"
                         >
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4">
                                 {t('mapTitle')}
                             </h2>
                             <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto leading-relaxed">

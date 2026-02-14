@@ -25,6 +25,7 @@ const carSchema = z.object({
     seats: z.coerce.number().optional(),
     location: z.string().optional(),
     isActive: z.preprocess((val) => val === 'true' || val === true, z.boolean()).default(true),
+    status: z.string().default('AVAILABLE'),
 });
 
 export async function createCar(prevState: any, formData: FormData) {
@@ -47,6 +48,7 @@ export async function createCar(prevState: any, formData: FormData) {
         doors: formData.get('doors'),
         seats: formData.get('seats'),
         location: formData.get('location'),
+        status: formData.get('status'),
     });
 
     if (!validatedFields.success) {
@@ -72,15 +74,24 @@ export async function createCar(prevState: any, formData: FormData) {
         }
         const customId = `CE-${nextId}`;
 
+        // Logic: if status is SOLD, isActive should be false (unless explicitly set otherwise, but here we enforce it or let the form decide? 
+        // The user said: "when sold change status of inacvtive as well"
+        let isActive = validatedFields.data.isActive;
+        if (validatedFields.data.status === 'SOLD') {
+            isActive = false;
+        }
+
         const car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
+                isActive,
                 price: validatedFields.data.price ?? null,
                 customId,
             } as any,
         });
 
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${car.id}`);
         redirect(`/admin/cars/${car.id}`);
     } catch (error) {
@@ -112,6 +123,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         seats: formData.get('seats'),
         location: formData.get('location'),
         isActive: formData.get('isActive') === 'true',
+        status: formData.get('status'),
     });
 
     if (!validatedFields.success) {
@@ -122,15 +134,23 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
     }
 
     try {
+        // Logic: if status is SOLD, isActive should be false
+        let isActive = validatedFields.data.isActive;
+        if (validatedFields.data.status === 'SOLD') {
+            isActive = false;
+        }
+
         await prisma.car.update({
             where: { id },
             data: {
                 ...validatedFields.data,
+                isActive,
                 price: validatedFields.data.price ?? null,
             } as any,
         });
 
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${id}`);
     } catch (error) {
         console.error('UPDATE_CAR_ERROR extended:', error);
@@ -150,6 +170,7 @@ export async function deleteCar(id: string) {
             where: { id },
         });
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         return { message: 'Deleted Car.' };
     } catch (error) {
         return { message: 'Database Error: Failed to Delete Car.' };
@@ -166,6 +187,7 @@ export async function toggleCarVisibility(id: string, isActive: boolean) {
             data: { isActive } as Record<string, unknown>,
         });
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         revalidatePath('/cars');
         return { success: true };
     } catch (error) {

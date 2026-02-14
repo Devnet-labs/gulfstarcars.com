@@ -28,6 +28,7 @@ type State = {
         seats?: string[];
         location?: string[];
         isActive?: string[];
+        status?: string[];
     };
     message?: string | null;
     isLoading?: boolean;
@@ -55,6 +56,7 @@ interface CarFormProps {
         seats?: number | null;
         location?: string | null;
         isActive?: boolean;
+        status?: string;
         makeAr?: string | null;
         modelAr?: string | null;
         descriptionAr?: string | null;
@@ -269,6 +271,26 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         </select>
                     </div >
                 </div >
+
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                        <label htmlFor="status" className="text-sm font-medium">
+                            Status <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                            name="status"
+                            defaultValue={initialData?.status || 'AVAILABLE'}
+                            className="w-full rounded-md border bg-background px-3 py-2"
+                        >
+                            <option value="AVAILABLE">Available</option>
+                            <option value="SOLD">Sold</option>
+                            <option value="RESERVED">Reserved</option>
+                        </select>
+                        {state.errors?.status && (
+                            <p className="text-sm text-red-500">{state.errors.status}</p>
+                        )}
+                    </div>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">

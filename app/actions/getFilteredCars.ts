@@ -17,7 +17,8 @@ interface InventoryFilters {
 export async function getFilteredCars(filters?: InventoryFilters, locale?: string) {
     try {
         const where: any = {
-            isActive: true
+            isActive: true,
+            status: 'AVAILABLE',
         };
 
         // Apply filters if provided
@@ -106,7 +107,7 @@ export async function getFilteredCars(filters?: InventoryFilters, locale?: strin
 export async function getInventoryFilterOptions() {
     try {
         const cars = await prisma.car.findMany({
-            where: { isActive: true },
+            where: { isActive: true, status: 'AVAILABLE' },
             select: {
                 make: true,
                 fuelType: true,

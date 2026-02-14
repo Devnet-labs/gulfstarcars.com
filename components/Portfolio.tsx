@@ -23,9 +23,7 @@ export function Portfolio() {
                     viewport={{ once: true }}
                     className="text-center mb-10 sm:mb-20"
                 >
-                    <span className="text-primary font-bold tracking-widest text-sm uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md mb-6 inline-block">
-                        {t('badge')}
-                    </span>
+
                     <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
                         {t('title')} <br />
                         <span className="text-primary">{t('titleHighlight')}</span>

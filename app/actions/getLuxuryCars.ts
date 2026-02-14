@@ -39,7 +39,8 @@ export async function getLuxuryCars(filters?: LuxuryFilters, locale?: string) {
                 equals: 'new',
                 mode: 'insensitive'
             },
-            isActive: true
+            isActive: true,
+            status: 'AVAILABLE'
         };
 
         // Apply filters if provided
@@ -105,7 +106,8 @@ export async function getLuxuryFilterOptions() {
                     equals: 'new',
                     mode: 'insensitive'
                 },
-                isActive: true
+                isActive: true,
+                status: 'AVAILABLE'
             }
         });
 
