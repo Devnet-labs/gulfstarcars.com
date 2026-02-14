@@ -320,8 +320,8 @@
     "phoneLabel": "Numéros de Contact",
     "addressLabel": "Emplacement Principal",
     "emails": {
-        "info": "INFO@GULFSTARCARS.COM",
-        "sales": "SALES@GULFSTARCARS.COM"
+      "info": "INFO@GULFSTARCARS.COM",
+      "sales": "SALES@GULFSTARCARS.COM"
     },
     "privacy": "Confidentialité",
     "terms": "Conditions",
@@ -332,6 +332,22 @@
     "about": {
       "title": "À propos - Gulf Star Automotive FZC | Exportation Internationale de Véhicules",
       "description": "Gulf Star Automotive FZC est une entreprise d'exportation de véhicules agréée à Dubaï, EAU. Nous fournissons des services d'exportation complets incluant la logistique, la conformité et la documentation pour le commerce automobile international."
+    },
+    "cars": {
+      "title": "Liste de Stock - Gulf Star Automotive | Exportation de Voitures Premium",
+      "description": "Parcourez notre inventaire complet de véhicules haut de gamme prêts à être exportés depuis Dubaï. Voitures de luxe, SUV et plus disponibles pour une expédition mondiale."
+    },
+    "luxury": {
+      "title": "Collection Luxe - Gulf Star Automotive | Exportation de Véhicules Haut de Gamme",
+      "description": "Explorez notre collection exclusive de voitures de luxe et exotiques. Marques premium incluant Rolls Royce, Bentley, Ferrari et plus disponibles pour l'exportation."
+    },
+    "contact": {
+      "title": "Contactez-nous - Gulf Star Automotive | Services d'Exportation de Véhicules",
+      "description": "Contactez Gulf Star Automotive pour vos besoins d'exportation de véhicules. Notre équipe est prête à vous aider pour l'approvisionnement, l'expédition et la documentation."
+    },
+    "faq": {
+      "title": "FAQ - Gulf Star Automotive | Questions sur l'Exportation de Voitures",
+      "description": "Trouvez des réponses aux questions courantes sur l'exportation de voitures depuis Dubaï. En savoir plus sur l'expédition, les douanes, les méthodes de paiement et notre processus d'inspection."
     }
   },
   "aboutPage": {

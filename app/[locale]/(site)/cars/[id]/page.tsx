@@ -7,10 +7,41 @@ import Link from 'next/link';
 import { DetailClientActions } from './ClientComponents';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { BackButton } from '@/components/BackButton';
+import { generateCarMetadata, generateStructuredData } from '@/lib/metadata';
 
 interface CarDetailPageProps {
-    params: Promise<{ id: string }>;
+    params: Promise<{ id: string; locale: string }>;
 }
+
+export async function generateMetadata({ params }: CarDetailPageProps) {
+    const { id, locale } = await params;
+    const car = await getCarById(id, locale);
+
+    if (!car || !car.isActive) {
+        return {
+            title: 'Car Not Found',
+            description: 'The requested vehicle is not available.',
+        };
+    }
+
+    // Get translated fields for metadata
+    const translation = (car as any)?.translations?.[0];
+    const make = translation?.make || car.make;
+    const model = translation?.model || car.model;
+    const description = translation?.description || car.description;
+
+    return generateCarMetadata({
+        make,
+        model,
+        year: car.year,
+        price: car.price,
+        description,
+        images: car.images,
+        id: car.id,
+        locale,
+    });
+}
+
 
 export default async function CarDetailPage({ params }: CarDetailPageProps) {
     const { id } = await params;

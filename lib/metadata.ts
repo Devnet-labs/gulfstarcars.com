@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const siteConfig = {
-    name: 'Gulf Star Cars',
+    name: 'Gulf Star Automotive',
     description: 'Premium car export service from UAE to worldwide destinations. Quality vehicles, competitive prices, and reliable global shipping.',
-    url: 'https://gulfstarcars.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://gulfstarcars.com',
     ogImage: '/images/og-image.jpg',
     keywords: [
         'car export',
@@ -15,9 +15,11 @@ export const siteConfig = {
         'Dubai car export',
         'global car shipping',
         'export vehicles',
-        'car dealership UAE'
+        'car dealership UAE',
+        'Gulf Star Automotive',
+        'vehicle export Dubai'
     ],
-    languages: ['en', 'fr', 'pt', 'es', 'ru', 'ar'],
+    languages: ['en', 'fr', 'pt', 'es', 'ru', 'ar', 'zh'],
     defaultLanguage: 'en',
 };
 
@@ -41,6 +43,9 @@ export function generateMetadata({
     const metaImage = image || siteConfig.ogImage;
     const metaUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
 
+    // Ensure image URLs are absolute
+    const absoluteImage = metaImage.startsWith('http') ? metaImage : `${siteConfig.url}${metaImage}`;
+
     return {
         title: metaTitle,
         description: metaDescription,
@@ -58,6 +63,7 @@ export function generateMetadata({
                 'es': '/es',
                 'ru': '/ru',
                 'ar': '/ar',
+                'zh': '/zh',
             },
         },
         openGraph: {
@@ -69,7 +75,7 @@ export function generateMetadata({
             siteName: siteConfig.name,
             images: [
                 {
-                    url: metaImage,
+                    url: absoluteImage,
                     width: 1200,
                     height: 630,
                     alt: metaTitle,
@@ -80,7 +86,7 @@ export function generateMetadata({
             card: 'summary_large_image',
             title: metaTitle,
             description: metaDescription,
-            images: [metaImage],
+            images: [absoluteImage],
             creator: '@gulfstarcars',
         },
         robots: {
@@ -113,10 +119,14 @@ export function generateCarMetadata(car: {
     locale?: string;
 }) {
     const title = `${car.year} ${car.make} ${car.model}`;
-    const priceTag = car.price ? ` Export Price: $${car.price.toLocaleString()}` : '';
-    const description = `${car.description.substring(0, 155)}...${priceTag}`;
-    const image = car.images[0] || siteConfig.ogImage;
-    const url = `/cars/${car.id}`;
+    const priceTag = car.price ? ` - Export Price: $${car.price.toLocaleString()}` : '';
+    const description = car.description.length > 155
+        ? `${car.description.substring(0, 155)}...${priceTag}`
+        : `${car.description}${priceTag}`;
+
+    // Use first car image or fallback to default OG image
+    const image = car.images && car.images.length > 0 ? car.images[0] : siteConfig.ogImage;
+    const url = `/${car.locale || 'en'}/cars/${car.id}`;
 
     return generateMetadata({
         title,
@@ -125,6 +135,25 @@ export function generateCarMetadata(car: {
         url,
         type: 'article',
         locale: car.locale || 'en',
+    });
+}
+
+export function generateListingMetadata({
+    title,
+    description,
+    locale = 'en',
+    path = '/cars',
+}: {
+    title: string;
+    description: string;
+    locale?: string;
+    path?: string;
+}) {
+    return generateMetadata({
+        title,
+        description,
+        url: `/${locale}${path}`,
+        locale,
     });
 }
 
