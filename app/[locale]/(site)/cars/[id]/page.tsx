@@ -118,14 +118,14 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                 <div className="mt-6 sm:mt-12 bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[40px] p-6 sm:p-12 border border-white/5 shadow-2xl">
                     <h2 className="text-xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-x-12 lg:gap-y-8">
-                        <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={car.engineCapacity} />
-                        <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={car.colour} />
-                        <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={car.driveType ? tEnums(`driveType.${car.driveType}`) : undefined} />
-                        <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={car.bodyType ? tEnums(`bodyType.${car.bodyType}`) : undefined} />
-                        <SpecItem icon={<Reply />} label={tSpecs('steering')} value={car.steering ? tEnums(`steering.${car.steering}`) : undefined} />
+                        <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={tFields.engineCapacity} />
+                        <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={tFields.colour} />
+                        <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={tFields.driveType || (car.driveType ? tEnums(`driveType.${car.driveType}`) : undefined)} />
+                        <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={tFields.bodyType || (car.bodyType ? tEnums(`bodyType.${car.bodyType}`) : undefined)} />
+                        <SpecItem icon={<Reply />} label={tSpecs('steering')} value={tFields.steering || (car.steering ? tEnums(`steering.${car.steering}`) : undefined)} />
                         <SpecItem icon={<DoorOpen />} label={tSpecs('doors')} value={car.doors?.toString()} />
                         <SpecItem icon={<Users />} label={tSpecs('seats')} value={car.seats?.toString()} />
-                        <SpecItem icon={<Fuel />} label={tSpecs('location')} value={car.location} />
+                        <SpecItem icon={<Fuel />} label={tSpecs('location')} value={tFields.location} />
                     </div>
                 </div>
             </div>

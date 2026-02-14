@@ -57,34 +57,38 @@ export async function translateAllCarFields(
             }
 
             try {
+                const makeVal = localeTranslation.make?.trim() || fields.make || null;
+                const modelVal = localeTranslation.model?.trim() || fields.model || null;
+                const bodyTypeVal = localeTranslation.bodyType?.trim() || fields.bodyType || null;
+                const colourVal = localeTranslation.colour?.trim() || fields.colour || null;
                 await prisma.carTranslation.upsert({
                     where: { carId_locale: { carId, locale } },
                     create: {
                         carId,
                         locale,
-                        make: localeTranslation.make || null,
-                        model: localeTranslation.model || null,
+                        make: makeVal,
+                        model: modelVal,
                         description: localeTranslation.description || null,
-                        bodyType: localeTranslation.bodyType || null,
+                        bodyType: bodyTypeVal,
                         fuelType: localeTranslation.fuelType || null,
                         steering: localeTranslation.steering || null,
                         transmission: localeTranslation.transmission || null,
                         engineCapacity: localeTranslation.engineCapacity || null,
-                        colour: localeTranslation.colour || null,
+                        colour: colourVal,
                         driveType: localeTranslation.driveType || null,
                         location: localeTranslation.location || null,
                         status: 'COMPLETED',
                     },
                     update: {
-                        make: localeTranslation.make || null,
-                        model: localeTranslation.model || null,
+                        make: makeVal,
+                        model: modelVal,
                         description: localeTranslation.description || null,
-                        bodyType: localeTranslation.bodyType || null,
+                        bodyType: bodyTypeVal,
                         fuelType: localeTranslation.fuelType || null,
                         steering: localeTranslation.steering || null,
                         transmission: localeTranslation.transmission || null,
                         engineCapacity: localeTranslation.engineCapacity || null,
-                        colour: localeTranslation.colour || null,
+                        colour: colourVal,
                         driveType: localeTranslation.driveType || null,
                         location: localeTranslation.location || null,
                         status: 'COMPLETED',
@@ -222,34 +226,38 @@ export async function retryTranslationAction(
             return { success: false, error: 'Translation failed' };
         }
 
+        const makeVal = localeTranslation.make?.trim() || car.make || null;
+        const modelVal = localeTranslation.model?.trim() || car.model || null;
+        const bodyTypeVal = localeTranslation.bodyType?.trim() || car.bodyType || null;
+        const colourVal = localeTranslation.colour?.trim() || car.colour || null;
         await prisma.carTranslation.upsert({
             where: { carId_locale: { carId, locale } },
             create: {
                 carId,
                 locale,
-                make: localeTranslation.make || null,
-                model: localeTranslation.model || null,
+                make: makeVal,
+                model: modelVal,
                 description: localeTranslation.description || null,
-                bodyType: localeTranslation.bodyType || null,
+                bodyType: bodyTypeVal,
                 fuelType: localeTranslation.fuelType || null,
                 steering: localeTranslation.steering || null,
                 transmission: localeTranslation.transmission || null,
                 engineCapacity: localeTranslation.engineCapacity || null,
-                colour: localeTranslation.colour || null,
+                colour: colourVal,
                 driveType: localeTranslation.driveType || null,
                 location: localeTranslation.location || null,
                 status: 'COMPLETED',
             },
             update: {
-                make: localeTranslation.make || null,
-                model: localeTranslation.model || null,
+                make: makeVal,
+                model: modelVal,
                 description: localeTranslation.description || null,
-                bodyType: localeTranslation.bodyType || null,
+                bodyType: bodyTypeVal,
                 fuelType: localeTranslation.fuelType || null,
                 steering: localeTranslation.steering || null,
                 transmission: localeTranslation.transmission || null,
                 engineCapacity: localeTranslation.engineCapacity || null,
-                colour: localeTranslation.colour || null,
+                colour: colourVal,
                 driveType: localeTranslation.driveType || null,
                 location: localeTranslation.location || null,
                 status: 'COMPLETED',
@@ -293,6 +301,71 @@ export async function updateTranslationField(
         return { success: true };
     } catch (error) {
         console.error('Update translation field error:', error);
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error',
+        };
+    }
+}
+/**
+ * Load car, translate all fields to all locales (for "Translate" button in admin)
+ */
+export async function translateCarAction(
+    carId: string
+): Promise<Array<{ locale: string; success: boolean; error?: string }>> {
+    const car = await prisma.car.findUnique({ where: { id: carId } });
+    if (!car) {
+        throw new Error('Car not found');
+    }
+    const fields: TranslatableCarFields = {
+        make: car.make,
+        model: car.model,
+        description: car.description,
+        bodyType: car.bodyType ?? undefined,
+        fuelType: car.fuelType ?? undefined,
+        steering: car.steering ?? undefined,
+        transmission: car.transmission ?? undefined,
+        engineCapacity: car.engineCapacity ?? undefined,
+        colour: car.colour ?? undefined,
+        driveType: car.driveType ?? undefined,
+        location: car.location ?? undefined,
+    };
+    return translateAllCarFields(carId, fields);
+}
+
+/** Payload for updating a full locale translation (admin edit form) */
+export type TranslationLocaleUpdate = Partial<Record<keyof TranslatableCarFields, string | null>>;
+
+/**
+ * Update multiple translation fields for one locale at once (admin edit form save)
+ */
+export async function updateTranslationLocale(
+    carId: string,
+    locale: string,
+    data: TranslationLocaleUpdate
+): Promise<{ success: boolean; error?: string }> {
+    try {
+        const createData: Record<string, unknown> = { carId, locale, status: 'COMPLETED' };
+        const updateData: Record<string, unknown> = { status: 'COMPLETED' };
+        const fieldKeys: (keyof TranslatableCarFields)[] = [
+            'make', 'model', 'description', 'bodyType', 'fuelType', 'steering',
+            'transmission', 'engineCapacity', 'colour', 'driveType', 'location',
+        ];
+        for (const key of fieldKeys) {
+            const value = data[key];
+            if (value !== undefined) {
+                (createData as any)[key] = value ?? null;
+                (updateData as any)[key] = value ?? null;
+            }
+        }
+        await prisma.carTranslation.upsert({
+            where: { carId_locale: { carId, locale } },
+            create: createData as any,
+            update: updateData,
+        });
+        return { success: true };
+    } catch (error) {
+        console.error('Update translation locale error:', error);
         return {
             success: false,
             error: error instanceof Error ? error.message : 'Unknown error',
