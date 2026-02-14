@@ -1,3 +1,6 @@
+// Use env so logo and links work in all environments; fix typo: was gulfstarscars.com (wrong)
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://gulfstarcars.com';
+
 export const BaseEmailLayout = (content: string) => `
 <!DOCTYPE html>
 <html>
@@ -22,9 +25,9 @@ export const BaseEmailLayout = (content: string) => `
 <body>
     <div class="wrapper">
         <div class="container">
-            <!-- Header with Logo -->
+            <!-- Header with Logo - absolute URL so email clients can load the image -->
             <div class="header" style="padding: 40px 0 20px; text-align: center; border-bottom: 1px solid #eaeaea;">
-                <img src="https://gulfstarscars.com/images/portfolio/logo/logo.png" alt="Gulfstarscars" width="200" style="height: auto; width: 200px; display: block; margin: 0 auto; border: 0;">
+                <img src="${BASE_URL}/images/portfolio/logo/logo.png" alt="Gulf Star Cars" width="200" style="height: auto; width: 200px; display: block; margin: 0 auto; border: 0;">
             </div>
 
             <!-- Main Content -->
@@ -34,11 +37,11 @@ export const BaseEmailLayout = (content: string) => `
 
             <!-- Footer -->
             <div class="footer">
-                <p>Gulfstarscars Import & Export<br>
+                <p>Gulf Star Cars Import & Export<br>
                 Dubai Automarket, Ras Al Khor, Dubai, UAE</p>
                 <div style="margin-top: 10px;">
-                    <a href="https://gulfstarscars.com">Website</a>
-                    <a href="https://gulfstarscars.com/contact">Contact</a>
+                    <a href="${BASE_URL}">Website</a>
+                    <a href="${BASE_URL}/contact">Contact</a>
                 </div>
             </div>
         </div>
