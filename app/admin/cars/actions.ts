@@ -92,7 +92,7 @@ export async function createCar(prevState: any, formData: FormData) {
 
         revalidatePath('/admin/cars');
         revalidatePath('/admin/cars/inventory');
-        revalidatePath(`/admin/cars/${car.id}`);
+        // Removed revalidatePath(`/admin/cars/${car.id}`); as it's redundant with the redirect
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
@@ -102,6 +102,7 @@ export async function createCar(prevState: any, formData: FormData) {
     if (car) {
         redirect(`/admin/cars/${car.id}?message=created`);
     }
+    return { message: 'Success' }; // This line will only be reached if car is null, which shouldn't happen if no error was thrown.
 }
 
 export async function updateCar(id: string, prevState: any, formData: FormData) {
@@ -154,7 +155,6 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         revalidatePath('/admin/cars');
         revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${id}`);
-        revalidatePath(`/admin/cars/${id}`);
     } catch (error) {
         console.error('UPDATE_CAR_ERROR extended:', error);
         return {
@@ -162,6 +162,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         };
     }
     redirect(`/admin/cars/${id}?message=updated`);
+    return { message: 'Success' };
 }
 
 export async function deleteCar(id: string) {
