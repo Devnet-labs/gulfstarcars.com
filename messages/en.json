@@ -37,7 +37,7 @@
     }
   },
   "cars": {
-    "pageTitle": "Global Inventory",
+    "pageTitle": "Vehicle Collection",
     "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
     "vehiclesFound": "{count} Vehicles Found",
     "foundSubtitle": "Found across our entire collection",
@@ -99,7 +99,7 @@
       "priceOnRequest": "Price on Request",
       "breadcrumb": {
         "home": "Home",
-        "inventory": "Products"
+        "inventory": "Collection"
       }
     }
   },
@@ -473,6 +473,6 @@
     "title": "Page Not Found",
     "subtitle": "The road you are looking for doesn't exist or has been moved.",
     "backHome": "Back to Home",
-    "browseInventory": "Browse Inventory"
+    "browseInventory": "Browse Collection"
   }
 }

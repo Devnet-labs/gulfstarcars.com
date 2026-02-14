@@ -15,7 +15,7 @@ export default function CarsPage() {
     const [showFilters, setShowFilters] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const ITEMS_PER_PAGE = 30;
+    const itemsPerPage = isMobile ? 10 : 30;
     const locale = useLocale();
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -144,10 +144,10 @@ export default function CarsPage() {
         selectedFilters.make.length;
 
     // Pagination Logic
-    const totalPages = Math.ceil(cars.length / ITEMS_PER_PAGE);
+    const totalPages = Math.ceil(cars.length / itemsPerPage);
     const paginatedCars = cars.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
     );
 
     const handlePageChange = (page: number) => {
@@ -158,6 +158,40 @@ export default function CarsPage() {
                 carGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
+    };
+
+    // Helper to get responsive page numbers
+    const getPageNumbers = () => {
+        const pages: (number | string)[] = [];
+        const delta = isMobile ? 1 : 2; // Number of pages either side of current
+
+        if (totalPages <= 5) {
+            for (let i = 1; i <= totalPages; i++) pages.push(i);
+            return pages;
+        }
+
+        // Always show first page
+        pages.push(1);
+
+        if (currentPage > delta + 2) {
+            pages.push('...');
+        }
+
+        const start = Math.max(2, currentPage - delta);
+        const end = Math.min(totalPages - 1, currentPage + delta);
+
+        for (let i = start; i <= end; i++) {
+            pages.push(i);
+        }
+
+        if (currentPage < totalPages - (delta + 1)) {
+            pages.push('...');
+        }
+
+        // Always show last page
+        pages.push(totalPages);
+
+        return pages;
     };
 
     const t = useTranslations('cars');
@@ -360,7 +394,7 @@ export default function CarsPage() {
                                         <div>
                                             <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Live Inventory</span>
+                                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Active Selection</span>
                                             </div>
                                             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
                                                 {t('vehiclesFound', { count: cars.length })}
@@ -408,28 +442,34 @@ export default function CarsPage() {
                                                     <button
                                                         onClick={() => handlePageChange(currentPage - 1)}
                                                         disabled={currentPage === 1}
-                                                        className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all"
+                                                        className="px-4 sm:px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all text-sm sm:text-base whitespace-nowrap"
                                                     >
                                                         {tCommon('previous')}
                                                     </button>
-                                                    <div className="flex gap-2">
-                                                        {[...Array(totalPages)].map((_, i) => (
-                                                            <button
-                                                                key={i + 1}
-                                                                onClick={() => handlePageChange(i + 1)}
-                                                                className={`w-12 h-12 rounded-xl border font-bold transition-all ${currentPage === i + 1
-                                                                    ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25'
-                                                                    : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
-                                                                    }`}
-                                                            >
-                                                                {i + 1}
-                                                            </button>
+                                                    <div className="flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-2">
+                                                        {getPageNumbers().map((page, i) => (
+                                                            page === '...' ? (
+                                                                <span key={`ellipsis-${i}`} className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-slate-500 font-bold">
+                                                                    ...
+                                                                </span>
+                                                            ) : (
+                                                                <button
+                                                                    key={page}
+                                                                    onClick={() => handlePageChange(page as number)}
+                                                                    className={`min-w-[40px] h-10 sm:min-w-[48px] sm:h-12 px-2 rounded-xl border font-bold transition-all ${currentPage === page
+                                                                        ? 'bg-primary border-primary text-white shadow-lg shadow-primary/25'
+                                                                        : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                                                                        }`}
+                                                                >
+                                                                    {page}
+                                                                </button>
+                                                            )
                                                         ))}
                                                     </div>
                                                     <button
                                                         onClick={() => handlePageChange(currentPage + 1)}
                                                         disabled={currentPage === totalPages}
-                                                        className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all"
+                                                        className="px-4 sm:px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 transition-all text-sm sm:text-base whitespace-nowrap"
                                                     >
                                                         {tCommon('next')}
                                                     </button>
