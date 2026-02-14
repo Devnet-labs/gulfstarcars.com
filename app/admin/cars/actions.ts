@@ -58,6 +58,7 @@ export async function createCar(prevState: any, formData: FormData) {
         };
     }
 
+    let car;
     try {
         // Generate customId
         const lastCar = await prisma.car.findFirst({
@@ -80,7 +81,7 @@ export async function createCar(prevState: any, formData: FormData) {
             isActive = false;
         }
 
-        const car = await prisma.car.create({
+        car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
                 isActive,
@@ -92,12 +93,14 @@ export async function createCar(prevState: any, formData: FormData) {
         revalidatePath('/admin/cars');
         revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${car.id}`);
-        redirect(`/admin/cars/${car.id}?message=created`);
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
             message: 'Database Error: Failed to Create Car.',
         };
+    }
+    if (car) {
+        redirect(`/admin/cars/${car.id}?message=created`);
     }
 }
 
@@ -151,13 +154,14 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         revalidatePath('/admin/cars');
         revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${id}`);
-        redirect(`/admin/cars/${id}?message=updated`);
+        revalidatePath(`/admin/cars/${id}`);
     } catch (error) {
         console.error('UPDATE_CAR_ERROR extended:', error);
         return {
             message: `Database Error: Failed to Update Car. Details: ${error instanceof Error ? error.message : String(error)}`,
         };
     }
+    redirect(`/admin/cars/${id}?message=updated`);
 }
 
 export async function deleteCar(id: string) {
