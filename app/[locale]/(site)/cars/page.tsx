@@ -204,7 +204,7 @@ export default function CarsPage() {
                 <div className="container mx-auto px-4">
                     {/* Make Selector - Sticky top on desktop */}
                     {filterOptions.makes.length > 0 && (
-                        <div className="mb-8 sm:mb-2 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-4 sm:pt-6 border-b border-white/5">
+                        <div className="mb-2 sm:mb-2 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-2 sm:pt-6 border-b border-white/5">
                             <div className="flex gap-2.5 sm:gap-4 min-w-max pb-2">
                                 {filterOptions.makes.map(({ make, count }) => {
                                     const isSelected = selectedFilters.make.includes(make);
@@ -239,7 +239,7 @@ export default function CarsPage() {
                         </div>
                     )}
 
-                    <div className="flex flex-col lg:flex-row gap-6">
+                    <div className="flex flex-col lg:flex-row gap-2 lg:gap-6">
                         {/* Filter Sidebar */}
                         <div className="lg:w-80 flex-shrink-0">
                             {/* Fixed Mobile Filter Button */}
