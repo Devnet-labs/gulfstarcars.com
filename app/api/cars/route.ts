@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 export async function GET() {
     try {
         const cars = await prisma.car.findMany({
+            where: { isActive: true, status: 'AVAILABLE' },
             orderBy: { createdAt: 'desc' },
         });
 

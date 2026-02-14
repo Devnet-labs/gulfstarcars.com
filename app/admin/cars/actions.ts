@@ -25,6 +25,7 @@ const carSchema = z.object({
     seats: z.coerce.number().optional(),
     location: z.string().optional(),
     isActive: z.preprocess((val) => val === 'true' || val === true, z.boolean()).default(true),
+    status: z.string().default('AVAILABLE'),
 });
 
 export async function createCar(prevState: any, formData: FormData) {
@@ -47,6 +48,7 @@ export async function createCar(prevState: any, formData: FormData) {
         doors: formData.get('doors'),
         seats: formData.get('seats'),
         location: formData.get('location'),
+        status: formData.get('status'),
     });
 
     if (!validatedFields.success) {
@@ -56,6 +58,7 @@ export async function createCar(prevState: any, formData: FormData) {
         };
     }
 
+    let car;
     try {
         // Generate customId
         const lastCar = await prisma.car.findFirst({
@@ -72,23 +75,34 @@ export async function createCar(prevState: any, formData: FormData) {
         }
         const customId = `CE-${nextId}`;
 
-        const car = await prisma.car.create({
+        // Logic: if status is SOLD or RESERVED, isActive should be false
+        let isActive = validatedFields.data.isActive;
+        if (validatedFields.data.status === 'SOLD' || validatedFields.data.status === 'RESERVED') {
+            isActive = false;
+        }
+
+        car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
+                isActive,
                 price: validatedFields.data.price ?? null,
                 customId,
             } as any,
         });
 
         revalidatePath('/admin/cars');
-        revalidatePath(`/admin/cars/${car.id}`);
-        redirect(`/admin/cars/${car.id}`);
+        revalidatePath('/admin/cars/inventory');
+        // Removed revalidatePath(`/admin/cars/${car.id}`); as it's redundant with the redirect
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
             message: 'Database Error: Failed to Create Car.',
         };
     }
+    if (car) {
+        redirect(`/admin/cars/${car.id}?message=created`);
+    }
+    return { message: 'Success' }; // This line will only be reached if car is null, which shouldn't happen if no error was thrown.
 }
 
 export async function updateCar(id: string, prevState: any, formData: FormData) {
@@ -112,6 +126,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
         seats: formData.get('seats'),
         location: formData.get('location'),
         isActive: formData.get('isActive') === 'true',
+        status: formData.get('status'),
     });
 
     if (!validatedFields.success) {
@@ -122,26 +137,32 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
     }
 
     try {
+        // Logic: if status is SOLD or RESERVED, isActive should be false
+        let isActive = validatedFields.data.isActive;
+        if (validatedFields.data.status === 'SOLD' || validatedFields.data.status === 'RESERVED') {
+            isActive = false;
+        }
+
         await prisma.car.update({
             where: { id },
             data: {
                 ...validatedFields.data,
+                isActive,
                 price: validatedFields.data.price ?? null,
             } as any,
         });
 
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         revalidatePath(`/admin/cars/${id}`);
     } catch (error) {
         console.error('UPDATE_CAR_ERROR extended:', error);
-        console.error('Update ID:', id);
-        console.error('Update Data:', JSON.stringify(validatedFields.data, null, 2));
         return {
             message: `Database Error: Failed to Update Car. Details: ${error instanceof Error ? error.message : String(error)}`,
         };
     }
-
-    redirect(`/admin/cars/${id}`);
+    redirect(`/admin/cars/${id}?message=updated`);
+    return { message: 'Success' };
 }
 
 export async function deleteCar(id: string) {
@@ -150,6 +171,7 @@ export async function deleteCar(id: string) {
             where: { id },
         });
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         return { message: 'Deleted Car.' };
     } catch (error) {
         return { message: 'Database Error: Failed to Delete Car.' };
@@ -166,6 +188,7 @@ export async function toggleCarVisibility(id: string, isActive: boolean) {
             data: { isActive } as Record<string, unknown>,
         });
         revalidatePath('/admin/cars');
+        revalidatePath('/admin/cars/inventory');
         revalidatePath('/cars');
         return { success: true };
     } catch (error) {

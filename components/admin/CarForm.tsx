@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useActionState } from 'react';
-import { ArrowLeft, Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowLeft, Loader2, CheckCircle, XCircle, AlertTriangle, X, Car, Box, Eye } from 'lucide-react';
 import ImageUpload from './ImageUpload';
 import { useState } from 'react';
 
@@ -28,6 +28,7 @@ type State = {
         seats?: string[];
         location?: string[];
         isActive?: string[];
+        status?: string[];
     };
     message?: string | null;
     isLoading?: boolean;
@@ -55,6 +56,7 @@ interface CarFormProps {
         seats?: number | null;
         location?: string | null;
         isActive?: boolean;
+        status?: string;
         makeAr?: string | null;
         modelAr?: string | null;
         descriptionAr?: string | null;
@@ -68,6 +70,36 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     const [state, formAction] = useActionState(action, initialState);
     const [images, setImages] = useState<string[]>(initialData?.images || []);
     const [isActive, setIsActive] = useState(initialData?.isActive ?? true);
+    const [status, setStatus] = useState(initialData?.status || 'AVAILABLE');
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [pendingStatus, setPendingStatus] = useState<string | null>(null);
+
+    const handleStatusChange = (newStatus: string) => {
+        // If transitioning from SOLD to AVAILABLE, show confirmation
+        if (initialData?.status === 'SOLD' && newStatus === 'AVAILABLE') {
+            setPendingStatus(newStatus);
+            setShowConfirmModal(true);
+            return;
+        }
+
+        // Automatic visibility logic: if SOLD or RESERVED, set to inactive
+        if (newStatus === 'SOLD' || newStatus === 'RESERVED') {
+            setIsActive(false);
+        } else if (newStatus === 'AVAILABLE') {
+            setIsActive(true);
+        }
+
+        setStatus(newStatus);
+    };
+
+    const confirmStatusChange = () => {
+        if (pendingStatus) {
+            setStatus(pendingStatus);
+            setIsActive(true);
+            setPendingStatus(null);
+        }
+        setShowConfirmModal(false);
+    };
 
     const handleSubmit = (formData: FormData) => {
         // Clear previous errors
@@ -82,330 +114,333 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
     };
 
     return (
-        <div className="max-w-2xl mx-auto space-y-6">
-            <div className="flex items-center gap-4">
-                <Link href="/admin/cars" className="p-2 hover:bg-muted rounded-full">
-                    <ArrowLeft className="h-5 w-5" />
-                </Link>
-                <h1 className="text-3xl font-bold">{title}</h1>
+        <div className="max-w-4xl mx-auto space-y-8 pb-20">
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                    <Link
+                        href="/admin/cars"
+                        className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all shadow-sm"
+                    >
+                        <ArrowLeft className="h-5 w-5" />
+                    </Link>
+                    <div>
+                        <h1 className="text-3xl font-bold tracking-tight text-white">{title}</h1>
+                        <p className="text-sm text-slate-400 mt-1">Manage vehicle details and visibility</p>
+                    </div>
+                </div>
             </div>
 
-            <form action={handleSubmit} className="space-y-4 rounded-xl border bg-card p-6 shadow-sm">
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="make" className="text-sm font-medium">
-                            Make <span className="text-red-500">*</span>
+            <form action={handleSubmit} className="space-y-8">
+                {/* 1. PRIMARY STATUS & VISIBILITY */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="lg:col-span-2 space-y-4">
+                        <label className="text-sm font-black uppercase tracking-widest text-slate-500 mb-2 block">
+                            Vehicle Status
                         </label>
-                        <input
-                            name="make"
-                            defaultValue={initialData?.make}
-                            required
-                            placeholder="e.g. Toyota"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                        {state.errors?.make && (
-                            <p className="text-sm text-red-500">{state.errors.make}</p>
-                        )}
+                        <div className="grid grid-cols-3 gap-3">
+                            {[
+                                { id: 'AVAILABLE', label: 'Available', color: 'bg-emerald-500', icon: CheckCircle },
+                                { id: 'SOLD', label: 'Sold', color: 'bg-rose-500', icon: XCircle },
+                                { id: 'RESERVED', label: 'Reserved', color: 'bg-amber-500', icon: AlertTriangle }
+                            ].map((s) => (
+                                <button
+                                    key={s.id}
+                                    type="button"
+                                    onClick={() => handleStatusChange(s.id)}
+                                    className={`relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 group ${status === s.id
+                                        ? 'bg-primary/10 border-primary shadow-lg shadow-primary/20'
+                                        : 'bg-slate-900/40 border-white/5 hover:border-white/10'
+                                        }`}
+                                >
+                                    <div className={`p-2 rounded-lg mb-2 ${status === s.id ? s.color : 'bg-white/5 text-slate-500'}`}>
+                                        <s.icon className={`h-5 w-5 ${status === s.id ? 'text-white' : ''}`} />
+                                    </div>
+                                    <span className={`text-xs font-black uppercase tracking-widest ${status === s.id ? 'text-white' : 'text-slate-500'}`}>
+                                        {s.label}
+                                    </span>
+                                    {status === s.id && (
+                                        <div className="absolute top-2 right-2">
+                                            <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                                        </div>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                        <input type="hidden" name="status" value={status} />
                     </div>
-                    <div className="space-y-2">
-                        <label htmlFor="model" className="text-sm font-medium">
-                            Model <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                            name="model"
-                            defaultValue={initialData?.model}
-                            required
-                            placeholder="e.g. Land Cruiser"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                        {
-                            state.errors?.model && (
-                                <p className="text-sm text-red-500">{state.errors.model}</p>
-                            )
-                        }
-                    </div >
-                </div >
 
-                {/* Visibility Toggle */}
-                < div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/10" >
-                    <div className="flex items-center gap-2 text-primary">
-                        {isActive ? <CheckCircle className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
-                        <div>
-                            <span className="text-sm font-semibold">{isActive ? 'Publicly Visible' : 'Hidden from Users'}</span>
-                            <p className="text-xs text-muted-foreground">Toggle whether this car is live on the website.</p>
+                    <div className="space-y-4">
+                        <label className="text-sm font-black uppercase tracking-widest text-slate-500 mb-2 block">
+                            Public Visibility
+                        </label>
+                        <div className={`flex flex-col h-[calc(100%-2rem)] justify-center p-6 rounded-2xl border transition-all duration-300 ${isActive
+                            ? 'bg-emerald-500/5 border-emerald-500/20'
+                            : 'bg-slate-800/20 border-white/5'
+                            }`}>
+                            <div className="flex items-center justify-between gap-4">
+                                <div className="space-y-1">
+                                    <span className={`text-sm font-bold block ${isActive ? 'text-emerald-400' : 'text-slate-400'}`}>
+                                        {isActive ? 'Publicly Visible' : 'Inactive'}
+                                    </span>
+                                    <p className="text-[10px] text-slate-500 uppercase tracking-wider leading-relaxed">
+                                        {isActive ? 'Live on website' : 'Hidden from site'}
+                                    </p>
+                                </div>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        className="sr-only peer"
+                                        checked={isActive}
+                                        onChange={(e) => setIsActive(e.target.checked)}
+                                    />
+                                    <div className="w-12 h-6 bg-slate-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-400 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500 peer-checked:after:bg-white"></div>
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                            type="checkbox"
-                            className="sr-only peer"
-                            checked={isActive}
-                            onChange={(e) => setIsActive(e.target.checked)}
-                        />
-                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-                    </label>
-                </div >
+                </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                {/* 2. VEHICLE IDENTITY */}
+                <section className="p-8 rounded-3xl border border-white/5 bg-slate-900/40 backdrop-blur-xl space-y-6">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500">
+                            <Car className="h-5 w-5" />
+                        </div>
+                        <h2 className="text-lg font-bold text-white">Vehicle Identity</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Make</label>
+                            <input
+                                name="make"
+                                defaultValue={initialData?.make}
+                                required
+                                placeholder="e.g. Toyota"
+                                className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none"
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Model</label>
+                            <input
+                                name="model"
+                                defaultValue={initialData?.model}
+                                required
+                                placeholder="e.g. Land Cruiser"
+                                className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none"
+                            />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Year</label>
+                                <input
+                                    name="year"
+                                    type="number"
+                                    defaultValue={initialData?.year}
+                                    required
+                                    className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Condition</label>
+                                <select
+                                    name="condition"
+                                    defaultValue={initialData?.condition || 'New'}
+                                    className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none"
+                                >
+                                    <option value="New">New</option>
+                                    <option value="Used">Used</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Price ($)</label>
+                            <input
+                                name="price"
+                                type="number"
+                                defaultValue={initialData?.price ?? ''}
+                                placeholder="80000"
+                                className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white text-lg font-bold text-emerald-400 placeholder:text-slate-700 outline-none"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                {/* 3. TECHNICAL SPECIFICATIONS */}
+                <section className="p-8 rounded-3xl border border-white/5 bg-slate-900/40 backdrop-blur-xl space-y-6">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+                            <AlertTriangle className="h-5 w-5" />
+                        </div>
+                        <h2 className="text-lg font-bold text-white">Technical Specs</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Fuel Type</label>
+                            <select name="fuelType" defaultValue={initialData?.fuelType || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
+                                <option value="">Select</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Electric">Electric</option>
+                            </select>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Transmission</label>
+                            <select name="transmission" defaultValue={initialData?.transmission || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
+                                <option value="">Select</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Engine</label>
+                            <input name="engineCapacity" defaultValue={initialData?.engineCapacity || ''} placeholder="e.g. 2.5L" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Mileage (KM)</label>
+                            <input name="mileage" type="number" defaultValue={initialData?.mileage || 0} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Drive Type</label>
+                            <select name="driveType" defaultValue={initialData?.driveType || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
+                                <option value="">Select</option>
+                                <option value="2WD">2WD</option>
+                                <option value="4WD">4WD</option>
+                                <option value="AWD">AWD</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 4. BODY & FEATURES */}
+                <section className="p-8 rounded-3xl border border-white/5 bg-slate-900/40 backdrop-blur-xl space-y-6">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-orange-500/10 text-orange-500">
+                            <Box className="h-5 w-5" />
+                        </div>
+                        <h2 className="text-lg font-bold text-white">Body & Features</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Body Type</label>
+                            <input name="bodyType" defaultValue={initialData?.bodyType || ''} placeholder="e.g. SUV" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Steering</label>
+                            <select name="steering" defaultValue={initialData?.steering || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
+                                <option value="">Select</option>
+                                <option value="LHD">LHD</option>
+                                <option value="RHD">RHD</option>
+                            </select>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Colour</label>
+                            <input name="colour" defaultValue={initialData?.colour || ''} placeholder="e.g. Black" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Doors</label>
+                            <input name="doors" type="number" defaultValue={initialData?.doors || ''} placeholder="4" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Seats</label>
+                            <input name="seats" type="number" defaultValue={initialData?.seats || ''} placeholder="5" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Location/Port</label>
+                            <input name="location" defaultValue={initialData?.location || ''} placeholder="e.g. Dubai" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
+                        </div>
+                    </div>
+                </section>
+
+                {/* 5. MEDIA & DESCRIPTION */}
+                <section className="p-8 rounded-3xl border border-white/5 bg-slate-900/40 backdrop-blur-xl space-y-6">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 rounded-lg bg-pink-500/10 text-pink-500">
+                            <Eye className="h-5 w-5" />
+                        </div>
+                        <h2 className="text-lg font-bold text-white">Media & Details</h2>
+                    </div>
+
+                    <div className="space-y-4">
+                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Vehicle Images</label>
+                        <ImageUpload
+                            value={images}
+                            onChange={(urls) => setImages(urls)}
+                            onRemove={(url) => setImages(images.filter((img) => img !== url))}
+                        />
+                    </div>
+
                     <div className="space-y-2">
-                        <label htmlFor="year" className="text-sm font-medium">
-                            Year <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                            name="year"
-                            type="number"
-                            defaultValue={initialData?.year}
+                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Full Description</label>
+                        <textarea
+                            name="description"
+                            defaultValue={initialData?.description}
                             required
-                            placeholder="2024"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                        {
-                            state.errors?.year && (
-                                <p className="text-sm text-red-500">{state.errors.year}</p>
-                            )
-                        }
-                    </div >
-                    <div className="space-y-2">
-                        <label htmlFor="price" className="text-sm font-medium">
-                            Price ($)
-                        </label>
-                        <input
-                            name="price"
-                            type="number"
-                            defaultValue={initialData?.price ?? ''}
-                            placeholder="80000"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                        {state.errors?.price && (
-                            <p className="text-sm text-red-500">{state.errors.price}</p>
-                        )}
-                    </div>
-                </div >
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="fuelType" className="text-sm font-medium">
-                            Fuel Type
-                        </label>
-                        <select
-                            name="fuelType"
-                            defaultValue={initialData?.fuelType || ''}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="">Select Fuel Type</option>
-                            <option value="Petrol">Petrol</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Hybrid">Hybrid</option>
-                            <option value="Electric">Electric</option>
-                        </select>
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="transmission" className="text-sm font-medium">
-                            Transmission
-                        </label>
-                        <select
-                            name="transmission"
-                            defaultValue={initialData?.transmission || ''}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="">Select Transmission</option>
-                            <option value="Automatic">Automatic</option>
-                            <option value="Manual">Manual</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="bodyType" className="text-sm font-medium">
-                            Body Type
-                        </label>
-                        <input
-                            name="bodyType"
-                            defaultValue={initialData?.bodyType || ''}
-                            placeholder="e.g. SUV, Sedan"
-                            className="w-full rounded-md border bg-background px-3 py-2"
+                            rows={6}
+                            placeholder="Detailed features, history, and special options..."
+                            className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none focus:border-primary/50 transition-all resize-none"
                         />
                     </div>
-                    <div className="space-y-2">
-                        <label htmlFor="steering" className="text-sm font-medium">
-                            Steering
-                        </label>
-                        <select
-                            name="steering"
-                            defaultValue={initialData?.steering || ''}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="">Select Steering</option>
-                            <option value="LHD">LHD</option>
-                            <option value="RHD">RHD</option>
-                        </select>
+                </section>
+
+                <div className="flex items-center justify-between p-6 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-xl">
+                    <div className="text-sm text-slate-400 font-medium">
+                        Ensure all required fields marked with <span className="text-rose-500 font-bold">*</span> are completed.
                     </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="mileage" className="text-sm font-medium">
-                            Mileage (km)
-                        </label>
-                        <input
-                            name="mileage"
-                            type="number"
-                            defaultValue={initialData?.mileage || 0}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="condition" className="text-sm font-medium">
-                            Condition <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                            name="condition"
-                            defaultValue={initialData?.condition || 'New'}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="New">New</option>
-                            <option value="Used">Used</option>
-                        </select>
-                    </div >
-                </div >
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="engineCapacity" className="text-sm font-medium">
-                            Engine Capacity
-                        </label>
-                        <input
-                            name="engineCapacity"
-                            defaultValue={initialData?.engineCapacity || ''}
-                            placeholder="e.g. 2.5L, 3.0L"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="colour" className="text-sm font-medium">
-                            Colour
-                        </label>
-                        <input
-                            name="colour"
-                            defaultValue={initialData?.colour || ''}
-                            placeholder="e.g. White, Black, Silver"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="driveType" className="text-sm font-medium">
-                            Drive Type
-                        </label>
-                        <select
-                            name="driveType"
-                            defaultValue={initialData?.driveType || ''}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="">Select Drive Type</option>
-                            <option value="2WD">2WD</option>
-                            <option value="4WD">4WD</option>
-                            <option value="AWD">AWD</option>
-                        </select>
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="location" className="text-sm font-medium">
-                            Location/Port
-                        </label>
-                        <input
-                            name="location"
-                            defaultValue={initialData?.location || ''}
-                            placeholder="e.g. Dubai, Singapore"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <label htmlFor="doors" className="text-sm font-medium">
-                            Doors
-                        </label>
-                        <select
-                            name="doors"
-                            defaultValue={initialData?.doors?.toString() || ''}
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        >
-                            <option value="">Select Doors</option>
-                            <option value="2">2</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                    <div className="space-y-2">
-                        <label htmlFor="seats" className="text-sm font-medium">
-                            Seats
-                        </label>
-                        <input
-                            name="seats"
-                            type="number"
-                            defaultValue={initialData?.seats || ''}
-                            placeholder="2-8"
-                            min="2"
-                            max="8"
-                            className="w-full rounded-md border bg-background px-3 py-2"
-                        />
-                    </div>
-                </div>
-
-                <div className="space-y-4">
-                    <label className="text-sm font-medium">
-                        Car Images <span className="text-red-500">*</span>
-                    </label>
-                    <ImageUpload
-                        value={images}
-                        onChange={(urls) => setImages(urls)}
-                        onRemove={(url) => setImages(images.filter((img) => img !== url))}
-                    />
-                    {state.errors?.images && (
-                        <p className="text-sm text-red-500">{state.errors.images}</p>
-                    )}
-                </div>
-
-                <div className="space-y-2">
-                    <label htmlFor="description" className="text-sm font-medium">
-                        Description <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                        name="description"
-                        defaultValue={initialData?.description}
-                        required
-                        rows={4}
-                        placeholder="Full options, leather interior..."
-                        className="w-full rounded-md border bg-background px-3 py-2"
-                    />
-                    {state.errors?.description && (
-                        <p className="text-sm text-red-500">{state.errors.description}</p>
-                    )}
-                </div>
-
-
-
-                {
-                    state.message && (
-                        <p className="text-sm text-red-500">{state.message}</p>
-                    )
-                }
-
-                <div className="pt-4 flex justify-end">
                     <button
                         type="submit"
                         disabled={state.isLoading}
-                        className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-6 py-2 font-medium flex items-center gap-2 disabled:opacity-50"
+                        className="relative group px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-xs hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 disabled:opacity-50 flex items-center gap-3 overflow-hidden"
                     >
+                        <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         {state.isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
-                        {initialData ? 'Update Car' : 'Create Car listing'}
+                        <span className="relative">{initialData ? 'Update Vehicle' : 'Create Listing'}</span>
                     </button>
                 </div>
             </form >
-        </div >
+
+            {/* Confirmation Modal */}
+            {showConfirmModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300">
+                    <div className="w-full max-w-md rounded-3xl bg-slate-900 border border-white/10 shadow-2xl overflow-hidden scale-in-center">
+                        <div className="p-8">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="p-3 rounded-2xl bg-amber-500/20 text-amber-500">
+                                    <AlertTriangle className="h-8 w-8" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-white">Reactivate Listing?</h3>
+                                    <p className="text-xs text-slate-500 uppercase tracking-widest font-black mt-1">Status Transition</p>
+                                </div>
+                            </div>
+
+                            <p className="text-slate-300 text-sm leading-relaxed mb-8">
+                                This vehicle is currently marked as <span className="text-rose-400 font-bold">SOLD</span>. Are you sure you want to mark it as <span className="text-emerald-400 font-bold">AVAILABLE</span>?
+                                <br /><br />
+                                <span className="text-slate-500 italic">This will make the car visible on the public collection again.</span>
+                            </p>
+
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={() => setShowConfirmModal(false)}
+                                    className="flex-1 px-6 py-4 rounded-2xl border border-white/10 text-slate-400 font-bold hover:bg-white/5 transition-colors text-xs uppercase tracking-widest"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={confirmStatusChange}
+                                    className="flex-1 px-6 py-4 rounded-2xl bg-primary text-white font-bold hover:bg-primary/90 transition-all text-xs uppercase tracking-widest shadow-lg shadow-primary/20"
+                                >
+                                    Yes, Reactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 }

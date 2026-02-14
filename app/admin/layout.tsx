@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { LayoutDashboard, MessageSquare, Car, LogOut, ArrowLeft, BarChart3, Users } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Car, LogOut, ArrowLeft, BarChart3, Users, Table } from 'lucide-react';
+
 import { signOut } from '@/auth';
+import { ToastHandler } from '@/components/admin/ToastHandler';
 import { Roboto } from "next/font/google"; // Import font
 import "../globals.css"; // Import globals
 
@@ -74,6 +76,13 @@ export default function AdminLayout({
                                 <span className="font-medium">Manage Cars</span>
                             </Link>
                             <Link
+                                href="/admin/cars/inventory"
+                                className="flex items-center gap-3 rounded-xl px-3 py-3 text-slate-400 transition-all hover:text-white hover:bg-white/5 group cursor-pointer"
+                            >
+                                <Table className="h-5 w-5 group-hover:text-emerald-500 transition-colors" />
+                                <span className="font-medium">Inventory Table</span>
+                            </Link>
+                            <Link
                                 href="/admin/team"
                                 className="flex items-center gap-3 rounded-xl px-3 py-3 text-slate-400 transition-all hover:text-white hover:bg-white/5 group cursor-pointer"
                             >
@@ -108,6 +117,7 @@ export default function AdminLayout({
                     </main>
                 </div>
                 <Toaster richColors position="top-right" />
+                <ToastHandler />
             </body>
         </html>
     );
