@@ -16,7 +16,7 @@ interface LuxuryFilters {
     vehicleType?: string[];
 }
 
-export async function getLuxuryCars(filters?: LuxuryFilters): Promise<Car[]> {
+export async function getLuxuryCars(filters?: LuxuryFilters, locale?: string) {
     try {
         const where: any = {
             OR: [
@@ -69,7 +69,12 @@ export async function getLuxuryCars(filters?: LuxuryFilters): Promise<Car[]> {
             orderBy: {
                 price: 'desc' // Show most expensive first
             },
-            take: 50 // Limit results
+            take: 50, // Limit results
+            include: {
+                translations: locale && locale !== 'en'
+                    ? { where: { locale, status: 'COMPLETED' } }
+                    : false,
+            },
         });
 
         return cars;
