@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Accueil",
-    "inventory": "Inventaire",
+    "inventory": "Collection",
     "services": "Services",
     "about": "À propos",
     "contact": "Contactez-nous",
@@ -99,7 +99,7 @@
       "priceOnRequest": "Prix sur Demande",
       "breadcrumb": {
         "home": "Accueil",
-        "inventory": "Inventaire"
+        "inventory": "Collection"
       }
     }
   },
@@ -267,7 +267,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "À propos",
-      "inventory": "Inventaire",
+      "inventory": "Collection",
       "services": "Services",
       "contact": "Contactez-nous",
       "faq": "FAQ"
@@ -473,6 +473,6 @@
     "title": "Page non trouvée",
     "subtitle": "Le chemin que vous recherchez n'existe pas ou a été déplacé.",
     "backHome": "Retour à l'accueil",
-    "browseInventory": "Parcourir le catalogue"
+    "browseInventory": "Parcourir la collection"
   }
 }

@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Início",
-    "inventory": "Inventário",
+    "inventory": "Coleção",
     "services": "Serviços",
     "about": "Sobre Nós",
     "contact": "Contacte-nos",
@@ -41,6 +41,7 @@
     "subtitle": "Navegue pela nossa coleção completa de veículos premium prontos para exportação global",
     "vehiclesFound": "{count} Veículos Encontrados",
     "foundSubtitle": "Encontrado em toda a nossa coleção",
+    "priceOnRequest": "Preço sob Consulta",
     "filterTitle": "Filtros",
     "clearFilters": "Limpar Filtros",
     "clearAll": "Limpar Tudo",
@@ -95,9 +96,10 @@
       "globalExport": "Exportação Global Disponível",
       "enquire": "Consultar Agora",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "Preço sob Consulta",
       "breadcrumb": {
         "home": "Início",
-        "inventory": "Inventário"
+        "inventory": "Coleção"
       }
     }
   },
@@ -265,7 +267,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "Sobre Nós",
-      "inventory": "Inventário",
+      "inventory": "Coleção",
       "services": "Serviços",
       "contact": "Contactar",
       "faq": "FAQ"
@@ -471,6 +473,6 @@
     "title": "Página não encontrada",
     "subtitle": "O caminho que procura não existe ou foi movido.",
     "backHome": "Voltar ao início",
-    "browseInventory": "Explorar inventário"
+    "browseInventory": "Explorar coleção"
   }
 }

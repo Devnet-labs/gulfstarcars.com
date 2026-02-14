@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Главная",
-    "inventory": "Инвентарь",
+    "inventory": "Коллекция",
     "services": "Услуги",
     "about": "О нас",
     "contact": "Контакты",
@@ -41,6 +41,7 @@
     "subtitle": "Просмотрите нашу полную коллекцию автомобилей премиум-класса, готовых к экспорту по всему миру",
     "vehiclesFound": "Найдено {count} автомобилей",
     "foundSubtitle": "Найдено во всей нашей коллекции",
+    "priceOnRequest": "Цена по запросу",
     "filterTitle": "Фильтры",
     "clearFilters": "Очистить фильтры",
     "clearAll": "Очистить все",
@@ -95,9 +96,10 @@
       "globalExport": "Доступен глобальный экспорт",
       "enquire": "Запросить",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "Цена по запросу",
       "breadcrumb": {
         "home": "Главная",
-        "inventory": "Инвентарь"
+        "inventory": "Коллекция"
       }
     }
   },
@@ -265,7 +267,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "О нас",
-      "inventory": "Инвентарь",
+      "inventory": "Коллекция",
       "services": "Услуги",
       "contact": "Контакты",
       "faq": "FAQ"
@@ -471,6 +473,6 @@
     "title": "Страница не найдена",
     "subtitle": "Путь, который вы ищете, не существует или был перенесен.",
     "backHome": "Вернуться на главную",
-    "browseInventory": "Просмотреть каталог"
+    "browseInventory": "Просмотреть коллекцию"
   }
 }

@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "Home",
-    "inventory": "Products",
+    "inventory": "Collection",
     "services": "Services",
     "about": "About Us",
     "contact": "Contact Us",
@@ -309,7 +309,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "About Us",
-      "inventory": "Products",
+      "inventory": "Collection",
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
