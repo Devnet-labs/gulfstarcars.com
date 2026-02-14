@@ -4,19 +4,18 @@ import { TeamMemberCard } from '@/components/TeamMemberCard';
 import { Shield, FileCheck, Ship, CheckCircle2, Globe2, TrendingUp, Users, Award } from 'lucide-react';
 import * as Motion from '@/components/motion';
 import type { Metadata } from 'next';
+import { generateMetadata as generateMeta } from '@/lib/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.about' });
-  return {
+
+  return generateMeta({
     title: t('title'),
     description: t('description'),
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      type: 'website',
-    },
-  };
+    url: `/${locale}/about`,
+    locale,
+  });
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {

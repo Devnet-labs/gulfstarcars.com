@@ -320,8 +320,8 @@
     "phoneLabel": "Números de Contacto",
     "addressLabel": "Ubicación Principal",
     "emails": {
-        "info": "INFO@GULFSTARCARS.COM",
-        "sales": "SALES@GULFSTARCARS.COM"
+      "info": "INFO@GULFSTARCARS.COM",
+      "sales": "SALES@GULFSTARCARS.COM"
     },
     "privacy": "Privacidad",
     "terms": "Términos",
@@ -332,6 +332,22 @@
     "about": {
       "title": "Sobre Nosotros - Gulf Star Automotive FZC | Exportación Internacional de Vehículos",
       "description": "Gulf Star Automotive FZC es una empresa licenciada de exportación de vehículos en Dubai, EAU. Proporcionamos servicios integrales de exportación incluyendo logística, cumplimiento y documentación para el comercio automotriz internacional."
+    },
+    "cars": {
+      "title": "Lista de Stock - Gulf Star Automotive | Exportación de Coches Premium",
+      "description": "Navegue por nuestro inventario completo de vehículos premium listos para exportar desde Dubái. Coches de lujo, SUVs y más disponibles para envío mundial."
+    },
+    "luxury": {
+      "title": "Colección de Lujo - Gulf Star Automotive | Exportación de Vehículos de Gama Alta",
+      "description": "Explore nuestra exclusiva colección de coches de lujo y exóticos. Marcas premium incluyendo Rolls Royce, Bentley, Ferrari y más disponibles para exportación."
+    },
+    "contact": {
+      "title": "Contáctenos - Gulf Star Automotive | Servicios de Exportación de Vehículos",
+      "description": "Póngase en contacto con Gulf Star Automotive para sus necesidades de exportación de vehículos. Nuestro equipo está listo para ayudar con la búsqueda, envío y documentación."
+    },
+    "faq": {
+      "title": "FAQ - Gulf Star Automotive | Preguntas sobre Exportación de Coches",
+      "description": "Encuentre respuestas a preguntas comunes sobre la exportación de coches desde Dubái. Aprenda sobre envío, aduanas, métodos de pago y nuestro proceso de inspección."
     }
   },
   "aboutPage": {

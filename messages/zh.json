@@ -362,8 +362,8 @@
     "phoneLabel": "联系电话",
     "addressLabel": "主要地点",
     "emails": {
-        "info": "INFO@GULFSTARCARS.COM",
-        "sales": "SALES@GULFSTARCARS.COM"
+      "info": "INFO@GULFSTARCARS.COM",
+      "sales": "SALES@GULFSTARCARS.COM"
     },
     "privacy": "隐私",
     "terms": "条款",
@@ -510,6 +510,22 @@
     "about": {
       "title": "关于我们 - Gulf Star Automotive FZC | 国际汽车出口",
       "description": "Gulf Star Automotive FZC 是一家位于阿联酋迪拜的持牌汽车出口公司。我们提供全面的出口服务，包括物流、合规和国际汽车贸易文件。"
+    },
+    "cars": {
+      "title": "库存列表 - Gulf Star Automotive | 高端汽车出口",
+      "description": "浏览我们要从迪拜出口的高端车辆完整库存。豪华轿车、SUV等均可全球发货。"
+    },
+    "luxury": {
+      "title": "豪华系列 - Gulf Star Automotive | 顶级车辆出口",
+      "description": "探索我们独家的豪华和异国情调汽车系列。包括劳斯莱斯、宾利、法拉利等在内的高端品牌均可出口。"
+    },
+    "contact": {
+      "title": "联系我们 - Gulf Star Automotive | 车辆出口服务",
+      "description": "联系 Gulf Star Automotive 满足您的车辆出口需求。我们的团队随时准备协助采购、运输和文件处理。"
+    },
+    "faq": {
+      "title": "常见问题 - Gulf Star Automotive | 汽车出口问题",
+      "description": "查找有关从迪拜出口汽车的常见问题的答案。了解有关运输、海关、付款方式和我们就检查流程的信息。"
     }
   },
   "notFound": {
