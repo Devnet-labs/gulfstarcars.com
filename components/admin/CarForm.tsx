@@ -368,8 +368,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         <label className="text-xs font-black uppercase tracking-widest text-slate-500">Vehicle Images</label>
                         <ImageUpload
                             value={images}
-                            onChange={(urls) => setImages(urls)}
-                            onRemove={(url) => setImages(images.filter((img) => img !== url))}
+                            onUpload={(url) => setImages((prev) => [...prev, url])}
+                            onRemove={(url) => setImages((prev) => prev.filter((img) => img !== url))}
                         />
                     </div>
 

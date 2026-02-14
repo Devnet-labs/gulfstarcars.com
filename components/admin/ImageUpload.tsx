@@ -5,19 +5,19 @@ import { ImagePlus, Trash2 } from 'lucide-react';
 import { useCallback } from 'react';
 
 interface ImageUploadProps {
-    onChange: (value: string[]) => void;
-    onRemove: (value: string) => void;
+    onUpload: (url: string) => void;
+    onRemove: (url: string) => void;
     value: string[];
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
-    onChange,
+    onUpload,
     onRemove,
     value
 }) => {
-    const onUpload = useCallback((result: any) => {
-        onChange([...value, result.info.secure_url]);
-    }, [onChange, value]);
+    const handleUpload = useCallback((result: any) => {
+        onUpload(result.info.secure_url);
+    }, [onUpload]);
 
     return (
         <div>
@@ -42,7 +42,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                 ))}
             </div>
             <CldUploadWidget
-                onSuccess={onUpload}
+                onSuccess={handleUpload}
                 uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
                 options={{
                     maxFiles: 10,
