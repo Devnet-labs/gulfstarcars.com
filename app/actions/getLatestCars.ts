@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db';
 export async function getLatestCars(locale?: string) {
     try {
         const cars = await prisma.car.findMany({
-            where: { isActive: true },
+            where: { isActive: true, status: 'AVAILABLE' },
             orderBy: { createdAt: 'desc' },
             take: 6,
             include: {
