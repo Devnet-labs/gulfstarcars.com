@@ -198,13 +198,13 @@ export default function CarsPage() {
     const tCommon = useTranslations('common');
 
     return (
-        <div className="min-h-screen bg-[#0B0F19] pt-16 sm:pt-20">
+        <div className="min-h-screen bg-[#0B0F19]">
             {/* Main Content */}
-            <section className="py-6 sm:py-12">
+            <section className="pt-0 pb-6 sm:pb-12">
                 <div className="container mx-auto px-4">
                     {/* Make Selector - Sticky top on desktop */}
                     {filterOptions.makes.length > 0 && (
-                        <div className="mb-8 sm:mb-20 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-4 sm:pt-6 border-b border-white/5">
+                        <div className="mb-8 sm:mb-2 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-4 sm:pt-6 border-b border-white/5">
                             <div className="flex gap-2.5 sm:gap-4 min-w-max pb-2">
                                 {filterOptions.makes.map(({ make, count }) => {
                                     const isSelected = selectedFilters.make.includes(make);
@@ -239,7 +239,7 @@ export default function CarsPage() {
                         </div>
                     )}
 
-                    <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="flex flex-col lg:flex-row gap-6">
                         {/* Filter Sidebar */}
                         <div className="lg:w-80 flex-shrink-0">
                             {/* Fixed Mobile Filter Button */}
@@ -269,7 +269,7 @@ export default function CarsPage() {
                                         ? 'fixed inset-0 z-[110] lg:relative lg:inset-auto lg:z-30 block animate-in fade-in slide-in-from-bottom-5 duration-500'
                                         : 'hidden lg:block'
                                     } 
-                                    sticky top-48 lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto custom-scrollbar
+                                    sticky top-28 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto custom-scrollbar
                                 `}
                             >
                                 {/* Mobile Backdrop */}
@@ -280,7 +280,7 @@ export default function CarsPage() {
                                     />
                                 )}
 
-                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-5 sm:p-7 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[30px] sm:rounded-[40px] border-white/20">
+                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-4 sm:p-6 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[30px] sm:rounded-[40px] border-white/20">
                                     {/* Glassmorphism accent */}
                                     <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
