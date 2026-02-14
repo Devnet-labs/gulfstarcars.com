@@ -2,8 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
-import { redirect } from '@/i18n/routing';
-import { getLocale } from 'next-intl/server';
+import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const carSchema = z.object({
@@ -101,8 +100,7 @@ export async function createCar(prevState: any, formData: FormData) {
         };
     }
     if (car) {
-        const locale = await getLocale();
-        redirect({ href: `/admin/cars/${car.id}?message=created`, locale });
+        redirect(`/admin/cars/${car.id}?message=created`);
     }
     return { message: 'Success' }; // This line will only be reached if car is null, which shouldn't happen if no error was thrown.
 }
@@ -163,8 +161,7 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
             message: `Database Error: Failed to Update Car. Details: ${error instanceof Error ? error.message : String(error)}`,
         };
     }
-    const locale = await getLocale();
-    redirect({ href: `/admin/cars/${id}?message=updated`, locale });
+    redirect(`/admin/cars/${id}?message=updated`);
     return { message: 'Success' };
 }
 
