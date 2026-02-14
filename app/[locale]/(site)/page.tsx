@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center bg-background pt-20 sm:pt-24 pb-0 overflow-hidden">
+      <section className="relative h-screen min-h-screen flex flex-col justify-center bg-background pt-20 sm:pt-24 pb-0 overflow-hidden">
         {/* Background Video with Premium Overlays */}
         <div className="absolute inset-0 z-0">
           <video
@@ -99,21 +99,22 @@ export default function Home() {
         </div>
 
         {/* --- Hero Quick Actions (Discovery Bar) --- */}
-        <div className="absolute bottom-8 left-0 right-0 z-20">
-          <div className="container mx-auto px-6">
-            <div className="hidden sm:flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+        <div className="absolute bottom-6 sm:bottom-24 left-0 right-0 z-20">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 max-w-4xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex-1 sm:flex-none"
               >
                 <Link
                   href="/cars"
-                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center justify-center gap-2 sm:gap-5 px-3 sm:px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10 w-full"
                 >
-                  <Car className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-bold text-white tracking-wide">{t('cta.viewAllCars')}</span>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all" />
+                  <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
+                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">{t('cta.viewAllCars')}</span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all shrink-0" />
                 </Link>
               </motion.div>
 
@@ -121,14 +122,15 @@ export default function Home() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
+                className="flex-1 sm:flex-none"
               >
                 <Link
                   href="/contact"
-                  className="group flex items-center gap-5 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10"
+                  className="group flex items-center justify-center gap-2 sm:gap-5 px-3 sm:px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10 w-full"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-bold text-white tracking-wide">Contact Expert</span>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
+                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">Collection Explorer</span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
                 </Link>
               </motion.div>
             </div>
