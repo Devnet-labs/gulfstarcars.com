@@ -331,9 +331,7 @@ export async function translateCarAction(
         location: car.location ?? undefined,
     };
     return translateAllCarFields(carId, fields);
-}
-
-/** Payload for updating a full locale translation (admin edit form) */
+}/** Payload for updating a full locale translation (admin edit form) */
 export type TranslationLocaleUpdate = Partial<Record<keyof TranslatableCarFields, string | null>>;
 
 /**

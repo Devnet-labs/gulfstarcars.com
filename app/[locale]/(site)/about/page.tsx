@@ -149,13 +149,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <p className="text-sm sm:text-base text-[#A3A3A3] max-w-2xl mx-auto">{t('leadership.subtitle')}</p>
           </Motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
               <TeamMemberCard
                 key={member.id}
                 name={member.name}
                 position={member.position}
-                bio={member.bio}
+                bio={member.bio?.trim() ? member.bio : undefined}
                 image={member.image || undefined}
                 linkedIn={member.linkedIn || undefined}
                 email={member.email || undefined}
