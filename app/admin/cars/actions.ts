@@ -74,9 +74,9 @@ export async function createCar(prevState: any, formData: FormData) {
         }
         const customId = `CE-${nextId}`;
 
-        // Logic: if status is SOLD, isActive should be false
+        // Logic: if status is SOLD or RESERVED, isActive should be false
         let isActive = validatedFields.data.isActive;
-        if (validatedFields.data.status === 'SOLD') {
+        if (validatedFields.data.status === 'SOLD' || validatedFields.data.status === 'RESERVED') {
             isActive = false;
         }
 
@@ -133,9 +133,9 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
     }
 
     try {
-        // Logic: if status is SOLD, isActive should be false
+        // Logic: if status is SOLD or RESERVED, isActive should be false
         let isActive = validatedFields.data.isActive;
-        if (validatedFields.data.status === 'SOLD') {
+        if (validatedFields.data.status === 'SOLD' || validatedFields.data.status === 'RESERVED') {
             isActive = false;
         }
 

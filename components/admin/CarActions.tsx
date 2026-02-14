@@ -22,7 +22,7 @@ export default function CarActions({ carId, initialIsActive }: CarActionsProps) 
                 const result = await toggleCarVisibility(carId, !isActive);
                 if (result.success) {
                     setIsActive(!isActive);
-                    toast.success(`Car is now ${!isActive ? 'visible' : 'hidden'}`, {
+                    toast.success(`Car is now ${!isActive ? 'visible' : 'inactive'}`, {
                         description: `The visibility status has been updated successfully.`,
                     });
                 } else {
@@ -57,10 +57,10 @@ export default function CarActions({ carId, initialIsActive }: CarActionsProps) 
                 onClick={handleToggleVisibility}
                 disabled={isPending || isDeleting}
                 className={`flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200 text-xs font-medium ${isActive
-                        ? 'border-emerald-500/20 bg-emerald-500/5 text-emerald-400 hover:bg-emerald-500/10'
-                        : 'border-yellow-500/20 bg-yellow-500/5 text-yellow-400 hover:bg-yellow-500/10'
+                    ? 'border-emerald-500/20 bg-emerald-500/5 text-emerald-400 hover:bg-emerald-500/10'
+                    : 'border-slate-500/20 bg-slate-500/5 text-slate-400 hover:bg-slate-500/10'
                     } disabled:opacity-50`}
-                title={isActive ? 'Hide from users' : 'Show to users'}
+                title={isActive ? 'Deactivate Listing' : 'Activate Listing'}
             >
                 {isPending ? (
                     <Loader2 className="h-3 w-3 animate-spin" />
@@ -72,7 +72,7 @@ export default function CarActions({ carId, initialIsActive }: CarActionsProps) 
                 ) : (
                     <>
                         <EyeOff className="h-3 w-3" />
-                        <span>Hidden</span>
+                        <span>Inactive</span>
                     </>
                 )}
             </button>
