@@ -76,7 +76,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
 
     const handleStatusChange = (newStatus: string) => {
         // If transitioning from SOLD to AVAILABLE, show confirmation
-        if (initialData?.status === 'SOLD' && newStatus === 'AVAILABLE') {
+        if (status === 'SOLD' && newStatus === 'AVAILABLE') {
             setPendingStatus(newStatus);
             setShowConfirmModal(true);
             return;

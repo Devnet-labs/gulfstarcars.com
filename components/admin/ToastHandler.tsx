@@ -11,12 +11,15 @@ function ToastContent() {
 
     useEffect(() => {
         const message = searchParams.get('message');
+        console.log('ToastHandler message:', message);
         if (message) {
             if (message === 'created') {
+                console.log('Showing creation toast');
                 toast.success('Car created successfully', {
                     description: 'The new vehicle has been added to the inventory.',
                 });
             } else if (message === 'updated') {
+                console.log('Showing update toast');
                 toast.success('Car updated successfully', {
                     description: 'Changes have been saved to the vehicle record.',
                 });
@@ -26,6 +29,7 @@ function ToastContent() {
             const params = new URLSearchParams(searchParams.toString());
             params.delete('message');
             const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname;
+            console.log('Cleaning URL to:', newUrl);
             window.history.replaceState(null, '', newUrl);
         }
     }, [searchParams, pathname]);
