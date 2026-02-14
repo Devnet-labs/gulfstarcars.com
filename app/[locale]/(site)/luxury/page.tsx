@@ -7,8 +7,10 @@ import { CarCard } from '@/components/CarCard';
 import { getLuxuryCars, getLuxuryFilterOptions } from '@/app/actions/getLuxuryCars';
 import { ChevronDown, Filter, X, Sparkles } from 'lucide-react';
 import { SkeletonGrid, SkeletonHeader } from '@/components/SkeletonCarCard';
+import { useLocale } from 'next-intl';
 
 export default function LuxuryPage() {
+    const locale = useLocale();
     const [cars, setCars] = useState<Car[]>([]);
     const [loading, setLoading] = useState(true);
     const [showFilters, setShowFilters] = useState(false);
@@ -40,16 +42,16 @@ export default function LuxuryPage() {
         fetchOptions();
     }, []);
 
-    // Fetch cars when filters change
+    // Fetch cars when filters or locale change
     useEffect(() => {
         const fetchCars = async () => {
             setLoading(true);
-            const luxuryCars = await getLuxuryCars(selectedFilters);
+            const luxuryCars = await getLuxuryCars(selectedFilters, locale);
             setCars(luxuryCars);
             setLoading(false);
         };
         fetchCars();
-    }, [selectedFilters]);
+    }, [selectedFilters, locale]);
 
     const handleFilterChange = (category: 'fuelType' | 'transmission' | 'vehicleType', value: string) => {
         setSelectedFilters(prev => {

@@ -72,22 +72,23 @@ export async function createCar(prevState: any, formData: FormData) {
         }
         const customId = `CE-${nextId}`;
 
-        await prisma.car.create({
+        const car = await prisma.car.create({
             data: {
                 ...validatedFields.data,
                 price: validatedFields.data.price ?? null,
                 customId,
             } as any,
         });
+
+        revalidatePath('/admin/cars');
+        revalidatePath(`/admin/cars/${car.id}`);
+        redirect(`/admin/cars/${car.id}`);
     } catch (error) {
         console.error('CREATE_CAR_ERROR:', error);
         return {
             message: 'Database Error: Failed to Create Car.',
         };
     }
-
-    revalidatePath('/admin/cars');
-    redirect('/admin/cars');
 }
 
 export async function updateCar(id: string, prevState: any, formData: FormData) {
@@ -128,15 +129,16 @@ export async function updateCar(id: string, prevState: any, formData: FormData) 
                 price: validatedFields.data.price ?? null,
             } as any,
         });
+
+        revalidatePath('/admin/cars');
+        revalidatePath(`/admin/cars/${id}`);
+        redirect(`/admin/cars/${id}`);
     } catch (error) {
         console.error('UPDATE_CAR_ERROR:', error);
         return {
             message: 'Database Error: Failed to Update Car.',
         };
     }
-
-    revalidatePath('/admin/cars');
-    redirect('/admin/cars');
 }
 
 export async function deleteCar(id: string) {
@@ -158,7 +160,7 @@ export async function toggleCarVisibility(id: string, isActive: boolean) {
     try {
         await prisma.car.update({
             where: { id },
-            data: { isActive },
+            data: { isActive } as Record<string, unknown>,
         });
         revalidatePath('/admin/cars');
         revalidatePath('/cars');

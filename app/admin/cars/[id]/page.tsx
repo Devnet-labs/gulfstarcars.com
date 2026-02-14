@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
-import { ArrowLeft, Edit, Trash2, Eye, Languages, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
-import DeleteCarButton from '@/components/admin/DeleteCarButton';
+import { ArrowLeft, Edit, Eye, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
 import { FormattedDate } from '@/components/FormattedDate';
 import CarActions from '@/components/admin/CarActions';
+import TranslationPanel from '@/components/admin/TranslationPanel';
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -15,6 +15,7 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
 
     const car = await prisma.car.findUnique({
         where: { id },
+        include: { translations: true },
     });
 
     if (!car) {
@@ -176,6 +177,16 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* Translations */}
+            <div className="mt-6">
+                <TranslationPanel
+                    carId={car.id}
+                    translations={car.translations}
+                    sourceMake={car.make}
+                    sourceModel={car.model}
+                />
             </div>
         </div>
     );

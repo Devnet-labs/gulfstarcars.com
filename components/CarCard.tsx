@@ -44,6 +44,11 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
         description: translation?.description || car.description,
         make: translation?.make || car.make,
         model: translation?.model || car.model,
+        colour: translation?.colour || car.colour,
+        fuelType: translation?.fuelType || car.fuelType,
+        transmission: translation?.transmission || car.transmission,
+        driveType: translation?.driveType || car.driveType,
+        engineCapacity: translation?.engineCapacity || car.engineCapacity,
     };
 
     const handleCardClick = () => {
@@ -82,20 +87,20 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     </div>
 
                     {/* Specs Divider */}
-                    {(car.fuelType || car.transmission || car.mileage !== null) && (
+                    {(tFields.fuelType || tFields.transmission || car.mileage !== null) && (
                         <div className="flex items-center gap-2 sm:gap-4 py-2 sm:py-4 border-t border-white/5 mb-2 sm:mb-4">
-                            {car.fuelType && (
+                            {tFields.fuelType && (
                                 <>
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                        <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.fuelType}
+                                        <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {tFields.fuelType}
                                     </div>
-                                    {(car.transmission || car.mileage !== null) && <div className="w-px h-3 bg-white/10"></div>}
+                                    {(tFields.transmission || car.mileage !== null) && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
                             )}
-                            {car.transmission && (
+                            {tFields.transmission && (
                                 <>
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                        <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.transmission}
+                                        <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {tFields.transmission}
                                     </div>
                                     {car.mileage !== null && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
@@ -109,21 +114,21 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     )}
 
                     {/* Additional Specs */}
-                    {(car.colour || car.driveType || car.engineCapacity) && (
+                    {(tFields.colour || tFields.driveType || tFields.engineCapacity) && (
                         <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
-                            {car.colour && (
+                            {tFields.colour && (
                                 <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {car.colour}
+                                    {tFields.colour}
                                 </span>
                             )}
-                            {car.driveType && (
+                            {tFields.driveType && (
                                 <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {car.driveType}
+                                    {tFields.driveType}
                                 </span>
                             )}
-                            {car.engineCapacity && (
+                            {tFields.engineCapacity && (
                                 <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {car.engineCapacity}
+                                    {tFields.engineCapacity}
                                 </span>
                             )}
                         </div>
