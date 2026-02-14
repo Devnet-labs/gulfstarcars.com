@@ -198,14 +198,14 @@ export default function CarsPage() {
     const tCommon = useTranslations('common');
 
     return (
-        <div className="min-h-screen bg-[#0B0F19] pt-20">
+        <div className="min-h-screen bg-[#0B0F19] pt-16 sm:pt-20">
             {/* Main Content */}
-            <section className="py-8 sm:py-12">
+            <section className="py-6 sm:py-12">
                 <div className="container mx-auto px-4">
                     {/* Make Selector - Sticky top on desktop */}
                     {filterOptions.makes.length > 0 && (
-                        <div className="mb-12 sm:mb-20 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-6 border-b border-white/5">
-                            <div className="flex gap-3 sm:gap-4 min-w-max pb-2">
+                        <div className="mb-8 sm:mb-20 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sticky top-16 sm:top-20 z-30 bg-[#0B0F19]/90 backdrop-blur-xl pt-4 sm:pt-6 border-b border-white/5">
+                            <div className="flex gap-2.5 sm:gap-4 min-w-max pb-2">
                                 {filterOptions.makes.map(({ make, count }) => {
                                     const isSelected = selectedFilters.make.includes(make);
                                     return (
@@ -280,16 +280,16 @@ export default function CarsPage() {
                                     />
                                 )}
 
-                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-7 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[40px] border-white/20">
+                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-5 sm:p-7 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[30px] sm:rounded-[40px] border-white/20">
                                     {/* Glassmorphism accent */}
                                     <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
-                                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-white/5 rounded-lg border border-white/10">
-                                                <Filter className="h-4 w-4 text-slate-400" />
+                                    <div className="flex items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-white/10">
+                                        <div className="flex items-center gap-2 sm:gap-3">
+                                            <div className="p-1.5 sm:p-2 bg-white/5 rounded-lg border border-white/10">
+                                                <Filter className="h-3.5 w-3.5 sm:h-4 sm:h-4 text-slate-400" />
                                             </div>
-                                            <h3 className="text-xl font-black text-white tracking-tight uppercase text-[12px] tracking-[0.2em]">{t('filterTitle')}</h3>
+                                            <h3 className="text-xl font-black text-white tracking-tight uppercase text-[10px] sm:text-[12px] tracking-[0.2em]">{t('filterTitle')}</h3>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             {hasActiveFilters && (
@@ -390,16 +390,16 @@ export default function CarsPage() {
                                 </div>
                             ) : (
                                 <>
-                                    <div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 px-2">
+                                    <div className="mb-6 sm:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 px-1 sm:px-2">
                                         <div>
-                                            <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Active Selection</span>
+                                            <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
+                                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary animate-pulse" />
+                                                <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-primary">Active Selection</span>
                                             </div>
-                                            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
                                                 {t('vehiclesFound', { count: cars.length })}
                                             </h2>
-                                            <p className="text-slate-500 font-medium mt-1">{t('foundSubtitle')}</p>
+                                            <p className="text-slate-500 text-sm sm:text-base font-medium mt-1">{t('foundSubtitle')}</p>
                                         </div>
                                     </div>
 

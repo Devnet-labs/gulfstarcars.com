@@ -40,11 +40,11 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
     }
 
     return (
-        <div className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-16 bg-[#0B0F19]">
+        <div className="min-h-screen pt-16 sm:pt-20 pb-8 bg-[#0B0F19]">
             <ProductViewTracker carId={car.id} />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6">
                 {/* Navigation Breadcrumb */}
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-6 sm:mb-8 overflow-x-auto">
+                <div className="flex items-center gap-2 text-[10px] sm:text-xs text-muted-foreground mb-4 sm:mb-8 overflow-x-auto no-scrollbar">
                     <Link href="/" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.home')}</Link>
                     <span>/</span>
                     <Link href="/cars" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.inventory')}</Link>
@@ -52,12 +52,12 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                     <span className="text-foreground font-medium truncate">{tFields.make} {tFields.model}</span>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-12">
                     {/* Left Column: Gallery & Description */}
                     <div className="lg:col-span-8 space-y-6 sm:space-y-8">
                         <CarImageGallery images={car.images} alt={`${tFields.make} ${tFields.model}`} />
 
-                        <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl">
+                        <div className="bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-[32px] p-5 sm:p-8 border border-white/5 shadow-2xl">
                             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground tracking-tight">{t('description')}</h2>
                             <div className="prose prose-invert max-w-none text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                                 {tFields.description}
@@ -66,8 +66,8 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                     </div>
 
                     {/* Right Column: Key Details & Actions */}
-                    <div className="lg:col-span-4 space-y-6">
-                        <div className="bg-card rounded-2xl sm:rounded-[32px] p-4 sm:p-6 md:p-8 border border-white/5 shadow-2xl lg:sticky lg:top-24">
+                    <div className="lg:col-span-4 space-y-4">
+                        <div className="bg-card rounded-2xl sm:rounded-[32px] p-5 sm:p-8 border border-white/5 shadow-2xl lg:sticky lg:top-20">
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-2">
                                     <span className="px-2.5 sm:px-3 py-1 bg-primary text-white text-[10px] sm:text-[11px] font-black rounded-lg uppercase tracking-widest shadow-lg shadow-primary/20 border border-white/10">
@@ -121,8 +121,8 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                 </div>
 
                 {/* Technical Specifications Section */}
-                <div className="mt-8 sm:mt-12 lg:mt-16 bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[40px] p-4 sm:p-6 md:p-8 lg:p-12 border border-white/5 shadow-2xl">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 lg:mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
+                <div className="mt-6 sm:mt-12 bg-card/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[40px] p-6 sm:p-12 border border-white/5 shadow-2xl">
+                    <h2 className="text-xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center tracking-tight">{t('techSpecs')}</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-x-12 lg:gap-y-8">
                         <SpecItem icon={<Zap />} label={tSpecs('engineCapacity')} value={car.engineCapacity} />
                         <SpecItem icon={<Paintbrush />} label={tSpecs('colour')} value={car.colour} />

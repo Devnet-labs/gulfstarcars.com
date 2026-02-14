@@ -40,15 +40,15 @@ export function Navbar() {
                 {/* Gold accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-                <div className="w-full ps-0 pe-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
-                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-20 sm:h-24 lg:h-24' : 'h-22 sm:h-26 lg:h-28'}
+                <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 max-w-[100vw] py-0">
+                    <div className={`relative flex items-center justify-between gap-2 sm:gap-4 transition-all duration-300 py-0 ${isScrolled ? 'h-16 sm:h-20 lg:h-24' : 'h-20 sm:h-24 lg:h-28'}
                         `}>
                         {/* Logo — full height, zero padding so no top/bottom gap */}
                         <Link href="/" className="flex items-center h-full min-w-0 shrink cursor-pointer p-0 m-0">
                             <motion.div
-                                animate={{ scale: isScrolled ? 0.9 : 1 }}
+                                animate={{ scale: isScrolled ? 0.85 : 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="relative h-full w-[320px] sm:w-[360px] md:w-[400px] lg:w-[460px] xl:w-[500px] shrink-0 p-0 m-0 block leading-[0]"
+                                className="relative h-full w-[240px] xs:w-[280px] sm:w-[320px] md:w-[380px] lg:w-[460px] xl:w-[500px] shrink-0 p-0 m-0 block leading-[0]"
                             >
                                 <img
                                     src="/images/portfolio/logo/logo.png"

@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center bg-background pt-[88px] pb-0 overflow-hidden">
+      <section className="relative min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center bg-background pt-20 sm:pt-24 pb-0 overflow-hidden">
         {/* Background Video with Premium Overlays */}
         <div className="absolute inset-0 z-0">
           <video
@@ -76,23 +76,23 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
-        <div className="container mx-auto relative z-10 px-6 md:px-12 h-full flex flex-col justify-center">
+        <div className="container mx-auto relative z-10 px-4 sm:px-6 md:px-12 h-full flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl space-y-8 pt-12 md:-ms-8"
           >
-            <span className="inline-block text-primary font-bold tracking-wider text-sm uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md">
+            <span className="inline-block text-primary font-bold tracking-wider text-[10px] sm:text-xs md:text-sm uppercase bg-primary/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 backdrop-blur-md">
               {t('hero.badge')}
             </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
               {t('hero.title')} <br />
               <span className="text-primary">{t('hero.titleHighlight')}</span>
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
               {t('hero.subtitle')}
             </p>
           </motion.div>
@@ -137,25 +137,19 @@ export default function Home() {
       </section>
 
       {/* --- Newest Cars --- */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-12 sm:py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-8 sm:mb-12 gap-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <motion.div
-                  initial={{ rotate: -15, scale: 0.5 }}
-                  whileInView={{ rotate: 0, scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                >
-                </motion.div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
+              <div className="flex items-center gap-3 mb-2 sm:mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">{t('carsOfDay.title')}</h2>
               </div>
-              <p className="text-muted-foreground max-w-lg text-lg">
+              <p className="text-muted-foreground max-w-lg text-sm sm:text-base md:text-lg">
                 {t('carsOfDay.subtitle')}
               </p>
             </motion.div>
