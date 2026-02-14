@@ -2,22 +2,15 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Inicio",
-    "inventory": "Inventario",
+    "inventory": "Colección",
     "services": "Servicios",
     "about": "Sobre Nosotros",
     "contact": "Contactar",
-    "faq": "FAQ",
     "getQuote": "Obtener Cotización",
     "viewAllCars": "Ver todos los coches",
     "back": "Atrás",
     "goBack": "Volver"
   },
-  "slogan": "Excelencia Automotriz",
-  "emailLabel": "Correo Oficial",
-  "phoneLabel": "Soporte Principal",
-  "privacy": "Privacidad",
-  "terms": "Términos",
-  "tagline": "Soluciones de exportación de vehículos premium • Establecido en Dubái, EAU",
   "home": {
     "hero": {
       "badge": "Expertos Gulfstarscars",
@@ -48,6 +41,7 @@
     "subtitle": "Explore nuestra colección completa de vehículos premium listos para exportación global",
     "vehiclesFound": "{count} Vehículos Encontrados",
     "foundSubtitle": "Encontrado en toda nuestra colección",
+    "priceOnRequest": "Precio a Consultar",
     "filterTitle": "Filtros",
     "clearFilters": "Borrar Filtros",
     "clearAll": "Borrar Todo",
@@ -102,9 +96,10 @@
       "globalExport": "Exportación Global Disponible",
       "enquire": "Consultar Ahora",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "Precio a Consultar",
       "breadcrumb": {
         "home": "Inicio",
-        "inventory": "Inventario"
+        "inventory": "Colección"
       }
     }
   },
@@ -272,7 +267,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "Sobre Nosotros",
-      "inventory": "Inventario",
+      "inventory": "Colección",
       "services": "Servicios",
       "contact": "Contactar",
       "faq": "FAQ"
@@ -478,6 +473,6 @@
     "title": "Página no encontrada",
     "subtitle": "El camino que buscas no existe o ha sido movido.",
     "backHome": "Volver al inicio",
-    "browseInventory": "Explorar inventario"
+    "browseInventory": "Explorar colección"
   }
 }

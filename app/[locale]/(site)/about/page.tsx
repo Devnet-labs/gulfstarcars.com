@@ -22,16 +22,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   await params;
   const t = await getTranslations('aboutPage');
-  
+
   const teamMembers = await prisma.teamMember.findMany({
     where: { isActive: true },
     orderBy: { order: 'asc' },
   });
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-16 sm:pt-20 pb-12">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 mb-20">
+      <section className="container mx-auto px-4 mb-12 sm:mb-20">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,17 +41,17 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <div className="inline-block">
             <div className="h-1 w-16 bg-[#D4AF37] mx-auto mb-6" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight">
             {t('hero.title')} <span className="text-[#D4AF37]">{t('hero.titleHighlight')}</span>
           </h1>
-          <p className="text-lg md:text-xl text-[#A3A3A3] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[#A3A3A3] leading-relaxed max-w-3xl mx-auto">
             {t('hero.subtitle')}
           </p>
         </Motion.div>
       </section>
 
       {/* Company Overview Section */}
-      <section className="container mx-auto px-4 mb-20">
+      <section className="container mx-auto px-4 mb-12 sm:mb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -59,8 +59,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-semibold text-white mb-6">{t('overview.title')}</h2>
-            <p className="text-[#A3A3A3] leading-relaxed mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-6 tracking-tight">{t('overview.title')}</h2>
+            <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed mb-8">
               {t('overview.description')}
             </p>
           </Motion.div>
@@ -97,7 +97,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="container mx-auto px-4 mb-20">
+      <section className="container mx-auto px-4 mb-12 sm:mb-20">
         <div className="grid md:grid-cols-2 gap-6">
           <Motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -109,8 +109,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="w-12 h-12 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <TrendingUp className="w-6 h-6 text-[#D4AF37]" />
             </div>
-            <h3 className="text-2xl font-semibold text-white mb-4">{t('mission.title')}</h3>
-            <p className="text-[#A3A3A3] leading-relaxed">{t('mission.content')}</p>
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">{t('mission.title')}</h3>
+            <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed">{t('mission.content')}</p>
           </Motion.div>
 
           <Motion.div
@@ -123,15 +123,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="w-12 h-12 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Award className="w-6 h-6 text-[#D4AF37]" />
             </div>
-            <h3 className="text-2xl font-semibold text-white mb-4">{t('vision.title')}</h3>
-            <p className="text-[#A3A3A3] leading-relaxed">{t('vision.content')}</p>
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">{t('vision.title')}</h3>
+            <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed">{t('vision.content')}</p>
           </Motion.div>
         </div>
       </section>
 
       {/* Leadership Team Section */}
       {teamMembers.length > 0 && (
-        <section className="container mx-auto px-4 mb-20">
+        <section className="container mx-auto px-4 mb-12 sm:mb-20">
           <Motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -144,10 +144,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 {t('leadership.badge')}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">
               {t('leadership.title')} <span className="text-[#D4AF37]">{t('leadership.titleHighlight')}</span>
             </h2>
-            <p className="text-[#A3A3A3] max-w-2xl mx-auto">{t('leadership.subtitle')}</p>
+            <p className="text-sm sm:text-base text-[#A3A3A3] max-w-2xl mx-auto">{t('leadership.subtitle')}</p>
           </Motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -169,7 +169,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       )}
 
       {/* Global Presence Section */}
-      <section className="container mx-auto px-4 mb-20">
+      <section className="container mx-auto px-4 mb-12 sm:mb-20">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,10 +182,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               {t('global.badge')}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">
             {t('global.title')} <span className="text-[#D4AF37]">{t('global.titleHighlight')}</span>
           </h2>
-          <p className="text-[#A3A3A3] max-w-2xl mx-auto">{t('global.subtitle')}</p>
+          <p className="text-sm sm:text-base text-[#A3A3A3] max-w-2xl mx-auto">{t('global.subtitle')}</p>
         </Motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -219,10 +219,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               {t('trust.badge')}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4 tracking-tight">
             {t('trust.title')} <span className="text-[#D4AF37]">{t('trust.titleHighlight')}</span>
           </h2>
-          <p className="text-[#A3A3A3] max-w-2xl mx-auto">{t('trust.subtitle')}</p>
+          <p className="text-sm sm:text-base text-[#A3A3A3] max-w-2xl mx-auto">{t('trust.subtitle')}</p>
         </Motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -243,8 +243,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="w-12 h-12 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6 text-[#D4AF37]" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{t(`trust.steps.${key}.title`)}</h3>
-              <p className="text-sm text-[#A3A3A3]">{t(`trust.steps.${key}.desc`)}</p>
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-2 tracking-tight">{t(`trust.steps.${key}.title`)}</h3>
+              <p className="text-xs sm:text-sm text-[#A3A3A3]">{t(`trust.steps.${key}.desc`)}</p>
             </Motion.div>
           ))}
         </div>

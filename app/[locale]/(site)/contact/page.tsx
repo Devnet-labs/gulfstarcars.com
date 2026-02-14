@@ -26,7 +26,7 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-[#0B0F19] text-white">
             {/* --- HERO SECTION --- */}
-            <section className="relative py-16 overflow-hidden">
+            <section className="relative py-12 sm:py-16 overflow-hidden">
                 {/* Background Elements */}
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
@@ -39,10 +39,10 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
                             {t('title')}
                         </h1>
-                        <p className="text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
                             {t('subtitle')}
                         </p>
                     </motion.div>
@@ -50,7 +50,7 @@ export default function ContactPage() {
             </section>
 
             {/* --- MAIN CONTENT SECTION --- */}
-            <section className="pb-24 px-6">
+            <section className="pb-12 sm:pb-24 px-4 sm:px-6">
                 <div className="container mx-auto max-w-5xl">
                     <div className="space-y-16 mt-10">
 
@@ -76,8 +76,8 @@ export default function ContactPage() {
                                                     <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-xl text-white">{t('dubaiBranch')}</h3>
-                                                    <p className="text-sm text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('addressDubai') }} />
+                                                    <h3 className="font-bold text-xl sm:text-2xl text-white tracking-tight">{t('dubaiBranch')}</h3>
+                                                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('addressDubai') }} />
                                                 </div>
                                             </div>
                                         </div>
@@ -89,8 +89,8 @@ export default function ContactPage() {
                                                     <MapPin className="w-6 h-6 text-primary" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <h3 className="font-bold text-xl text-white">{t('ajmanOffice')}</h3>
-                                                    <p className="text-sm text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
+                                                    <h3 className="font-bold text-xl sm:text-2xl text-white tracking-tight">{t('ajmanOffice')}</h3>
+                                                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: tFooter('address') }} />
                                                 </div>
                                             </div>
                                         </div>
@@ -113,8 +113,8 @@ export default function ContactPage() {
                                     <div className="grid grid-cols-1 gap-6">
                                         <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
                                             <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('callUs')}</p>
-                                                <a href={`tel:${tFooter('phone')}`} className="text-xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
+                                                <p className="text-[10px] sm:text-xs font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('callUs')}</p>
+                                                <a href={`tel:${tFooter('phone')}`} className="text-xl sm:text-2xl font-bold text-white hover:text-primary transition-colors tracking-tight" dir="ltr">{tFooter('phone')}</a>
                                             </div>
                                             <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                                                 <Phone className="w-5 h-5 text-primary" />
@@ -123,12 +123,12 @@ export default function ContactPage() {
 
                                         <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
                                             <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('emailUs')}</p>
+                                                <p className="text-[10px] sm:text-xs font-bold text-white/40 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">{t('emailUs')}</p>
                                                 <a
                                                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${tFooter('emails.info')}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-xl font-bold text-white hover:text-primary transition-colors tracking-tight"
+                                                    className="text-xl sm:text-2xl font-bold text-white hover:text-primary transition-colors tracking-tight"
                                                 >
                                                     {tFooter('emails.info')}
                                                 </a>
@@ -149,8 +149,8 @@ export default function ContactPage() {
                                                     <MessageCircle className="w-8 h-8 text-green-500" />
                                                 </div>
                                                 <div>
-                                                    <p className="text-green-500 font-black text-[10px] uppercase tracking-widest mb-1 opacity-80">{t('availableNow')}</p>
-                                                    <h3 className="text-2xl font-black text-white tracking-tight">{t('whatsAppSupport')}</h3>
+                                                    <p className="text-green-500 font-black text-[10px] sm:text-xs uppercase tracking-widest mb-1 opacity-80">{t('availableNow')}</p>
+                                                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">{t('whatsAppSupport')}</h3>
                                                 </div>
                                             </div>
                                             <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white scale-90 group-hover:scale-100 group-hover:rotate-[-12deg] transition-all duration-500 shadow-xl shadow-green-500/20">
@@ -166,7 +166,7 @@ export default function ContactPage() {
             </section>
 
             {/* --- MAP SECTION --- */}
-            <section className="py-24 relative overflow-hidden border-t border-white/5">
+            <section className="py-12 sm:py-24 relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center mb-16">
                         <motion.div
@@ -176,10 +176,10 @@ export default function ContactPage() {
                             transition={{ duration: 0.6 }}
                             className="space-y-4"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
                                 {t('mapTitle')}
                             </h2>
-                            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                            <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto leading-relaxed">
                                 {t('mapSubtitle')}
                             </p>
                             <div className="flex justify-center pt-2">

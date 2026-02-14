@@ -11,7 +11,6 @@ export function Footer() {
     const usefulLinks = [
         { key: 'about', label: t('links.about') },
         { key: 'inventory', label: t('links.inventory') },
-        { key: 'services', label: t('links.services') },
         { key: 'contact', label: t('links.contact') },
         { key: 'faq', label: t('links.faq') }
     ];
@@ -49,20 +48,19 @@ export function Footer() {
                             {t('description')}
                         </p>
 
-                        <div className="flex items-center gap-3">
-                            {[
-                                { Icon: Facebook, href: 'https://www.facebook.com/people/GULF-STAR-Automotive/61587500704497/' },
-                                { Icon: Twitter, href: '#' }
-                            ].map(({ Icon, href }, i) => (
-                                <Link key={i} href={href} target="_blank" className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 shadow-lg hover:shadow-primary/25 transition-all duration-500 group">
-                                    <Icon className="h-4 w-4 text-white/70 group-hover:text-white transition-colors" />
-                                </Link>
-                            ))}
+                        <div className="pt-2">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-all text-xs font-black uppercase tracking-[0.2em] group/contact"
+                            >
+                                {t('links.contact')}
+                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/contact:translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-0 rtl:group-hover:-translate-x-1" />
+                            </Link>
                         </div>
                     </div>
 
                     {/* Column 2: Links */}
-                    <div className="space-y-6">
+                    <div className="hidden md:block space-y-6">
                         <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">
                             {t('usefulLinks')}
                         </h3>

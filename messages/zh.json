@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "首页",
-    "inventory": "库存",
+    "inventory": "系列",
     "services": "服务",
     "about": "关于我们",
     "contact": "联系我们",
@@ -41,6 +41,7 @@
     "subtitle": "浏览我们要面向全球出口的高级车辆完整系列",
     "vehiclesFound": "找到 {count} 辆车",
     "foundSubtitle": "在我们整个系列中找到",
+    "priceOnRequest": "价格面议",
     "filterTitle": "筛选",
     "clearFilters": "清除筛选",
     "clearAll": "全部清除",
@@ -95,9 +96,10 @@
       "globalExport": "支持全球出口",
       "enquire": "立即咨询",
       "whatsapp": "WhatsApp",
+      "priceOnRequest": "价格面议",
       "breadcrumb": {
         "home": "首页",
-        "inventory": "库存"
+        "inventory": "系列"
       }
     }
   },
@@ -307,7 +309,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "关于我们",
-      "inventory": "库存",
+      "inventory": "系列",
       "services": "服务",
       "contact": "联系我们",
       "faq": "常见问题"
@@ -471,6 +473,6 @@
     "title": "页面未找到",
     "subtitle": "您寻找的路径不存在或已被移动。",
     "backHome": "返回首页",
-    "browseInventory": "浏览产品"
+    "browseInventory": "浏览系列"
   }
 }

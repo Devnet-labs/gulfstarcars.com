@@ -14,11 +14,11 @@ export default async function ServicesPage() {
     return (
         <div className="min-h-screen pt-24 pb-12">
             {/* Hero Section */}
-            <section className="container mx-auto px-4 mb-20 text-center">
-                <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-6">
+            <section className="container mx-auto px-4 mb-16 sm:mb-20 text-center">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-6 tracking-tight">
                     {t('hero.title')} <span className="text-primary">{t('hero.titleHighlight')}</span>
                 </h1>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
                     {t('hero.subtitle')}
                 </p>
             </section>
@@ -36,10 +36,10 @@ export default async function ServicesPage() {
                                 <div className="bg-primary/20 p-4 rounded-2xl w-fit mb-6 group-hover:bg-primary/30 transition-colors">
                                     <Icon className="h-8 w-8 text-primary" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-3">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
                                     {t(`${service.key}.title`)}
                                 </h3>
-                                <p className="text-gray-400 text-lg leading-relaxed">
+                                <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                                     {t(`${service.key}.desc`)}
                                 </p>
                             </div>
