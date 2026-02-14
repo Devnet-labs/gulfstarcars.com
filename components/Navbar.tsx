@@ -49,7 +49,6 @@ export function Navbar() {
         { href: '/cars', label: t('inventory') },
         { href: '/about', label: t('about') },
         { href: '/faq', label: 'FAQ' },
-        { href: '/contact', label: t('contact') },
         ...(showAdminButton ? [{ href: '/login', label: 'Admin' }] : []),
     ];
 
@@ -113,7 +112,7 @@ export function Navbar() {
                                 href="/contact"
                                 className="hidden lg:inline-flex bg-[#D4AF37] hover:bg-[#C19B2E] text-black px-4 xl:px-5 py-2.5 rounded-lg text-base font-medium transition-all duration-200 active:scale-95 cursor-pointer"
                             >
-                                {t('getQuote')}
+                                {t('contact')}
                             </Link>
 
                             {/* Mobile Menu Button */}
@@ -189,7 +188,7 @@ export function Navbar() {
                                         className="block w-full text-center bg-[#D4AF37] hover:bg-[#C19B2E] text-black px-5 py-3 rounded-lg font-medium transition-all active:scale-95 cursor-pointer"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
-                                        {t('getQuote')}
+                                        {t('contact')}
                                     </Link>
                                 </motion.div>
                             </div>
