@@ -79,7 +79,7 @@ export default function TranslationPanel({ carId, translations, sourceMake = '',
     ) as Record<string, CarTranslationRow>;
 
     const handleTranslateAll = async () => {
-        if (!confirm(TRANSLATE_ALL_CONFIRM_MESSAGE)) return;
+        // if (!confirm(TRANSLATE_ALL_CONFIRM_MESSAGE)) return;
         setTranslating(true);
         setTranslateResults(null);
         try {
@@ -167,13 +167,12 @@ export default function TranslationPanel({ carId, translations, sourceMake = '',
                                         <td className="py-3 pr-4 font-medium">{LOCALE_LABELS[locale] || locale}</td>
                                         <td className="py-3 pr-4">
                                             <span
-                                                className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${
-                                                    status === 'COMPLETED'
+                                                className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${status === 'COMPLETED'
                                                         ? 'bg-emerald-500/20 text-emerald-400'
                                                         : status === 'FAILED'
-                                                          ? 'bg-amber-500/20 text-amber-400'
-                                                          : 'bg-slate-500/20 text-slate-400'
-                                                }`}
+                                                            ? 'bg-amber-500/20 text-amber-400'
+                                                            : 'bg-slate-500/20 text-slate-400'
+                                                    }`}
                                             >
                                                 {status === 'COMPLETED' ? 'Done' : status === 'FAILED' ? 'Failed' : 'Not translated'}
                                             </span>
@@ -188,17 +187,17 @@ export default function TranslationPanel({ carId, translations, sourceMake = '',
                                                 {isRetrying ? <Loader2 className="h-3 w-3 animate-spin" /> : <RefreshCw className="h-3 w-3" />}
                                                 Retry
                                             </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setEditError(null);
-                                                setEditingLocale(isEditing ? null : locale);
-                                            }}
-                                            className="inline-flex items-center gap-1 px-2 py-1 rounded-md border border-white/10 hover:bg-white/5 text-xs font-medium transition-colors cursor-pointer"
-                                        >
-                                            <Edit2 className="h-3 w-3" />
-                                            {isEditing ? 'Close' : 'Edit'}
-                                        </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setEditError(null);
+                                                    setEditingLocale(isEditing ? null : locale);
+                                                }}
+                                                className="inline-flex items-center gap-1 px-2 py-1 rounded-md border border-white/10 hover:bg-white/5 text-xs font-medium transition-colors cursor-pointer"
+                                            >
+                                                <Edit2 className="h-3 w-3" />
+                                                {isEditing ? 'Close' : 'Edit'}
+                                            </button>
                                         </td>
                                     </tr>
                                     {isEditing ? (
