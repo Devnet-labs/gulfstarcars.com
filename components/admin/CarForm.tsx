@@ -211,7 +211,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Make</label>
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Make <span className="text-rose-500">*</span></label>
                             <input
                                 name="make"
                                 defaultValue={initialData?.make}
@@ -221,7 +221,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Model</label>
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Model <span className="text-rose-500">*</span></label>
                             <input
                                 name="model"
                                 defaultValue={initialData?.model}
@@ -232,7 +232,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Year</label>
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Year <span className="text-rose-500">*</span></label>
                                 <input
                                     name="year"
                                     type="number"
@@ -242,7 +242,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Condition</label>
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-500">Condition <span className="text-rose-500">*</span></label>
                                 <select
                                     name="condition"
                                     defaultValue={initialData?.condition || 'New'}
@@ -365,7 +365,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     </div>
 
                     <div className="space-y-4">
-                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Vehicle Images</label>
+                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Vehicle Images <span className="text-rose-500">*</span></label>
                         <ImageUpload
                             value={images}
                             onUpload={(url) => setImages((prev) => [...prev, url])}
@@ -374,7 +374,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Full Description</label>
+                        <label className="text-xs font-black uppercase tracking-widest text-slate-500">Full Description <span className="text-rose-500">*</span></label>
                         <textarea
                             name="description"
                             defaultValue={initialData?.description}
