@@ -266,21 +266,21 @@ export default function CarsPage() {
                             <div
                                 className={`
                                     ${showFilters
-                                        ? 'fixed inset-0 z-[110] lg:relative lg:inset-auto lg:z-30 block animate-in fade-in slide-in-from-bottom-5 duration-500'
+                                        ? 'fixed inset-0 z-[110] lg:relative lg:inset-auto lg:z-30 flex items-end lg:items-start animate-in fade-in slide-in-from-bottom-5 duration-500'
                                         : 'hidden lg:block'
                                     } 
-                                    sticky top-28 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto custom-scrollbar
+                                    lg:sticky lg:top-28 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto custom-scrollbar
                                 `}
                             >
                                 {/* Mobile Backdrop */}
                                 {showFilters && (
                                     <div
-                                        className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm -z-10"
+                                        className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-0"
                                         onClick={() => setShowFilters(false)}
                                     />
                                 )}
 
-                                <div className="h-full lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-4 sm:p-6 shadow-2xl relative group mb-4 m-4 lg:m-0 rounded-[30px] sm:rounded-[40px] border-white/20">
+                                <div className="w-full max-h-[85vh] lg:max-h-none lg:h-auto overflow-y-auto lg:overflow-visible bg-card/30 backdrop-blur-2xl lg:rounded-3xl border lg:border-white/10 p-4 sm:p-6 shadow-2xl relative group mb-0 lg:mb-4 m-4 lg:m-0 rounded-t-[30px] sm:rounded-t-[40px] lg:rounded-[30px] border-white/20 z-10">
                                     {/* Glassmorphism accent */}
                                     <div className="absolute top-0 inset-e-0 w-32 h-32 bg-primary/5 blur-3xl -z-10 transition-colors group-hover:bg-primary/10" />
 
