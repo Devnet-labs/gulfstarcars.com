@@ -2,7 +2,7 @@
   "nav": {
     "brand": "Gulf Star Automotive",
     "home": "Home",
-    "inventory": "Collection",
+    "inventory": "Products",
     "services": "Services",
     "about": "About Us",
     "contact": "Contact Us",
@@ -19,7 +19,7 @@
       "subtitle": "The region's leading vehicle export specialists, delivering premium automotive solutions from Dubai, UAE to global markets."
     },
     "cta": {
-      "browseTitle": "Browse Our Collection",
+      "browseTitle": "Browse Our Products",
       "browseSubtitle": "Explore premium vehicles ready for export",
       "viewAllCars": "View All Cars"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "Vehicle Collection",
-    "subtitle": "Explore our curated collection of premium vehicles, ready for international export with handled logistics.",
+    "pageTitle": "Our Products",
+    "subtitle": "Explore our curated selection of premium vehicles, ready for international export with handled logistics.",
     "vehiclesFound": "{count} Vehicles Found",
-    "foundSubtitle": "Found across our entire collection",
+    "foundSubtitle": "Found across our entire product range",
     "priceOnRequest": "Price on Request",
     "filterTitle": "Filters",
     "clearFilters": "Clear Filters",
@@ -99,7 +99,50 @@
       "priceOnRequest": "Price on Request",
       "breadcrumb": {
         "home": "Home",
-        "inventory": "Collection"
+        "inventory": "Products"
+      },
+      "backToSelection": "Back to Selection"
+    }
+  },
+  "faq": {
+    "pageTitle": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our vehicle export services",
+    "questions": {
+      "q1": {
+        "question": "Which countries do you export to?",
+        "answer": "We export vehicles to 50+ countries across Africa, Asia, Europe, the Middle East, and the Americas."
+      },
+      "q2": {
+        "question": "Are vehicles inspected before export?",
+        "answer": "Yes, every vehicle undergoes a detailed 120-point inspection with a full report."
+      },
+      "q3": {
+        "question": "Do you handle export documents?",
+        "answer": "Yes, we manage all customs, certificates, and shipping paperwork."
+      },
+      "q4": {
+        "question": "How is shipping done?",
+        "answer": "We arrange secure logistics, container loading, and international freight."
+      },
+      "q5": {
+        "question": "Can you source specific car models on request?",
+        "answer": "Yes, we procure vehicles based on your exact model, budget, and specifications."
+      },
+      "q6": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept secure international bank transfers and approved global payment methods."
+      },
+      "q7": {
+        "question": "How long does the export process take?",
+        "answer": "Typically 7–21 days, depending on vehicle preparation and destination country regulations."
+      },
+      "q8": {
+        "question": "Do you export new and used vehicles?",
+        "answer": "Yes, we export both brand-new and pre-owned vehicles."
+      },
+      "q9": {
+        "question": "Do you offer after-sales support?",
+        "answer": "Yes, our team assists with shipping tracking and export-related support until delivery."
       }
     }
   },
@@ -309,7 +352,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "About Us",
-      "inventory": "Collection",
+      "inventory": "Products",
       "services": "Services",
       "contact": "Contact Us",
       "faq": "FAQ"
@@ -473,6 +516,6 @@
     "title": "Page Not Found",
     "subtitle": "The road you are looking for doesn't exist or has been moved.",
     "backHome": "Back to Home",
-    "browseInventory": "Browse Collection"
+    "browseInventory": "Browse Products"
   }
 }

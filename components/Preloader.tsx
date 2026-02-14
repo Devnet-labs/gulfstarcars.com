@@ -4,24 +4,31 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function LogoPreloader() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [status, setStatus] = useState<'checking' | 'visible' | 'hidden'>('checking');
 
   useEffect(() => {
+    // Immediate check on mount
     const siteLoaded = sessionStorage.getItem("siteLoaded");
 
-    if (!siteLoaded) {
-      setIsVisible(true);
-
-      setTimeout(() => {
-        setIsVisible(false);
+    if (siteLoaded) {
+      setStatus('hidden');
+    } else {
+      setStatus('visible');
+      const timer = setTimeout(() => {
+        setStatus('hidden');
         sessionStorage.setItem("siteLoaded", "true");
       }, 1800);
+      return () => clearTimeout(timer);
     }
   }, []);
 
+  // During SSR and initial hydration "checking" state, we show the splash screen
+  // to prevent the underlying content from flashing.
+  const isShown = status === 'checking' || status === 'visible';
+
   return (
     <AnimatePresence mode="wait">
-      {isVisible && (
+      {isShown && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

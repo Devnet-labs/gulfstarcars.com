@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Inicio",
-    "inventory": "Colección",
+    "inventory": "Productos",
     "services": "Servicios",
     "about": "Sobre Nosotros",
     "contact": "Contactar",
@@ -19,7 +19,7 @@
       "subtitle": "La plataforma más confiable del mundo para la exportación de vehículos premium desde Dubái a cualquier lugar del mundo."
     },
     "cta": {
-      "browseTitle": "Navega por nuestra colección",
+      "browseTitle": "Navega por nuestros productos",
       "browseSubtitle": "Explora vehículos premium listos para exportar",
       "viewAllCars": "Ver todos los coches"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "Nuestro Inventario",
+    "pageTitle": "Nuestros Productos",
     "subtitle": "Explore nuestra colección completa de vehículos premium listos para exportación global",
     "vehiclesFound": "{count} Vehículos Encontrados",
-    "foundSubtitle": "Encontrado en toda nuestra colección",
+    "foundSubtitle": "Encontrado en todos nuestros productos",
     "priceOnRequest": "Precio a Consultar",
     "filterTitle": "Filtros",
     "clearFilters": "Borrar Filtros",
@@ -99,7 +99,50 @@
       "priceOnRequest": "Precio a Consultar",
       "breadcrumb": {
         "home": "Inicio",
-        "inventory": "Colección"
+        "inventory": "Productos"
+      },
+      "backToSelection": "Volver a la Selección"
+    }
+  },
+  "faq": {
+    "pageTitle": "Preguntas Frecuentes",
+    "subtitle": "Encuentre respuestas a preguntas comunes sobre nuestros servicios de exportación de vehículos",
+    "questions": {
+      "q1": {
+        "question": "¿A qué países exportan?",
+        "answer": "Exportamos vehículos a más de 50 países en África, Asia, Europa, Medio Oriente y las Américas."
+      },
+      "q2": {
+        "question": "¿Se inspeccionan los vehículos antes de la exportación?",
+        "answer": "Sí, cada vehículo se somete a una inspección detallada de 120 puntos con un informe completo."
+      },
+      "q3": {
+        "question": "¿Manejan los documentos de exportación?",
+        "answer": "Sí, gestionamos todas las aduanas, certificados y documentación de envío."
+      },
+      "q4": {
+        "question": "¿Cómo se realiza el envío?",
+        "answer": "Organizamos logística segura, carga de contenedores y flete internacional."
+      },
+      "q5": {
+        "question": "¿Pueden conseguir modelos de coches específicos bajo pedido?",
+        "answer": "Sí, adquirimos vehículos según su modelo exacto, presupuesto y especificaciones."
+      },
+      "q6": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos transferencias bancarias internacionales seguras y métodos de pago globales aprobados."
+      },
+      "q7": {
+        "question": "¿Cuánto tiempo tarda el proceso de exportación?",
+        "answer": "Típicamente de 7 a 21 días, dependiendo de la preparación del vehículo y las regulaciones del país de destino."
+      },
+      "q8": {
+        "question": "¿Exportan vehículos nuevos y usados?",
+        "answer": "Sí, exportamos tanto vehículos completamente nuevos como usados."
+      },
+      "q9": {
+        "question": "¿Ofrecen soporte postventa?",
+        "answer": "Sí, nuestro equipo asiste con el seguimiento del envío y soporte relacionado con la exportación hasta la entrega."
       }
     }
   },
@@ -267,7 +310,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "Sobre Nosotros",
-      "inventory": "Colección",
+      "inventory": "Productos",
       "services": "Servicios",
       "contact": "Contactar",
       "faq": "FAQ"
@@ -473,6 +516,6 @@
     "title": "Página no encontrada",
     "subtitle": "El camino que buscas no existe o ha sido movido.",
     "backHome": "Volver al inicio",
-    "browseInventory": "Explorar colección"
+    "browseInventory": "Navegar Productos"
   }
 }

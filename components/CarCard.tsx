@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { EnquiryModal } from './EnquiryModal';
-import { Fuel, Settings2, Gauge, MessageSquare, MessageCircle } from 'lucide-react';
+import { Fuel, Settings2, Gauge, MessageSquare } from 'lucide-react';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 
 import { useRouter } from 'next/navigation';
@@ -165,7 +166,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                                 }}
                                 className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-green-500/20 hover:shadow-green-500/30 font-semibold text-[10px] sm:text-sm group/btn active:scale-95"
                             >
-                                <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
+                                <WhatsAppIcon className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:scale-110" />
                                 <span>{t('whatsapp')}</span>
                             </button>
                         </div>

@@ -6,6 +6,7 @@ import { Fuel, Settings2, Gauge, Shield, Calendar, Users, DoorOpen, Zap, Paintbr
 import Link from 'next/link';
 import { DetailClientActions } from './ClientComponents';
 import { getTranslations, getLocale } from 'next-intl/server';
+import { BackButton } from '@/components/BackButton';
 
 interface CarDetailPageProps {
     params: Promise<{ id: string }>;
@@ -43,14 +44,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
         <div className="min-h-screen pt-16 sm:pt-20 pb-8 bg-[#0B0F19]">
             <ProductViewTracker carId={car.id} />
             <div className="container mx-auto px-4 sm:px-6">
-                {/* Navigation Breadcrumb */}
-                <div className="flex items-center gap-2 text-[10px] sm:text-xs text-muted-foreground mb-4 sm:mb-8 overflow-x-auto no-scrollbar">
-                    <Link href="/" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.home')}</Link>
-                    <span>/</span>
-                    <Link href="/cars" className="hover:text-primary transition-colors whitespace-nowrap">{t('breadcrumb.inventory')}</Link>
-                    <span>/</span>
-                    <span className="text-foreground font-medium truncate">{tFields.make} {tFields.model}</span>
-                </div>
+                <BackButton />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-12">
                     {/* Left Column: Gallery & Description */}

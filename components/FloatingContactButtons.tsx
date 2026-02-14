@@ -1,6 +1,7 @@
 'use client';
 
-import { MessageCircle, Facebook } from 'lucide-react';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
+import { Facebook } from 'lucide-react';
 import { useState } from 'react';
 
 export function FloatingContactButtons() {
@@ -30,7 +31,7 @@ export function FloatingContactButtons() {
                 aria-label="Chat on WhatsApp"
             >
                 <div className="absolute inset-0 rounded-full bg-green-500 animate-pulse opacity-20 group-hover:opacity-0 transition-opacity" />
-                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
 
                 {/* Tooltip */}
                 <span

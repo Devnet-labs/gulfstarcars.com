@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
+import { MessageSquare } from 'lucide-react';
 import { EnquiryModal } from '@/components/EnquiryModal';
 import { Car } from '@/components/CarCard';
 
@@ -40,7 +41,7 @@ export function DetailClientActions({ car }: DetailClientActionsProps) {
                     onClick={handleWhatsApp}
                     className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold transition-all shadow-xl shadow-green-500/20"
                 >
-                    <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     {t('whatsapp')}
                 </motion.button>
             </div>

@@ -2,7 +2,7 @@
   "nav": {
     "brand": "GULFSTARCARS",
     "home": "Accueil",
-    "inventory": "Collection",
+    "inventory": "Produits",
     "services": "Services",
     "about": "À propos",
     "contact": "Contactez-nous",
@@ -19,7 +19,7 @@
       "subtitle": "La plateforme la plus fiable au monde pour l'exportation de véhicules haut de gamme de Dubaï vers partout dans le monde."
     },
     "cta": {
-      "browseTitle": "Parcourir notre collection",
+      "browseTitle": "Parcourir nos produits",
       "browseSubtitle": "Découvrez des véhicules haut de gamme prêts à l'exportation",
       "viewAllCars": "Voir toutes les voitures"
     },
@@ -37,10 +37,10 @@
     }
   },
   "cars": {
-    "pageTitle": "Toutes les voitures",
-    "subtitle": "Parcourez notre collection complète de véhicules premium prêts pour l'exportation mondiale",
+    "pageTitle": "Nos Produits",
+    "subtitle": "Parcourez notre sélection complète de véhicules premium prêts pour l'exportation mondiale",
     "vehiclesFound": "{count} Véhicules Trouvés",
-    "foundSubtitle": "Trouvés dans notre collection complète",
+    "foundSubtitle": "Trouvés dans notre gamme de produits",
     "priceOnRequest": "Prix sur Demande",
     "filterTitle": "Filtres",
     "clearFilters": "Effacer les Filtres",
@@ -99,7 +99,50 @@
       "priceOnRequest": "Prix sur Demande",
       "breadcrumb": {
         "home": "Accueil",
-        "inventory": "Collection"
+        "inventory": "Produits"
+      },
+      "backToSelection": "Retour à la Sélection"
+    }
+  },
+  "faq": {
+    "pageTitle": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur nos services d'exportation de véhicules",
+    "questions": {
+      "q1": {
+        "question": "Vers quels pays exportez-vous?",
+        "answer": "Nous exportons des véhicules vers plus de 50 pays en Afrique, Asie, Europe, Moyen-Orient et Amériques."
+      },
+      "q2": {
+        "question": "Les véhicules sont-ils inspectés avant l'exportation?",
+        "answer": "Oui, chaque véhicule subit une inspection détaillée de 120 points avec un rapport complet."
+      },
+      "q3": {
+        "question": "Gérez-vous les documents d'exportation?",
+        "answer": "Oui, nous gérons toutes les douanes, certificats et documents d'expédition."
+      },
+      "q4": {
+        "question": "Comment se fait l'expédition?",
+        "answer": "Nous organisons une logistique sécurisée, le chargement des conteneurs et le fret international."
+      },
+      "q5": {
+        "question": "Pouvez-vous trouver des modèles de voitures spécifiques sur demande?",
+        "answer": "Oui, nous achetons des véhicules selon votre modèle exact, budget et spécifications."
+      },
+      "q6": {
+        "question": "Quels modes de paiement acceptez-vous?",
+        "answer": "Nous acceptons les virements bancaires internationaux sécurisés et les méthodes de paiement mondiales approuvées."
+      },
+      "q7": {
+        "question": "Combien de temps prend le processus d'exportation?",
+        "answer": "Généralement 7 à 21 jours, selon la préparation du véhicule et les réglementations du pays de destination."
+      },
+      "q8": {
+        "question": "Exportez-vous des véhicules neufs et d'occasion?",
+        "answer": "Oui, nous exportons à la fois des véhicules neufs et d'occasion."
+      },
+      "q9": {
+        "question": "Offrez-vous un support après-vente?",
+        "answer": "Oui, notre équipe vous aide avec le suivi de l'expédition et le support lié à l'exportation jusqu'à la livraison."
       }
     }
   },
@@ -267,7 +310,7 @@
     "phone3": "+971-585147256",
     "links": {
       "about": "À propos",
-      "inventory": "Collection",
+      "inventory": "Produits",
       "services": "Services",
       "contact": "Contactez-nous",
       "faq": "FAQ"
@@ -473,6 +516,6 @@
     "title": "Page non trouvée",
     "subtitle": "Le chemin que vous recherchez n'existe pas ou a été déplacé.",
     "backHome": "Retour à l'accueil",
-    "browseInventory": "Parcourir la collection"
+    "browseInventory": "Parcourir les produits"
   }
 }

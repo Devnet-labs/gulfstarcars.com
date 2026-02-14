@@ -25,6 +25,7 @@ export function Navbar() {
         { href: '/', label: t('home') },
         { href: '/cars', label: t('inventory') },
         { href: '/about', label: t('about') },
+        { href: '/faq', label: 'FAQ' },
         { href: '/contact', label: t('contact') },
     ];
 
