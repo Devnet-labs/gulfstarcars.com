@@ -100,7 +100,8 @@
       "breadcrumb": {
         "home": "Главная",
         "inventory": "Наши Продукты"
-      }
+      },
+      "backToSelection": "Вернуться к Выбору"
     }
   },
   "contact": {

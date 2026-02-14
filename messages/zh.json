@@ -100,7 +100,8 @@
       "breadcrumb": {
         "home": "首页",
         "inventory": "产品中心"
-      }
+      },
+      "backToSelection": "返回选择"
     }
   },
   "admin": {

@@ -100,7 +100,8 @@
       "breadcrumb": {
         "home": "Home",
         "inventory": "Products"
-      }
+      },
+      "backToSelection": "Back to Selection"
     }
   },
   "admin": {

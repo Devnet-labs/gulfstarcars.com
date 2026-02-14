@@ -100,7 +100,8 @@
       "breadcrumb": {
         "home": "الرئيسية",
         "inventory": "منتجاتنا"
-      }
+      },
+      "backToSelection": "العودة إلى القائمة"
     }
   },
   "contact": {

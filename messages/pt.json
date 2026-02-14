@@ -100,7 +100,8 @@
       "breadcrumb": {
         "home": "Início",
         "inventory": "Produtos"
-      }
+      },
+      "backToSelection": "Voltar à Seleção"
     }
   },
   "contact": {
