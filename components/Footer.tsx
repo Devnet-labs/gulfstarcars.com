@@ -11,7 +11,6 @@ export function Footer() {
     const usefulLinks = [
         { key: 'about', label: t('links.about') },
         { key: 'inventory', label: t('links.inventory') },
-        { key: 'services', label: t('links.services') },
         { key: 'contact', label: t('links.contact') },
         { key: 'faq', label: t('links.faq') }
     ];

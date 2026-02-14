@@ -246,10 +246,10 @@ export default function CarsPage() {
                             <div className="lg:hidden fixed bottom-6 left-0 right-0 z-40 px-4 flex justify-center pointer-events-none">
                                 <button
                                     onClick={() => setShowFilters(true)}
-                                    className="pointer-events-auto flex items-center gap-3 bg-primary text-white rounded-full px-8 py-4 shadow-2xl shadow-primary/40 active:scale-95 transition-all group border border-white/10"
+                                    className="pointer-events-auto flex items-center gap-2 bg-primary text-white rounded-full px-6 py-3 shadow-2xl shadow-primary/40 active:scale-95 transition-all group border-2 border-white/40"
                                 >
                                     <div className="p-1 bg-white/20 rounded-lg group-hover:rotate-12 transition-transform">
-                                        <Filter className="h-5 w-5" />
+                                        <Filter className="h-4 w-4" />
                                     </div>
                                     <span className="font-bold uppercase tracking-widest text-sm">
                                         {t('filterTitle')}

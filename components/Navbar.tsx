@@ -24,7 +24,6 @@ export function Navbar() {
     const navLinks = [
         { href: '/', label: t('home') },
         { href: '/cars', label: t('inventory') },
-        { href: '/services', label: t('services') },
         { href: '/about', label: t('about') },
         { href: '/contact', label: t('contact') },
     ];

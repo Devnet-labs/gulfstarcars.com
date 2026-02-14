@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const languages = siteConfig.languages;
 
     // Static pages
-    const staticPages = ['', '/cars', '/services', '/about', '/contact', '/luxury'];
+    const staticPages = ['', '/cars', '/about', '/contact', '/luxury'];
 
     // Generate URLs for all languages
     const staticUrls: MetadataRoute.Sitemap = [];
