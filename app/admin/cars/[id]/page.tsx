@@ -147,7 +147,6 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                     <div className="rounded-xl border border-white/5 bg-card/40 backdrop-blur-xl p-6">
                         <h3 className="text-lg font-semibold mb-4">Technical Specs</h3>
                         <div className="space-y-3">
-                            <SpecRow icon={<Gauge className="h-4 w-4" />} label="Mileage" value={car.mileage ? `${car.mileage.toLocaleString()} km` : undefined} />
                             <SpecRow icon={<Fuel className="h-4 w-4" />} label="Fuel Type" value={car.fuelType} />
                             <SpecRow icon={<Settings2 className="h-4 w-4" />} label="Transmission" value={car.transmission} />
                             <SpecRow icon={<Car className="h-4 w-4" />} label="Engine" value={car.engineCapacity} />

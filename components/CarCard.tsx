@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { EnquiryModal } from './EnquiryModal';
-import { Fuel, Settings2, Gauge, MessageSquare } from 'lucide-react';
+import { Fuel, Settings2, Box, MessageSquare } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 
@@ -24,6 +24,7 @@ export interface Car {
     colour?: string | null;
     driveType?: string | null;
     engineCapacity?: string | null;
+    bodyType?: string | null;
     customId?: string | null;
 }
 
@@ -49,6 +50,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
         transmission: translation?.transmission || car.transmission,
         driveType: translation?.driveType || car.driveType,
         engineCapacity: translation?.engineCapacity || car.engineCapacity,
+        bodyType: translation?.bodyType || (car as any).bodyType,
     };
 
     const handleCardClick = () => {
@@ -87,14 +89,14 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     </div>
 
                     {/* Specs Divider */}
-                    {(tFields.fuelType || tFields.transmission || car.mileage !== null) && (
+                    {(tFields.fuelType || tFields.transmission || tFields.bodyType) && (
                         <div className="flex items-center gap-2 sm:gap-4 py-2 sm:py-4 border-t border-white/5 mb-2 sm:mb-4">
                             {tFields.fuelType && (
                                 <>
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
                                         <Fuel className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {tFields.fuelType}
                                     </div>
-                                    {(tFields.transmission || car.mileage !== null) && <div className="w-px h-3 bg-white/10"></div>}
+                                    {(tFields.transmission || tFields.bodyType) && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
                             )}
                             {tFields.transmission && (
@@ -102,12 +104,12 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                                     <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
                                         <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {tFields.transmission}
                                     </div>
-                                    {car.mileage !== null && <div className="w-px h-3 bg-white/10"></div>}
+                                    {tFields.bodyType && <div className="w-px h-3 bg-white/10"></div>}
                                 </>
                             )}
-                            {car.mileage !== null && (
+                            {tFields.bodyType && (
                                 <div className="flex items-center text-[10px] sm:text-xs text-muted-foreground font-medium">
-                                    <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {car.mileage?.toLocaleString()} km
+                                    <Box className="w-3 h-3 sm:w-3.5 sm:h-3.5 me-1 sm:me-1.5 text-primary" /> {tFields.bodyType || (car.bodyType ? tEnums(`bodyType.${car.bodyType}`) : '')}
                                 </div>
                             )}
                         </div>

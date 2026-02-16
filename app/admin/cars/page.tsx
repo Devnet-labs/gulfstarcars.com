@@ -111,9 +111,9 @@ export default async function AdminCarsPage() {
                                     <div className="grid grid-cols-2 gap-2 text-xs">
                                         <div className="flex items-center gap-1.5 text-muted-foreground">
                                             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                             </svg>
-                                            <span>{car.mileage ? `${(car.mileage / 1000).toFixed(0)}k km` : 'N/A'}</span>
+                                            <span>{car.bodyType || 'N/A'}</span>
                                         </div>
                                         <div className="flex items-center gap-1.5 text-muted-foreground">
                                             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

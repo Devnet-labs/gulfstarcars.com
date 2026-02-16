@@ -299,10 +299,6 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <input name="engineCapacity" defaultValue={initialData?.engineCapacity || ''} placeholder="e.g. 2.5L" className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-black uppercase tracking-widest text-slate-500">Mileage (KM)</label>
-                            <input name="mileage" type="number" defaultValue={initialData?.mileage || 0} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none" />
-                        </div>
-                        <div className="space-y-2">
                             <label className="text-xs font-black uppercase tracking-widest text-slate-500">Drive Type</label>
                             <select name="driveType" defaultValue={initialData?.driveType || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
                                 <option value="">Select</option>
