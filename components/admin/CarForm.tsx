@@ -322,6 +322,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             <label className="text-xs font-black uppercase tracking-widest text-slate-500">Drive Type</label>
                             <select name="driveType" defaultValue={initialData?.driveType || ''} className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none">
                                 <option value="">Select</option>
+                                <option value="FWD">FWD</option>
+                                <option value="RWD">RWD</option>
                                 <option value="2WD">2WD</option>
                                 <option value="4WD">4WD</option>
                                 <option value="AWD">AWD</option>
