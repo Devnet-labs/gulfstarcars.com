@@ -82,7 +82,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
         car.doors,
         car.seats,
         tFields.location
-    ].some(v => v !== null && v !== undefined && v !== '');
+    ].some(v => v !== null && v !== undefined && v !== '' && v !== 0);
 
     return (
         <div className="min-h-screen pt-16 sm:pt-20 pb-8 bg-[#0B0F19]">
@@ -168,8 +168,8 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                             <SpecItem icon={<Settings2 />} label={tSpecs('driveType')} value={tFields.driveType || (car.driveType ? tEnums(`driveType.${car.driveType}`) : undefined)} />
                             <SpecItem icon={<Box />} label={tSpecs('bodyType')} value={tFields.bodyType || (car.bodyType ? tEnums(`bodyType.${car.bodyType}`) : undefined)} />
                             <SpecItem icon={<Reply />} label={tSpecs('steering')} value={tFields.steering || (car.steering ? tEnums(`steering.${car.steering}`) : undefined)} />
-                            <SpecItem icon={<DoorOpen />} label={tSpecs('doors')} value={car.doors?.toString()} />
-                            <SpecItem icon={<Users />} label={tSpecs('seats')} value={car.seats?.toString()} />
+                            <SpecItem icon={<DoorOpen />} label={tSpecs('doors')} value={car.doors && car.doors > 0 ? car.doors.toString() : null} />
+                            <SpecItem icon={<Users />} label={tSpecs('seats')} value={car.seats && car.seats > 0 ? car.seats.toString() : null} />
                             <SpecItem icon={<Fuel />} label={tSpecs('location')} value={tFields.location} />
                         </div>
                     </div>
