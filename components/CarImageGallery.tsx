@@ -43,7 +43,7 @@ export function CarImageGallery({ images, alt }: CarImageGalleryProps) {
                 <img
                     src={optimizeCloudinaryUrl(images[currentIndex], cloudinaryPresets.galleryMain)}
                     alt={alt}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
 
                 {/* Navigation Arrows */}
