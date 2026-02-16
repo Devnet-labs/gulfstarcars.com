@@ -186,7 +186,8 @@
     "page": "Page",
     "of": "de",
     "showing": "Affichage de",
-    "results": "résultats"
+    "results": "résultats",
+    "notSpecified": "Non spécifié"
   },
   "trustStats": {
     "delivered": {
@@ -296,7 +297,8 @@
     "petrol": "Essence",
     "auto": "Auto",
     "noImages": "Aucune image disponible",
-    "priceOnRequest": "Prix sur Demande"
+    "priceOnRequest": "Prix sur Demande",
+    "viewFullSpecs": "Détails complets"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -501,7 +503,12 @@
     "confirm": "Confirmer",
     "status": "Statut",
     "createdAt": "Créé le",
-    "updatedAt": "Mis à jour le"
+    "updatedAt": "Mis à jour le",
+    "backToCars": "Retour aux voitures",
+    "viewOnSite": "Voir sur le site",
+    "quickActions": "Actions rapides",
+    "pricingStatus": "Prix et statut",
+    "metadata": "Métadonnées"
   },
   "form": {
     "make": "Marque",

@@ -161,7 +161,12 @@
     "confirm": "确认",
     "status": "状态",
     "createdAt": "创建时间",
-    "updatedAt": "更新时间"
+    "updatedAt": "更新于",
+    "backToCars": "返回车辆列表",
+    "viewOnSite": "在前台查看",
+    "quickActions": "快速操作",
+    "pricingStatus": "价格与状态",
+    "metadata": "元数据"
   },
   "form": {
     "make": "品牌",
@@ -227,8 +232,9 @@
     "previous": "上一页",
     "page": "页",
     "of": "共",
-    "showing": "显示",
-    "results": "结果"
+    "showing": "正在显示",
+    "results": "个结果",
+    "notSpecified": "未指定"
   },
   "trustStats": {
     "delivered": {
@@ -338,7 +344,8 @@
     "petrol": "汽油",
     "auto": "自动挡",
     "noImages": "暂无图片",
-    "priceOnRequest": "价格面议"
+    "priceOnRequest": "询价",
+    "viewFullSpecs": "查看完整规格"
   },
   "footer": {
     "brand": "GULFSTARCARS",

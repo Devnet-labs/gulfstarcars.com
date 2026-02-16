@@ -120,7 +120,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                             onClick={handleCardClick}
                             className="text-[10px] sm:text-xs text-primary/80 hover:text-primary font-bold uppercase tracking-widest transition-colors flex items-center gap-1 group/link"
                         >
-                            <span>View Full Specs</span>
+                            <span>{t('viewFullSpecs')}</span>
                             <span className="transition-transform group-hover/link:translate-x-1">→</span>
                         </button>
                     </div>

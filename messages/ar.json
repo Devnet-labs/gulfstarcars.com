@@ -186,7 +186,8 @@
     "page": "صفحة",
     "of": "من",
     "showing": "عرض",
-    "results": "نتائج"
+    "results": "نتائج",
+    "notSpecified": "غير محدد"
   },
   "trustStats": {
     "delivered": {
@@ -296,7 +297,8 @@
     "petrol": "بترول",
     "auto": "أوتوماتيك",
     "noImages": "لا توجد صور متاحة",
-    "priceOnRequest": "السعر عند الطلب"
+    "priceOnRequest": "السعر عند الطلب",
+    "viewFullSpecs": "عرض المواصفات الكاملة"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -478,8 +480,13 @@
     "cancel": "إلغاء",
     "confirm": "تأكيد",
     "status": "الحالة",
-    "createdAt": "تم الإنشاء في",
-    "updatedAt": "تم التحديث في"
+    "createdAt": "تاريخ الإنشاء",
+    "updatedAt": "تاريخ التحديث",
+    "backToCars": "العودة إلى السيارات",
+    "viewOnSite": "عرض على الموقع",
+    "quickActions": "إجراءات سريعة",
+    "pricingStatus": "السعر والحالة",
+    "metadata": "بيانات التعريف"
   },
   "form": {
     "make": "الصانع",

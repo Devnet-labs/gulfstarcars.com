@@ -186,7 +186,8 @@
     "page": "Страница",
     "of": "из",
     "showing": "Показано",
-    "results": "результатов"
+    "results": "результатов",
+    "notSpecified": "Не указано"
   },
   "trustStats": {
     "delivered": {
@@ -296,7 +297,8 @@
     "petrol": "Бензин",
     "auto": "Автомат",
     "noImages": "Нет доступных изображений",
-    "priceOnRequest": "Цена по запросу"
+    "priceOnRequest": "Цена по запросу",
+    "viewFullSpecs": "Полные характеристики"
   },
   "footer": {
     "brand": "GULFSTARCARS",
@@ -479,7 +481,12 @@
     "confirm": "Подтвердить",
     "status": "Статус",
     "createdAt": "Создано",
-    "updatedAt": "Обновлено"
+    "updatedAt": "Обновлено",
+    "backToCars": "Назад к списку",
+    "viewOnSite": "Открыть на сайте",
+    "quickActions": "Быстрые действия",
+    "pricingStatus": "Цена и статус",
+    "metadata": "Метаданные"
   },
   "form": {
     "make": "Марка",
