@@ -45,7 +45,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                 onSuccess={handleUpload}
                 uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
                 options={{
-                    maxFiles: 10,
+                    maxFiles: 30,
                     folder: 'carsUploads',
                 }}
             >
