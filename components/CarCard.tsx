@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { EnquiryModal } from './EnquiryModal';
-import { Fuel, Settings2, Box, MessageSquare } from 'lucide-react';
+import { Fuel, Settings2, Box, MessageSquare, Zap, Compass } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 
@@ -115,26 +115,15 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                         </div>
                     )}
 
-                    {/* Additional Specs */}
-                    {(tFields.colour || tFields.driveType || tFields.engineCapacity) && (
-                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
-                            {tFields.colour && (
-                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {tFields.colour}
-                                </span>
-                            )}
-                            {tFields.driveType && (
-                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {tFields.driveType}
-                                </span>
-                            )}
-                            {tFields.engineCapacity && (
-                                <span className="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-secondary text-[10px] sm:text-xs font-medium text-muted-foreground border border-white/5">
-                                    {tFields.engineCapacity}
-                                </span>
-                            )}
-                        </div>
-                    )}
+                    <div className="mb-4">
+                        <button
+                            onClick={handleCardClick}
+                            className="text-[10px] sm:text-xs text-primary/80 hover:text-primary font-bold uppercase tracking-widest transition-colors flex items-center gap-1 group/link"
+                        >
+                            <span>{t('viewFullSpecs')}</span>
+                            <span className="transition-transform group-hover/link:translate-x-1">→</span>
+                        </button>
+                    </div>
 
                     {/* Price */}
                     <div className="mt-auto pt-2 sm:pt-4">

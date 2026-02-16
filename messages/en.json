@@ -161,7 +161,12 @@
     "confirm": "Confirm",
     "status": "Status",
     "createdAt": "Created At",
-    "updatedAt": "Updated At"
+    "updatedAt": "Updated At",
+    "backToCars": "Back to Cars",
+    "viewOnSite": "View on Site",
+    "quickActions": "Quick Actions",
+    "pricingStatus": "Pricing & Status",
+    "metadata": "Metadata"
   },
   "form": {
     "make": "Make",
@@ -228,7 +233,8 @@
     "page": "Page",
     "of": "of",
     "showing": "Showing",
-    "results": "results"
+    "results": "results",
+    "notSpecified": "Not specified"
   },
   "trustStats": {
     "delivered": {
@@ -338,7 +344,8 @@
     "petrol": "Petrol",
     "auto": "Auto",
     "noImages": "No images available",
-    "priceOnRequest": "Price on Request"
+    "priceOnRequest": "Price on Request",
+    "viewFullSpecs": "View Full Specs"
   },
   "footer": {
     "brand": "GULFSTARCARS",

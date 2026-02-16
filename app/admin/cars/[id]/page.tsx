@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
-import { ArrowLeft, Edit, Eye, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen } from 'lucide-react';
+import { ArrowLeft, Eye, MapPin, Calendar, DollarSign, Gauge, Fuel, Settings2, Car, Palette, Compass, Reply, Box, Users, DoorOpen, Plus, Pencil } from 'lucide-react';
 import { FormattedDate } from '@/components/FormattedDate';
 import CarActions from '@/components/admin/CarActions';
 import TranslationPanel from '@/components/admin/TranslationPanel';
@@ -21,8 +21,6 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
     if (!car) {
         notFound();
     }
-
-
 
     return (
         <div className="space-y-6 max-w-7xl">
@@ -53,13 +51,22 @@ export default async function AdminCarDetailPage({ params }: PageProps) {
                         <Eye className="h-4 w-4" />
                         View on Site
                     </Link>
-                    <Link
-                        href={`/admin/cars/${car.id}/edit`}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 transition-colors text-sm font-medium text-primary-foreground"
-                    >
-                        <Edit className="h-4 w-4" />
-                        Edit
-                    </Link>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <Link
+                            href="/admin/cars/new"
+                            className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all font-bold text-[10px] sm:text-xs uppercase tracking-widest"
+                        >
+                            <Plus className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                            <span>Add New Car</span>
+                        </Link>
+                        <Link
+                            href={`/admin/cars/${car.id}/edit`}
+                            className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-orange-500/10 text-orange-500 border border-orange-500/20 hover:bg-orange-500/20 transition-all font-bold text-[10px] sm:text-xs uppercase tracking-widest"
+                        >
+                            <Pencil className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                            <span>Edit</span>
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Visual Status Actions */}

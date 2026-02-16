@@ -131,6 +131,17 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
             </div>
 
             <form action={handleSubmit} className="space-y-8">
+                {/* Global Error Message */}
+                {state.message && (
+                    <div className={`p-4 rounded-2xl border flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-300 ${state.message.includes('Success')
+                            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+                            : 'bg-rose-500/10 border-rose-500/20 text-rose-400'
+                        }`}>
+                        {state.message.includes('Success') ? <CheckCircle className="h-5 w-5" /> : <AlertTriangle className="h-5 w-5" />}
+                        <p className="text-sm font-medium">{state.message}</p>
+                    </div>
+                )}
+
                 {/* 1. PRIMARY STATUS & VISIBILITY */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div className="lg:col-span-2 space-y-4">
@@ -217,8 +228,11 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                                 defaultValue={initialData?.make}
                                 required
                                 placeholder="e.g. Toyota"
-                                className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none"
+                                className={`w-full rounded-xl border bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none ${state.errors?.make ? 'border-rose-500/50' : 'border-white/5'}`}
                             />
+                            {state.errors?.make && (
+                                <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.make[0]}</p>
+                            )}
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-black uppercase tracking-widest text-slate-500">Model <span className="text-rose-500">*</span></label>
@@ -227,8 +241,11 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                                 defaultValue={initialData?.model}
                                 required
                                 placeholder="e.g. Land Cruiser"
-                                className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none"
+                                className={`w-full rounded-xl border bg-slate-950/50 px-4 py-3 text-white focus:border-primary/50 transition-all outline-none ${state.errors?.model ? 'border-rose-500/50' : 'border-white/5'}`}
                             />
+                            {state.errors?.model && (
+                                <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.model[0]}</p>
+                            )}
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
@@ -238,8 +255,11 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                                     type="number"
                                     defaultValue={initialData?.year}
                                     required
-                                    className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none"
+                                    className={`w-full rounded-xl border bg-slate-950/50 px-4 py-3 text-white outline-none ${state.errors?.year ? 'border-rose-500/50' : 'border-white/5'}`}
                                 />
+                                {state.errors?.year && (
+                                    <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.year[0]}</p>
+                                )}
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-black uppercase tracking-widest text-slate-500">Condition <span className="text-rose-500">*</span></label>
@@ -367,6 +387,9 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             onUpload={(url) => setImages((prev) => [...prev, url])}
                             onRemove={(url) => setImages((prev) => prev.filter((img) => img !== url))}
                         />
+                        {state.errors?.images && (
+                            <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.images[0]}</p>
+                        )}
                     </div>
 
                     <div className="space-y-2">
@@ -376,9 +399,12 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             defaultValue={initialData?.description}
                             required
                             rows={6}
-                            placeholder="Detailed features, history, and special options..."
-                            className="w-full rounded-xl border border-white/5 bg-slate-950/50 px-4 py-3 text-white outline-none focus:border-primary/50 transition-all resize-none"
+                            placeholder="Detailed features, history, and special options (Min. 5 chars)..."
+                            className={`w-full rounded-xl border bg-slate-950/50 px-4 py-3 text-white outline-none focus:border-primary/50 transition-all resize-none ${state.errors?.description ? 'border-rose-500/50' : 'border-white/5'}`}
                         />
+                        {state.errors?.description && (
+                            <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.description[0]}</p>
+                        )}
                     </div>
                 </section>
 
