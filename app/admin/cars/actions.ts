@@ -12,7 +12,7 @@ const carSchema = z.object({
     price: z.preprocess((val) => (val === '' || val === null ? undefined : val), z.coerce.number().min(0, 'Price must be positive').optional().nullable()),
     condition: z.string().min(1, 'Condition is required'),
     images: z.array(z.string()).min(1, 'At least one image is required'),
-    description: z.string().min(10, 'Description must be at least 10 characters'),
+    description: z.string().min(5, 'Description must be at least 5 characters'),
     fuelType: z.string().optional(),
     transmission: z.string().optional(),
     bodyType: z.string().optional(),
