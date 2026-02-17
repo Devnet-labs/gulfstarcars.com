@@ -48,7 +48,7 @@ export function Navbar() {
         { href: '/', label: t('home') },
         { href: '/cars', label: t('inventory') },
         { href: '/about', label: t('about') },
-        { href: '/faq', label: 'FAQ' },
+        { href: '/faq', label: t('faq') },
         ...(showAdminButton ? [{ href: '/login', label: 'Admin' }] : []),
     ];
 
