@@ -72,8 +72,8 @@ export default function Home() {
           >
             <source src="/video/Luxury_Drone_Footage.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30 rtl:bg-gradient-to-l" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-background/10 rtl:bg-gradient-to-l" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         </div>
 
         <div className="container mx-auto relative z-10 px-4 sm:px-6 md:px-12 h-full flex flex-col justify-center">
