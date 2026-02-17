@@ -68,7 +68,7 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
                     <img
                         src={optimizeCloudinaryUrl(car.images[0] || '/placeholder-car.png', cloudinaryPresets.cardImage)}
                         alt={`${tFields.make} ${tFields.model}`}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                         loading={index < 6 ? 'eager' : 'lazy'}
                     />
                     <div

@@ -134,8 +134,8 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                 {/* Global Error Message */}
                 {state.message && (
                     <div className={`p-4 rounded-2xl border flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-300 ${state.message.includes('Success')
-                            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
-                            : 'bg-rose-500/10 border-rose-500/20 text-rose-400'
+                        ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+                        : 'bg-rose-500/10 border-rose-500/20 text-rose-400'
                         }`}>
                         {state.message.includes('Success') ? <CheckCircle className="h-5 w-5" /> : <AlertTriangle className="h-5 w-5" />}
                         <p className="text-sm font-medium">{state.message}</p>
@@ -388,6 +388,7 @@ export default function CarForm({ initialData, action, title }: CarFormProps) {
                             value={images}
                             onUpload={(url) => setImages((prev) => [...prev, url])}
                             onRemove={(url) => setImages((prev) => prev.filter((img) => img !== url))}
+                            onReorder={(newImages) => setImages(newImages)}
                         />
                         {state.errors?.images && (
                             <p className="text-[10px] text-rose-500 font-bold uppercase tracking-wider">{state.errors.images[0]}</p>

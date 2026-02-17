@@ -95,7 +95,6 @@ export default function EnquiriesPage() {
                             <th className="h-12 px-4 align-middle font-medium text-slate-400">Status</th>
                             <th className="h-12 px-4 align-middle font-medium text-slate-400">User</th>
                             <th className="h-12 px-4 align-middle font-medium text-slate-400">Car</th>
-                            <th className="h-12 px-4 align-middle font-medium text-slate-400">Message Preview</th>
                             <th className="h-12 px-4 align-middle font-medium text-slate-400">Date</th>
                             <th className="h-12 px-4 align-middle font-medium text-slate-400 text-right">Actions</th>
                         </tr>
@@ -103,7 +102,7 @@ export default function EnquiriesPage() {
                     <tbody className="[&_tr:last-child]:border-0">
                         {enquiries.length === 0 ? (
                             <tr>
-                                <td colSpan={6} className="p-8 text-center text-slate-500">
+                                <td colSpan={5} className="p-8 text-center text-slate-500">
                                     No enquiries found.
                                 </td>
                             </tr>
@@ -135,9 +134,6 @@ export default function EnquiriesPage() {
                                             <span className="text-slate-500 font-medium">General Enquiry</span>
                                         )}
                                     </td>
-                                    <td className="p-4 align-middle max-w-xs truncate text-slate-400">
-                                        {enquiry.message}
-                                    </td>
                                     <td className="p-4 align-middle whitespace-nowrap text-slate-400">
                                         <FormattedDate date={enquiry.createdAt} showTime />
                                     </td>
@@ -145,17 +141,18 @@ export default function EnquiriesPage() {
                                         <div className="flex justify-end gap-2">
                                             <button
                                                 onClick={() => handleOpenReply(enquiry)}
-                                                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-blue-600/20 text-blue-400 hover:bg-blue-600 hover:text-white transition-colors"
+                                                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-blue-500/20 bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white transition-colors text-xs font-medium"
                                                 title="Reply"
                                             >
-                                                <Mail className="h-4 w-4" />
+                                                <Mail className="h-3.5 w-3.5" />
+                                                Reply
                                             </button>
                                             <Link
                                                 href={`/admin/enquiries/${enquiry.id}`}
-                                                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-slate-800 text-sm font-medium hover:bg-primary hover:text-white hover:border-primary transition-colors text-slate-400"
+                                                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-slate-800 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors text-xs font-medium"
                                             >
-                                                <Eye className="h-4 w-4" />
-                                                <span className="sr-only">View</span>
+                                                <Eye className="h-3.5 w-3.5" />
+                                                View
                                             </Link>
                                         </div>
                                     </td>

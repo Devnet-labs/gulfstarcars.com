@@ -115,7 +115,7 @@ export const cloudinaryPresets = {
         height: 600,
         quality: 85,
         crop: 'fill' as const,
-        gravity: 'auto' as const,
+        gravity: 'center' as const,
     },
     galleryMain: {
         width: 1200,

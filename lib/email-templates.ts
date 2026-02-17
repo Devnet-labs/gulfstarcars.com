@@ -26,7 +26,7 @@ export const BaseEmailLayout = (content: string) => `
     <div class="wrapper">
         <div class="container">
             <!-- Header with Logo - absolute URL so email clients can load the image -->
-            <div class="header" style="padding: 40px 0 20px; text-align: center; border-bottom: 1px solid #eaeaea;">
+            <div class="header" style="padding: 40px 0 20px; text-align: center; border-bottom: 1px solid #eaeaea; background-color: #0f172a;">
                 <img src="${BASE_URL}/images/portfolio/logo/logo.png" alt="Gulf Star Cars" width="200" style="height: auto; width: 200px; display: block; margin: 0 auto; border: 0;">
             </div>
 
