@@ -134,7 +134,7 @@
       },
       "q7": {
         "question": "¿Cuánto tiempo tarda el proceso de exportación?",
-        "answer": "Típicamente de 7 a 21 días, dependiendo de la preparación del vehículo y las regulaciones del país de destino."
+        "answer": "Normalmente de 3 a 8 semanas, dependiendo de la preparación del vehículo y las regulaciones del país de destino."
       },
       "q8": {
         "question": "¿Exportan vehículos nuevos y usados?",
@@ -306,7 +306,7 @@
     "usefulLinks": "Enlaces Útiles",
     "contactInfo": "Info de Contacto",
     "address": "CIIF SF6657, Zona Franca de Ajman (Oficina de referencia)<br />Apartado Postal 84891 DUBÁI EAU",
-    "addressDubai": "Showroom #229, Ducamz, Ciudad Al Awir,<br />Ras Al Khor, Dubái, EAU",
+    "addressDubai": "Gulfstar Automotive FZC<br />PO BOX 84891, Dubai, UAE",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -322,8 +322,8 @@
     "phoneLabel": "Números de Contacto",
     "addressLabel": "Ubicación Principal",
     "emails": {
-      "info": "INFO@GULFSTARCARS.COM",
-      "sales": "SALES@GULFSTARCARS.COM"
+      "info": "info@gulfstarcars.com",
+      "sales": "sales@gulfstarcars.com"
     },
     "privacy": "Privacidad",
     "terms": "Términos",
@@ -362,11 +362,11 @@
       "title": "Descripción de la Empresa",
       "description": "Gulf Star Automotive FZC opera como facilitador de exportación de vehículos de servicio completo, conectando compradores internacionales con inventario automotriz premium del mercado de EAU. Nuestras operaciones abarcan adquisición, inspección, documentación de exportación, despacho aduanero y coordinación logística global.",
       "stats": {
-        "experience": "8+ Años",
+        "experience": "25+ Años",
         "experienceLabel": "Experiencia en Exportación",
-        "countries": "50+ Países",
+        "countries": "100+ Países",
         "countriesLabel": "Alcance Global",
-        "vehicles": "5,000+ Vehículos",
+        "vehicles": "25,000+ Vehículos",
         "vehiclesLabel": "Exportados Exitosamente",
         "network": "500+ Socios",
         "networkLabel": "Red de Concesionarios Verificados"

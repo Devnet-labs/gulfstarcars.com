@@ -306,7 +306,7 @@
     "usefulLinks": "Liens utiles",
     "contactInfo": "Infos contact",
     "address": "CIIF SF6657, Zone Franche d'Ajman (Bureau de référence)<br />BP 84891 DUBAÏ EAU",
-    "addressDubai": "Showroom #229, Ducamz, Al Awir Full City,<br />Ras Al Khor, Dubaï, EAU",
+    "addressDubai": "Gulfstar Automotive FZC<br />PO BOX 84891, Dubai, UAE",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -322,8 +322,8 @@
     "phoneLabel": "Numéros de Contact",
     "addressLabel": "Emplacement Principal",
     "emails": {
-      "info": "INFO@GULFSTARCARS.COM",
-      "sales": "SALES@GULFSTARCARS.COM"
+      "info": "info@gulfstarcars.com",
+      "sales": "sales@gulfstarcars.com"
     },
     "privacy": "Confidentialité",
     "terms": "Conditions",
@@ -362,11 +362,11 @@
       "title": "Aperçu de l'Entreprise",
       "description": "Gulf Star Automotive FZC opère comme facilitateur d'exportation de véhicules à service complet, connectant les acheteurs internationaux avec l'inventaire automobile premium du marché des EAU. Nos opérations englobent l'approvisionnement, l'inspection, la documentation d'exportation, le dédouanement et la coordination logistique mondiale.",
       "stats": {
-        "experience": "8+ Ans",
+        "experience": "25+ Ans",
         "experienceLabel": "Expérience d'Exportation",
-        "countries": "50+ Pays",
+        "countries": "100+ Pays",
         "countriesLabel": "Portée Mondiale",
-        "vehicles": "5,000+ Véhicules",
+        "vehicles": "25,000+ Véhicules",
         "vehiclesLabel": "Exportés avec Succès",
         "network": "500+ Partenaires",
         "networkLabel": "Réseau de Concessionnaires Vérifiés"
