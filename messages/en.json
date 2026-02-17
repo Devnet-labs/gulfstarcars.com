@@ -134,7 +134,7 @@
       },
       "q7": {
         "question": "How long does the export process take?",
-        "answer": "Typically 7–21 days, depending on vehicle preparation and destination country regulations."
+        "answer": "Typically 3–8 weeks, depending on vehicle preparation and destination country regulations."
       },
       "q8": {
         "question": "Do you export new and used vehicles?",
@@ -353,7 +353,7 @@
     "usefulLinks": "Useful Links",
     "contactInfo": "Contact Info",
     "address": "CIIF SF6657, Ajman Free Zone (Reference Office)<br />PO BOX 84891 DUBAI UAE",
-    "addressDubai": "Showroom #229, Ducamz, Al Awir Full City,<br />Ras Al Khor, Dubai, UAE",
+    "addressDubai": "Gulfstar Automotive FZC<br />PO BOX 84891, Dubai, UAE",
     "phone": "+971-523479535",
     "phone2": "+971-555144479",
     "phone3": "+971-585147256",
@@ -369,8 +369,8 @@
     "phoneLabel": "Contact Numbers",
     "addressLabel": "Primary Location",
     "emails": {
-      "info": "INFO@GULFSTARCARS.COM",
-      "sales": "SALES@GULFSTARCARS.COM"
+      "info": "info@gulfstarcars.com",
+      "sales": "sales@gulfstarcars.com"
     },
     "privacy": "Privacy",
     "terms": "Terms",
@@ -387,11 +387,11 @@
       "title": "A Leader in Global Vehicle Export",
       "description": "Gulf Star Automotive FZC is a specialized vehicle export facilitator, bridging the gap between international buyers and the UAE's premium automotive market. Our core business focuses on high-efficiency procurement, technical inspection, and complex global logistics coordination.",
       "stats": {
-        "experience": "8+ Years",
+        "experience": "25+ Years",
         "experienceLabel": "Export Experience",
-        "countries": "50+ Countries",
+        "countries": "100+ Countries",
         "countriesLabel": "Global Reach",
-        "vehicles": "5,000+ Vehicles",
+        "vehicles": "25,000+ Vehicles",
         "vehiclesLabel": "Successfully Exported",
         "network": "500+ Partners",
         "networkLabel": "Verified Dealer Network"

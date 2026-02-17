@@ -10,7 +10,7 @@ export function TrustStats() {
     const stats = [
         {
             label: t('delivered.label'),
-            value: "5,000+",
+            value: "25,000+",
             icon: TrendingUp,
             description: t('delivered.description')
         },
@@ -28,7 +28,7 @@ export function TrustStats() {
         },
         {
             label: t('years.label'),
-            value: "10+",
+            value: "25+",
             icon: Award,
             description: t('years.description')
         }
