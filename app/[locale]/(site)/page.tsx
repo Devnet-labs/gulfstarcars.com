@@ -98,39 +98,23 @@ export default function Home() {
           </motion.div>
         </div>
 
+
         {/* --- Hero Quick Actions (Discovery Bar) --- */}
-        <div className="absolute bottom-6 sm:bottom-24 left-0 right-0 z-20">
+        <div className="absolute bottom-6 sm:bottom-12 left-0 right-0 z-20">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 max-w-4xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex-1 sm:flex-none"
               >
                 <Link
                   href="/cars"
-                  className="group flex items-center justify-center gap-2 sm:gap-5 px-3 sm:px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10 w-full"
+                  className="group flex items-center justify-center gap-2 sm:gap-5 px-6 sm:px-8 py-2 sm:py-3 bg-primary hover:bg-primary/90 backdrop-blur-xl border border-primary/20 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
                 >
-                  <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">{t('cta.viewAllCars')}</span>
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all shrink-0" />
-                </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="flex-1 sm:flex-none"
-              >
-                <Link
-                  href="/contact"
-                  className="group flex items-center justify-center gap-2 sm:gap-5 px-3 sm:px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full transition-all duration-300 hover:border-primary/40 hover:bg-white/10 w-full"
-                >
-                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
-                  <span className="text-[10px] sm:text-sm font-bold text-white tracking-wide whitespace-nowrap">Product Explorer</span>
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                  <Car className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0" />
+                  <span className="text-sm sm:text-base font-bold text-white tracking-wide whitespace-nowrap">{t('cta.viewAllCars')}</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all shrink-0" />
                 </Link>
               </motion.div>
             </div>
