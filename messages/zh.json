@@ -312,22 +312,22 @@
       },
       "item2": {
         "name": "Foka Ellie",
-        "role": "客户，喀麦隆",
+        "role": "客户 - 杜阿拉，喀麦隆",
         "content": "这是最轻松的一次购车体验……感谢 Gulf Star Automotive 提供的优质服务。"
       },
       "item3": {
         "name": "Pedro Santos",
-        "role": "Jimny 车主，委内瑞拉",
+        "role": "Jimny 车主 - 马拉开波，委内瑞拉",
         "content": "我的 Suzuki Jimny 5门版价格公道，购买体验极佳……非常感谢。"
       },
       "item4": {
         "name": "Ali Reza Murad",
-        "role": "Hilux 车主，伊朗",
+        "role": "Hilux 车主 - 德黑兰，伊朗",
         "content": "在 Gulf Star Automotive 有着非常棒的购买体验……我的 Toyota Hilux 价格很合适……非常感谢。"
       },
       "item5": {
         "name": "Francisco Silva",
-        "role": "客户，安哥拉",
+        "role": "客户 - 罗安达，安哥拉",
         "content": "全配车型……服务周到，人员友善……绝对会向朋友推荐 Gulf Star Automotive……非常感谢 (Obrigado)。"
       }
     }
