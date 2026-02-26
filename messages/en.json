@@ -306,19 +306,29 @@
     "titleHighlight": "Trust",
     "items": {
       "item1": {
-        "name": "James Wilson",
-        "role": "Luxury Collector, UK",
-        "content": "The process was seamless. From the first enquiry to the arrival of my G-Wagon in London, Gulf Star Automotive handled everything with absolute professionalism."
+        "name": "Igor Marchenko",
+        "role": "Prado Owner, Kazakhstan",
+        "content": "I purchased a Prado Auto from Gulf Star automotive and the overall experience was great ... thanks a lot."
       },
       "item2": {
-        "name": "Ahmed Al-Sayed",
-        "role": "Business Owner, KSA",
-        "content": "Trusted partner for all my export needs. Their inspection reports are detailed and honest. Recommended for anyone looking to import cars from Dubai."
+        "name": "Foka Ellie",
+        "role": "Customer, Cameroon",
+        "content": "This was the easiest car buying experience ... Thanks to Gulf Star Automotive for excellent service."
       },
       "item3": {
-        "name": "Elena Rodriguez",
-        "role": "Auto Dealer, Spain",
-        "content": "Transparent pricing and express documentation. They make global car export feel like a local purchase. Excellent service!"
+        "name": "Pedro Santos",
+        "role": "Jimny Owner, Venezuela",
+        "content": "I got Great price and purchase experience for my Suzuki Jimny 5door ... thanks a lot."
+      },
+      "item4": {
+        "name": "Ali Reza Murad",
+        "role": "Hilux Owner, Iran",
+        "content": "Had a great buying experience in gulf star Automotive… I got a good price for Toyota Hilux … Thank you very much."
+      },
+      "item5": {
+        "name": "Francisco Silva",
+        "role": "Customer, Angola",
+        "content": "Full option car … great service and friendly people… will definitely recommend Gulf star Automotive to my friends… A big Obrigado."
       }
     }
   },

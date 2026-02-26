@@ -259,19 +259,29 @@
     "titleHighlight": "Confianza",
     "items": {
       "item1": {
-        "name": "James Wilson",
-        "role": "Coleccionista de Lujo, RU",
-        "content": "El proceso fue perfecto. Desde la primera consulta hasta la llegada de mi G-Wagon a Londres, Gulf Star Automotive manejó todo con absoluta profesionalidad."
+        "name": "Igor Marchenko",
+        "role": "Propietario de Prado, Kazajstán",
+        "content": "Compré un Prado Auto de Gulf Star Automotive y la experiencia general fue excelente ... muchas gracias."
       },
       "item2": {
-        "name": "Ahmed Al-Sayed",
-        "role": "Dueño de Negocio, KSA",
-        "content": "Socio de confianza para todas mis necesidades de exportación. Sus informes de inspección son detallados y honestos. Recomendado para cualquiera que busque importar coches de Dubái."
+        "name": "Foka Ellie",
+        "role": "Cliente, Camerún",
+        "content": "Esta fue la experiencia de compra de coche más fácil ... Gracias a Gulf Star Automotive por su excelente servicio."
       },
       "item3": {
-        "name": "Elena Rodriguez",
-        "role": "Concesionario de Autos, España",
-        "content": "Precios transparentes y documentación exprés. Hacen que la exportación global de coches se sienta como una compra local. ¡Excelente servicio!"
+        "name": "Pedro Santos",
+        "role": "Propietario de Jimny, Venezuela",
+        "content": "Obtuve un gran precio y experiencia de compra para mi Suzuki Jimny de 5 puertas ... muchas gracias."
+      },
+      "item4": {
+        "name": "Ali Reza Murad",
+        "role": "Propietario de Hilux, Irán",
+        "content": "Tuve una excelente experiencia de compra en Gulf Star Automotive… Conseguí un buen precio para mi Toyota Hilux… Muchas gracias."
+      },
+      "item5": {
+        "name": "Francisco Silva",
+        "role": "Cliente, Angola",
+        "content": "Coche full equipo… gran servicio y gente amable… definitivamente recomendaré Gulf Star Automotive a mis amigos… Un gran Obrigado."
       }
     }
   },

@@ -306,19 +306,29 @@
     "titleHighlight": "声音",
     "items": {
       "item1": {
-        "name": "詹姆斯·威尔逊",
-        "role": "豪华收藏家，英国",
-        "content": "整个过程非常顺畅。从第一次咨询到我的 G-Wagon 抵达伦敦，Gulf Star Automotive以绝对的专业精神处理了一切。"
+        "name": "Igor Marchenko",
+        "role": "Prado 车主，哈萨克斯坦",
+        "content": "我从 Gulf Star Automotive 购买了一辆 Prado Auto，整个体验非常棒……非常感谢。"
       },
       "item2": {
-        "name": "艾哈迈德·赛义德",
-        "role": "企业主，沙特阿拉伯",
-        "content": "满足我所有出口需求的值得信赖的合作伙伴。他们的检查报告详细且诚实。推荐给任何想从迪拜进口汽车的人。"
+        "name": "Foka Ellie",
+        "role": "客户，喀麦隆",
+        "content": "这是最轻松的一次购车体验……感谢 Gulf Star Automotive 提供的优质服务。"
       },
       "item3": {
-        "name": "埃琳娜·罗德里格斯",
-        "role": "汽车经销商，西班牙",
-        "content": "价格透明，文件处理迅速。他们让全球汽车出口感觉就像在本地购买一样。优质的服务！"
+        "name": "Pedro Santos",
+        "role": "Jimny 车主，委内瑞拉",
+        "content": "我的 Suzuki Jimny 5门版价格公道，购买体验极佳……非常感谢。"
+      },
+      "item4": {
+        "name": "Ali Reza Murad",
+        "role": "Hilux 车主，伊朗",
+        "content": "在 Gulf Star Automotive 有着非常棒的购买体验……我的 Toyota Hilux 价格很合适……非常感谢。"
+      },
+      "item5": {
+        "name": "Francisco Silva",
+        "role": "客户，安哥拉",
+        "content": "全配车型……服务周到，人员友善……绝对会向朋友推荐 Gulf Star Automotive……非常感谢 (Obrigado)。"
       }
     }
   },

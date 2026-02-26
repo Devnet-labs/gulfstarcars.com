@@ -259,19 +259,29 @@
     "titleHighlight": "Confiance",
     "items": {
       "item1": {
-        "name": "James Wilson",
-        "role": "Collectionneur de luxe, RU",
-        "content": "Le processus était transparent. De la première demande à l'arrivée de mon G-Wagon à Londres, Gulf Star Automotive a tout géré avec un professionnalisme absolu."
+        "name": "Igor Marchenko",
+        "role": "Propriétaire de Prado, Kazakhstan",
+        "content": "J'ai acheté un Prado Auto chez Gulf Star Automotive et l'expérience globale a été formidable ... merci beaucoup."
       },
       "item2": {
-        "name": "Ahmed Al-Sayed",
-        "role": "Propriétaire d'entreprise, KSA",
-        "content": "Partenaire de confiance pour tous mes besoins d'export. Leurs rapports d'inspection sont détaillés et honnêtes. Recommandé pour quiconque souhaite importer des voitures de Dubaï."
+        "name": "Foka Ellie",
+        "role": "Client, Cameroun",
+        "content": "Ce fut l'expérience d'achat de voiture la plus facile ... Merci à Gulf Star Automotive pour l'excellent service."
       },
       "item3": {
-        "name": "Elena Rodriguez",
-        "role": "Concessionnaire auto, Espagne",
-        "content": "Prix transparents et documentation express. Ils font de l'exportation mondiale de voitures un achat local. Excellent service !"
+        "name": "Pedro Santos",
+        "role": "Propriétaire de Jimny, Venezuela",
+        "content": "J'ai eu un super prix et une excellente expérience d'achat pour mon Suzuki Jimny 5 portes ... merci beaucoup."
+      },
+      "item4": {
+        "name": "Ali Reza Murad",
+        "role": "Propriétaire de Hilux, Iran",
+        "content": "J'ai eu une excellente expérience d'achat chez Gulf Star Automotive… J'ai eu un bon prix pour le Toyota Hilux… Merci beaucoup."
+      },
+      "item5": {
+        "name": "Francisco Silva",
+        "role": "Client, Angola",
+        "content": "Voiture toutes options… excellent service et gens sympathiques… je recommanderai certainement Gulf Star Automotive à mes amis… Un grand Obrigado."
       }
     }
   },
