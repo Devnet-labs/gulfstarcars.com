@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 export function Testimonials() {
     const t = useTranslations('testimonials');
-    const items = ['item1', 'item2', 'item3', 'item4', 'item5'] as const;
+    const items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'] as const;
 
     return (
         <section className="py-16 sm:py-32 bg-card/20 relative overflow-hidden">
